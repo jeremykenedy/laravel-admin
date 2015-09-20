@@ -15,4 +15,4 @@ Laravel-admin is a complete stand up of Laravel 5.1 CRUD (Create Read Update Del
 |CMS Built on [AdminLTE](https://github.com/almasaeed2010/AdminLTE) 2.3.x|
 |Uses [MySQL](https://github.com/mysql) Database|
 
-
+## Quick Installation

@@ -120,7 +120,7 @@ To update TERMINAL CLI to be able to use the the added aliases run the following
 . ~/.bash_profile
 ```
 
-## You can choose all or some of the following aliases to add to your `.bash_profile`:
+### *You can choose all or some of the following aliases to add to your `.bash_profile`:*
 
 ### Vagrant/Homestead Aliases
 ```

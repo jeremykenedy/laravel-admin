@@ -382,7 +382,7 @@ alias aliasrestart='. ~/.bash_profile'
 
 ## Things not working?
 
-### Cannot access project through web browser after running vagrant up / homestead up
+### Issue: Cannot access project through web browser after running vagrant up / homestead up
 
 #### Error Message from Browser:
 ```

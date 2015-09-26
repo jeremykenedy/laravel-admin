@@ -426,7 +426,7 @@ Note: Instructions are for Mac OS X
 ###### Example B1
 `sudo vim /etc/hosts` or `edithost`
 
-##### a.  Edit your hosts file (See example B2):
+##### b.  Edit your hosts file (See example B2):
 Note: Replace examples URI used in Vargrant/Homestead configuration file and use the IP address of your local Vargrant/Homestead virtual machine instance
 
 ###### Example B2 - The last line is the important part of the example

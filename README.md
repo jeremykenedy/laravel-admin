@@ -8,6 +8,30 @@ A **Clean Powerful Laravel** [CRUD](https://scotch.io/tutorials/simple-laravel-c
 
 laravel-admin is a complete stand up of Laravel 5.1 CRUD (Create Read Update Delete) with admin panel based on AdminLTE front end framework built on Bootstrap 3.5.x.  This great with working with database driven applications and website. This is as lean as possible using the proper Larevel Methods, Views, and Controllers based routing. This project is being built on a local Vagrant VM flavor named Homestead which instruction on setting up can be found on Laravel's website. Setting up a Vagrant Dev env is highly recommended and super easy to do. This project will also use SASS and/or LESS preprocessors to generate the CSS. It may or may not use GULP.  It will use BOWER and COMPOSER. If you like Code Inighter  you will LOVE LARAVEL.
 
+For reference AdminLTE can be installed into projects using Bower.
+If you do not have Bower, it can be installed using Node Package Manager (NPM).
+If you do not have NPM, it can be installed using NODE JS.
+
+Node JS can be installed muliple ways:
+Mac GUI Installer, easiest way (Simply [Download](https://nodejs.org/en/) and Install)
+
+Node JS can also be installed using Homebrew Package Manager with the following command:
+```
+brew install node
+```
+NPM can be installed using the following command:
+```
+npm install -g bower
+```
+Bower can be installed with the following command:
+```
+sudo npm install -g bower
+```
+AdminLTE can be installed using the following command:
+Note: Run from projects public folder
+```
+https://github.com/almasaeed2010/AdminLTE.git
+```
 | laravel-admin Features  |
 | :------------ |
 |Built on [Laravel](https://github.com/laravel/laravel) 5.1.x|
@@ -97,14 +121,14 @@ laravel-admin/
 
 ## Start Vagrant
 
-|Command        |Action           
+|Command        |Action
 |:------------- |:-------------|
-| `vagrant up` | Start Vagrant VM |  
-| `vagrant up --provision` | Start Vagrant VM if vagrantfile updated |    
-| `vagrant halt` | Stop Vagrant VM |  
+| `vagrant up` | Start Vagrant VM |
+| `vagrant up --provision` | Start Vagrant VM if vagrantfile updated |
+| `vagrant halt` | Stop Vagrant VM |
 
 ## Access Vagrant SSH and MySQL
-|:Command        |Action      | 
+|:Command        |Action      |
 |------------- |:------------- |:-------------|
 | ```sudo ssh vagrant@127.0.0.1 -p 222``` | Access Vagrant VM via SSH. Password is ``` vagrant  ``` |
 | ```mysql -u homestead -ppassword``` | Access Vagrant VM MySQL. Password is ``` vagrant  ``` |
@@ -241,14 +265,14 @@ find . -name "._*" -delete ;
 A nice alias to **list and delete all** the MAC and OSX filesystem booger:
 ```
 alias cleanboth='
-find . -name "*.DS_Store" -print; 
-find . -name "*.DS_Store" -print; 
-find . -name "*._DS_Store" -print; 
-find . -name "._.DS_Store" -print; 
-find . -name ".DS_Store" -print; 
-find . -name "Thumbs.db" -print; 
-find . -name "._.*" -print; 
-find . -name "._*" -print ; 
+find . -name "*.DS_Store" -print;
+find . -name "*.DS_Store" -print;
+find . -name "*._DS_Store" -print;
+find . -name "._.DS_Store" -print;
+find . -name ".DS_Store" -print;
+find . -name "Thumbs.db" -print;
+find . -name "._.*" -print;
+find . -name "._*" -print ;
 find . -name "*.DS_Store" -delete;
 find . -name "*.DS_Store" -delete;
 find . -name "*._DS_Store" -delete;
@@ -366,47 +390,62 @@ This webpage is not available
 ERR_NAME_NOT_RESOLVED
 ```
 
-###### 1. Check Vagrant/Homestead configuration
-####### a. Open configuration with the following command:
+#### 1. Check Vagrant/Homestead configuration
+##### a. Open configuration with the following command:
 
 vim ~/.homestead/Homestead.yaml or laraedit
 
-####### b. Check to make sure your folders are mapped (See example A1.):
-Note: 
+##### b. Check to make sure your folders are mapped (See example A1.):
+Note:
 map: Is the path to the your files on your local machine
 to: Is the virtual file path to your projects that vagrant will create
-######## Example A1
+###### Example A1
 ```
 folders:
   - map: /Users/yourLocalUserName/Sites/project1
     to: /home/vagrant/Sites/project1/public
-    
+
   - map: /Users/yourLocalUserName/Sites/project2
     to: /home/vagrant/Sites/project2/public
 ```
-
-####### c. Check to make sure your projects URI and SYMLINK is mapped (See example A2):
+##### c. Check to make sure your projects URI and SYMLINK is mapped (See example A2):
 map: Is the local URI of your project
 to: Is the virtual symlink to your projects virtual file path
-######## Example A2
+###### Example A2
 ```
 sites:
   - map: project1.local
     to: /home/vagrant/Sites/project1/public
-  
+
   - map: project2.app
   to: /home/vagrant/Sites/project2/public
 ```
-
-###### 2. Check your local hosts file for local pointer redirect: 	
-
-####### a.  Open your hosts file (See example B1): 
-Note: Instructions are for Mac OS X	
-######## Example B1	
+#### 2. Check your local hosts file for local pointer redirect:
+##### a.  Open your hosts file (See example B1):
+Note: Instructions are for Mac OS X
+###### Example B1
 `sudo vim /etc/hosts` or `edithost`
 
-####### a.  Edit your hosts file (See example B2): 
+##### a.  Edit your hosts file (See example B2):
 Note: Replace examples URI used in Vargrant/Homestead configuration file and use the IP address of your local Vargrant/Homestead virtual machine instance
+
+###### Example B2 - The last line is the important part of the example
+```
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+127.0.0.1        localhost
+255.255.255.255  broadcasthost
+192.168.10.10    laravel-admin.local
+```
+
+
+
+
+
 
 
 

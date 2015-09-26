@@ -73,6 +73,9 @@ laravel-admin/
    │   ├── app.php
    │   ├── database.php
    │   └── view.php
+
+.working here.
+
    ├──
    │   ├──
    │   │	├──
@@ -118,7 +121,7 @@ Note: Run from projects public folder
 https://github.com/almasaeed2010/AdminLTE.git
 ```
 
-## Other Very Usefull Information
+## Development Environement Reference
 
 ### Vagrant Dev Environment
 
@@ -265,7 +268,7 @@ find . -name "._*" -delete ;
 '
 ```
 
-A nice alias to **list and delete all** the MAC and OSX filesystem booger:
+A nice alias to **list and delete all** the MAC and OSX filesystem boogers:
 ```
 alias cleanboth='
 find . -name "*.DS_Store" -print;
@@ -383,7 +386,7 @@ alias alsr='. ~/.bash_profile'
 alias aliasrestart='. ~/.bash_profile'
 ```
 
-## Things not working?
+## Things not working (Troubleshooting)?
 
 ### Issue: Cannot access project through web browser after running vagrant up / homestead up
 

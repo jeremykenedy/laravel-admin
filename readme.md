@@ -428,3 +428,27 @@ Note: Instructions are for Mac OS X
 
 ##### a.  Edit your hosts file (See example B2):
 Note: Replace examples URI used in Vargrant/Homestead configuration file and use the IP address of your local Vargrant/Homestead virtual machine instance
+
+###### Example B2 - The last line is the important part of the example
+```
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+127.0.0.1        localhost
+255.255.255.255  broadcasthost
+192.168.10.10    laravel-admin.local
+```
+
+
+
+
+
+
+
+
+
+
+

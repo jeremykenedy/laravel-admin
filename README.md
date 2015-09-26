@@ -355,3 +355,61 @@ alias alr='. ~/.bash_profile'
 alias alsr='. ~/.bash_profile'
 alias aliasrestart='. ~/.bash_profile'
 ```
+
+## Things not working?
+
+### Cannot access project through web browser after running vagrant up / homestead up
+
+#### Error Message from Browser:
+```
+This webpage is not available
+ERR_NAME_NOT_RESOLVED
+```
+
+###### 1. Check Vagrant/Homestead configuration
+####### a. Open configuration with the following command:
+
+vim ~/.homestead/Homestead.yaml or laraedit
+
+####### b. Check to make sure your folders are mapped (See example A1.):
+Note: 
+map: Is the path to the your files on your local machine
+to: Is the virtual file path to your projects that vagrant will create
+######## Example A1
+```
+folders:
+  - map: /Users/yourLocalUserName/Sites/project1
+    to: /home/vagrant/Sites/project1/public
+    
+  - map: /Users/yourLocalUserName/Sites/project2
+    to: /home/vagrant/Sites/project2/public
+```
+
+####### c. Check to make sure your projects URI and SYMLINK is mapped (See example A2):
+map: Is the local URI of your project
+to: Is the virtual symlink to your projects virtual file path
+######## Example A2
+```
+sites:
+  - map: project1.local
+    to: /home/vagrant/Sites/project1/public
+  
+  - map: project2.app
+  to: /home/vagrant/Sites/project2/public
+```
+
+###### 2. Check your local hosts file for local pointer redirect: 	
+
+####### a.  Open your hosts file (See example B1): 
+Note: Instructions are for Mac OS X	
+######## Example B1	
+`sudo vim /etc/hosts` or `edithost`
+
+####### a.  Edit your hosts file (See example B2): 
+Note: Replace examples URI used in Vargrant/Homestead configuration file and use the IP address of your local Vargrant/Homestead virtual machine instance
+
+
+
+
+
+

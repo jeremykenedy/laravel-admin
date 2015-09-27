@@ -100,33 +100,91 @@ For reference AdminLTE can be installed into projects using Bower.
 If you do not have Bower, it can be installed using Node Package Manager (NPM).
 If you do not have NPM, it can be installed using NODE JS.
 
-#### Node JS can be installed muliple ways:
+###Install NODE JS
+####Node JS can be installed muliple ways:
 Mac GUI Installer, easiest way (Simply [Download](https://nodejs.org/en/) and Install)
 
 ####Node JS can also be installed using Homebrew Package Manager with the following command:
 ```
 brew install node
 ```
+
+###Install Node Package Manager (NPM)
 ####NPM can be installed using the following command:
 ```
 npm install -g bower
 ```
+
+###Install Bower
 ####Bower can be installed with the following command:
 ```
 sudo npm install -g bower
 ```
+
+###Install GULP
+####GULP can be installed using the following command:
+```
+npm install -g gulp
+```
+
+###Install COMPOSER
+
+####COMPOSER can be installed using the following commands:
+```
+sudo curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+```
+
+####COMPOSER on MAC OS X can be installed using the following commands:
+```
+sudo brew update
+sudo brew tap homebrew/dupes
+sudo brew tap homebrew/php
+sudo brew install composer
+```
+
+###Install AdminLTE
 ####AdminLTE can be installed using the following command:
 Note: Run from projects public folder
 ```
-https://github.com/almasaeed2010/AdminLTE.git
+sudo git clone https://github.com/jeremykenedy/AdminLTE.git admin
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Development Environement Reference
 
 ### Vagrant Dev Environment
 
-## Start Vagrant
+## Vagrant Virtual Machine Details
+|Item        |Value:
+|:------------- |:-------------|
+|Hostname|homestead|
+|IP Address|192.168.10.10|
+|Username|vagrant|
+|SU Password|vagrant|
+|Database Host|127.0.0.1|
+|Database Port|33060|
+|Database Username|homestead|
+|Database Password|secret|
 
+
+## Start Vagrant
 |Command        |Action
 |:------------- |:-------------|
 | `vagrant up` | Start Vagrant VM |

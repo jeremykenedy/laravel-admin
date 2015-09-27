@@ -8,30 +8,6 @@ A **Clean Powerful Laravel** [CRUD](https://scotch.io/tutorials/simple-laravel-c
 
 laravel-admin is a complete stand up of Laravel 5.1 CRUD (Create Read Update Delete) with admin panel based on AdminLTE front end framework built on Bootstrap 3.5.x.  This great with working with database driven applications and website. This is as lean as possible using the proper Larevel Methods, Views, and Controllers based routing. This project is being built on a local Vagrant VM flavor named Homestead which instruction on setting up can be found on Laravel's website. Setting up a Vagrant Dev env is highly recommended and super easy to do. This project will also use SASS and/or LESS preprocessors to generate the CSS. It may or may not use GULP.  It will use BOWER and COMPOSER. If you like Code Inighter  you will LOVE LARAVEL.
 
-For reference AdminLTE can be installed into projects using Bower.
-If you do not have Bower, it can be installed using Node Package Manager (NPM).
-If you do not have NPM, it can be installed using NODE JS.
-
-Node JS can be installed muliple ways:
-Mac GUI Installer, easiest way (Simply [Download](https://nodejs.org/en/) and Install)
-
-Node JS can also be installed using Homebrew Package Manager with the following command:
-```
-brew install node
-```
-NPM can be installed using the following command:
-```
-npm install -g bower
-```
-Bower can be installed with the following command:
-```
-sudo npm install -g bower
-```
-AdminLTE can be installed using the following command:
-Note: Run from projects public folder
-```
-https://github.com/almasaeed2010/AdminLTE.git
-```
 | laravel-admin Features  |
 | :------------ |
 |Built on [Laravel](https://github.com/laravel/laravel) 5.1.x|
@@ -97,6 +73,9 @@ laravel-admin/
    │   ├── app.php
    │   ├── database.php
    │   └── view.php
+
+.working here.
+
    ├──
    │   ├──
    │   │	├──
@@ -115,12 +94,102 @@ laravel-admin/
    └──
 ```
 
-## Other Very Usefull Information
+## Developement Reference
+
+For reference AdminLTE can be installed into projects using Bower.
+If you do not have Bower, it can be installed using Node Package Manager (NPM).
+If you do not have NPM, it can be installed using NODE JS.
+
+###Install NODE JS
+####Node JS can be installed muliple ways:
+Mac GUI Installer, easiest way (Simply [Download](https://nodejs.org/en/) and Install)
+
+####Node JS can also be installed using Homebrew Package Manager with the following command:
+```
+brew install node
+```
+
+###Install Node Package Manager (NPM)
+####NPM can be installed using the following command:
+```
+npm install -g bower
+```
+
+###Install Bower
+####Bower can be installed with the following command:
+```
+sudo npm install -g bower
+```
+
+###Install GULP
+####GULP can be installed using the following command:
+#####Install in projects Root Folder
+```
+sudo npm install gulp
+```
+#####Install Globally
+```
+sudo npm install -g gulp
+```
+
+###Install COMPOSER
+
+####COMPOSER can be installed using the following commands:
+```
+sudo curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+```
+
+####COMPOSER on MAC OS X can be installed using the following commands:
+```
+sudo brew update
+sudo brew tap homebrew/dupes
+sudo brew tap homebrew/php
+sudo brew install composer
+```
+
+###Install AdminLTE
+####AdminLTE can be installed using the following command:
+Note: Run from projects public folder
+```
+sudo git clone https://github.com/jeremykenedy/AdminLTE.git admin
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Development Environement Reference
 
 ### Vagrant Dev Environment
 
-## Start Vagrant
+## Vagrant Virtual Machine Details
+|Item        |Value:
+|:------------- |:-------------|
+|Hostname|homestead|
+|IP Address|192.168.10.10|
+|Username|vagrant|
+|SU Password|vagrant|
+|Database Host|127.0.0.1|
+|Database Port|33060|
+|Database Username|homestead|
+|Database Password|secret|
 
+
+## Start Vagrant
 |Command        |Action
 |:------------- |:-------------|
 | `vagrant up` | Start Vagrant VM |
@@ -262,7 +331,7 @@ find . -name "._*" -delete ;
 '
 ```
 
-A nice alias to **list and delete all** the MAC and OSX filesystem booger:
+A nice alias to **list and delete all** the MAC and OSX filesystem boogers:
 ```
 alias cleanboth='
 find . -name "*.DS_Store" -print;
@@ -380,9 +449,9 @@ alias alsr='. ~/.bash_profile'
 alias aliasrestart='. ~/.bash_profile'
 ```
 
-## Things not working?
+## Things not working (Troubleshooting)?
 
-### Cannot access project through web browser after running vagrant up / homestead up
+### Issue: Cannot access project through web browser after running vagrant up / homestead up
 
 #### Error Message from Browser:
 ```
@@ -426,7 +495,7 @@ Note: Instructions are for Mac OS X
 ###### Example B1
 `sudo vim /etc/hosts` or `edithost`
 
-##### a.  Edit your hosts file (See example B2):
+##### b.  Edit your hosts file (See example B2):
 Note: Replace examples URI used in Vargrant/Homestead configuration file and use the IP address of your local Vargrant/Homestead virtual machine instance
 
 ###### Example B2 - The last line is the important part of the example

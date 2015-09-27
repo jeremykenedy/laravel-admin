@@ -1,0 +1,21 @@
+{
+  "name": "Laravel Admin",
+  "description": "Laravel 5.1 Admin Panel",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "vendor/bower_dl",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "fontawesome": "~4.4.0",
+    "ckeditor": "4",
+    "font-awesome": "fontawesome#~4.4.0",
+    "datatables": "~1.10.9",
+    "datatables-plugins": "~1.10.9",
+    "AdminLTE": "admin-lte#~2.3.0"
+  }
+}

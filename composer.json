@@ -6,7 +6,9 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.1.*"
+        "laravel/framework": "5.1.*",
+        "michelf/php-markdown": "^1.5",
+        "almasaeed2010/adminlte": "~2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

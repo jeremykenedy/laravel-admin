@@ -3,44 +3,49 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes" name="viewport">
+
     <title>AdminLTE 2 | Dashboard</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
-    <!-- Morris chart -->
-    <link rel="stylesheet" href="plugins/morris/morris.css">
-    <!-- jvectormap -->
-    <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
-    <!-- Date Picker -->
-    <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker-bs3.css">
-    <!-- bootstrap wysihtml5 - text editor -->
-    <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    {{-- Load in Styles --}}
+    {!!HTML::style('/assets/css/admin/admin.css') !!}
 
-<link rel="stylesheet" type="text/css" href="/assets/css/admin.css">
-
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    {{-- HTML5 Shim and Respond.js for IE8 support --}}
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      {!! HTML::script('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js', array('type' => 'text/javascript')) !!}
+      {!! HTML::script('//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js', array('type' => 'text/javascript')) !!}
+      {!! HTML::script('//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js', array('type' => 'text/javascript')) !!}
+      {!! HTML::script('https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js', array('type' => 'text/javascript')) !!}
     <![endif]-->
   </head>
+  <!--
+  BODY TAG OPTIONS:
+  =================
+  Apply one or more of the following classes to get the
+  desired effect
+  |---------------------------------------------------------|
+  | SKINS         | skin-blue                               |
+  |               | skin-blue-light                         |
+  |               | skin-black                              |
+  |               | skin-black-light                        |
+  |               | skin-purple                             |
+  |               | skin-purple-light                       |
+  |               | skin-yellow                             |
+  |               | skin-yellow-light                       |
+  |               | skin-red                                |
+  |               | skin-red-light                          |
+  |               | skin-green                              |
+  |               | skin-green-light                        |
+  |---------------------------------------------------------|
+  |LAYOUT OPTIONS | fixed                                   |
+  |               | layout-boxed                            |
+  |               | layout-top-nav                          |
+  |               | sidebar-collapse                        |
+  |               | sidebar-mini                            |
+  |---------------------------------------------------------|
+  -->
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
 
@@ -50,7 +55,7 @@
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>A</b>LT</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Admin</b>LTE</span>
+          <span class="logo-lg"><b>LaraAdmin</b>LTE</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -74,7 +79,7 @@
                       <li><!-- start message -->
                         <a href="#">
                           <div class="pull-left">
-                            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            <img src="http://placehold.it/160x160" class="img-circle" alt="User Image">
                           </div>
                           <h4>
                             Support Team
@@ -86,7 +91,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                            <img src="http://placehold.it/128x128" class="img-circle" alt="User Image">
                           </div>
                           <h4>
                             AdminLTE Design Team
@@ -98,7 +103,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                            <img src="http://placehold.it/128x128" class="img-circle" alt="User Image">
                           </div>
                           <h4>
                             Developers
@@ -110,7 +115,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                            <img src="http://placehold.it/128x128" class="img-circle" alt="User Image">
                           </div>
                           <h4>
                             Sales Department
@@ -122,7 +127,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                            <img src="http://placehold.it/128x128" class="img-circle" alt="User Image">
                           </div>
                           <h4>
                             Reviewers
@@ -250,15 +255,15 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                  <span class="hidden-xs">Alexander Pierce</span>
+                  <img src="http://placehold.it/160x160" class="user-image" alt="User Image">
+                  <span class="hidden-xs">Jeremy Kenedy</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="http://placehold.it/160x160" class="img-circle" alt="User Image">
                     <p>
-                      Alexander Pierce - Web Developer
+                      Jeremy Kenedy - Web Developer
                       <small>Member since Nov. 2012</small>
                     </p>
                   </li>
@@ -300,10 +305,10 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+              <img src="http://placehold.it/160x160" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>Alexander Pierce</p>
+              <p>Jeremy Kenedy</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
@@ -562,7 +567,7 @@
                 <div class="box-body chat" id="chat-box">
                   <!-- chat item -->
                   <div class="item">
-                    <img src="dist/img/user4-128x128.jpg" alt="user image" class="online">
+                    <img src="http://placehold.it/128x128" alt="user image" class="online">
                     <p class="message">
                       <a href="#" class="name">
                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
@@ -584,11 +589,11 @@
                   </div><!-- /.item -->
                   <!-- chat item -->
                   <div class="item">
-                    <img src="dist/img/user3-128x128.jpg" alt="user image" class="offline">
+                    <img src="http://placehold.it/128x128" alt="user image" class="offline">
                     <p class="message">
                       <a href="#" class="name">
                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:15</small>
-                        Alexander Pierce
+                        Jeremy Kenedy
                       </a>
                       I would like to meet you to discuss the latest news about
                       the arrival of the new theme. They say it is going to be one the
@@ -597,7 +602,7 @@
                   </div><!-- /.item -->
                   <!-- chat item -->
                   <div class="item">
-                    <img src="dist/img/user2-160x160.jpg" alt="user image" class="offline">
+                    <img src="http://placehold.it/160x160" alt="user image" class="offline">
                     <p class="message">
                       <a href="#" class="name">
                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:30</small>

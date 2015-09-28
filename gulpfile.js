@@ -1,18 +1,24 @@
 /*
  |--------------------------------------------------------------------------
- |    ###    ########   #######  ##     ## ########
- |   ## ##   ##     ## ##     ## ##     ##    ##
- |  ##   ##  ##     ## ##     ## ##     ##    ##
- | ##     ## ########  ##     ## ##     ##    ##
- | ######### ##     ## ##     ## ##     ##    ##
- | ##     ## ##     ## ##     ## ##     ##    ##
- | ##     ## ########   #######   #######     ##
- |--------------------------------------------------------------------------
- | Elixir Asset Management
+ | Elixir Through Gulp Asset Management
  |--------------------------------------------------------------------------
  | Elixir provides a clean, fluent API for defining some basic Gulp tasks
  | for your Laravel application. By default, we are compiling the Sass
  | file for our application, as well as publishing vendor resources.
+ |--------------------------------------------------------------------------
+ |  ######   #######  ##     ## ##     ##    ###    ##    ## ########   ######
+ | ##    ## ##     ## ###   ### ###   ###   ## ##   ###   ## ##     ## ##    ##
+ | ##       ##     ## #### #### #### ####  ##   ##  ####  ## ##     ## ##
+ | ##       ##     ## ## ### ## ## ### ## ##     ## ## ## ## ##     ##  ######
+ | ##       ##     ## ##     ## ##     ## ######### ##  #### ##     ##       ##
+ | ##    ## ##     ## ##     ## ##     ## ##     ## ##   ### ##     ## ##    ##
+ |  ######   #######  ##     ## ##     ## ##     ## ##    ## ########   ######
+ |--------------------------------------------------------------------------
+ | Terminal/Bash Commands
+ |--------------------------------------------------------------------------
+ | sudo gulp copyfile 		<= 	Runs Gulp to copy assets
+ | sudo gulp 				<= 	Runs Gulp to compile assets
+ |--------------------------------------------------------------------------
  |--------------------------------------------------------------------------
  | ########    ###    ########  ##       ########     #######  ########     ######   #######  ##    ## ######## ######## ##    ## ########  ######
  |    ##      ## ##   ##     ## ##       ##          ##     ## ##          ##    ## ##     ## ###   ##    ##    ##       ###   ##    ##    ##    ##
@@ -24,49 +30,42 @@
  |--------------------------------------------------------------------------
  | TABLE OF CONTENTS
  |--------------------------------------------------------------------------
- | 1. Commands Reference
- | 2. Controllers
- | 3. Assets
- | 4. Admin CSS & JS
- | 5. APP CSS & JS
- | 6. PHPUnit Testing
+ |	 |	 1. Loads - Core and Plugin Preprocessors load calls
+ |	 |	 2. Controllers - Choose your options
+ |	 |	 3. Assets - Get and move preprocessor assets
+ |	 |	 4. Admin CSS & JS - Admin CSS & JS Preproccessors
+ |	 |	 5. APP CSS & JS - APP CSS & JS Preproccessors
+ |	 |	 6. PHPUnit Testing - PHPUNIT Load Testing
+ |--------------------------------------------------------------------------
+ |--------------------------------------------------------------------------
+ |   ##                 ##        #######     ###    ########   ######
+ | ####                 ##       ##     ##   ## ##   ##     ## ##    ##
+ |   ##                 ##       ##     ##  ##   ##  ##     ## ##
+ |   ##      #######    ##       ##     ## ##     ## ##     ##  ######
+ |   ##                 ##       ##     ## ######### ##     ##       ##
+ |   ##                 ##       ##     ## ##     ## ##     ## ##    ##
+ | ######               ########  #######  ##     ## ########   ######
+ |--------------------------------------------------------------------------
+ |--------------------------------------------------------------------------
+ | Loads - Core and Plugin Preprocessors load calls
  |--------------------------------------------------------------------------
  */
-var gulp = require('gulp'),
-	elixir = require('laravel-elixir'),
-    sass = require('gulp-ruby-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    minifycss = require('gulp-minify-css'),
-    jshint = require('gulp-jshint'),
-    uglify = require('gulp-uglify'),
-    imagemin = require('gulp-imagemin'),
-    rename = require('gulp-rename'),
-    concat = require('gulp-concat'),
-    notify = require('gulp-notify'),
-    cache = require('gulp-cache'),
-    livereload = require('gulp-livereload'),
-    del = require('del'),
-    less = require('gulp-less'),
-    lessToScss = require('gulp-less-to-scss');
-
-/*
- |--------------------------------------------------------------------------
- |   ##                  ######   #######  ##     ## ##     ##    ###    ##    ## ########   ######
- | ####                 ##    ## ##     ## ###   ### ###   ###   ## ##   ###   ## ##     ## ##    ##
- |   ##                 ##       ##     ## #### #### #### ####  ##   ##  ####  ## ##     ## ##
- |   ##      #######    ##       ##     ## ## ### ## ## ### ## ##     ## ## ## ## ##     ##  ######
- |   ##                 ##       ##     ## ##     ## ##     ## ######### ##  #### ##     ##       ##
- |   ##                 ##    ## ##     ## ##     ## ##     ## ##     ## ##   ### ##     ## ##    ##
- | ######                ######   #######  ##     ## ##     ## ##     ## ##    ## ########   ######
- |--------------------------------------------------------------------------
- |--------------------------------------------------------------------------
- | Terminal/Bash Commands
- |--------------------------------------------------------------------------
- | sudo gulp copyfile 		<= 	Runs Gulp to copy assets
- | sudo gulp 				<= 	Runs Gulp to compile assets
- |--------------------------------------------------------------------------
- */
-
+	var gulp = require('gulp'),
+		elixir = require('laravel-elixir'),
+	    sass = require('gulp-ruby-sass'),
+	    autoprefixer = require('gulp-autoprefixer'),
+	    minifycss = require('gulp-minify-css'),
+	    jshint = require('gulp-jshint'),
+	    uglify = require('gulp-uglify'),
+	    imagemin = require('gulp-imagemin'),
+	    rename = require('gulp-rename'),
+	    concat = require('gulp-concat'),
+	    notify = require('gulp-notify'),
+	    cache = require('gulp-cache'),
+	    livereload = require('gulp-livereload'),
+	    del = require('del'),
+	    less = require('gulp-less'),
+	    lessToScss = require('gulp-less-to-scss');
 /*
  |--------------------------------------------------------------------------
  |  #######                 ######   #######  ##    ## ######## ########   #######  ##       ##       ######## ########
@@ -78,22 +77,24 @@ var gulp = require('gulp'),
  | #########                ######   #######  ##    ##    ##    ##     ##  #######  ######## ######## ######## ##     ##
  |--------------------------------------------------------------------------
  |--------------------------------------------------------------------------
- | Asset Management Controller - Choose which assets to compile when running gulp
+ | ASSET MANAGEMENT CONTROLLER - Choose which assets to compile when running gulp
  |--------------------------------------------------------------------------
  | 1 = ON
  | 2 = OFF
  |--------------------------------------------------------------------------
  */
+	/* ADMIN -------------------------------------------------------------------*/
+	var enable_compile_admin 	= 1;			// Compile Admin Assets?
+	var enable_comile_admin_css	= 1;			// Compile Admin CSS?
+	var enable_comile_admin_js	= 0;			// Compile Admin JS?
 
-var enable_compile_admin 	= 1;
-var enable_comile_admin_css	= 1;
-var enable_comile_admin_js	= 0;
+	/* APP __-------------------------------------------------------------------*/
+	var enable_compile_app		= 0;			// Compile App Assets?
+	var enable_comile_app_css	= 0;			// Compile App CSS?
+	var enable_comile_app_js	= 0;			// Compile App JS?
 
-var enable_compile_app		= 0;
-var enable_comile_app_css	= 0;
-var enable_comile_app_js	= 0;
-
-var enable_unit_testing 	= 0;
+	/* PHPUNIT -----------------------------------------------------------------*/
+	var enable_unit_testing 	= 0;			// Compile phpUnit Testing?
 
 /*
  |--------------------------------------------------------------------------
@@ -105,15 +106,18 @@ var enable_unit_testing 	= 0;
  | ##     ##               ##     ## ##    ## ##    ## ##          ##    ##    ##
  |  #######                ##     ##  ######   ######  ########    ##     ######
  |--------------------------------------------------------------------------
- | Gulp Asset Management
+ | Gulp Asset Management - Create Gulp function copyfiles
  |--------------------------------------------------------------------------
  | Copy any needed files.
  | Do a 'gulp copyfiles' after bower updates
  |--------------------------------------------------------------------------
  */
 gulp.task("copyfiles", function() {
-
-	// Copy AdminLTE Asset Files
+	/*
+	 |--------------------------------------------------------------------------
+	 | Copy AdminLTE Asset Files
+	 |--------------------------------------------------------------------------
+	 */
 	gulp.src("vendor/bower_dl/adminLTE/bootstrap/**")
 		.pipe(gulp.dest("resources/assets/adminlte/bootstrap"));
 
@@ -138,26 +142,42 @@ gulp.task("copyfiles", function() {
 	gulp.src("vendor/bower_dl/adminLTE/index2.html")
 		.pipe(gulp.dest("resources/assets/adminlte/pages/example2.html"));
 
-	// // Copy jQuery, Bootstrap, and FontAwesome
+	/*
+	 |--------------------------------------------------------------------------
+	 | Copy Bootstrap and FontAwesome
+	 |--------------------------------------------------------------------------
+	 */
 	gulp.src("vendor/bower_dl/bootstrap/**")
 		.pipe(gulp.dest("resources/assets/bootstrap/"));
 
+	gulp.src("vendor/bower_dl/bootstrap/dist/fonts/**")
+		.pipe(gulp.dest("public/assets/fonts"));
+
+	gulp.src("vendor/bower_dl/fontawesome/**")
+		.pipe(gulp.dest("resources/assets/fontawesome/"));
+
+	gulp.src("vendor/bower_dl/fontawesome/fonts/**")
+		.pipe(gulp.dest("public/assets/css/fonts"));
+
+	gulp.src("vendor/bower_dl/ionicons/**")
+		.pipe(gulp.dest("resources/assets/ionicons/"));
+
+	gulp.src("vendor/bower_dl/ionicons/fonts/**")
+		.pipe(gulp.dest("public/assets/css/fonts"));
+
+	/*
+	 |--------------------------------------------------------------------------
+	 | Copy jQuery and JS Assets
+	 |--------------------------------------------------------------------------
+	 */
 	// gulp.src("vendor/bower_dl/jquery/dist/jquery.js")
 	// 	.pipe(gulp.dest("resources/assets/js/"));
 
-	// gulp.src("vendor/bower_dl/bootstrap/less/**")
-	// 	.pipe(gulp.dest("resources/assets/less/bootstrap-less"));
-
-	// gulp.src("vendor/bower_dl/bootstrap/dist/fonts/**")
-	// 	.pipe(gulp.dest("public/assets/fonts"));
-
-	// gulp.src("vendor/bower_dl/fontawesome/less/**")
-	// 	.pipe(gulp.dest("resources/assets/less/fontawesome"));
-
-	// gulp.src("vendor/bower_dl/fontawesome/fonts/**")
-	// 	.pipe(gulp.dest("public/assets/fonts"));
-
-  	// Copy datatables
+	/*
+	 |--------------------------------------------------------------------------
+	 | Copy Datatables Assets
+	 |--------------------------------------------------------------------------
+	 */
   	// var dtDir = 'vendor/bower_dl/datatables-plugins/integration/';
 
   	// gulp.src("vendor/bower_dl/datatables/media/js/jquery.dataTables.js")
@@ -174,9 +194,7 @@ gulp.task("copyfiles", function() {
 
 /*
  |--------------------------------------------------------------------------
- | Default gulp is to run this elixir stuff
- |--------------------------------------------------------------------------
- | Do a 'gulp' to update assets
+ | Default gulp is to run this elixir laravel function - builds on gulp
  |--------------------------------------------------------------------------
  */
 elixir(function(mix) {
@@ -194,6 +212,35 @@ elixir(function(mix) {
 	//PROCESS ADMIN ASSETS
 	if (enable_compile_admin) {
 
+		// COMPILE ADMIN AND BOOTSTRAP LESS - ADMIN CSS
+		if (enable_comile_admin_css) {
+			mix.less('admin.less', 'public/assets/css/admin/components/admin-core.css');
+			mix.less('admin-skins.less', 'public/assets/css/admin/components/admin-skins.css');
+			mix.less('admin-font-icons.less', 'public/assets/css/admin/components/admin-font-icons.css');
+			mix.less('bootstrap.less', 'public/assets/css/vendor/bootstrap.css');
+
+			//COMBINE ADMIN PLUGINS CSS FILES INTO SINGLE FILE - ADMIN PLUGINS CSS
+		    mix.styles([
+		        'resources/assets/adminlte/plugins/iCheck/flat/blue.css',								// ADMINLTE PLUGIN CSS - iCheck
+		        'resources/assets/adminlte/plugins/morris/morris.css',									// ADMINLTE PLUGIN CSS - Morris chart
+		        'resources/assets/adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.css',				// ADMINLTE PLUGIN CSS - jvectormap
+		        'resources/assets/adminlte/plugins/datepicker/datepicker3.css',							// ADMINLTE PLUGIN CSS - Date Picker
+		        'resources/assets/adminlte/plugins/daterangepicker/daterangepicker-bs3.css',			// ADMINLTE PLUGIN CSS - Daterange picker
+				'resources/assets/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css'	// ADMINLTE PLUGIN CSS - Bootstrap wysihtml5 text editor
+		    ],
+		    'public/assets/css/admin/components/admin-plugins.css', './');								// SINGLE FILE OUTPUT
+
+			//COMBINE ADMIN CSS FILES INTO SINGLE FILE - ADMIN CSS
+		    mix.styles([
+				'public/assets/css/vendor/bootstrap.css',												// BOOTSTRAP CORE INPUT
+				'public/assets/css/admin/components/admin-core.css',									// ADMIN LTE CORE INPUT
+				'public/assets/css/admin/components/admin-skins.css',									// ADMIN LTE SKINS INPUT
+				'public/assets/css/admin/components/admin-font-icons.css',								// ADMIN LTE FONT ICONS INPUT
+				'public/assets/css/admin/components/admin-plugins.css'   								// ADMIN LTE PLUGINS INPUT
+		    ],
+		    'public/assets/css/admin/admin.css', './');													// SINGLE FILE OUTPUT
+		}
+
 		// COMBINE ADMIN SCRIPTS - ADMIN JS
 		if (enable_comile_admin_js) {
 			mix.scripts([
@@ -205,18 +252,6 @@ elixir(function(mix) {
 			);
 		}
 
-		// COMPILE ADMIN LESS - ADMIN CSS
-		if (enable_comile_admin_css) {
-			mix.less('admin.less', 'public/assets/css/adminlte.css');
-			mix.less('bootstrap.less', 'public/assets/css/bootstrap.css');
-
-			//COMBINE ADMIN CSS INTO SINGLE FILE - ADMIN CSS
-		    mix.styles([
-		        'public/assets/css/bootstrap.css',
-		        'public/assets/css/adminlte.css'
-		    ], 'public/assets/css/admin.css', './');
-
-		}
 	}
 
 	/*
@@ -233,6 +268,11 @@ elixir(function(mix) {
 	// PROCESS APP ASSETS
 	if (enable_compile_app) {
 
+		// COMIPILE APP SASS/SCSS - APP CSS
+		if (enable_comile_app_css) {
+			mix.sass('app.scss', 'public/assets/css/app.css');
+		}
+
 		//COMBINE APP SCRIPTS - APP JS
 		if (enable_comile_app_js) {
 		    mix.scripts([
@@ -245,10 +285,6 @@ elixir(function(mix) {
 		   	);
 		}
 
-		// COMIPILE APP SASS/SCSS - APP CSS
-		if (enable_comile_app_css) {
-			mix.sass('app.scss', 'public/assets/css/app.css');
-		}
 	}
 
 	/*

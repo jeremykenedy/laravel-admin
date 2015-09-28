@@ -139,14 +139,14 @@ gulp.task("copyfiles", function() {
 		.pipe(gulp.dest("resources/assets/adminlte/pages/example2.html"));
 
 	// // Copy jQuery, Bootstrap, and FontAwesome
+	gulp.src("vendor/bower_dl/bootstrap/**")
+		.pipe(gulp.dest("resources/assets/bootstrap/"));
+
 	// gulp.src("vendor/bower_dl/jquery/dist/jquery.js")
 	// 	.pipe(gulp.dest("resources/assets/js/"));
 
 	// gulp.src("vendor/bower_dl/bootstrap/less/**")
 	// 	.pipe(gulp.dest("resources/assets/less/bootstrap-less"));
-
-	// gulp.src("vendor/bower_dl/bootstrap/dist/js/bootstrap.js")
-	// 	.pipe(gulp.dest("resources/assets/js/"));
 
 	// gulp.src("vendor/bower_dl/bootstrap/dist/fonts/**")
 	// 	.pipe(gulp.dest("public/assets/fonts"));
@@ -207,9 +207,16 @@ elixir(function(mix) {
 
 		// COMPILE ADMIN LESS - ADMIN CSS
 		if (enable_comile_admin_css) {
-			mix.less('admin.less', 'public/assets/css/admin.css');
-		}
+			mix.less('admin.less', 'public/assets/css/adminlte.css');
+			mix.less('bootstrap.less', 'public/assets/css/bootstrap.css');
 
+			//COMBINE ADMIN CSS INTO SINGLE FILE - ADMIN CSS
+		    mix.styles([
+		        'public/assets/css/bootstrap.css',
+		        'public/assets/css/adminlte.css'
+		    ], 'public/assets/css/admin.css', './');
+
+		}
 	}
 
 	/*

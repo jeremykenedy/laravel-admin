@@ -14,6 +14,7 @@ laravel-admin is a complete stand up of Laravel 5.1 CRUD (Create Read Update Del
 |Front End and Admin Area are Responsive Using [Bootstrap](https://github.com/twbs/bootstrap) 3.5.x|
 |CMS Built on [AdminLTE](https://github.com/almasaeed2010/AdminLTE) 2.3.x|
 |Uses [MySQL](https://github.com/mysql) Database|
+|Assets are manages with Composer, Bower, and Gulp|
 
 ## [Laravel](http://laravel.com/) PHP Framework
 
@@ -52,16 +53,20 @@ Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and
 
 ### Quick Project Setup
 1. Run `sudo git clone https://github.com/jeremykenedy/laravel-admin.git laravel-admin`
-2. Run `composer update` from the projects root folder
-3. From the projects root run `cp .env.example .env`
-4. Configure your .env file
+2. Run `sudo composer update` from the projects root folder
+3. Run `bower update` from the projects root folder
+4. Run `sudo gulp copyfiles` from the projects root folder
+5. Run `sudo gulp` from the projects root folder
+  * NOTE: In production run `sudo gulp --production`
+6. From the projects root run `cp .env.example .env`
+7. Configure your `.env` file
 
 .working here.
 
-~~7. From the projects root run `php artisan migrate`
-8. From the projects root run `sudo chmod -R 777 ../laravel-admin`
-9. Go to your browser and refresh the projects page.
-10. From the projects root run `sudo chmod -R 755 ../laravel-admin`~~
+~~8. From the projects root run `php artisan migrate`
+9. From the projects root run `sudo chmod -R 777 ../laravel-admin`
+10. Go to your browser and refresh the projects page.
+11. From the projects root run `sudo chmod -R 755 ../laravel-admin`~~
 
 ### Commonly Used Folders and Files Structure
 ```
@@ -90,8 +95,12 @@ laravel-admin/
    │   │   │   └──
    │   │   └──
    │   └──
-   ├──
-   └──
+   ├── .env
+   ├── bower.json
+   ├── composer.json
+   ├── gulpfile.js
+   ├── phpunit.xml
+   └── server.php
 ```
 
 ## Developement Reference

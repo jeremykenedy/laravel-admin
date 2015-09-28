@@ -13,4 +13,19 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+    # Redirect HTTP to HTTPS Permanently
+    RewriteCond %{SERVER_PORT} !=443
+    RewriteRule ^$ https://%{HTTP_HOST}%{REQUEST_URI} [NC,R=301,L]
+
+    # BROWSER CACHING FOR A WEEK
+    <IfModule mod_headers.c>
+        <FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
+            Header set Cache-Control "max-age=604800, public"
+        </FilesMatch>
+        <FilesMatch "\.(js|css|swf)$">
+            Header set Cache-Control "max-age=604800"
+        </FilesMatch>
+    </IfModule>
+
 </IfModule>

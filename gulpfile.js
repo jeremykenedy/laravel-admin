@@ -86,7 +86,7 @@
 	/* ADMIN -------------------------------------------------------------------*/
 	var enable_compile_admin 	= 1;			// Compile Admin Assets?
 	var enable_comile_admin_css	= 1;			// Compile Admin CSS?
-	var enable_comile_admin_js	= 0;			// Compile Admin JS?
+	var enable_comile_admin_js	= 1;			// Compile Admin JS?
 
 	/* APP __-------------------------------------------------------------------*/
 	var enable_compile_app		= 0;			// Compile App Assets?
@@ -142,6 +142,9 @@ gulp.task("copyfiles", function() {
 	gulp.src("vendor/bower_dl/adminLTE/index2.html")
 		.pipe(gulp.dest("resources/assets/adminlte/pages/example2.html"));
 
+	gulp.src("vendor/bower_dl/adminLTE/index2.html")
+		.pipe(gulp.dest("resources/assets/adminlte/pages/example2.html"));
+
 	/*
 	 |--------------------------------------------------------------------------
 	 | Copy Bootstrap and FontAwesome
@@ -152,6 +155,9 @@ gulp.task("copyfiles", function() {
 
 	gulp.src("vendor/bower_dl/bootstrap/dist/fonts/**")
 		.pipe(gulp.dest("public/assets/fonts"));
+
+	gulp.src("vendor/bower_dl/bootstrap/dist/fonts/**")
+		.pipe(gulp.dest("public/assets/css/fonts"));
 
 	gulp.src("vendor/bower_dl/fontawesome/**")
 		.pipe(gulp.dest("resources/assets/fontawesome/"));
@@ -167,11 +173,14 @@ gulp.task("copyfiles", function() {
 
 	/*
 	 |--------------------------------------------------------------------------
-	 | Copy jQuery and JS Assets
+	 | Copy jQuery and jQuery UI JS Assets
 	 |--------------------------------------------------------------------------
 	 */
-	// gulp.src("vendor/bower_dl/jquery/dist/jquery.js")
-	// 	.pipe(gulp.dest("resources/assets/js/"));
+	gulp.src("vendor/bower_dl/jquery/dist/jquery.js")
+		.pipe(gulp.dest("resources/assets/js/"));
+
+	gulp.src("vendor/bower_dl/jquery-ui/jquery-ui.js")
+		.pipe(gulp.dest("resources/assets/js/"));
 
 	/*
 	 |--------------------------------------------------------------------------
@@ -226,7 +235,7 @@ elixir(function(mix) {
 		        'resources/assets/adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.css',				// ADMINLTE PLUGIN CSS - jvectormap
 		        'resources/assets/adminlte/plugins/datepicker/datepicker3.css',							// ADMINLTE PLUGIN CSS - Date Picker
 		        'resources/assets/adminlte/plugins/daterangepicker/daterangepicker-bs3.css',			// ADMINLTE PLUGIN CSS - Daterange picker
-				'resources/assets/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css'	// ADMINLTE PLUGIN CSS - Bootstrap wysihtml5 text editor
+				'resources/assets/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css'	    // ADMINLTE PLUGIN CSS - Bootstrap wysihtml5 text editor
 		    ],
 		    'public/assets/css/admin/components/admin-plugins.css', './');								// SINGLE FILE OUTPUT
 
@@ -244,10 +253,30 @@ elixir(function(mix) {
 		// COMBINE ADMIN SCRIPTS - ADMIN JS
 		if (enable_comile_admin_js) {
 			mix.scripts([
-					'js/jquery.js',
-					'js/bootstrap.js',
+					'adminlte/dist/js/pages/dashboard.js',
+					'adminlte/plugins/morris/morris.js',
+					'adminlte/plugins/sparkline/jquery.sparkline.js',
+					'adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.js',
+					'adminlte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js',
+					'adminlte/plugins/knob/jquery.knob.js',
+					'adminlte/plugins/daterangepicker/daterangepicker.js',
+					'adminlte/plugins/datepicker/bootstrap-datepicker.js',
+					'adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js',
+					'adminlte/plugins/slimScroll/jquery.slimscroll.js',
+					'adminlte/plugins/fastclick/fastclick.js',
 			    ],
-				'public/assets/js/admin.js',
+				'public/assets/js/admin/admin-plugins.js',
+				'resources/assets'
+			);
+
+			mix.scripts([
+					'js/jquery.js',
+					'js/jquery-ui.js',
+					'bootstrap/dist/js/bootstrap.js',
+					'adminlte/dist/js/app.js',
+					'../../public/assets/js/admin/admin-plugins.js',
+			    ],
+				'public/assets/js/admin/admin.js',
 				'resources/assets'
 			);
 		}

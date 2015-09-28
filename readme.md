@@ -123,13 +123,8 @@ sudo npm install -g bower
 
 ###Install GULP
 ####GULP can be installed using the following command:
-#####Install in projects Root Folder
 ```
-sudo npm install gulp
-```
-#####Install Globally
-```
-sudo npm install -g gulp
+npm install -g gulp
 ```
 
 ###Install COMPOSER

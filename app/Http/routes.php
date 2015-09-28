@@ -17,8 +17,12 @@ Route::get('/', function () {
 
 
 Route::get('admin', function () {
-    return view('admin_template');
+    return view('admin');
 });
+
+// Route::get('admin', function () {
+//     return view('admin_template');
+// });
 
 // Route::get('admin', function () {
 //     return view('dashboard');

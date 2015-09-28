@@ -163,19 +163,6 @@ sudo git clone https://github.com/jeremykenedy/AdminLTE.git admin
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Development Environement Reference
 
 ### Vagrant Dev Environment

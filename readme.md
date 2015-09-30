@@ -159,11 +159,34 @@ Note: Run from projects public folder
 sudo git clone https://github.com/jeremykenedy/AdminLTE.git admin
 ```
 
-
-
-
-
 ## Development Environement Reference
+
+
+### Admin CSS Style Options
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-blue-light                         |
+|               | skin-black                              |
+|               | skin-black-light                        |
+|               | skin-purple                             |
+|               | skin-purple-light                       |
+|               | skin-yellow                             |
+|               | skin-yellow-light                       |
+|               | skin-red                                |
+|               | skin-red-light                          |
+|               | skin-green                              |
+|               | skin-green-light                        |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
 
 ### Vagrant Dev Environment
 

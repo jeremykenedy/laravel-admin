@@ -35,3 +35,6 @@ vendor
 node_modules
 Homestead.yaml
 Homestead.json
+
+## IGNORE FOR NOW DUE TO GITHUB CONFLICTS
+README.md

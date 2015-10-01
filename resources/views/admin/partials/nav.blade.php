@@ -20,7 +20,7 @@
                       <li><!-- start message -->
                         <a href="#">
                           <div class="pull-left">
-                            <img src="http://placehold.it/160x160" class="img-circle" alt="User Image">
+                            {!! HTML::image('http://placehold.it/160x160', 'User Image', array('class' => 'img-circle', 'draggable' => 'false')) !!}
                           </div>
                           <h4>
                             Support Team
@@ -32,10 +32,10 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="http://placehold.it/128x128" class="img-circle" alt="User Image">
+                            {!! HTML::image('http://placehold.it/128x128', 'User Image', array('class' => 'img-circle', 'draggable' => 'false')) !!}
                           </div>
                           <h4>
-                            AdminLTE Design Team
+                            LaraAdminLTE Design Team
                             <small><i class="fa fa-clock-o"></i> 2 hours</small>
                           </h4>
                           <p>Why not buy a new awesome theme?</p>
@@ -44,7 +44,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="http://placehold.it/128x128" class="img-circle" alt="User Image">
+                            {!! HTML::image('http://placehold.it/128x128', 'User Image', array('class' => 'img-circle', 'draggable' => 'false')) !!}
                           </div>
                           <h4>
                             Developers
@@ -56,7 +56,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="http://placehold.it/128x128" class="img-circle" alt="User Image">
+                            {!! HTML::image('http://placehold.it/128x128', 'User Image', array('class' => 'img-circle', 'draggable' => 'false')) !!}
                           </div>
                           <h4>
                             Sales Department
@@ -68,7 +68,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="http://placehold.it/128x128" class="img-circle" alt="User Image">
+                            {!! HTML::image('http://placehold.it/128x128', 'alt', array('class' => 'img-circle', 'draggable' => 'false')) !!}
                           </div>
                           <h4>
                             Reviewers
@@ -196,13 +196,13 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="http://placehold.it/160x160" class="user-image" alt="User Image">
+                  {!! HTML::image('http://placehold.it/160x160', 'User Image', array('class' => 'user-image', 'draggable' => 'false')) !!}
                   <span class="hidden-xs">Jeremy Kenedy</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="http://placehold.it/160x160" class="img-circle" alt="User Image">
+                    {!! HTML::image('http://placehold.it/160x160', 'User Image', array('class' => 'img-circle', 'draggable' => 'false')) !!}
                     <p>
                       Jeremy Kenedy - Web Developer
                       <small>Member since Nov. 2012</small>

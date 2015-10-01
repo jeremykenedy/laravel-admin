@@ -13,7 +13,7 @@
             <div class="box-body chat" id="chat-box">
               <!-- chat item -->
               <div class="item">
-                <img src="http://placehold.it/128x128" alt="user image" class="online">
+                {!! HTML::image('http://placehold.it/128x128', 'User Image', array('class' => 'online', 'draggable' => 'false')) !!}
                 <p class="message">
                   <a href="#" class="name">
                     <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
@@ -35,7 +35,7 @@
               </div><!-- /.item -->
               <!-- chat item -->
               <div class="item">
-                <img src="http://placehold.it/128x128" alt="user image" class="offline">
+                {!! HTML::image('http://placehold.it/128x128', 'User Image', array('class' => 'offline', 'draggable' => 'false')) !!}
                 <p class="message">
                   <a href="#" class="name">
                     <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:15</small>
@@ -48,7 +48,7 @@
               </div><!-- /.item -->
               <!-- chat item -->
               <div class="item">
-                <img src="http://placehold.it/160x160" alt="user image" class="offline">
+                {!! HTML::image('http://placehold.it/128x128', 'User Image', array('class' => 'offline', 'draggable' => 'false')) !!}
                 <p class="message">
                   <a href="#" class="name">
                     <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:30</small>

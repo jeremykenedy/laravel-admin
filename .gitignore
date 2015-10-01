@@ -29,6 +29,7 @@ Thumbs.db
 composer.lock
 
 ### ASSET EXCLUSIONS ###
+/ref
 uploads
 vendor
 node_modules

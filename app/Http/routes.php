@@ -23,3 +23,8 @@
 	], function () {
 
 	});
+
+	// ERROR HANDLING FOR NOW - Working on another solution in Handler.php
+	Route::any('/{page?}',function(){
+	  return View::make('errors.404');
+	})->where('page','.*');

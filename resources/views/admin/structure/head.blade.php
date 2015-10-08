@@ -6,9 +6,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    {{-- Load in Styles --}}
-    {!!HTML::style('/assets/css/admin/admin.css') !!}
-
     {{-- HTML5 Shim and Respond.js for IE8 support --}}
     <!--[if lt IE 9]>
       {!! HTML::script('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js', array('type' => 'text/javascript')) !!}
@@ -19,3 +16,6 @@
     <!--[if gte IE 9]>
       <style type="text/css">.gradient {filter: none;}</style>
     <![endif]-->
+
+    {{-- Load Template Specific Styles --}}
+    @yield('style-sheets')

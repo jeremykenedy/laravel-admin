@@ -28,11 +28,8 @@
 
     </div>
 
-    {{-- Load Admin Scripts --}}
-    @include('admin.structure.jscripts')
-
     {{-- Load Template Scripts --}}
-    @yield('additional-template-jscripts')
+    @yield('template-jscripts')
 
   </body>
 </html>

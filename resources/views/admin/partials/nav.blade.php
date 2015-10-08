@@ -197,14 +197,16 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   {!! HTML::image('http://placehold.it/160x160', 'User Image', array('class' => 'user-image', 'draggable' => 'false')) !!}
-                  <span class="hidden-xs">Jeremy Kenedy</span>
+                  <span class="hidden-xs">
+                    <?php echo Auth::user()->name; ?>
+                  </span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
                     {!! HTML::image('http://placehold.it/160x160', 'User Image', array('class' => 'img-circle', 'draggable' => 'false')) !!}
                     <p>
-                      Jeremy Kenedy - Web Developer
+                      <?php echo Auth::user()->name; ?> - Web Developer
                       <small>Member since Nov. 2012</small>
                     </p>
                   </li>
@@ -223,10 +225,10 @@
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="#" class="btn btn-default btn-flat">Profile</a>
+                      <a href="/user" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
                     </div>
                   </li>
                 </ul>

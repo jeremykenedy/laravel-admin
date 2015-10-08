@@ -9,7 +9,7 @@
               {!! HTML::image('http://placehold.it/160x160', 'alt', array('class' => 'img-circle', 'draggable' => 'false')) !!}
             </div>
             <div class="pull-left info">
-              <p>Jeremy Kenedy</p>
+              <p><?php echo Auth::user()->name; ?></p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>

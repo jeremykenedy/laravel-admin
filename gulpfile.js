@@ -1,4 +1,5 @@
 /*
+ If this style of commenting is frowned upon please let me know. Thanks.
  |--------------------------------------------------------------------------
  | Elixir Through Gulp Asset Management
  |--------------------------------------------------------------------------
@@ -84,17 +85,22 @@
  |--------------------------------------------------------------------------
  */
 	/* ADMIN -------------------------------------------------------------------*/
-	var enable_compile_admin 	= 1;			// Compile Admin Assets?
-	var enable_comile_admin_css	= 1;			// Compile Admin CSS?
-	var enable_comile_admin_js	= 1;			// Compile Admin JS?
+	var enable_compile_admin 		= 1;			// Compile Admin Assets?
+	var enable_compile_admin_css	= 1;			// Compile Admin CSS?
+	var enable_compile_admin_js		= 1;			// Compile Admin JS?
+
+	/* LOGIN -------------------------------------------------------------------*/
+	var enable_compile_login 		= 1;			// Compile Login Assets?
+	var enable_compile_login_css	= 1;			// Compile Login CSS?
+	var enable_compile_login_js		= 1;			// Compile Login JS?
 
 	/* APP __-------------------------------------------------------------------*/
-	var enable_compile_app		= 0;			// Compile App Assets?
-	var enable_comile_app_css	= 0;			// Compile App CSS?
-	var enable_comile_app_js	= 0;			// Compile App JS?
+	var enable_compile_app			= 0;			// Compile App Assets?
+	var enable_compile_app_css		= 0;			// Compile App CSS?
+	var enable_compile_app_js		= 0;			// Compile App JS?
 
 	/* PHPUNIT -----------------------------------------------------------------*/
-	var enable_unit_testing 	= 0;			// Compile phpUnit Testing?
+	var enable_unit_testing 		= 0;			// Compile phpUnit Testing?
 
 /*
  |--------------------------------------------------------------------------
@@ -222,14 +228,18 @@ elixir(function(mix) {
 	if (enable_compile_admin) {
 
 		// COMPILE ADMIN AND BOOTSTRAP LESS - ADMIN CSS
-		if (enable_comile_admin_css) {
+		if (enable_compile_admin_css) {
 			mix.less('admin.less', 'public/assets/css/admin/components/admin-core.css');
 			mix.less('admin-skins.less', 'public/assets/css/admin/components/admin-skins.css');
 			mix.less('admin-font-icons.less', 'public/assets/css/admin/components/admin-font-icons.css');
 			mix.less('bootstrap.less', 'public/assets/css/vendor/bootstrap.css');
 
-			//COMBINE ADMIN PLUGINS CSS FILES INTO SINGLE FILE - ADMIN PLUGINS CSS
+			//COMBINE ADMIN DASHBOARD CSS FILES INTO SINGLE FILE - ADMIN CSS
 		    mix.styles([
+				'public/assets/css/vendor/bootstrap.css',												// BOOTSTRAP CORE INPUT
+				'public/assets/css/admin/components/admin-core.css',									// ADMIN LTE CORE INPUT
+				'public/assets/css/admin/components/admin-skins.css',									// ADMIN LTE SKINS INPUT
+				'public/assets/css/admin/components/admin-font-icons.css',								// ADMIN LTE FONT ICONS INPUT
 		        'resources/assets/adminlte/plugins/iCheck/flat/blue.css',								// ADMINLTE PLUGIN CSS - iCheck
 		        'resources/assets/adminlte/plugins/morris/morris.css',									// ADMINLTE PLUGIN CSS - Morris chart
 		        'resources/assets/adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.css',				// ADMINLTE PLUGIN CSS - jvectormap
@@ -237,22 +247,17 @@ elixir(function(mix) {
 		        'resources/assets/adminlte/plugins/daterangepicker/daterangepicker-bs3.css',			// ADMINLTE PLUGIN CSS - Daterange picker
 				'resources/assets/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css'	    // ADMINLTE PLUGIN CSS - Bootstrap wysihtml5 text editor
 		    ],
-		    'public/assets/css/admin/components/admin-plugins.css', './');								// SINGLE FILE OUTPUT
-
-			//COMBINE ADMIN CSS FILES INTO SINGLE FILE - ADMIN CSS
-		    mix.styles([
-				'public/assets/css/vendor/bootstrap.css',												// BOOTSTRAP CORE INPUT
-				'public/assets/css/admin/components/admin-core.css',									// ADMIN LTE CORE INPUT
-				'public/assets/css/admin/components/admin-skins.css',									// ADMIN LTE SKINS INPUT
-				'public/assets/css/admin/components/admin-font-icons.css',								// ADMIN LTE FONT ICONS INPUT
-				'public/assets/css/admin/components/admin-plugins.css'   								// ADMIN LTE PLUGINS INPUT
-		    ],
 		    'public/assets/css/admin/admin.css', './');													// SINGLE FILE OUTPUT
 		}
 
 		// COMBINE ADMIN SCRIPTS - ADMIN JS
-		if (enable_comile_admin_js) {
+		if (enable_compile_admin_js) {
+
 			mix.scripts([
+					'js/jquery.js',
+					'js/jquery-ui.js',
+					'bootstrap/dist/js/bootstrap.js',
+					'adminlte/dist/js/app.js',
 					'adminlte/dist/js/pages/dashboard.js',
 					'adminlte/plugins/morris/morris.js',
 					'adminlte/plugins/sparkline/jquery.sparkline.js',
@@ -265,45 +270,76 @@ elixir(function(mix) {
 					'adminlte/plugins/slimScroll/jquery.slimscroll.js',
 					'adminlte/plugins/fastclick/fastclick.js',
 			    ],
-				'public/assets/js/admin/admin-plugins.js',
-				'resources/assets'
-			);
-
-			mix.scripts([
-					'js/jquery.js',
-					'js/jquery-ui.js',
-					'bootstrap/dist/js/bootstrap.js',
-					'adminlte/dist/js/app.js',
-					'../../public/assets/js/admin/admin-plugins.js',
-			    ],
 				'public/assets/js/admin/admin.js',
 				'resources/assets'
 			);
+		}
+	}
+
+	/*
+	 |--------------------------------------------------------------------------
+     | ########               ##        #######   ######   #### ##    ##
+     | ##                     ##       ##     ## ##    ##   ##  ###   ##
+     | ##                     ##       ##     ## ##         ##  ####  ##
+     | #######     #######    ##       ##     ## ##   ####  ##  ## ## ##
+     |       ##               ##       ##     ## ##    ##   ##  ##  ####
+     | ##    ##               ##       ##     ## ##    ##   ##  ##   ###
+     |  ######                ########  #######   ######   #### ##    ##
+	 |--------------------------------------------------------------------------
+	 */
+	// PROCESS APP ASSETS
+	if (enable_compile_login) {
+
+		// COMPILE LOGIN CSS/SCSS - LOGIN CSS
+		if (enable_compile_login_css) {
+
+			//COMBINE LOGIN CSS FILES INTO SINGLE FILE - LOGIN CSS
+		    mix.styles([
+				'public/assets/css/vendor/bootstrap.css',												// BOOTSTRAP CORE INPUT
+				'public/assets/css/admin/components/admin-core.css',									// ADMIN LTE CORE INPUT
+				'public/assets/css/admin/components/admin-skins.css',									// ADMIN LTE SKINS INPUT
+				'resources/assets/adminlte/plugins/iCheck/flat/blue.css',								// ADMINLTE PLUGIN CSS - iCheck
+				'public/assets/css/admin/components/admin-font-icons.css',								// ADMIN LTE FONT ICONS INPUT
+				'resources/assets/adminlte/plugins/iCheck/square/blue.css',
+		    ],
+		    'public/assets/css/admin/login.css', './');													// SINGLE FILE OUTPUT
+		}
+
+		//COMBINE LOGIN SCRIPTS - LOGIN JS
+		if (enable_compile_login_js) {
+		    mix.scripts([
+					'js/jquery.js',
+					'bootstrap/dist/js/bootstrap.js',
+					'resources/assets/adminlte/plugins/iCheck/icheck.min.js',
+			    ],
+			    'public/assets/js/login.js',
+			    'resources/assets'
+		   	);
 		}
 
 	}
 
 	/*
 	 |--------------------------------------------------------------------------
-	 | ##                         ###    ########  ########
-	 | ##    ##                  ## ##   ##     ## ##     ##
-	 | ##    ##                 ##   ##  ##     ## ##     ##
-	 | ##    ##     #######    ##     ## ########  ########
-	 | #########               ######### ##        ##
-	 |       ##                ##     ## ##        ##
-	 |       ##                ##     ## ##        ##
+     |  #######                   ###    ########  ########
+     | ##     ##                 ## ##   ##     ## ##     ##
+     | ##                       ##   ##  ##     ## ##     ##
+     | ########     #######    ##     ## ########  ########
+     | ##     ##               ######### ##        ##
+     | ##     ##               ##     ## ##        ##
+     |  #######                ##     ## ##        ##
 	 |--------------------------------------------------------------------------
 	 */
 	// PROCESS APP ASSETS
 	if (enable_compile_app) {
 
 		// COMIPILE APP SASS/SCSS - APP CSS
-		if (enable_comile_app_css) {
+		if (enable_compile_app_css) {
 			mix.sass('app.scss', 'public/assets/css/app.css');
 		}
 
 		//COMBINE APP SCRIPTS - APP JS
-		if (enable_comile_app_js) {
+		if (enable_compile_app_js) {
 		    mix.scripts([
 					'js/jquery.js',
 					'js/bootstrap.js',
@@ -318,13 +354,13 @@ elixir(function(mix) {
 
 	/*
 	 |--------------------------------------------------------------------------
-	 | ########               ######## ########  ######  ######## #### ##    ##  ######
-	 | ##                        ##    ##       ##    ##    ##     ##  ###   ## ##    ##
-	 | ##                        ##    ##       ##          ##     ##  ####  ## ##
-	 | #######     #######       ##    ######    ######     ##     ##  ## ## ## ##   ####
-	 |       ##                  ##    ##             ##    ##     ##  ##  #### ##    ##
-	 | ##    ##                  ##    ##       ##    ##    ##     ##  ##   ### ##    ##
-	 |  ######                   ##    ########  ######     ##    #### ##    ##  ######
+     | ########               ######## ########  ######  ######## #### ##    ##  ######
+     | ##    ##                  ##    ##       ##    ##    ##     ##  ###   ## ##    ##
+     |     ##                    ##    ##       ##          ##     ##  ####  ## ##
+     |    ##       #######       ##    ######    ######     ##     ##  ## ## ## ##   ####
+     |   ##                      ##    ##             ##    ##     ##  ##  #### ##    ##
+     |   ##                      ##    ##       ##    ##    ##     ##  ##   ### ##    ##
+     |   ##                      ##    ########  ######     ##    #### ##    ##  ######
 	 |--------------------------------------------------------------------------
 	 */
 	// START phpUnit FOR UNIT TESTING

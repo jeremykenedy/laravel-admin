@@ -1,5 +1,9 @@
 @extends('admin.structure.master')
 
+@section('style-sheets')
+  {!!HTML::style('/assets/css/admin/admin.css') !!}
+@stop
+
 @section('template-header')
   @include('admin.partials.header')
 @stop
@@ -19,6 +23,7 @@
       @include('admin.modules.breadcrumbs')
     </section>
     <section class="content">
+      @include('admin.modules.blank')
       @include('admin.modules.stat-boxes')
       <div class="row">
         <section class="col-lg-7 connectedSortable">
@@ -43,5 +48,8 @@
   @include('admin.modules.control-sidebar')
 @stop
 
-@section('additional-template-jscripts')
+@section('template-jscripts')
+  @include('admin.structure.jscripts')
+@stop
+
 @stop

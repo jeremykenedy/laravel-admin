@@ -44,7 +44,7 @@
               <!-- Profile Image -->
               <div class="box box-primary">
                 <div class="box-body box-profile">
-                  <img class="profile-user-img img-responsive img-circle" src="http://placekitten.com/g/128/128" alt="User profile picture">
+                  {!! HTML::image(Gravatar::get(Auth::user()->email), Auth::user()->name, array('class' => 'profile-user-img img-responsive img-circle', 'draggable' => 'false')) !!}
                   <h3 class="profile-username text-center"><?php echo Auth::user()->name ?></h3>
                   <p class="text-muted text-center">Software Engineer</p>
 

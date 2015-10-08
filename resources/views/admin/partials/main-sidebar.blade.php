@@ -6,7 +6,7 @@
           {{--  Sidebar user panel --}}
           <div class="user-panel">
             <div class="pull-left image">
-              {!! HTML::image('http://placehold.it/160x160', 'alt', array('class' => 'img-circle', 'draggable' => 'false')) !!}
+              {!! HTML::image(Gravatar::get(Auth::user()->email), Auth::user()->name, array('class' => 'img-circle', 'draggable' => 'false')) !!}
             </div>
             <div class="pull-left info">
               <p><?php echo Auth::user()->name; ?></p>

@@ -1,20 +1,62 @@
-# laravel-admin
+# laravel-admin [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
 [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework) [![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) ![Bower version](https://img.shields.io/bower/v/bootstrap.svg) [![npm version](https://img.shields.io/npm/v/bootstrap.svg)](https://www.npmjs.com/package/bootstrap) [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
 [![Selenium Test Status](https://saucelabs.com/browser-matrix/bootstrap.svg)](https://saucelabs.com/u/bootstrap)
 
-A **Clean Powerful Laravel** [CRUD](https://scotch.io/tutorials/simple-laravel-crud-with-resource-controllers) (**C**reate **R**ead **U**pdate **D**elete) **CMS** (**C**ontent **M**anagement **S**ystem) built on [Laravel](http://laravel.com/) 5.1.x, [Bootstrap](http://getbootstrap.com) 3.5.x, and [AdminLTE](https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html) 2.3.x.
+A [Laravel](http://laravel.com/) 5.1.x, [Bootstrap](http://getbootstrap.com) 3.5.x, and [AdminLTE](https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html) 2.3.x. project.
 
-laravel-admin is a complete stand up of Laravel 5.1 CRUD (Create Read Update Delete) with admin panel based on AdminLTE front end framework built on Bootstrap 3.5.x.  This great with working with database driven applications and website. This is as lean as possible using the proper Larevel Methods, Views, and Controllers based routing. This project is being built on a local Vagrant VM flavor named Homestead which instruction on setting up can be found on Laravel's website. Setting up a Vagrant Dev env is highly recommended and super easy to do. This project will also use SASS and/or LESS preprocessors to generate the CSS. It may or may not use GULP.  It will use BOWER and COMPOSER. If you like Code Inighter  you will LOVE LARAVEL.
-
-| laravel-admin Features  |
+| Laravel-Admin Features  |
 | :------------ |
-|Built on [Laravel](https://github.com/laravel/laravel) 5.1.x|
-|Front End and Admin Area are Responsive Using [Bootstrap](https://github.com/twbs/bootstrap) 3.5.x|
-|CMS Built on [AdminLTE](https://github.com/almasaeed2010/AdminLTE) 2.3.x|
+|Built on [Laravel](http://laravel.com/) 5.1|
+|Admin is built on [AdminLTE](https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html) 2.3|
 |Uses [MySQL](https://github.com/mysql) Database|
-|Assets are manages with Composer, Bower, and Gulp|
+|Uses [Artisan](http://laravel.com/docs/5.1/artisan) to manage database migration, schema creations, and create/publish page controller templates|
+|Dependencies are managed with [COMPOSER](https://getcomposer.org/)|
+|Assets are managed with [BOWER](http://bower.io/)|
+|Assets are organized and processed with [GULPJS](http://gulpjs.com/)|
+|Laravel Scaffolding **User** and **Administrator Authentication**.|
+|User Registration|
+|User Login|
+|User Dashboard|
+|User Profile|
+|User Forgot Password|
+|User email address based Gravatar|
+|404 Page for public|
+|404 Page for users|
+
+### Quick Project Setup
+1. Run `sudo git clone https://github.com/jeremykenedy/laravel-admin.git laravel-admin`
+2. Run `sudo composer update` from the projects root folder
+3. Run `bower update` from the projects root folder
+4. Run `sudo gulp copyfiles` from the projects root folder
+5. Run `sudo gulp` from the projects root folder
+  * NOTE: In production run `sudo gulp --production`
+6. Create a MySQL database for the project
+    * ```mysql -u root -p```, if using Vagrant: ```mysql -u homestead -psecret```
+    * ```create database laralogin;```
+    * ```\q```
+7. From the projects root run `cp .env.example .env`
+8. Configure your `.env` file
+9. From the projects root folder run `php artisan migrate`
+10. From the projects root run `sudo chmod -R 777 ../laravel-admin`
+11. Go to your browser and refresh the projects page.
+12. From the projects root run `sudo chmod -R 755 ../laravel-admin`~~
+
+### Laravel-Admin URL's (routes)
+* ```/auth/login```
+* ```/auth/logout```
+* ```/auth/register```
+* ```/user```
+* ```/user/{user id}```
+* ```/auth/admin```
+* ```/auth/superadmin```
+
+### Laravel-Admin Alias Redirect URL's (routes)
+* ```/admin```
+* ```/home```
+* ```/login```
+* ```/logout```
 
 ## [Laravel](http://laravel.com/) PHP Framework
 
@@ -51,59 +93,182 @@ Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and
 [![Build Status](https://img.shields.io/travis/twbs/bootstrap/master.svg)](https://travis-ci.org/twbs/bootstrap)
 [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
-### Quick Project Setup
-1. Run `sudo git clone https://github.com/jeremykenedy/laravel-admin.git laravel-admin`
-2. Run `sudo composer update` from the projects root folder
-3. Run `bower update` from the projects root folder
-4. Run `sudo gulp copyfiles` from the projects root folder
-5. Run `sudo gulp` from the projects root folder
-  * NOTE: In production run `sudo gulp --production`
-6. From the projects root run `cp .env.example .env`
-7. Configure your `.env` file
+Example `.env` file:
+```
+APP_ENV=local
+APP_DEBUG=true
+APP_KEY=SomeRandomString
 
-.working here.
+DB_HOST=localhost
+DB_DATABASE=laralogin
+DB_USERNAME=homestead
+DB_PASSWORD=secret
 
-~~8. From the projects root run `php artisan migrate`
-9. From the projects root run `sudo chmod -R 777 ../laravel-admin`
-10. Go to your browser and refresh the projects page.
-11. From the projects root run `sudo chmod -R 755 ../laravel-admin`~~
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_DRIVER=sync
 
-### Commonly Used Folders and Files Structure
+MAIL_DRIVER=smtp
+MAIL_HOST=mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+```
+
+### File Structure
 ```
 laravel-admin/
-   ├── app/
-   │   ├── Http/
-   │   │   └── routes.php
-   ├── config/
-   │   ├── app.php
-   │   ├── database.php
-   │   └── view.php
+    ├── .bowerrc
+    ├── .env
+    ├── bower.json
+    ├── composer.json
+    ├── gulpfile.js
+    ├── LICENSE
+    ├── package.json
+    ├── phpspec.yml
+    ├── phpunit.xml
+    ├── README.md
+    ├── server.php
+    ├── app/
+    │    ├── user.php
+    │    └── Http/
+    │       ├── kernal.php
+    │       ├── routes.php
+    │       ├── Controllers/
+    │       │   ├── Auth/
+    │       │   │   ├── AuthController.php
+    │       │   │   └── PasswordController.php
+    │       │   ├── adminController.php
+    │       │   ├── Controller.php
+    │       │   ├── HomeController.php
+    │       │   └── WelcomeController.php
+    │       ├── Middleware/
+    │       │   ├── Admin.php
+    │       │   ├── Authenticate.php
+    │       │   ├── EncryptCookies.php
+    │       │   ├── RedirectAuthenticated.php
+    │       │   ├── SuperAdmin.php
+    │       │   └── VerifyCsrfToken.php
+    │       └── Requests/
+    │           └── Request.php
+    ├── config/
+    │   ├── app.php
+    │   ├── auth.php
+    │   ├── cache.php
+    │   ├── compile.php
+    │   ├── filesystems.php
+    │   ├── mail.php
+    │   ├── queue.php
+    │   ├── services.php
+    │   ├── session.php
+    │   └── view.php
+    ├── database/
+    │   ├── migrations/
+    │   │   ├── 2014_10_12_000000_create_users_table.php
+    │   │   ├── 2014_10_12_100000_create_password_resets_table.php
+    │   │   ├── 2015_10_06_064037_add_admin_to_users_table.php
+    │   │   └── 2015_10_06_064046_add_superadmin_to_users_table.php
+    │   └── seeds/
+    │       └── DatabaseSeeder.php
+    ├── public/
+    │   ├── .htaccess
+    │   ├── index.php
+    │   └── assets/
+    │       ├── css/
+    │       │   ├── admin/
+    │       │   │   ├── admin.css
+    │       │   │   ├── login.css
+    │       │   │   └── components/
+    │       │   │       ├── admin-core.css
+    │       │   │       ├── admin-font-icons.css
+    │       │   │       ├── admin-plugins.css
+    │       │   │       ├── admin-skins.css
+    │       │   │       └── login-plugins.css
+    │       │   ├── fonts/
+    │       │   └── vendor/
+    │       │       └── bootstrap.css
+    │       ├── fonts
+    │       └── js
+    │           ├── login.js
+    │           └── admin/
+    │               ├── admin-plugins.js
+    │               └── admin.js
+    └── resources/
+        ├── assets/
+        ├── lang/
+        └── views/
+            ├── welcome.blade.php
+            ├── admin/
+            │   ├── errors/
+            │   │   └── users404.blade.php
+            │   ├── forms/
+            │   ├── layouts/
+            │   │   ├── dashboard.blade.php
+            │   │   └── user-progile.blade.php
+            │   ├── modules/
+            │   │   ├── blank.blade.php
+            │   │   ├── breadcrumbs.blade.php
+            │   │   ├── calendar-tasks.blade.php
+            │   │   ├── chat-boxes.blade.php
+            │   │   ├── control-sidebar.blade.php
+            │   │   ├── quick-email-widget.blade.php
+            │   │   ├── sales-graph.blade.php
+            │   │   ├── stat-boxes.blade.php
+            │   │   ├── tabbed-charts.blade.php
+            │   │   ├── todo-list.blade.php
+            │   │   └── visitors.blade.php
+            │   ├── partials/
+            │   │   ├── footer.blade.php
+            │   │   ├── header.php.php
+            │   │   ├── main-sidebar.blade.php
+            │   │   └── nav.blade.php
+            │   └── structure/
+            │       ├── head.blade.php
+            │       ├── jscripts.blade.php
+            │       └── master.blade.php
+            ├── auth/
+            │   ├── login.blade.php
+            │   └── register.blade.php
+            ├── emails/
+            │   ├── contact.blade.php
+            │   └── password.blade.php
+            ├── errors/
+            │   ├── 404.blade.php
+            │   └── 503.blade.php
+            └── vendor/
 
-.working here.
-
-   ├──
-   │   ├──
-   │   │	├──
-   │   │   │   ├──
-   │   │   │   │   ├──
-   │   │   │   │   │   ├──
-   │   │   │   │   │   │   ├──
-   │   │   │   │   │   │   │   └──
-   │   │   │   │   │   │   └──
-   │   │   │   │   │   └──
-   │   │   │   │   └──
-   │   │   │   └──
-   │   │   └──
-   │   └──
-   ├── .env
-   ├── bower.json
-   ├── composer.json
-   ├── gulpfile.js
-   ├── phpunit.xml
-   └── server.php
 ```
 
-## Developement Reference
+---
+
+## Development Environement References and help
+
+#### VAGRANT Dev Environment References
+
+###### VAGRANT Virtual Machine Details
+|Item        |Value:
+|:------------- |:-------------|
+|Hostname|homestead|
+|IP Address|192.168.10.10|
+|Username|vagrant|
+|SU Password|vagrant|
+|Database Host|127.0.0.1|
+|Database Port|33060|
+|Database Username|homestead|
+|Database Password|secret|
+###### Start VAGRANT
+|Command        |Action
+|:------------- |:-------------|
+| `vagrant up` | Start Vagrant VM |
+| `vagrant up --provision` | Start Vagrant VM if vagrantfile updated |
+| `vagrant halt` | Stop Vagrant VM |
+
+###### Access VAGRANT SSH and MySQL
+|Command        |Action      |
+|------------- |:------------- |:-------------|
+| ```sudo ssh vagrant@127.0.0.1 -p 222``` | Access Vagrant VM via SSH. Password is ``` vagrant  ``` |
+| ```mysql -u homestead -psecret``` | Access Vagrant VM MySQL. Password is ``` vagrant  ``` |
 
 For reference AdminLTE can be installed into projects using Bower.
 If you do not have Bower, it can be installed using Node Package Manager (NPM).
@@ -159,64 +324,7 @@ Note: Run from projects public folder
 sudo git clone https://github.com/jeremykenedy/AdminLTE.git admin
 ```
 
-## Development Environement Reference
-
-
-### Admin CSS Style Options
-
-#### BODY TAG OPTIONS ####
-
-Apply one or more of the following classes to get the
-desired effect
-
-| SKINS         ||
-|:------------|:------------|
-| skin-blue               | skin-yellow           |
-| skin-blue-light         | skin-yellow-light     |
-| skin-black              | skin-red              |
-| skin-black-light        | skin-red-light        |
-| skin-purple             | skin-green            |
-| skin-purple-light       | skin-green-light      |
-
-
-
-|LAYOUT OPTIONS   ||
-|:------------|:------------|
-| fixed                | sidebar-collapse   |
-| layout-boxed         | sidebar-mini       |
-| layout-top-nav       ||
-
-
-
-### Vagrant Dev Environment
-
-## Vagrant Virtual Machine Details
-|Item        |Value:
-|:------------- |:-------------|
-|Hostname|homestead|
-|IP Address|192.168.10.10|
-|Username|vagrant|
-|SU Password|vagrant|
-|Database Host|127.0.0.1|
-|Database Port|33060|
-|Database Username|homestead|
-|Database Password|secret|
-
-
-## Start Vagrant
-|Command        |Action
-|:------------- |:-------------|
-| `vagrant up` | Start Vagrant VM |
-| `vagrant up --provision` | Start Vagrant VM if vagrantfile updated |
-| `vagrant halt` | Stop Vagrant VM |
-
-## Access Vagrant SSH and MySQL
-|:Command        |Action      |
-|------------- |:------------- |:-------------|
-| ```sudo ssh vagrant@127.0.0.1 -p 222``` | Access Vagrant VM via SSH. Password is ``` vagrant  ``` |
-| ```mysql -u homestead -ppassword``` | Access Vagrant VM MySQL. Password is ``` vagrant  ``` |
-
-## Very Helpful Aliases
+#### Very Helpful Aliases
 You can edit/or create your systems (MAC OS X) alias file with the follwing command:
 ```
 sudo vim ~/.bash_profile
@@ -227,9 +335,9 @@ To update TERMINAL CLI to be able to use the the added aliases run the following
 . ~/.bash_profile
 ```
 
-### *You can choose all or some of the following aliases to add to your `.bash_profile`:*
+##### *You can choose all or some of the following aliases to add to your `.bash_profile`:*
 
-### Vagrant/Homestead Aliases
+###### Vagrant/Homestead Aliases
 ```
 alias machost='sudo vim /etc/hosts'
 alias edithost='sudo vim /etc/hosts'
@@ -315,8 +423,8 @@ function larakill {
 }
 ```
 
-### General Very Helpful Aliases
-#### Cleanup
+##### General Very Helpful Aliases
+###### Cleanup
 A nice alias to **list all** the MAC and OSX filesystem booger:
 ```
 alias cleanprint='
@@ -366,7 +474,7 @@ find . -name "._.*" -delete;
 find . -name "._*" -delete ;
 '
 ```
-#### Show MAC OS X files
+###### Show MAC OS X files
 Alias to **show all hidden files** on MAC OS X filesystem:
 ```
 alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
@@ -379,8 +487,8 @@ alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall F
 
 
 
-### GIT CLI Quick alias functions
-#### Quick GIT PUSH
+##### GIT CLI Quick alias functions
+###### Quick GIT PUSH
 ```
 function quickpush {
 	_currentBranch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
@@ -390,7 +498,7 @@ function quickpush {
 }
 ```
 
-#### Another flavor of Quick GIT PUSH
+###### Another flavor of Quick GIT PUSH
 ```
 function push {
 	_currentBranch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
@@ -400,7 +508,7 @@ function push {
 }
 ```
 
-#### Quick GIT PULL
+###### Quick GIT PULL
 ```
 function quickpull {
 	_currentBranch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
@@ -408,7 +516,7 @@ function quickpull {
 }
 ```
 
-#### Another flavor of Quick GIT PULL
+###### Another flavor of Quick GIT PULL
 ```
 function pull {
 	_currentBranch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
@@ -416,7 +524,7 @@ function pull {
 }
 ```
 
-### My keyboard hates me GIT helper aliases:
+##### My keyboard hates me GIT helper aliases:
 ```
 alias gut='git'
 alias got='git'
@@ -427,19 +535,19 @@ alias comit='commit'
 alias commot='commit'
 ```
 
-### Typing `clear` takes too many keystrokes alias helper:
+##### Typing `clear` takes too many keystrokes alias helper:
 ```
 alias cl='clear'
 ```
 
-### Helpful quick filesystem `ls` alias helpers:
+###### Helpful quick filesystem `ls` alias helpers:
 ```
 alias la='ls -la'
 alias ll='ls -la'
 ```
 
-### **Alias** and **`.bash_profile management`** aliases:
-#### **Show** Aliases helpers:
+##### **Alias** and **`.bash_profile management`** aliases:
+###### **Show** Aliases helpers:
 ```
 alias listalias='cat ~/.bash_profile'
 alias aliaslist='cat ~/.bash_profile'
@@ -448,7 +556,7 @@ alias text='cat ~/.bash_profile'
 alias aliasshow='cat ~/.bash_profile'
 ```
 
-#### **Edit** Aliases helpers:
+###### **Edit** Aliases helpers:
 ```
 alias aliasedit='sudo vim ~/.bash_profile'
 alias editalias='sudo vim ~/.bash_profile'
@@ -463,22 +571,22 @@ alias alsr='. ~/.bash_profile'
 alias aliasrestart='. ~/.bash_profile'
 ```
 
-## Things not working (Troubleshooting)?
+#### Things not working (Troubleshooting)?
 
-### Issue: Cannot access project through web browser after running vagrant up / homestead up
+##### Issue: Cannot access project through web browser after running vagrant up / homestead up
 
-#### Error Message from Browser:
+###### Error Message from Browser:
 ```
 This webpage is not available
 ERR_NAME_NOT_RESOLVED
 ```
 
-#### 1. Check Vagrant/Homestead configuration
-##### a. Open configuration with the following command:
+##### 1. Check Vagrant/Homestead configuration
+###### a. Open configuration with the following command:
 
 vim ~/.homestead/Homestead.yaml or laraedit
 
-##### b. Check to make sure your folders are mapped (See example A1.):
+###### b. Check to make sure your folders are mapped (See example A1.):
 Note:
 map: Is the path to the your files on your local machine
 to: Is the virtual file path to your projects that vagrant will create
@@ -524,6 +632,13 @@ Note: Replace examples URI used in Vargrant/Homestead configuration file and use
 255.255.255.255  broadcasthost
 192.168.10.10    laravel-admin.local
 ```
+
+---
+
+## Enjoy
+
+###### ~ **Jeremy**
+
 
 
 

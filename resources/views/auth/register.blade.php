@@ -21,44 +21,14 @@
                 <a href="/">Lara<b>Admin</b>LTE</a>
             </div>
             <div class="login-box-body">
-                <p class="login-box-msg">
+                <h4 class="login-box-msg">
                     Register a new account
-                </p>
-                <form method="POST" action="/auth/register">
-                    {!! csrf_field() !!}
-                    <div class="form-group has-feedback">
-                        <input type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="Full name" required="required">
-                        <span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
-                    </div>
-                    <div class="form-group has-feedback">
-                        <input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Email" required="required">
-                        <span class="glyphicon glyphicon-envelope form-control-feedback" aria-hidden="true"></span>
-                    </div>
-                    <div class="form-group has-feedback">
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="required">
-                        <span class="glyphicon glyphicon-lock form-control-feedback" aria-hidden="true"></span>
-                    </div>
-                    <div class="form-group has-feedback">
-                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Retype password" required="required">
-                        <span class="glyphicon glyphicon-lock form-control-feedback" aria-hidden="true"></span>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <div class="checkbox icheck">
-                                <label for="agree">
-                                    <input type="checkbox" id="agree" name="agree" required="required">&nbsp;&nbsp; I agree to the <a href="#">terms</a>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-xs-6">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat">
-                                <i class="fa fa-user-plus" aria-hidden="true"></i>
-                                &nbsp;Register
-                            </button>
-                        </div>
-                    </div>
-                </form>
+                </h4>
+
+                @include('admin.forms.register')
+
                 <hr class="login-full-span">
+
                 <div class="row btn-block">
                   <div class="col-xs-12">
                     <a href="/login">

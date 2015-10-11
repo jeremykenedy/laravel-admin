@@ -64,15 +64,6 @@
           User Updated Date: {{$userupdated}} <br />
           The current UNIX timestamp is {{ time() }} <br />
 
-
-
-
-
-
-
-
-
-
 <div class="box box-primary">
   <div class="panel-heading">Total Registered Users: {{$total_users}}</div>
     <div class="table-responsive">

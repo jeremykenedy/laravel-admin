@@ -493,7 +493,7 @@ alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall F
 ###### Quick GIT PUSH
 ```
 function quickpush {
-	_currentBranch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+    _currentBranch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
     sudo git add -A
     sudo git commit -m "quick push"
     sudo git push $_currentBranch
@@ -503,7 +503,7 @@ function quickpush {
 ###### Another flavor of Quick GIT PUSH
 ```
 function push {
-	_currentBranch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+    _currentBranch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
     sudo git add -A
     sudo git commit -m "quick push"
     sudo git push $_currentBranch
@@ -513,7 +513,7 @@ function push {
 ###### Quick GIT PULL
 ```
 function quickpull {
-	_currentBranch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+    _currentBranch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
     sudo git pull $_currentBranch
 }
 ```
@@ -521,7 +521,7 @@ function quickpull {
 ###### Another flavor of Quick GIT PULL
 ```
 function pull {
-	_currentBranch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+    _currentBranch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
     sudo git pull $_currentBranch
 }
 ```

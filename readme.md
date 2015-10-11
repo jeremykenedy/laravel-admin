@@ -41,7 +41,7 @@ A [Laravel](http://laravel.com/) 5.1.x, [Bootstrap](http://getbootstrap.com) 3.5
 9. From the projects root folder run `php artisan migrate`
 10. From the projects root run `sudo chmod -R 777 ../laravel-admin`
 11. Go to your browser and refresh the projects page.
-12. From the projects root run `sudo chmod -R 755 ../laravel-admin`~~
+12. From the projects root run `sudo chmod -R 755 ../laravel-admin`
 
 ### Laravel-Admin URL's (routes)
 * ```/auth/login```
@@ -54,9 +54,11 @@ A [Laravel](http://laravel.com/) 5.1.x, [Bootstrap](http://getbootstrap.com) 3.5
 
 ### Laravel-Admin Alias Redirect URL's (routes)
 * ```/admin```
+* ```/superadmin```
 * ```/home```
 * ```/login```
 * ```/logout```
+* ```/register```
 
 ## [Laravel](http://laravel.com/) PHP Framework
 
@@ -638,15 +640,3 @@ Note: Replace examples URI used in Vargrant/Homestead configuration file and use
 ## Enjoy
 
 ###### ~ **Jeremy**
-
-
-
-
-
-
-
-
-
-
-
-

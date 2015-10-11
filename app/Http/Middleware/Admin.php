@@ -41,7 +41,7 @@ class Admin
                 return redirect()->guest('auth/login');
             }
         } else {
-            if ($this->auth->user()->admin) {
+            if ($this->auth->user()->user_level >= 2) {
                 return $next($request);
             } else {
                 return redirect()->guest('home');

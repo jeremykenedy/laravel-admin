@@ -8,12 +8,13 @@ use App\Http\Controllers\Controller;
 
 class adminController extends Controller
 {
+
 	/**
-	* Show the Page
+	* Show the ADMIN DASHBOARD Page
 	*
 	* @return View
 	*/
-	public function showView()
+	public function showAdminDashboard()
 	{
 		return view('admin.layouts.dashboard');
 	}

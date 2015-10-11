@@ -1,3 +1,18 @@
+<?php
+
+  $user = Auth::user();
+  $userid = $user->id;
+  $username = $user->name;
+  $useremail = $user->email;
+  $userlevel = $user->user_level;
+  $usercreated = $user->created_at;
+  $userupdated = $user->updated_at;
+
+  $total_users = DB::table('users')->count();
+  $users = DB::table('users')->get();
+
+?>
+
 @extends('admin.structure.master')
 
 @section('style-sheets')
@@ -25,18 +40,59 @@
 		</ol>
     </section>
         <section class="content">
-
-<?php
-
-	    echo 'Hi '. Auth::user()->email .',<br />';
-		echo 'User ID: '		. Auth::user()->id.	'<br />';
-		echo 'User Email: '		. Auth::user()->email.	'<br />';
-		echo 'User Name: '		. Auth::user()->name.	'<br />';
-		echo 'Is Admin: '		. Auth::user()->admin.	'<br />';
-		echo 'Is SuperAdmin: '	. Auth::user()->superadmin.	'<br />';
-		echo '<a href="/auth/logout">Logout</a>';
-
-?>
+          User Gravatar: {!! HTML::image(Gravatar::get($useremail), $username, array('class' => '', 'draggable' => 'false')) !!} <br />
+          User Name: {{$username}} <br />
+          User Email: {{$useremail}} <br />
+          User ID: {{$userid}} <br />
+          User Level:
+              @if ($userlevel == 1)
+                  User
+              @elseif ($userlevel == 2)
+                  Admin
+              @elseif ($userlevel == 3)
+                  Super Admin
+              @else
+                  NOT ACTIVE
+              @endif
+              ({{$userlevel}}) <br />
+          User Created Date: {{$usercreated}} <br />
+          User Updated Date: {{$userupdated}} <br />
+          The current UNIX timestamp is {{ time() }} <br />
+          Total Users: {{$total_users}} <br />
+          <table>
+            <strong>Users</strong>:
+            <tr>
+              <th>Gravatar</th>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Level</th>
+              <th>Created</th>
+              <th>Updated</th>
+            </tr>
+            @foreach ($users as $user)
+              <tr>
+                <td>{!! HTML::image(Gravatar::get($user->email), $user->name, array('class' => 'profile-user-img img-responsive img-circle', 'draggable' => 'false')) !!}</td>
+                <td>{{$user->id}} </td>
+                <td>{{$user->name}} </td>
+                <td>{{$user->email}} </td>
+                <td>
+                  @if ($user->user_level == 1)
+                      User
+                  @elseif ($user->user_level == 2)
+                      Admin
+                  @elseif ($user->user_level == 3)
+                      Super Admin
+                  @else
+                      NOT ACTIVE
+                  @endif
+                  ({{$user->user_level}})
+                 </td>
+                <td>{{$user->created_at}} </td>
+                <td>{{$user->updated_at}} </td>
+              </tr>
+            @endforeach
+          </table>
 
           <div class="row">
             <div class="col-md-3">
@@ -44,7 +100,7 @@
               <!-- Profile Image -->
               <div class="box box-primary">
                 <div class="box-body box-profile">
-                  {!! HTML::image(Gravatar::get(Auth::user()->email), Auth::user()->name, array('class' => 'profile-user-img img-responsive img-circle', 'draggable' => 'false')) !!}
+                  {!! HTML::image(Gravatar::get($useremail), $username, array('class' => 'profile-user-img img-responsive img-circle', 'draggable' => 'false')) !!}
                   <h3 class="profile-username text-center"><?php echo Auth::user()->name ?></h3>
                   <p class="text-muted text-center">Software Engineer</p>
 
@@ -110,7 +166,7 @@
                     <!-- Post -->
                     <div class="post">
                       <div class="user-block">
-                        <img class="img-circle img-bordered-sm" src="http://placekitten.com/g/128/128" alt="user image">
+                        {{ HTML::image('http://placekitten.com/g/128/128', 'user image', array('class' => 'img-circle img-bordered-sm')) }}
                         <span class='username'>
                           <a href="#">Jonathan Burke Jr.</a>
                           <a href='#' class='pull-right btn-box-tool'><i class='fa fa-times'></i></a>

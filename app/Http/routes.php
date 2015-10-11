@@ -11,8 +11,6 @@
 |
 */
 
-$router->get('admin', 'adminController@showView');
-
 // HOMEPAGE ROUTE
 Route::get('/', function () {
     return view('welcome');
@@ -49,56 +47,46 @@ Route::get('/reset', function () {
     return view('auth.password');
 });
 
-
-// USER PAGES ROUTES
+// USER PAGES ROUTING
 $router->group([
-  'namespace' => 'Users',
   'middleware' => 'auth',
 ], function () {
-
-	Route::get('home', function () {
-	    return view('admin.layouts.dashboard');
-	});
-
-	Route::get('user', function () {
-		return view('admin.layouts.user-profile');
-	});
-
-	Route::get('user/{id}', function ($id) {
-		$user = App\User::find($id);
-		echo 'User ID: '	. $id.			'<br />';
-		echo 'User Email: '	. $user->email.	'<br />';
-		echo 'User Name: '	. $user->name.	'<br />';
-		echo '<a href="/auth/logout">Logout</a>';
-	});
-
-	Route::get('user/{id}', function ($id) {
-		$user = App\User::find($id);
-		echo 'User ID: '	. $id.			'<br />';
-		echo 'User Email: '	. $user->email.	'<br />';
-		echo 'User Name: '	. $user->name.	'<br />';
-		echo '<a href="/auth/logout">Logout</a>';
-	});
-
+	Route::get('home', 'UsersController@showUserDashboard');
+	Route::get('user', 'UsersController@showUserProfile');
 });
 
-// ADMIN PAGES ROUTES
+// ADMIN PAGES ROUTING
 $router->group([
-  'namespace' => 'Admin',
   'middleware' => 'admin',
 ], function () {
-	Route::get('admin', function () {
-	    echo 'Welcome to your admin page '. Auth::user()->email .'.';
-	});
+	Route::get('admin', 'AdminController@showAdminDashboard');
 });
 
-// SUPER ADMIN ADMIN PAGES ROUTES
+////// WORKING HERE - NEED TO PUT IN CONTROLLER - WAITING UNTIL ACTUALL WORK ON THOSE PAGES.
+// SUPER ADMIN ADMIN PAGES ROUTING
 $router->group([
-  'namespace' => 'SuperAdmin',
   'middleware' => 'superadmin',
 ], function () {
+
 	Route::get('superadmin', function () {
 	    echo 'Welcome to your superadmin page '. Auth::user()->email .'.';
+
+	});
+
+	Route::get('user/{id}', function ($id) {
+		$user = App\User::find($id);
+		echo 'User ID: '	. $id.			'<br />';
+		echo 'User Email: '	. $user->email.	'<br />';
+		echo 'User Name: '	. $user->name.	'<br />';
+		echo '<a href="/auth/logout">Logout</a>';
+	});
+
+	Route::get('user/{id}', function ($id) {
+		$user = App\User::find($id);
+		echo 'User ID: '	. $id.			'<br />';
+		echo 'User Email: '	. $user->email.	'<br />';
+		echo 'User Name: '	. $user->name.	'<br />';
+		echo '<a href="/auth/logout">Logout</a>';
 	});
 
 });

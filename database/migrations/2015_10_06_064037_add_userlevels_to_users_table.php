@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddAdminToUsersTable extends Migration
+class AddUserlevelsToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddAdminToUsersTable extends Migration
     {
         // ADD INITIAL ADMIN COLUMN TO USERS TABLE
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('admin')->default(0)->nullable();
+            $table->tinyInteger('user_level')->default(1)->nullable();
         });
     }
 
@@ -28,7 +28,7 @@ class AddAdminToUsersTable extends Migration
         // REMOVE ADMIN COLUMN FROM USERS TABLE
         Schema::table('users', function(Blueprint $table)
         {
-            $table->dropColumn('admin');
+            $table->dropColumn('user_level');
         });
     }
 }

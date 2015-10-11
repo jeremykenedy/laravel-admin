@@ -41,8 +41,8 @@ class SuperAdmin
                 return redirect()->guest('auth/login');
             }
         } else {
-            if ($this->auth->user()->admin) {
-                if ($this->auth->user()->superadmin) {
+            if ($this->auth->user()->user_level >= 2) {
+                if ($this->auth->user()->user_level >= 3) {
                     return $next($request);
                 } else {
                     return redirect()->guest('admin');

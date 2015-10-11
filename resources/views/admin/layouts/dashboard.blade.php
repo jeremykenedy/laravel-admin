@@ -1,3 +1,9 @@
+<?php
+  $user = Auth::user();
+  $username = $user->name;
+  $userlevel = $user->user_level;
+?>
+
 @extends('admin.structure.master')
 
 @section('style-sheets')
@@ -17,8 +23,19 @@
   <div class="content-wrapper">
     <section class="content-header">
       <h1>
-        Dashboard
-          <small>Control panel</small>
+        {{ $username }}'s Dashboard
+          <small>
+            @if ($userlevel == 1)
+                User
+            @elseif ($userlevel == 2)
+                Admin
+            @elseif ($userlevel == 3)
+                Super Admin
+            @else
+                NOT ACTIVE
+            @endif
+            Control panel
+          </small>
       </h1>
       @include('admin.modules.breadcrumbs')
     </section>

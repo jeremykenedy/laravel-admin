@@ -59,6 +59,7 @@ A [Laravel](http://laravel.com/) 5.1.x, [Bootstrap](http://getbootstrap.com) 3.5
 * ```/login```
 * ```/logout```
 * ```/register```
+* ```/reset```
 
 ## [Laravel](http://laravel.com/) PHP Framework
 

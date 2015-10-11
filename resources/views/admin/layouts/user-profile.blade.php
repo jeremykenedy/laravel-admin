@@ -58,41 +58,54 @@
           User Created Date: {{$usercreated}} <br />
           User Updated Date: {{$userupdated}} <br />
           The current UNIX timestamp is {{ time() }} <br />
-          Total Users: {{$total_users}} <br />
-          <table>
-            <strong>Users</strong>:
-            <tr>
-              <th>Gravatar</th>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Level</th>
-              <th>Created</th>
-              <th>Updated</th>
-            </tr>
-            @foreach ($users as $user)
-              <tr>
-                <td>{!! HTML::image(Gravatar::get($user->email), $user->name, array('class' => 'profile-user-img img-responsive img-circle', 'draggable' => 'false')) !!}</td>
-                <td>{{$user->id}} </td>
-                <td>{{$user->name}} </td>
-                <td>{{$user->email}} </td>
-                <td>
-                  @if ($user->user_level == 1)
-                      User
-                  @elseif ($user->user_level == 2)
-                      Admin
-                  @elseif ($user->user_level == 3)
-                      Super Admin
-                  @else
-                      NOT ACTIVE
-                  @endif
-                  ({{$user->user_level}})
-                 </td>
-                <td>{{$user->created_at}} </td>
-                <td>{{$user->updated_at}} </td>
-              </tr>
-            @endforeach
-          </table>
+
+
+
+
+
+
+
+<div class="box box-primary">
+  <div class="panel-heading">Total Registered Users: {{$total_users}}</div>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover table-condensed">
+        <tr class="success">
+          <th>Gravatar</th>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Level</th>
+          <th>Created</th>
+          <th>Updated</th>
+        </tr>
+        @foreach ($users as $user)
+          <tr>
+            <td>{!! HTML::image(Gravatar::get($user->email), $user->name, array('class' => 'profile-user-img img-responsive img-circle', 'draggable' => 'false')) !!}</td>
+            <td>{{$user->id}} </td>
+            <td>{{$user->name}} </td>
+            <td>{{$user->email}} </td>
+            <td>
+              @if ($user->user_level == 1)
+                  User
+              @elseif ($user->user_level == 2)
+                  Admin
+              @elseif ($user->user_level == 3)
+                  Super Admin
+              @else
+                  NOT ACTIVE
+              @endif
+              ({{$user->user_level}})
+             </td>
+            <td>{{$user->created_at}} </td>
+            <td>{{$user->updated_at}} </td>
+          </tr>
+        @endforeach
+      </table>
+    </div>
+</div>
+
+
+
 
           <div class="row">
             <div class="col-md-3">

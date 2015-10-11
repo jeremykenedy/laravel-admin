@@ -1,4 +1,4 @@
-<?php
+{!!
 
   $user = Auth::user();
   $userid = $user->id;
@@ -11,7 +11,7 @@
   $total_users = DB::table('users')->count();
   $users = DB::table('users')->get();
 
-?>
+!!}
 
 @extends('admin.structure.master')
 
@@ -40,7 +40,12 @@
 		</ol>
     </section>
         <section class="content">
-          User Gravatar: {!! HTML::image(Gravatar::get($useremail), $username, array('class' => '', 'draggable' => 'false')) !!} <br />
+          User Gravatar: {!! HTML::image(Gravatar::get($useremail, 'extra-small'), $username, array('class' => '', 'draggable' => 'false')) !!}
+          {!! HTML::image(Gravatar::get($useremail, 'small'), $username, array('class' => '', 'draggable' => 'false')) !!}
+          {!! HTML::image(Gravatar::get($useremail, 'small-medium'), $username, array('class' => '', 'draggable' => 'false')) !!}
+          {!! HTML::image(Gravatar::get($useremail, 'medium'), $username, array('class' => '', 'draggable' => 'false')) !!}
+          {!! HTML::image(Gravatar::get($useremail, 'large'), $username, array('class' => '', 'draggable' => 'false')) !!}
+          {!! HTML::image(Gravatar::get($useremail, 'extra-large'), $username, array('class' => '', 'draggable' => 'false')) !!} <br />
           User Name: {{$username}} <br />
           User Email: {{$useremail}} <br />
           User ID: {{$userid}} <br />
@@ -58,6 +63,9 @@
           User Created Date: {{$usercreated}} <br />
           User Updated Date: {{$userupdated}} <br />
           The current UNIX timestamp is {{ time() }} <br />
+
+
+
 
 
 

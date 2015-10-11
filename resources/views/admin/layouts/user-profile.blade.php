@@ -39,6 +39,10 @@
 			<li class="active">User profile</li>
 		</ol>
     </section>
+
+
+
+
         <section class="content">
           User Gravatar: {!! HTML::image(Gravatar::get($useremail, 'extra-small'), $username, array('class' => '', 'draggable' => 'false')) !!}
           {!! HTML::image(Gravatar::get($useremail, 'small'), $username, array('class' => '', 'draggable' => 'false')) !!}

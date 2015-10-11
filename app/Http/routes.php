@@ -91,6 +91,17 @@ $router->group([
 
 });
 
+// TEST OF IMAGE ROUTING WITH BACKEND FILTER
+// Route::get('/image', function()
+// {
+//     $img = Image::make('http://www.entheosweb.com/fireworks/images/tracing/img18.jpg');
+//     $img->resize(300, 200);
+//     $img->pixelate(10);
+//     $img->colorize(0, 30, 0);
+//     $img->opacity(.9);
+//     return $img->response('jpg');
+// });
+
 // CATCH ALL ERROR HANDLING FOR NOW
 Route::any('/{page?}',function(){
 	if (Auth::check()) {
@@ -99,3 +110,4 @@ Route::any('/{page?}',function(){
 		return View('errors.404');
 	}
 })->where('page','.*');
+

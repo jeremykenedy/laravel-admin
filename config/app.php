@@ -148,6 +148,7 @@ return [
         Creativeorange\Gravatar\GravatarServiceProvider::class,         // https://github.com/creativeorange/gravatar
         Bootstrapper\BootstrapperL5ServiceProvider::class,              // https://github.com/patricktalmadge/bootstrapper/
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,    // https://github.com/cviebrock/eloquent-sluggable
+        Intervention\Image\ImageServiceProvider::class,                 // http://image.intervention.io/getting_started/installation#laravel
     ],
 
 
@@ -238,6 +239,9 @@ return [
         'Tabbable'      => Bootstrapper\Facades\Tabbable::class,
         'Table'         => Bootstrapper\Facades\Table::class,
         'Thumbnail'     => Bootstrapper\Facades\Thumbnail::class,
+
+        // ADD BACKEND IMAGE PROCESSING SUPPORT - http://image.intervention.io/getting_started/installation#laravel
+        'Image'         => Intervention\Image\Facades\Image::class,
     ],
 
 ];

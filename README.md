@@ -56,6 +56,7 @@ A [Laravel](http://laravel.com/) 5.1.x, [Bootstrap](http://getbootstrap.com) 3.5
 * ```/admin```
 * ```/superadmin```
 * ```/home```
+* ```/dashboard```
 * ```/login```
 * ```/logout```
 * ```/register```
@@ -242,6 +243,29 @@ laravel-admin/
             └── vendor/
 
 ```
+
+#### Laravel Developement Packages Used References
+
+###### FORM and HTML classes for Laravel 5.1
+* [Documentation and Usage](https://github.com/illuminate/html)
+
+###### Bootstrapper for Laravel 5.1
+* [Documentation and Usage](http://bootstrapper.eu1.frbit.net/)
+* [Repository](https://github.com/patricktalmadge/bootstrapper/)
+
+###### Gravatar for Laravel 5.1
+* [Documentation, Repository, and Usage](https://github.com/creativeorange/gravatar)
+
+###### Image Processing for Laravel 5.1
+* [Documentation and Usage](http://image.intervention.io/getting_started/installation#laravel)
+* [Repository](https://github.com/Intervention/image)
+
+###### Breadcrumbs for Laravel 5.1
+* [Documentation and Usage](http://laravel-breadcrumbs.davejamesmiller.com/en/latest/index.html)
+* [Repository](https://github.com/davejamesmiller/laravel-breadcrumbs)
+
+###### Eloquent-Sluggable for Laravel 5.1
+* [Documentation, Repository, and Usage](https://github.com/cviebrock/eloquent-sluggable)
 
 ---
 

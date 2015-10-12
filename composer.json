@@ -19,7 +19,8 @@
         "creativeorange/gravatar": "~1.0",
         "patricktalmadge/bootstrapper": "~5",
         "cviebrock/eloquent-sluggable": "^3.0",
-        "intervention/image": "^2.3"
+        "intervention/image": "^2.3",
+        "davejamesmiller/laravel-breadcrumbs": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -49,17 +49,20 @@ Route::get('/reset', function () {
 
 // USER PAGES ROUTING
 $router->group([
-  'middleware' => 'auth',
+  	'middleware' => 'auth',
 ], function () {
-	Route::get('home', 'UsersController@showUserDashboard');
-	Route::get('user', 'UsersController@showUserProfile');
+	Route::get('user', ['as' => 'user', 'uses' => 'UsersController@showUserProfile']);
 });
+
+// ADMIN PAGES ALIASES
+Route::get('admin', function () {return redirect('dashboard');});
+Route::get('home', function () {return redirect('dashboard');});
 
 // ADMIN PAGES ROUTING
 $router->group([
   'middleware' => 'admin',
 ], function () {
-	Route::get('admin', 'AdminController@showAdminDashboard');
+	Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'AdminController@showAdminDashboard']);
 });
 
 ////// WORKING HERE - NEED TO PUT IN CONTROLLER - WAITING UNTIL ACTUALL WORK ON THOSE PAGES.
@@ -73,21 +76,13 @@ $router->group([
 
 	});
 
-	Route::get('user/{id}', function ($id) {
+	Route::get('user/{id}', ['as' => 'user/{id}', function ($id) {
 		$user = App\User::find($id);
 		echo 'User ID: '	. $id.			'<br />';
 		echo 'User Email: '	. $user->email.	'<br />';
 		echo 'User Name: '	. $user->name.	'<br />';
 		echo '<a href="/auth/logout">Logout</a>';
-	});
-
-	Route::get('user/{id}', function ($id) {
-		$user = App\User::find($id);
-		echo 'User ID: '	. $id.			'<br />';
-		echo 'User Email: '	. $user->email.	'<br />';
-		echo 'User Name: '	. $user->name.	'<br />';
-		echo '<a href="/auth/logout">Logout</a>';
-	});
+	}]);
 
 });
 

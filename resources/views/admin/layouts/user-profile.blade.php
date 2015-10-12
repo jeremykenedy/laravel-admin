@@ -31,18 +31,11 @@
 
   <div class="content-wrapper">
     <section class="content-header">
-		<h1>
-			<?php echo Auth::user()->name;?>'s Profile
-		</h1>
-		<ol class="breadcrumb">
-			<li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class="active">User profile</li>
-		</ol>
+  		<h1>
+  			<?php echo Auth::user()->name;?>'s Profile
+  		</h1>
+      {!! Breadcrumbs::render() !!}
     </section>
-
-
-
-
         <section class="content">
           User Gravatar: {!! HTML::image(Gravatar::get($useremail, 'extra-small'), $username, array('class' => '', 'draggable' => 'false')) !!}
           {!! HTML::image(Gravatar::get($useremail, 'small'), $username, array('class' => '', 'draggable' => 'false')) !!}

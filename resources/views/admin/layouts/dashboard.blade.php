@@ -37,7 +37,7 @@
             Control panel
           </small>
       </h1>
-      @include('admin.modules.breadcrumbs')
+      {!! Breadcrumbs::render() !!}
     </section>
     <section class="content">
       @include('admin.modules.blank')

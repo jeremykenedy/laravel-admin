@@ -135,8 +135,9 @@ laravel-admin/
     ├── README.md
     ├── server.php
     ├── app/
-    │    ├── user.php
+    │    ├── User.php
     │    └── Http/
+    │       ├── breadcrumbs.php
     │       ├── kernal.php
     │       ├── routes.php
     │       ├── Controllers/
@@ -145,7 +146,7 @@ laravel-admin/
     │       │   │   └── PasswordController.php
     │       │   ├── adminController.php
     │       │   ├── Controller.php
-    │       │   ├── HomeController.php
+    │       │   ├── UsersController.php
     │       │   └── WelcomeController.php
     │       ├── Middleware/
     │       │   ├── Admin.php
@@ -159,20 +160,26 @@ laravel-admin/
     ├── config/
     │   ├── app.php
     │   ├── auth.php
+    │   ├── bootstrapper.php
+    │   ├── breadcrumbs.php
+    │   ├── broadcasting.php
     │   ├── cache.php
     │   ├── compile.php
+    │   ├── database.php
     │   ├── filesystems.php
+    │   ├── gravatar.php
+    │   ├── image.php
     │   ├── mail.php
     │   ├── queue.php
     │   ├── services.php
     │   ├── session.php
+    │   ├── sluggable.php
     │   └── view.php
     ├── database/
     │   ├── migrations/
     │   │   ├── 2014_10_12_000000_create_users_table.php
     │   │   ├── 2014_10_12_100000_create_password_resets_table.php
-    │   │   ├── 2015_10_06_064037_add_admin_to_users_table.php
-    │   │   └── 2015_10_06_064046_add_superadmin_to_users_table.php
+    │   │   └── 2015_10_06_064037_add_userlevels_to_users_table.php
     │   └── seeds/
     │       └── DatabaseSeeder.php
     ├── public/
@@ -207,12 +214,14 @@ laravel-admin/
             │   ├── errors/
             │   │   └── users404.blade.php
             │   ├── forms/
+            │   │   ├── login.blade.php
+            │   │   ├── register.blade.php
+            │   │   └── reset-pw.blade.php
             │   ├── layouts/
             │   │   ├── dashboard.blade.php
             │   │   └── user-progile.blade.php
             │   ├── modules/
             │   │   ├── blank.blade.php
-            │   │   ├── breadcrumbs.blade.php
             │   │   ├── calendar-tasks.blade.php
             │   │   ├── chat-boxes.blade.php
             │   │   ├── control-sidebar.blade.php
@@ -223,6 +232,7 @@ laravel-admin/
             │   │   ├── todo-list.blade.php
             │   │   └── visitors.blade.php
             │   ├── partials/
+            │   │   ├── breadcrumbs.blade.php
             │   │   ├── footer.blade.php
             │   │   ├── header.php.php
             │   │   ├── main-sidebar.blade.php
@@ -233,7 +243,9 @@ laravel-admin/
             │       └── master.blade.php
             ├── auth/
             │   ├── login.blade.php
-            │   └── register.blade.php
+            │   ├── password.blade.php
+            │   ├── register.blade.php
+            │   └── reset.blade.php
             ├── emails/
             │   ├── contact.blade.php
             │   └── password.blade.php

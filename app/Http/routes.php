@@ -52,11 +52,13 @@ $router->group([
   	'middleware' => 'auth',
 ], function () {
 	Route::get('user', ['as' => 'user', 'uses' => 'UsersController@showUserProfile']);
+	Route::get('home', ['as' => 'dashboard', 'uses' => 'AdminController@showAdminDashboard']);
 });
 
 // ADMIN PAGES ALIASES
-Route::get('admin', function () {return redirect('dashboard');});
-Route::get('home', function () {return redirect('dashboard');});
+Route::get('admin', function () {return redirect('home');});
+//Route::get('home', function () {return redirect('dashboard');});
+
 
 // ADMIN PAGES ROUTING
 $router->group([

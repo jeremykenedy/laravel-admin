@@ -1,4 +1,4 @@
-{!! Form::open(array('url' => '/auth/registe', 'method' => 'POST')) !!}
+{!! Form::open(array('url' => '/auth/register', 'method' => 'POST')) !!}
     {!! csrf_field() !!}
     @if (count($errors) > 0)
         <ul>

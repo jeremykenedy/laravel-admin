@@ -26,22 +26,24 @@ A [Laravel](http://laravel.com/) 5.1.x, [Bootstrap](http://getbootstrap.com) 3.5
 |404 Page for users|
 
 ### Quick Project Setup
-1. Run `sudo git clone https://github.com/jeremykenedy/laravel-admin.git laravel-admin`
-2. Run `sudo composer update` from the projects root folder
-3. Run `bower update` from the projects root folder
-4. Run `sudo gulp copyfiles` from the projects root folder
-5. Run `sudo gulp` from the projects root folder
-  * NOTE: In production run `sudo gulp --production`
-6. Create a MySQL database for the project
+1. Run `git clone https://github.com/jeremykenedy/laravel-admin.git laravel-admin`
+2. Run `composer update` from the projects root folder
+3. Run `npm install` from the projects root folder
+4. Run `bower update` from the projects root folder
+5. Run `gulp copyfiles` from the projects root folder
+6. Run `gulp` from the projects root folder
+  * NOTE: In production run `gulp --production`
+7. Create a MySQL database for the project
     * ```mysql -u root -p```, if using Vagrant: ```mysql -u homestead -psecret```
-    * ```create database laralogin;```
+    * ```create database laravelAdmin;```
     * ```\q```
-7. From the projects root run `cp .env.example .env`
-8. Configure your `.env` file
-9. From the projects root folder run `php artisan migrate`
-10. From the projects root run `sudo chmod -R 777 ../laravel-admin`
-11. Go to your browser and refresh the projects page.
-12. From the projects root run `sudo chmod -R 755 ../laravel-admin`
+8. From the projects root run `cp .env.example .env`
+9. Configure your `.env` file
+10. From the projects root folder run `php artisan key:generate`
+11. From the projects root folder run `php artisan migrate`
+12. From the projects root run `sudo chmod -R 777 ../laravel-admin`
+13. Go to your browser and refresh the projects page.
+14. From the projects root run `sudo chmod -R 755 ../laravel-admin`
 
 ### Laravel-Admin URL's (routes)
 * ```/auth/login```
@@ -104,7 +106,7 @@ APP_DEBUG=true
 APP_KEY=SomeRandomString
 
 DB_HOST=localhost
-DB_DATABASE=laralogin
+DB_DATABASE=laravelAdmin
 DB_USERNAME=homestead
 DB_PASSWORD=secret
 

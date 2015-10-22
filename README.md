@@ -39,10 +39,11 @@ A [Laravel](http://laravel.com/) 5.1.x, [Bootstrap](http://getbootstrap.com) 3.5
     * ```\q```
 8. From the projects root run `cp .env.example .env`
 9. Configure your `.env` file
-10. From the projects root folder run `php artisan migrate`
-11. From the projects root run `sudo chmod -R 777 ../laravel-admin`
-12. Go to your browser and refresh the projects page.
-13. From the projects root run `sudo chmod -R 755 ../laravel-admin`
+10. From the projects root folder run `php artisan key:generate`
+11. From the projects root folder run `php artisan migrate`
+12. From the projects root run `sudo chmod -R 777 ../laravel-admin`
+13. Go to your browser and refresh the projects page.
+14. From the projects root run `sudo chmod -R 755 ../laravel-admin`
 
 ### Laravel-Admin URL's (routes)
 * ```/auth/login```

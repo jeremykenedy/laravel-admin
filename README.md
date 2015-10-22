@@ -35,7 +35,7 @@ A [Laravel](http://laravel.com/) 5.1.x, [Bootstrap](http://getbootstrap.com) 3.5
   * NOTE: In production run `gulp --production`
 7. Create a MySQL database for the project
     * ```mysql -u root -p```, if using Vagrant: ```mysql -u homestead -psecret```
-    * ```create database laraveAdmin;```
+    * ```create database laravelAdmin;```
     * ```\q```
 8. From the projects root run `cp .env.example .env`
 9. Configure your `.env` file
@@ -105,7 +105,7 @@ APP_DEBUG=true
 APP_KEY=SomeRandomString
 
 DB_HOST=localhost
-DB_DATABASE=laralogin
+DB_DATABASE=laravelAdmin
 DB_USERNAME=homestead
 DB_PASSWORD=secret
 

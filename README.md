@@ -39,11 +39,25 @@ A [Laravel](http://laravel.com/) 5.1.x, [Bootstrap](http://getbootstrap.com) 3.5
     * ```\q```
 8. From the projects root run `cp .env.example .env`
 9. Configure your `.env` file
-10. From the projects root folder run `php artisan key:generate`
-11. From the projects root folder run `php artisan migrate`
-12. From the projects root run `sudo chmod -R 777 ../laravel-admin`
-13. Go to your browser and refresh the projects page.
-14. From the projects root run `sudo chmod -R 755 ../laravel-admin`
+10. From the projects root run `sudo chmod -R 755 ../laravel-admin`
+11. From the projects root folder run `php artisan key:generate`
+12. From the projects root folder run `php artisan migrate`
+13. From the projects root folder run `composer dump-autoload`
+14. From the projects root folder run `php artisan db:seed`
+
+###### Seeds
+1. Seeded Roles
+   * user
+   * editor
+   * administrator
+2. Seeded Example **User**
+   * **Username**: user
+   * **Email**: jeremy@jeremykenedy.com
+   * **Password**: password
+3. Seeded Example **Admin**
+   * **Username**: admin
+   * **Email**: jeremykenedy@gmail.com
+   * **Password**: password
 
 ### Laravel-Admin URL's (routes)
 * ```/auth/login```

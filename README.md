@@ -31,19 +31,20 @@ A [Laravel](http://laravel.com/) 5.1.x, [Bootstrap](http://getbootstrap.com) 3.5
     * ```mysql -u root -p```, if using Vagrant: ```mysql -u homestead -psecret```
     * ```create database laravelAdmin;```
     * ```\q```
-3. From the projects root run `cp .env.example .env`
+3. From the projects root run `sudo cp .env.example .env`
 4. Configure your `.env` file
-5. Run `sudo composer update` from the projects root folder
-6. Run `npm install` from the projects root folder
-7. Run `bower update` from the projects root folder
-8. Run `gulp copyfiles` from the projects root folder
-9. Run `gulp` from the projects root folder
+5. From the projects root folder run `sudo chmod -R 777 ../laravel-admin`
+6. Run `sudo composer update` from the projects root folder
+7. Run `sudo npm install` from the projects root folder
+8. Run `bower update` from the projects root folder
+9. Run `gulp copyfiles` from the projects root folder
+10. Run `gulp` from the projects root folder
   * NOTE: In production run `gulp --production`
-10. From the projects root folder run `sudo chmod -R 755 ../laravel-admin`
-11. From the projects root folder run `php artisan key:generate`
-12. From the projects root folder run `php artisan migrate`
-13. From the projects root folder run `composer dump-autoload`
-14. From the projects root folder run `php artisan db:seed`
+11. From the projects root folder run `sudo chmod -R 755 ../laravel-admin`
+12. From the projects root folder run `php artisan key:generate`
+13. From the projects root folder run `php artisan migrate`
+14. From the projects root folder run `composer dump-autoload`
+15. From the projects root folder run `php artisan db:seed`
 
 ###### Seeds
 1. Seeded Roles

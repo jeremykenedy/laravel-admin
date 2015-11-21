@@ -27,19 +27,19 @@ A [Laravel](http://laravel.com/) 5.1.x, [Bootstrap](http://getbootstrap.com) 3.5
 
 ### Quick Project Setup
 1. Run `git clone https://github.com/jeremykenedy/laravel-admin.git laravel-admin`
-2. Run `composer update` from the projects root folder
-3. Run `npm install` from the projects root folder
-4. Run `bower update` from the projects root folder
-5. Run `gulp copyfiles` from the projects root folder
-6. Run `gulp` from the projects root folder
-  * NOTE: In production run `gulp --production`
-7. Create a MySQL database for the project
+2. Create a MySQL database for the project
     * ```mysql -u root -p```, if using Vagrant: ```mysql -u homestead -psecret```
     * ```create database laravelAdmin;```
     * ```\q```
-8. From the projects root run `cp .env.example .env`
-9. Configure your `.env` file
-10. From the projects root run `sudo chmod -R 755 ../laravel-admin`
+3. From the projects root run `cp .env.example .env`
+4. Configure your `.env` file
+5. Run `sudo composer update` from the projects root folder
+6. Run `npm install` from the projects root folder
+7. Run `bower update` from the projects root folder
+8. Run `gulp copyfiles` from the projects root folder
+9. Run `gulp` from the projects root folder
+  * NOTE: In production run `gulp --production`
+10. From the projects root folder run `sudo chmod -R 755 ../laravel-admin`
 11. From the projects root folder run `php artisan key:generate`
 12. From the projects root folder run `php artisan migrate`
 13. From the projects root folder run `composer dump-autoload`
@@ -50,14 +50,6 @@ A [Laravel](http://laravel.com/) 5.1.x, [Bootstrap](http://getbootstrap.com) 3.5
    * user
    * editor
    * administrator
-2. Seeded Example **User**
-   * **Username**: user
-   * **Email**: jeremy@jeremykenedy.com
-   * **Password**: password
-3. Seeded Example **Admin**
-   * **Username**: admin
-   * **Email**: jeremykenedy@gmail.com
-   * **Password**: password
 
 ### Laravel-Admin URL's (routes)
 * ```/auth/login```

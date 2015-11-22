@@ -46,7 +46,7 @@
 	                    <a class="button border fast" href="/">HOME</a>
 	                </div>
 	                <div class="left size-6">
-	                    <a class="button border fast" href="/admin/">ADMIN</a>
+	                    <a class="button border fast" href="/login/">LOGIN</a>
 	                </div>
 	                <div class="clear"></div>
 	            </div>

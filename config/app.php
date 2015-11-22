@@ -2,117 +2,117 @@
 
 return [
 
-    /*
-    |--------------------------------------------------------------------------
-    | Application Debug Mode
-    |--------------------------------------------------------------------------
-    |
-    | When your application is in debug mode, detailed error messages with
-    | stack traces will be shown on every error that occurs within your
-    | application. If disabled, a simple generic error page is shown.
-    |
-    */
+	/*
+	|--------------------------------------------------------------------------
+	| Application Debug Mode
+	|--------------------------------------------------------------------------
+	|
+	| When your application is in debug mode, detailed error messages with
+	| stack traces will be shown on every error that occurs within your
+	| application. If disabled, a simple generic error page is shown.
+	|
+	*/
 
-    'debug' => env('APP_DEBUG', false),
+	'debug' => env('APP_DEBUG'),
 
-    /*
-    |--------------------------------------------------------------------------
-    | Application URL
-    |--------------------------------------------------------------------------
-    |
-    | This URL is used by the console to properly generate URLs when using
-    | the Artisan command line tool. You should set this to the root of
-    | your application so that it is used when running Artisan tasks.
-    |
-    */
+	/*
+	|--------------------------------------------------------------------------
+	| Application URL
+	|--------------------------------------------------------------------------
+	|
+	| This URL is used by the console to properly generate URLs when using
+	| the Artisan command line tool. You should set this to the root of
+	| your application so that it is used when running Artisan tasks.
+	|
+	*/
 
-    'url' => 'http://localhost',
+	'url' => 'http://localhost',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Application Timezone
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify the default timezone for your application, which
-    | will be used by the PHP date and date-time functions. We have gone
-    | ahead and set this to a sensible default for you out of the box.
-    |
-    */
+	/*
+	|--------------------------------------------------------------------------
+	| Application Timezone
+	|--------------------------------------------------------------------------
+	|
+	| Here you may specify the default timezone for your application, which
+	| will be used by the PHP date and date-time functions. We have gone
+	| ahead and set this to a sensible default for you out of the box.
+	|
+	*/
 
-    'timezone' => 'UTC',
+	'timezone' => 'UTC',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Application Locale Configuration
-    |--------------------------------------------------------------------------
-    |
-    | The application locale determines the default locale that will be used
-    | by the translation service provider. You are free to set this value
-    | to any of the locales which will be supported by the application.
-    |
-    */
+	/*
+	|--------------------------------------------------------------------------
+	| Application Locale Configuration
+	|--------------------------------------------------------------------------
+	|
+	| The application locale determines the default locale that will be used
+	| by the translation service provider. You are free to set this value
+	| to any of the locales which will be supported by the application.
+	|
+	*/
 
-    'locale' => 'en',
+	'locale' => 'en',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Application Fallback Locale
-    |--------------------------------------------------------------------------
-    |
-    | The fallback locale determines the locale to use when the current one
-    | is not available. You may change the value to correspond to any of
-    | the language folders that are provided through your application.
-    |
-    */
+	/*
+	|--------------------------------------------------------------------------
+	| Application Fallback Locale
+	|--------------------------------------------------------------------------
+	|
+	| The fallback locale determines the locale to use when the current one
+	| is not available. You may change the value to correspond to any of
+	| the language folders that are provided through your application.
+	|
+	*/
 
-    'fallback_locale' => 'en',
+	'fallback_locale' => 'en',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Encryption Key
-    |--------------------------------------------------------------------------
-    |
-    | This key is used by the Illuminate encrypter service and should be set
-    | to a random, 32 character string, otherwise these encrypted strings
-    | will not be safe. Please do this before deploying an application!
-    |
-    */
+	/*
+	|--------------------------------------------------------------------------
+	| Encryption Key
+	|--------------------------------------------------------------------------
+	|
+	| This key is used by the Illuminate encrypter service and should be set
+	| to a random, 32 character string, otherwise these encrypted strings
+	| will not be safe. Please do this before deploying an application!
+	|
+	*/
 
-    'key' => env('APP_KEY', 'SomeRandomString'),
+	'key' => env('APP_KEY', 'SomeRandomString'),
 
-    'cipher' => 'AES-256-CBC',
+	'cipher' => 'AES-256-CBC',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Logging Configuration
-    |--------------------------------------------------------------------------
-    |
-    | Here you may configure the log settings for your application. Out of
-    | the box, Laravel uses the Monolog PHP logging library. This gives
-    | you a variety of powerful log handlers / formatters to utilize.
-    |
-    | Available Settings: "single", "daily", "syslog", "errorlog"
-    |
-    */
+	/*
+	|--------------------------------------------------------------------------
+	| Logging Configuration
+	|--------------------------------------------------------------------------
+	|
+	| Here you may configure the log settings for your application. Out of
+	| the box, Laravel uses the Monolog PHP logging library. This gives
+	| you a variety of powerful log handlers / formatters to utilize.
+	|
+	| Available Settings: "single", "daily", "syslog", "errorlog"
+	|
+	*/
 
-    'log' => 'single',
+	'log' => 'single',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Autoloaded Service Providers
-    |--------------------------------------------------------------------------
-    |
-    | The service providers listed here will be automatically loaded on the
-    | request to your application. Feel free to add your own services to
-    | this array to grant expanded functionality to your applications.
-    |
-    */
+	/*
+	|--------------------------------------------------------------------------
+	| Autoloaded Service Providers
+	|--------------------------------------------------------------------------
+	|
+	| The service providers listed here will be automatically loaded on the
+	| request to your application. Feel free to add your own services to
+	| this array to grant expanded functionality to your applications.
+	|
+	*/
 
-    'providers' => [
+	'providers' => [
 
-        /*
-         * Laravel Framework Service Providers...
-         */
+		/*
+		 * Laravel Framework Service Providers...
+		 */
         Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
@@ -137,36 +137,36 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
-        /*
-         * Application Service Providers...
-         */
+		/*
+		 * Application Service Providers...
+		 */
         App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
+		App\Providers\BusServiceProvider::class,
+		App\Providers\ConfigServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Illuminate\Html\HtmlServiceProvider::class,                     // https://github.com/illuminate/html
+        Illuminate\Html\HtmlServiceProvider::class,						// https://github.com/illuminate/html
+        Laravel\Socialite\SocialiteServiceProvider::class,
+        SocialiteProviders\Manager\ServiceProvider::class,
         Creativeorange\Gravatar\GravatarServiceProvider::class,         // https://github.com/creativeorange/gravatar
         Bootstrapper\BootstrapperL5ServiceProvider::class,              // https://github.com/patricktalmadge/bootstrapper/
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,    // https://github.com/cviebrock/eloquent-sluggable
         Intervention\Image\ImageServiceProvider::class,                 // http://image.intervention.io/getting_started/installation#laravel
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,             // http://laravel-breadcrumbs.davejamesmiller.com/en/latest/start.html
-    ],
+	],
 
+	/*
+	|--------------------------------------------------------------------------
+	| Class Aliases
+	|--------------------------------------------------------------------------
+	|
+	| This array of class aliases will be registered when this application
+	| is started. However, feel free to register as many as you wish as
+	| the aliases are "lazy" loaded so they don't hinder performance.
+	|
+	*/
 
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | Class Aliases
-    |--------------------------------------------------------------------------
-    |
-    | This array of class aliases will be registered when this application
-    | is started. However, feel free to register as many as you wish as
-    | the aliases are "lazy" loaded so they don't hinder performance.
-    |
-    */
-
-    'aliases' => [
+	'aliases' => [
 
         'App'           => Illuminate\Support\Facades\App::class,
         'Artisan'       => Illuminate\Support\Facades\Artisan::class,
@@ -210,6 +210,9 @@ return [
         'Html'          => Illuminate\Html\HtmlFacade::class,
         'Form'          => Illuminate\Html\FormFacade::class,
 
+        // ADD SOCIALITE
+        'Socialite' 	=> Laravel\Socialite\Facades\Socialite::class,
+
         // ADD GRAVATAR CLASSES - https://github.com/creativeorange/gravatar
         'Gravatar'      => Creativeorange\Gravatar\Facades\Gravatar::class,
 
@@ -246,6 +249,7 @@ return [
 
         // ADD FUNCTIONAL BREADCRUMBS - http://laravel-breadcrumbs.davejamesmiller.com/en/latest/start.html
         'Breadcrumbs'   => DaveJamesMiller\Breadcrumbs\Facade::class,
-    ],
+
+	],
 
 ];

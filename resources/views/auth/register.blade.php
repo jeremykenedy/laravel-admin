@@ -1,65 +1,113 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        {{-- Load Head --}}
-        @include('admin.structure.head')
-        {!!HTML::style('/assets/css/admin/login.css') !!}
-        <style type="text/css">
-          .login-full-span {
-            margin-left:-20px;
-            margin-right:-20px;
-          }
-        </style>
-    </head>
-    <body class="hold-transition login-page">
+@extends('app')
 
-        {{-- Load Google Analytics --}}
-        {{-- @include('blog.partials.analytics') --}}
+@section('template_title')
+	Register
+@endsection
 
-        <div class="login-box">
-            <div class="login-logo">
-                <a href="/">Lara<b>Admin</b>LTE</a>
-            </div>
-            <div class="login-box-body">
-                <h4 class="login-box-msg">
-                    Register a new account
-                </h4>
+@section('content')
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="panel panel-default">
+					<div class="panel-heading">{{ Lang::get('titles.register') }}</div>
+					<div class="panel-body">
 
-                @include('admin.forms.register')
+						@if (count($errors) > 0)
+							<div class="row">
+								<div class="form-group">
+									<div class="col-sm-10 col-sm-offset-1">
+										<div class="alert alert-danger">
+											<strong>{{ Lang::get('auth.whoops') }}</strong> {{ Lang::get('auth.someProblems') }}<br /><br />
+											<ul>
+												@foreach ($errors->all() as $error)
+													<li>{{ $error }}</li>
+												@endforeach
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						@endif
 
-                <hr class="login-full-span">
+						{!! Form::open(array('url' => url('/auth/register'), 'method' => 'POST', 'class' => 'form-horizontal', 'role' => 'form')) !!}
+							{!! csrf_field() !!}
 
-                <div class="row btn-block">
-                  <div class="col-xs-12">
-                    <a href="/login">
-                      <i class="fa fa-user" aria-hidden="true"></i>
-                      &nbsp;&nbsp;&nbsp;Sign In
-                    </a>
-                  </div>
-                </div>
-                <div class="row btn-block">
-                  <div class="col-xs-12">
-                    <a href="/reset">
-                      <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-                      &nbsp;&nbsp;&nbsp;&nbsp;I forgot my password
-                    </a>
-                  </div>
-                </div>
+							<div class="form-group has-feedback">
+								{!! Form::label('name', Lang::get('auth.name') , array('class' => 'col-sm-4 control-label')); !!}
+								<div class="col-sm-6">
+									{!! Form::text('name', old('name'), array('id' => 'name', 'class' => 'form-control', 'placeholder' => Lang::get('auth.ph_name'), 'required' => 'required')) !!}
+									<span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
+								</div>
+							</div>
 
-            </div>
-        </div>
+							<div class="form-group has-feedback">
+								{!! Form::label('first_name', Lang::get('auth.first_name') , array('class' => 'col-sm-4 control-label')); !!}
+								<div class="col-sm-6">
+									{!! Form::text('first_name', old('first_name'), array('id' => 'first_name', 'class' => 'form-control', 'placeholder' => Lang::get('auth.ph_firstname'), 'required' => 'required')) !!}
+									<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
+								</div>
+							</div>
 
-        {{-- Load Template Scripts --}}
-        {!! HTML::script('/assets/js/login.js', array('type' => 'text/javascript')) !!}
+							<div class="form-group has-feedback">
+								{!! Form::label('last_name', Lang::get('auth.last_name') , array('class' => 'col-sm-4 control-label')); !!}
+								<div class="col-sm-6">
+									{!! Form::text('last_name', old('last_name'), array('id' => 'last_name', 'class' => 'form-control', 'placeholder' => Lang::get('auth.ph_lastname'), 'required' => 'required')) !!}
+									<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
+								</div>
+							</div>
 
-        <script type="text/javascript">
-            $(function () {
-                $('input').iCheck({
-                    checkboxClass: 'icheckbox_square-blue',
-                    radioClass: 'iradio_square-blue',
-                    increaseArea: '20%' // optional
-                });
-            });
+							<div class="form-group has-feedback">
+								{!! Form::label('email', Lang::get('auth.email') , array('class' => 'col-sm-4 control-label')); !!}
+								<div class="col-sm-6">
+									{!! Form::email('email', old('email'), array('id' => 'email', 'class' => 'form-control', 'placeholder' => Lang::get('auth.ph_email'), 'required' => 'required')) !!}
+									<span class="glyphicon glyphicon-envelope form-control-feedback" aria-hidden="true"></span>
+								</div>
+							</div>
+
+							<div class="form-group has-feedback">
+								{!! Form::label('password', Lang::get('auth.password') , array('class' => 'col-sm-4 control-label')); !!}
+								<div class="col-sm-6">
+									{!! Form::password('password', array('id' => 'password', 'class' => 'form-control', 'placeholder' => Lang::get('auth.ph_password'), 'required' => 'required',)) !!}
+									<span class="glyphicon glyphicon-lock form-control-feedback" aria-hidden="true"></span>
+								</div>
+							</div>
+
+							<div class="form-group has-feedback">
+								{!! Form::label('password_confirmation', Lang::get('auth.confirmPassword') , array('class' => 'col-sm-4 control-label')); !!}
+								<div class="col-sm-6">
+									{!! Form::password('password_confirmation', array('id' => 'password_confirmation', 'class' => 'form-control', 'placeholder' => Lang::get('auth.ph_password_conf'), 'required' => 'required',)) !!}
+									<span class="glyphicon glyphicon-lock form-control-feedback" aria-hidden="true"></span>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-sm-6 col-sm-offset-4 ">
+									<div class="g-recaptcha" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-sm-6 col-sm-offset-4">
+									{!! Form::button(Lang::get('auth.register'), array('class' => 'btn btn-primary','type' => 'submit')) !!}
+								</div>
+							</div>
+
+						{!! Form::close() !!}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+@endsection
+
+@section('template_scripts')
+
+	{!! HTML::script('https://www.google.com/recaptcha/api.js', array('type' => 'text/javascript')) !!}
+    <script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function(event) {
+		  	matching_password_check();
+		});
+        function matching_password_check() {
             var password = document.getElementById("password");
             var confirm_password = document.getElementById("password_confirmation");
             function validatePassword(){
@@ -71,6 +119,7 @@
             }
             password.onchange = validatePassword;
             confirm_password.onkeyup = validatePassword;
-        </script>
-    </body>
-</html>
+        }
+    </script>
+
+@endsection

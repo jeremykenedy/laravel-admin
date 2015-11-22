@@ -9,21 +9,27 @@
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the controller to call when that URI is requested.
 |
+| http://laravel.com/docs/5.1/authentication
+| http://laravel.com/docs/5.1/authorization
+| http://laravel.com/docs/5.1/routing
+| http://laravel.com/docs/5.0/schema
+| http://socialiteproviders.github.io/
+|
 */
 
-// HOMEPAGE ROUTE
-Route::get('/', function () {
-    return view('welcome');
-});
+// ALL AUTHENTICATION ROUTES - HANDLED IN THE CONTROLLERS
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
 
-// AUTHENTICATION ROUTES
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+// REGISTRATION EMAIL CONFIRMATION ROUTES
+Route::get('/resendEmail', 'Auth\AuthController@resendEmail');
+Route::get('/activate/{code}', 'Auth\AuthController@activateAccount');
 
-// AUTHENTICATION REGISTRATION ROUTES
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
+// LARAVEL SOCIALITE AUTHENTICATION ROUTES
+Route::get('/social/redirect/{provider}',   ['as' => 'social.redirect',   'uses' => 'Auth\AuthController@getSocialRedirect']);
+Route::get('/social/handle/{provider}',     ['as' => 'social.handle',     'uses' => 'Auth\AuthController@getSocialHandle']);
 
 // AUTHENTICATION ALIASES/REDIRECTS
 Route::get('login', function () {
@@ -35,76 +41,92 @@ Route::get('logout', function () {
 Route::get('register', function () {
     return redirect('auth/register');
 });
-
-// PASSWORD RESET LINK REQUEST ROUTES
-Route::get('password/email', 'Auth\PasswordController@getEmail');
-Route::post('password/email', 'Auth\PasswordController@postEmail');
-
-// Password reset routes...
-Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
-Route::post('password/reset', 'Auth\PasswordController@postReset');
-Route::get('/reset', function () {
-    return view('auth.password');
+Route::get('reset', function () {
+    return redirect('password/email');
 });
 
-// USER PAGES ROUTING
-$router->group([
-  	'middleware' => 'auth',
-], function () {
-	Route::get('user', ['as' => 'user', 'uses' => 'UsersController@showUserProfile']);
-	Route::get('home', ['as' => 'dashboard', 'uses' => 'AdminController@showAdminDashboard']);
-});
+// USER PAGE ROUTES - RUNNING THROUGH AUTH MIDDLEWARE
+Route::group(['middleware' => 'auth'], function () {
 
-// ADMIN PAGES ALIASES
-Route::get('admin', function () {return redirect('home');});
-//Route::get('home', function () {return redirect('dashboard');});
-
-
-// ADMIN PAGES ROUTING
-$router->group([
-  'middleware' => 'admin',
-], function () {
-	Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'AdminController@showAdminDashboard']);
-});
-
-////// WORKING HERE - NEED TO PUT IN CONTROLLER - WAITING UNTIL ACTUALL WORK ON THOSE PAGES.
-// SUPER ADMIN ADMIN PAGES ROUTING
-$router->group([
-  'middleware' => 'superadmin',
-], function () {
-
-	Route::get('superadmin', function () {
-	    echo 'Welcome to your superadmin page '. Auth::user()->email .'.';
-
-	});
-
-	Route::get('user/{id}', ['as' => 'user/{id}', function ($id) {
-		$user = App\User::find($id);
-		echo 'User ID: '	. $id.			'<br />';
-		echo 'User Email: '	. $user->email.	'<br />';
-		echo 'User Name: '	. $user->name.	'<br />';
-		echo '<a href="/auth/logout">Logout</a>';
-	}]);
+	// HOMEPAGE ROUTE
+	Route::get('/', [
+	    'as' 			=> 'user',
+	    'uses' 			=> 'UserController@index'
+	]);
 
 });
 
-// TEST OF IMAGE ROUTING WITH BACKEND FILTER
-// Route::get('/image', function()
-// {
-//     $img = Image::make('http://www.entheosweb.com/fireworks/images/tracing/img18.jpg');
-//     $img->resize(300, 200);
-//     $img->pixelate(10);
-//     $img->colorize(0, 30, 0);
-//     $img->opacity(.9);
-//     return $img->response('jpg');
+// PAGE ROUTE ALIASES
+Route::get('home', function () {
+    return redirect('/');
+});
+Route::get('app', function () {
+    return redirect('/');
+});
+
+// // USER PROFILE ROUTES
+// Route::resource('profile', 'ProfilesController', [
+//     'as'        => 'user',
+//     'only'      => ['show', 'edit', 'update']
+// ]);
+
+// Route::get('/profile/edit', [
+//     'as'            => 'profile.edit',
+//     'uses'          => 'UserController@edit'
+// ]);
+
+// Route::get('/profile/update', [
+//     'as'            => 'profile.update',
+//     'uses'          => 'UserController@update'
+// ]);
+
+# Profile
+Route::group(['middleware' => 'currentUser'], function () {
+	Route::resource('profile', 'ProfilesController', ['only' => ['show', 'edit', 'update']]);
+});
+Route::get('/{username}', ['as' => '{username}', 'uses' => 'ProfilesController@show']);
+
+
+//Route::get('/{profile}', 'ProfilesController@show');
+//Route::get('/{username}', ['as' => 'profile', 'uses' => 'ProfilesController@show']);
+// Route::get('profile/{profile}', [
+//     'as'            => 'profile',
+//     'uses'          => 'ProfilesController@show'
+// ]);
+
+
+
+
+
+
+
+
+
+
+
+//***************************************************************************************//
+//***************************** USER ROUTING EXAMPLES BELOW *****************************//
+//***************************************************************************************//
+
+// //** OPTION - ALL FOLLOWING ROUTES RUN THROUGH AUTHETICATION VIA MIDDLEWARE **//
+// Route::group(['middleware' => 'auth'], function () {
+
+// 	// OPTION - GO DIRECTLY TO TEMPLATE
+// 	Route::get('/', function () {
+// 	    return view('pages.home');
+// 	});
+
+// 	// OPTION - USE CONTROLLER
+// 	Route::get('/', [
+// 	    'as' 			=> 'user',
+// 	    'uses' 			=> 'UsersController@index'
+// 	]);
+
 // });
 
-// CATCH ALL ERROR HANDLING FOR NOW
-Route::any('/{page?}',function(){
-	if (Auth::check()) {
-	    return view('admin.errors.users404');
-	} else {
-		return View('errors.404');
-	}
-})->where('page','.*');
-
+// //** OPTION - SINGLE ROUTE USING A CONTROLLER AND AUTHENTICATION VIA MIDDLEWARE **//
+// Route::get('/', [
+//     'middleware' 	=> 'auth',
+//     'as' 			=> 'user',
+//     'uses' 			=> 'UsersController@index'
+// ]);

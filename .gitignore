@@ -17,6 +17,10 @@ Thumbs.db
 ### SUBLIMETEXT BOOGERS ###
 *.sublime-workspace
 
+### PHPSTORM BOOGERS ###
+.idea/*
+/.idea/*
+
 ### DIFFERENT TYPE OF MASTER CONFIGS ###
 .env
 .env-dev

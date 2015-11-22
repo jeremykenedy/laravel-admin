@@ -33,7 +33,12 @@ class EventServiceProvider extends ServiceProvider {
 	{
 		parent::boot($events);
 
-		//
+	    // Fired on logouts...
+	    $events->listen('auth.logout', function ($user) {
+	        return redirect('login');
+	    });
+
+
 	}
 
 }

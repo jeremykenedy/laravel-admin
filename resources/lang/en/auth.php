@@ -50,6 +50,7 @@ return [
 	'sendResetLink'		=> 'Send Password Reset Link',
 	'resetPassword'		=> 'Reset Password',
 	'loggedIn'			=> 'You are logged in!',
+	'loggedOut'			=> 'Successfully Logged Out',
 
 	// EMAIL LINKS
 	'pleaseActivate'	=> 'Please activate your account.',

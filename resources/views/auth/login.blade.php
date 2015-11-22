@@ -12,21 +12,7 @@
 				<div class="panel-heading">{{ Lang::get('titles.login') }}</div>
 				<div class="panel-body">
 
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-							<div class="form-group">
-								<strong>{{ Lang::get('auth.whoops') }}</strong> {{ Lang::get('auth.someProblems') }}<br /><br />
-								<ul>
-									@foreach ($errors->all() as $error)
-										<li>{{ $error }}</li>
-									@endforeach
-									<li>{!! HTML::link(url('/password/email'), Lang::get('auth.forgot_message'), array('id' => 'forgot_message',)) !!}</li>
-								</ul>
-
-							</div>
-						</div>
-					@endif
+        			@include('partials.return-messages')
 
 					{!! Form::open(array('url' => 'auth/login', 'method' => 'POST', 'class' => 'lockscreen-credentials form-horizontal', 'role' => 'form')) !!}
 						<div class="form-group has-feedback">

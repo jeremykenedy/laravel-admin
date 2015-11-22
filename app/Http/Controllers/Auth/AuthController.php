@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades;
@@ -12,6 +13,7 @@ use App\Models\Role;
 use App\Models\Profile;
 use App\Traits\CaptchaTrait;
 use Laravel\Socialite\Facades\Socialite;
+
 use Validator;
 
 class AuthController extends Controller {
@@ -27,10 +29,15 @@ class AuthController extends Controller {
 	|
 	*/
 
+	use AuthenticatesAndRegistersUsers
+    {
+        getLogout as authLogout;
+    }
 	use CaptchaTrait;
-	use AuthenticatesAndRegistersUsers;
+	use ThrottlesLogins;
     protected $auth;
     protected $userRepository;
+	protected $redirectPath = '/dashboard';
 
 	/**
 	 * Create a new authentication controller instance.
@@ -48,8 +55,17 @@ class AuthController extends Controller {
 
         $this->auth = $auth;
         $this->userRepository = $userRepository;
-
 	}
+
+    /**
+     * Overwrite getLogout method of trait AuthenticatesUsers;
+     * @return Response
+     */
+    public function getLogout()
+    {
+	    \Auth::logout();
+	    return redirect('auth/login')->with('status',  \Lang::get('auth.loggedOut'));
+    }
 
 	/**
 	 * Get a validator for an incoming registration request.
@@ -248,4 +264,5 @@ class AuthController extends Controller {
 
         return \App::abort(500);
     }
+
 }

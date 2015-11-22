@@ -87,12 +87,12 @@
 	/* ADMIN -------------------------------------------------------------------*/
 	var enable_compile_admin 		= 1;			// Compile Admin Assets?
 	var enable_compile_admin_css	= 1;			// Compile Admin CSS?
-	var enable_compile_admin_js		= 1;			// Compile Admin JS?
+	var enable_compile_admin_js		= 0;			// Compile Admin JS?
 
 	/* LOGIN -------------------------------------------------------------------*/
-	var enable_compile_login 		= 1;			// Compile Login Assets?
-	var enable_compile_login_css	= 1;			// Compile Login CSS?
-	var enable_compile_login_js		= 1;			// Compile Login JS?
+	var enable_compile_login 		= 0;			// Compile Login Assets?
+	var enable_compile_login_css	= 0;			// Compile Login CSS?
+	var enable_compile_login_js		= 0;			// Compile Login JS?
 
 	/* APP __-------------------------------------------------------------------*/
 	var enable_compile_app			= 0;			// Compile App Assets?
@@ -232,9 +232,9 @@ elixir(function(mix) {
 			mix.less('admin.less', 'public/assets/css/admin/components/admin-core.css');
 			mix.less('admin-skins.less', 'public/assets/css/admin/components/admin-skins.css');
 			mix.less('admin-font-icons.less', 'public/assets/css/admin/components/admin-font-icons.css');
-			mix.less('bootstrap.less', 'public/assets/css/vendor/bootstrap.css');
+			mix.less('bootstrap/bootstrap.less', 'public/assets/css/vendor/bootstrap.css');
 
-			//COMBINE ADMIN DASHBOARD CSS FILES INTO SINGLE FILE - ADMIN CSS
+			// //COMBINE ADMIN DASHBOARD CSS FILES INTO SINGLE FILE - ADMIN CSS
 		    mix.styles([
 				'public/assets/css/vendor/bootstrap.css',												// BOOTSTRAP CORE INPUT
 				'public/assets/css/admin/components/admin-core.css',									// ADMIN LTE CORE INPUT

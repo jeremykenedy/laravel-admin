@@ -10,7 +10,6 @@
 Thumbs.db
 
 ### Sass ###
-#bower_components/*
 /.sass-cache/*
 .sass-cache
 
@@ -39,6 +38,8 @@ vendor
 node_modules
 Homestead.yaml
 Homestead.json
+bower_components/*
+node_modules/*
 
 ## IGNORE FOR NOW DUE TO GITHUB CONFLICTS
 README.md

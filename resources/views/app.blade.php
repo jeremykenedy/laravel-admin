@@ -1,3 +1,5 @@
+
+<!--
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -26,7 +28,7 @@
 	    <!--[if gte IE 9]>
 	      <style type="text/css">.gradient {filter: none;}</style>
 	    <![endif]-->
-
+<!--
 	</head>
 	<body>
 
@@ -42,3 +44,5 @@
 
 	</body>
 </html>
+
+-->

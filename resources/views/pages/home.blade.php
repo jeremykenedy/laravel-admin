@@ -1,7 +1,15 @@
-@extends('app')
+{{-- Set Template Body Classes --}}
+<?php
+	$templateBodybodyClasses = '';
+?>
+
+@extends('admin.layouts.dashboard')
 
 @section('template_title')
 	Welcome {{ Auth::user()->name }}
+@endsection
+
+@section('template_fastload_css')
 @endsection
 
 @section('content')
@@ -17,4 +25,7 @@
 		</div>
 	</div>
 </div>
+@endsection
+
+@section('template_scripts')
 @endsection

@@ -37,7 +37,10 @@
 		],
 		"psr-4": {
 			"App\\": "app/"
-		}
+		},
+		"files": [
+
+		]
 	},
 	"autoload-dev": {
 		"classmap": [

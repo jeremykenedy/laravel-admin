@@ -7,13 +7,15 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			{!! HTML::link(url('/'), Lang::get('titles.app'), array('class' => 'navbar-brand'), false) !!}
+			{!! HTML::link(url('/'), Lang::get('titles.app2'), array('class' => 'navbar-brand'), false) !!}
 		</div>
 
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li>{!! HTML::link(url('/'), Lang::get('titles.home')) !!}</li>
-			</ul>
+			@if (Auth::User())
+				<ul class="nav navbar-nav">
+					<li>{!! HTML::link(url('/dashboard'), Lang::get('titles.home')) !!}</li>
+				</ul>
+			@endif
 			<ul class="nav navbar-nav navbar-right">
 				@if (Auth::guest())
 					<li>{!! HTML::link(url('/auth/login'), Lang::get('titles.login')) !!}</li>
@@ -27,7 +29,6 @@
 						</ul>
 					</li>
 				@endif
-
 			</ul>
 		</div>
 	</div>

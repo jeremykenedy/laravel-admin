@@ -1,7 +1,15 @@
-@extends('app')
+{{-- Set Template Body Classes --}}
+<?php
+	$templateBodybodyClasses = '';
+?>
+
+@extends('admin.layouts.auth')
 
 @section('template_title')
 	Errors
+@endsection
+
+@section('template_fastload_css')
 @endsection
 
 @section('content')
@@ -21,4 +29,7 @@
 		</div>
 	</div>
 </div>
+@endsection
+
+@section('template_scripts')
 @endsection

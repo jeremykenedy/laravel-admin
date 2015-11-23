@@ -1,4 +1,4 @@
-@extends('app')
+{{-- @extends('app')
 
 @section('template_title')
 	Welcome {{ Auth::user()->name }}
@@ -19,3 +19,4 @@
 	</div>
 </div>
 @endsection
+ --}}

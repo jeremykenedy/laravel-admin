@@ -13,7 +13,6 @@ use App\Models\Role;
 use App\Models\Profile;
 use App\Traits\CaptchaTrait;
 use Laravel\Socialite\Facades\Socialite;
-
 use Validator;
 
 class AuthController extends Controller {
@@ -253,12 +252,12 @@ class AuthController extends Controller {
         if( $this->auth->user()->hasRole('user'))
         {
             //return redirect()->route('user.home');
-        	return redirect('app');
+        	return redirect('dashboard');
         }
 
         if( $this->auth->user()->hasRole('administrator'))
         {
-        	return redirect('app');
+        	return redirect('dashboard');
             //return redirect()->route('admin.home');
         }
 

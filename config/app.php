@@ -145,9 +145,10 @@ return [
 		App\Providers\ConfigServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+		App\Providers\MacroServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,						// https://github.com/illuminate/html
-        Laravel\Socialite\SocialiteServiceProvider::class,
-        SocialiteProviders\Manager\ServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,				// http://laravel.com/docs/5.1/authentication#social-authentication
+        SocialiteProviders\Manager\ServiceProvider::class,				// https://socialiteproviders.github.io/
         Creativeorange\Gravatar\GravatarServiceProvider::class,         // https://github.com/creativeorange/gravatar
         Bootstrapper\BootstrapperL5ServiceProvider::class,              // https://github.com/patricktalmadge/bootstrapper/
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,    // https://github.com/cviebrock/eloquent-sluggable

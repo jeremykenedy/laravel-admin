@@ -1,7 +1,15 @@
-@extends('app')
+{{-- Set Template Body Classes --}}
+<?php
+	$templateBodybodyClasses = 'login-page';
+?>
+
+@extends('admin.layouts.auth')
 
 @section('template_title')
 	Activation Sent
+@endsection
+
+@section('template_fastload_css')
 @endsection
 
 @section('content')
@@ -22,4 +30,7 @@
 			</div>
 		</div>
 	</div>
+@endsection
+
+@section('template_scripts')
 @endsection

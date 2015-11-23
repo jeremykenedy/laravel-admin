@@ -12,10 +12,11 @@ return [
     |
     */
 
-	'app'			=> 'Laravel',
+    'title'			=> 'LaraAdminLTE',
+	'app'			=> 'LaraAdminLTE 2 | Dashboard',
 	'app2'			=> 'Laravel 5',
 	'home'			=> 'Home',
-	'login'			=> 'Login',
+	'login'			=> 'Sign in to start your session',
 	'logout'		=> 'Logout',
 	'register'		=> 'Register',
 	'resetPword'	=> 'Reset Password',

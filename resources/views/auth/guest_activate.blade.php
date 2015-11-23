@@ -1,7 +1,15 @@
-@extends('app')
+{{-- Set Template Body Classes --}}
+<?php
+	$templateBodybodyClasses = 'login-page';
+?>
+
+@extends('admin.layouts.auth')
 
 @section('template_title')
 	Activation Required
+@endsection
+
+@section('template_fastload_css')
 @endsection
 
 @section('content')
@@ -11,12 +19,17 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">{{ Lang::get('titles.home') }}</div>
 					<div class="panel-body">
+
 						<p>An email was sent to {{ $email }} on {{ $date }}.</p>
 						<p>{{ Lang::get('auth.clickInEmail') }}</p>
 						<p><a href='/resendEmail'>{{ Lang::get('auth.clickHereResend') }}</a></p>
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+@endsection
+
+@section('template_scripts')
 @endsection

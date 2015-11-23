@@ -1,65 +1,68 @@
-@extends('app')
+{{-- Set Template Body Classes --}}
+<?php
+	$templateBodybodyClasses = 'login-page';
+?>
+
+@extends('admin.layouts.auth')
 
 @section('template_title')
 	Login
 @endsection
 
+@section('template_fastload_css')
+	.login-full-span {
+		margin-left:-20px;
+		margin-right:-20px;
+	}
+@endsection
+
 @section('content')
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-sm-8 col-sm-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">{{ Lang::get('titles.login') }}</div>
-				<div class="panel-body">
+    <div class="login-box">
+		<div class="login-logo">
+			<a href="/">Lara<strong>Admin</strong>LTE</a>
+		</div>
+		<div class="login-box-body">
 
-        			@include('partials.return-messages')
+			<h4 class="login-box-msg">
+			  	{{ Lang::get('auth.login') }}
+			</h4>
 
-					{!! Form::open(array('url' => 'auth/login', 'method' => 'POST', 'class' => 'lockscreen-credentials form-horizontal', 'role' => 'form')) !!}
-						<div class="form-group has-feedback">
-							{!! Form::label('email', Lang::get('auth.email') , array('class' => 'col-sm-4 control-label')); !!}
-							<div class="col-sm-6">
-								{!! Form::email('email', null, array('id' => 'email', 'class' => 'form-control', 'placeholder' => Lang::get('auth.ph_email'), 'required' => 'required',)) !!}
-								<span class="glyphicon glyphicon-envelope form-control-feedback" aria-hidden="true"></span>
-							</div>
-						</div>
-						<div class="form-group has-feedback">
-							{!! Form::label('password', Lang::get('auth.password') , array('class' => 'col-sm-4 control-label')); !!}
-							<div class="col-sm-6">
-								{!! Form::password('password', array('id' => 'password', 'class' => 'form-control', 'placeholder' => Lang::get('auth.ph_password'), 'required' => 'required',)) !!}
-								<span class="glyphicon glyphicon-lock form-control-feedback" aria-hidden="true"></span>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-6 col-xs-offset-1 col-sm-offset-4">
-								<div class="checkbox">
-									{!! Form::checkbox('remember', 'remember', true, array('id' => 'remember')); !!}
-									{!! Form::label('remember', Lang::get('auth.rememberMe')); !!}
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-6 col-sm-offset-3">
-								{!! Form::button(Lang::get('auth.login'), array('class' => 'btn btn-primary','type' => 'submit')) !!}
-								{!! HTML::link(url('/password/email'), Lang::get('auth.forgot'), array('id' => 'forgot', 'class' => 'btn btn-link')) !!}
-							</div>
-						</div>
-						<p class="text-center">Or</p>
-						<div class="form-group">
-							<div class="col-sm-6 col-sm-offset-3">
-								{!! HTML::link(route('social.redirect', ['provider' => 'facebook']), 'Facebook', array('class' => 'btn btn-lg btn-primary btn-block facebook')) !!}
-								{!! HTML::link(route('social.redirect', ['provider' => 'twitter']), 'Twitter', array('class' => 'btn btn-lg btn-primary btn-block twitter')) !!}
-								{!! HTML::link(route('social.redirect', ['provider' => 'google']), 'Google +', array('class' => 'btn btn-lg btn-primary btn-block google')) !!}
-								{!! HTML::link(route('social.redirect', ['provider' => 'github']), 'GitHub', array('class' => 'btn btn-lg btn-primary btn-block github')) !!}
-								{!! HTML::link(route('social.redirect', ['provider' => 'youtube']), 'YouTube', array('class' => 'btn btn-lg btn-primary btn-block youtube')) !!}
-								{!! HTML::link(route('social.redirect', ['provider' => 'twitch']), 'Twitch', array('class' => 'btn btn-lg btn-primary btn-block twitch')) !!}
-								{!! HTML::link(route('social.redirect', ['provider' => 'instagram']), 'Instagram', array('class' => 'btn btn-lg btn-primary btn-block instagram')) !!}
-								{!! HTML::link(route('social.redirect', ['provider' => '37signals']), 'Basecamp 37signals', array('class' => 'btn btn-lg btn-primary btn-block 37signals')) !!}
-							</div>
-						</div>
-					{!! Form::close() !!}
+			@include('admin.forms.login-form')
+
+	        <hr class="login-full-span">
+
+			<div class="row btn-block">
+				<div class="col-xs-12">
+					<a href="/auth/register">
+						<i class="fa fa-{{ Lang::get('auth.register_icon') }}" aria-hidden="true"></i>
+						{{ Lang::get('auth.register') }}
+					</a>
 				</div>
 			</div>
-		</div>
-	</div>
-</div>
+
+	        <div class="row btn-block">
+				<div class="col-xs-12">
+					<a id="forgot" href="/password/email">
+						<i class="fa fa-{{ Lang::get('auth.forgot_icon') }}" aria-hidden="true"></i>
+						{{ Lang::get('auth.forgot') }}
+					</a>
+				</div>
+	        </div>
+
+      	</div>
+    </div>
+@endsection
+
+@section('template_scripts')
+	{!! HTML::script('/assets/js/login.js', array('type' => 'text/javascript')) !!}
+
+	<script type="text/javascript">
+		$(function () {
+			$('input').iCheck({
+				checkboxClass: 'icheckbox_square-blue',
+				radioClass: 'iradio_square-blue',
+				increaseArea: '20%' // optional
+			});
+		});
+	</script>
 @endsection

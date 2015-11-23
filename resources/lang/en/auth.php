@@ -29,14 +29,16 @@ return [
 	'email'				=> 'E-Mail Address',
 	'password'			=> 'Password',
 	'rememberMe'		=> ' Remember Me',
-	'login'				=> 'Login',
-	'forgot'			=> 'Forgot Your Password?',
+	'login'				=> 'Sign in to start your session',
+	'forgot_icon'		=> 'unlock-alt',
+	'forgot'			=> '&nbsp;&nbsp;&nbsp;&nbsp;I forgot my password',
 	'forgot_message'	=> 'Password Troubles?',
 	'name'				=> 'Username',
 	'first_name'		=> 'First Name',
 	'last_name'			=> 'Last Name',
 	'confirmPassword'	=> 'Confirm Password',
-	'register'			=> 'Register',
+	'register_icon'			=> 'user-plus',
+	'register'			=> '&nbsp;Register a new membership',
 
 	// PLACEHOLDERS
 	'ph_name'			=> 'Username',
@@ -51,6 +53,8 @@ return [
 	'resetPassword'		=> 'Reset Password',
 	'loggedIn'			=> 'You are logged in!',
 	'loggedOut'			=> 'Successfully Logged Out',
+    'failed' 			=> 'These credentials do not match our records.',
+    'throttle' 			=> 'Too many login attempts. Please try again in :seconds seconds.',
 
 	// EMAIL LINKS
 	'pleaseActivate'	=> 'Please activate your account.',

@@ -1,4 +1,4 @@
-@extends('app')
+@extends('admin.layouts.profile')
 
 @section('template_title')
 	{{ $user->name }}'s Profile

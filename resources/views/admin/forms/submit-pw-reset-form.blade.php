@@ -1,25 +1,26 @@
 {!! Form::open(array('url' => url('/password/email'), 'method' => 'POST', 'class' => 'lockscreen-credentials form-horizontal', 'role' => 'form')) !!}
-	{!! csrf_field() !!}
+{!! csrf_field() !!}
 
-	<div class="form-group has-feedback">
-		{!! Form::label('email', Lang::get('auth.email') , array('class' => 'col-sm-4 control-label')); !!}
-		<div class="col-sm-6">
-			{!! Form::email('email', null, array('id' => 'email', 'class' => 'form-control', 'placeholder' => Lang::get('auth.ph_email'), 'required' => 'required',)) !!}
-			<span class="glyphicon glyphicon-envelope form-control-feedback" aria-hidden="true"></span>
-		</div>
+    <div class="lockscreen-item">
+        <div class="lockscreen-image">
+            {!! HTML::image('http://placekitten.com/g/128/128', 'User Image', array('class' => '')) !!}
+        </div>
+
+	    <div class="input-group">
+	        {!! Form::text('email', null, array('id' => 'email', 'class' => 'form-control', 'placeholder'   => Lang::get('auth.ph_email'),'value' => '','required' => 'required',)) !!}
+	        <div class="input-group-btn">
+	            {!! Form::button('<i class="fa fa-arrow-right text-muted"></i>', array('class' => 'btn','type' => 'submit')) !!}
+	        </div>
+	    </div>
+
 	</div>
 
-	<div class="form-group">
-		<div class="col-sm-6 col-sm-offset-4 ">
-			<div class="g-recaptcha" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
-		</div>
-	</div>
+	<div class="g-recaptcha" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
 
-	<div class="form-group">
-		<div class="col-sm-6 col-sm-offset-4">
-			{!! Form::button(Lang::get('auth.sendResetLink'), array('class' => 'btn btn-primary','type' => 'submit')) !!}
-		</div>
-	</div>
+	{!! Form::label('email', Lang::get('auth.email'), array('class' => 'help-block text-center control-label')); !!}
+
+	@include('admin.partials.return-messages')
+
 {!! Form::close() !!}
 
 @section('template_scripts')

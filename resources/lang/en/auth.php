@@ -28,7 +28,7 @@ return [
 	'someProblems'		=> 'There were some problems with your input.',
 	'email'				=> 'E-Mail Address',
 	'password'			=> 'Password',
-	'rememberMe'		=> ' Remember Me',
+	'rememberMe'		=> '&nbsp;&nbsp;Remember Me',
 	'login'				=> 'Sign in to start your session',
 	'forgot_icon'		=> 'unlock-alt',
 	'forgot'			=> '&nbsp;&nbsp;&nbsp;&nbsp;I forgot my password',
@@ -39,6 +39,7 @@ return [
 	'confirmPassword'	=> 'Confirm Password',
 	'register_icon'			=> 'user-plus',
 	'register'			=> '&nbsp;Register a new membership',
+	'login-button'		=> '&nbsp;Sign In',
 
 	// PLACEHOLDERS
 	'ph_name'			=> 'Username',

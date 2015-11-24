@@ -90,9 +90,9 @@
 	var enable_compile_admin_js		= 0;			// Compile Admin JS?
 
 	/* LOGIN -------------------------------------------------------------------*/
-	var enable_compile_login 		= 0;			// Compile Login Assets?
-	var enable_compile_login_css	= 0;			// Compile Login CSS?
-	var enable_compile_login_js		= 0;			// Compile Login JS?
+	var enable_compile_login 		= 1;			// Compile Login Assets?
+	var enable_compile_login_css	= 1;			// Compile Login CSS?
+	var enable_compile_login_js		= 1;			// Compile Login JS?
 
 	/* APP __-------------------------------------------------------------------*/
 	var enable_compile_app			= 0;			// Compile App Assets?
@@ -150,6 +150,12 @@ gulp.task("copyfiles", function() {
 
 	gulp.src("vendor/bower_dl/adminLTE/index2.html")
 		.pipe(gulp.dest("resources/assets/adminlte/pages/example2.html"));
+
+	gulp.src("resources/assets/adminlte/plugins/iCheck/square/blue.png")
+		.pipe(gulp.dest("assets/css/admin/blue.png"));
+
+	gulp.src("resources/assets/adminlte/plugins/iCheck/square/blue@2x.png")
+		.pipe(gulp.dest("assets/css/admin/blue@2x.png"));
 
 	/*
 	 |--------------------------------------------------------------------------

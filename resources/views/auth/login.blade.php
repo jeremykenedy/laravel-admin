@@ -10,10 +10,43 @@
 @endsection
 
 @section('template_fastload_css')
+
+	{{-- Add to SCSS later --}}
 	.login-full-span {
 		margin-left:-20px;
 		margin-right:-20px;
 	}
+	.btn-37signals  {
+		background: #67aa49;
+		color: #fff;
+	}
+	a.btn-37signals:hover,
+	.btn-37signals:hover {
+		background: #329f2a;
+		color: #fff;
+	}
+	.btn-youtube {
+		background: #cd201f;
+		color: #fff;
+	}
+	a.btn-youtube:hover,
+	.btn-youtube:hover {
+		background: #AF1B1A;
+		color: #fff;
+	}
+	.btn-twitch {
+		background: #6441A5 ;
+		color: #fff;
+	}
+	a.btn-twitch:hover,
+	.btn-twitch:hover {
+		background: #55378E ;
+		color: #fff;
+	}
+	.alert .close {
+		text-decoration: none;
+	}
+
 @endsection
 
 @section('content')

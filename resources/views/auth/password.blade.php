@@ -1,6 +1,6 @@
 {{-- Set Template Body Classes --}}
 <?php
-	$templateBodybodyClasses = 'lockscreen';
+	$templateBodybodyClasses = 'hold-transition lockscreen';
 ?>
 
 @extends('admin.layouts.auth')
@@ -13,23 +13,45 @@
 @endsection
 
 @section('content')
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-8 col-sm-offset-2">
-				<div class="panel panel-default">
-					<div class="panel-heading">{{ Lang::get('titles.resetPword') }}</div>
-					<div class="panel-body">
 
-	        			@include('admin.partials.return-messages')
+    <div class="lockscreen-wrapper">
+        <div class="lockscreen-logo">
+            <a href="/">Lara<b>Admin</b>LTE</a>
+        </div>
+        <div class="lockscreen-name">
+            {{ Lang::get('titles.resetPword') }}
+        </div>
 
-	        			@include('admin.forms.submit-pw-reset-form')
+		@include('admin.forms.submit-pw-reset-form')
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-@endsection
+        <div class="lockscreen-footer text-center">
+            <p class="text-muted text-center">- OR -</p>
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2" >
+                    <div class="text-center">
+                        @if (Auth::check())
+                            <a href="/home" class="text-center btn btn-primary btn-block btn-flat">
+                                <i class="fa fa-dashboard"></i>
+                                &nbsp;Dashboard
+                            </a>
+                            <a href="/user" class="text-center btn btn-primary btn-block btn-flat">
+                                <i class="fa fa-user"></i>
+                                &nbsp;Profile
+                            </a>
+                        @else
+                            <a href="/login" class="text-center btn btn-primary btn-block btn-flat">
+                                <i class="fa fa-sign-in"></i>
+                                &nbsp;Sign In
+                            </a>
+                            <a href="/register" class="text-center btn btn-primary btn-block btn-flat">
+                                <i class="fa fa-user-plus"></i>
+                                &nbsp;Register a new membership
+                            </a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-@section('template_scripts')
 @endsection

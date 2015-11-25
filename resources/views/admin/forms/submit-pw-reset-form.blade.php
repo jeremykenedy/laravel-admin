@@ -15,11 +15,7 @@
 
 	</div>
 
-	<div class="g-recaptcha" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
-
-	{!! Form::label('email', Lang::get('auth.email'), array('class' => 'help-block text-center control-label')); !!}
-
-	@include('admin.partials.return-messages')
+	{!! Form::label('email', Lang::get('auth.email'), array('class' => 'help-block text-center control-label sr-only')); !!}
 
 {!! Form::close() !!}
 

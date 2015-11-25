@@ -10,43 +10,6 @@
 @endsection
 
 @section('template_fastload_css')
-
-	{{-- Add to SCSS later --}}
-	.login-full-span {
-		margin-left:-20px;
-		margin-right:-20px;
-	}
-	.btn-37signals  {
-		background: #67aa49;
-		color: #fff;
-	}
-	a.btn-37signals:hover,
-	.btn-37signals:hover {
-		background: #329f2a;
-		color: #fff;
-	}
-	.btn-youtube {
-		background: #cd201f;
-		color: #fff;
-	}
-	a.btn-youtube:hover,
-	.btn-youtube:hover {
-		background: #AF1B1A;
-		color: #fff;
-	}
-	.btn-twitch {
-		background: #6441A5 ;
-		color: #fff;
-	}
-	a.btn-twitch:hover,
-	.btn-twitch:hover {
-		background: #55378E ;
-		color: #fff;
-	}
-	.alert .close {
-		text-decoration: none;
-	}
-
 @endsection
 
 @section('content')
@@ -61,6 +24,19 @@
 			</h4>
 
 			@include('admin.forms.login-form')
+
+			<div class="social-auth-links text-center">
+				<p>- OR -</p>
+				@include('partials.macros')
+				{!! HTML::icon_link( route( 'social.redirect', ['provider' => 'facebook'] ), 'fa fa-facebook', 'Sign in using Facebook', array('title' => 'Sign in using Facebook', 'class' => 'btn btn-block btn-social btn-facebook btn-flat', 'target' => '')) !!}
+				{!! HTML::icon_link( route( 'social.redirect', ['provider' => 'google'] ), 'fa fa-google-plus', 'Sign in using Google+', array('title' => 'Sign in using Google+', 'class' => 'btn btn-block btn-social btn-google btn-flat', 'target' => '')) !!}
+				{!! HTML::icon_link( route( 'social.redirect', ['provider' => 'twitter'] ), 'fa fa-twitter', 'Sign in using Twitter', array('title' => 'Sign in using Twitter', 'class' => 'btn btn-block btn-social btn-twitter btn-flat', 'target' => '')) !!}
+				{!! HTML::icon_link( route( 'social.redirect', ['provider' => 'github'] ), 'fa fa-github', 'Sign in using GitHub', array('title' => 'Sign in using GitHub', 'class' => 'btn btn-block btn-social btn-github btn-flat', 'target' => '')) !!}
+				{!! HTML::icon_link( route( 'social.redirect', ['provider' => 'youtube'] ), 'fa fa-youtube', 'Sign in using YouTube', array('title' => 'Sign in using YouTube', 'class' => 'btn btn-block btn-social btn-youtube btn-flat', 'target' => '')) !!}
+				{!! HTML::icon_link( route( 'social.redirect', ['provider' => 'twitch'] ), 'fa fa-twitch', 'Sign in using twitch', array('title' => 'Sign in using twitch', 'class' => 'btn btn-block btn-social btn-twitch btn-flat', 'target' => '')) !!}
+				{!! HTML::icon_link( route( 'social.redirect', ['provider' => 'instagram'] ), 'fa fa-instagram', 'Sign in using instagram', array('title' => 'Sign in using instagram', 'class' => 'btn btn-block btn-social btn-instagram btn-flat', 'target' => '')) !!}
+				{!! HTML::icon_link( route( 'social.redirect', ['provider' => '37signals'] ), 'fa fa-user', 'Sign in using 37signals', array('title' => 'Sign in using 37signals', 'class' => 'btn btn-block btn-social btn-37signals btn-flat', 'target' => '')) !!}
+			</div>
 
 	        <hr class="login-full-span">
 

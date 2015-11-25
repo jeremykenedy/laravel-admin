@@ -19,6 +19,7 @@ class PasswordController extends Controller {
 	|
 	*/
 
+	use CaptchaTrait;
 	use ResetsPasswords;
 
 }

@@ -18,6 +18,9 @@
         <div class="lockscreen-logo">
             <a href="/">Lara<b>Admin</b>LTE</a>
         </div>
+
+@include('admin.partials.return-messages')
+
         <div class="lockscreen-name">
             {{ Lang::get('titles.resetPword') }}
         </div>

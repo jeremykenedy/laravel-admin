@@ -11720,6 +11720,57 @@ fieldset[disabled] .btn-yahoo.active {
     white-space: normal !important;
   }
 }
+.g-recaptcha {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 304px;
+}
+.alert .close {
+  text-decoration: none;
+}
+.lockscreen-credentials {
+  padding: 0 50px;
+  margin-left: 0px;
+}
+.lockscreen-credentials .g-recaptcha {
+  margin: 35px auto 10px;
+}
+.lockscreen-credentials .control-label {
+  text-align: left;
+}
+.lockscreen-credentials #email {
+  margin-left: 70px;
+  width: 71.5%;
+}
+.login-full-span {
+  margin-left: -20px;
+  margin-right: -20px;
+}
+.btn-37signals {
+  background: #67aa49;
+  color: #ffffff;
+}
+.btn-37signals:hover {
+  background: #329f2a;
+  color: #ffffff;
+}
+.btn-youtube {
+  background: #cd201f;
+  color: #ffffff;
+}
+.btn-youtube:hover {
+  background: #AF1B1A;
+  color: #ffffff;
+}
+.btn-twitch {
+  background: #6441A5;
+  color: #ffffff;
+}
+.btn-twitch:hover {
+  background: #55378E;
+  color: #ffffff;
+}
 
 /*# sourceMappingURL=admin-core.css.map */
 

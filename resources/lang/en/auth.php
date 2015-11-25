@@ -37,8 +37,9 @@ return [
 	'first_name'		=> 'First Name',
 	'last_name'			=> 'Last Name',
 	'confirmPassword'	=> 'Confirm Password',
-	'register_icon'			=> 'user-plus',
+	'register_icon'		=> 'user-plus',
 	'register'			=> '&nbsp;Register a new membership',
+	'register_submit'	=> '&nbsp;Register',
 	'login-button'		=> '&nbsp;Sign In',
 
 	// PLACEHOLDERS
@@ -61,6 +62,14 @@ return [
 	'pleaseActivate'	=> 'Please activate your account.',
 	'clickHereReset'	=> 'Click here to reset your password: ',
 	'clickHereActivate'	=> 'Click here to activate your account: ',
+
+	// REGISTER FOOTER PAGE LABEL
+	'login_link_icon'	=> 'user',
+	'login_link'		=> '&nbsp;&nbsp;&nbsp;I already have a membership',
+
+
+
+
 
 ];
 

@@ -1,6 +1,6 @@
 {{-- Set Template Body Classes --}}
 <?php
-	$templateBodybodyClasses = 'login-page';
+	$templateBodybodyClasses = 'hold-transition lockscreen login-page';
 ?>
 
 @extends('admin.layouts.auth')
@@ -13,24 +13,62 @@
 @endsection
 
 @section('content')
-	<div class="container">
-		<div class="row">
-			<div class="col-md-10 col-md-offset-1">
-				<div class="panel panel-default">
-					<div class="panel-heading">{{ Lang::get('titles.home') }}</div>
-					<div class="panel-body">
-						<p>
-							{{ Lang::get('auth.sentEmail',['email' => $email] ) }}
-						</p>
-						<p>
-							{{ Lang::get('auth.clickInEmail') }}
-						</p>
-					</div>
-				</div>
-			</div>
+    <div class="login-box">
+		<div class="login-logo">
+			<a href="/">Lara<strong>Admin</strong>LTE</a>
 		</div>
-	</div>
+
+		@include('admin.partials.return-messages')
+
+		<div class="login-box-body">
+
+		    <div class="lockscreen-footer">
+		        <div class="row">
+		            <div class="col-xs-10 col-xs-offset-1" >
+				        <div class="icon-with-message">
+					        <div class="welcome-image">
+					            {!! HTML::image('http://placekitten.com/g/128/128', 'User Image', array('class' => '')) !!}
+					        </div>
+					        <div class="lockscreen-name margin-bottom-2">
+					        	<h3>
+					        		<strong>
+					        			Welcome {{ Auth::user()->name }}
+					        		</strong>
+					        	</h3>
+					        </div>
+					    </div>
+		            </div>
+		        </div>
+		    </div>
+
+		    <div class="lockscreen-body text-center margin-bottom-2">
+				<p>
+					{{ Lang::get('auth.sentEmail',['email' => $email] ) }}
+				</p>
+				<p>
+					{{ Lang::get('auth.clickInEmail') }}
+				</p>
+		    </div>
+
+	        <hr class="login-full-span">
+
+			<div class="input-group-btn text-center">
+				@include('partials.macros')
+				{!! HTML::icon_btn( '/resendEmail', 'fa fa-paper-plane-o margin-left-1', Lang::get('auth.clickHereResend'), array('title' => Lang::get('auth.clickHereResend'), 'class' => 'btn btn-primary btn-flat margin-top-1 margin-bottom-1', 'target' => '')) !!}
+			</div>
+
+      	</div>
+    </div>
+
 @endsection
 
 @section('template_scripts')
 @endsection
+
+
+
+
+
+
+
+

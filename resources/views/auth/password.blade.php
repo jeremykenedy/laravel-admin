@@ -19,16 +19,16 @@
             <a href="/">Lara<b>Admin</b>LTE</a>
         </div>
 
-@include('admin.partials.return-messages')
+        @include('admin.partials.return-messages')
 
-        <div class="lockscreen-name">
+        <div class="lockscreen-name margin-bottom-2">
             {{ Lang::get('titles.resetPword') }}
         </div>
 
 		@include('admin.forms.submit-pw-reset-form')
 
         <div class="lockscreen-footer text-center">
-            <p class="text-muted text-center">- OR -</p>
+            <p class="text-muted text-center margin-bottom-2">- OR -</p>
             <div class="row">
                 <div class="col-xs-8 col-xs-offset-2" >
                     <div class="text-center">

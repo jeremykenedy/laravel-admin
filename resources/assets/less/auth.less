@@ -1,0 +1,145 @@
+/////////////////////////////////////////////////////////////
+//////////////// AUTH PAGES SYLING BELOW ////////////////////
+/////////////////////////////////////////////////////////////
+
+// COLORS
+@transparent:				transparent;
+@white:						#ffffff;
+@basecamp_bg:				#67aa49;
+@basecamp_bg_hover:			#329f2a;
+@youtube_bg:				#cd201f;
+@twitch_bg:					#6441A5;
+@youtube_bg_hover:			#AF1B1A;
+@twitch_bg_hover:			#55378E;
+
+// SHARED AUTH
+.g-recaptcha {
+  	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 304px;
+}
+.alert {
+	.close {
+		text-decoration: none;
+	}
+}
+.margin-top-1 {
+	margin-top: 1em;
+}
+.margin-top-2 {
+	margin-top: 2em;
+}
+.margin-bottom-1 {
+	margin-bottom: 1em;
+}
+.margin-bottom-2 {
+	margin-bottom: 2em;
+}
+.margin-left-1 {
+	margin-left: 1em;
+}
+.margin-left-2 {
+	margin-left: 2em;
+}
+.margin-right-1 {
+	margin-left: 1em;
+}
+.margin-right-2 {
+	margin-left: 2em;
+}
+
+// RESET/FORGOT PASSWORD PAGE
+.lockscreen-credentials {
+	padding: 0 50px;
+  	margin-left: 0px;
+	.g-recaptcha {
+	  	margin: 35px auto 10px;
+	}
+	.control-label {
+	    text-align: left;
+	}
+	#email {
+	  	margin-left: 70px;
+	  	width: 71.5%;
+	}
+}
+
+// LOGIN PAGE
+.login-full-span {
+	margin-left: -20px;
+	margin-right: -20px;
+}
+
+// SM ICONS
+.btn-37signals  {
+	background: @basecamp_bg;
+	color: @white;
+	&:focus,
+	&:hover {
+		background: @basecamp_bg_hover;
+		color: @white;
+	}
+}
+.btn-youtube {
+	background: @youtube_bg;
+	color: @white;
+	&:focus,
+	&:hover {
+		background: @youtube_bg_hover;
+		color: @white;
+	}
+}
+.btn-twitch {
+	background: @twitch_bg;
+	color: @white;
+	&:focus,
+	&:hover {
+		background: @twitch_bg_hover;
+		color: @white;
+	}
+}
+
+// SM LOGIN AS ICON BUTTONS ONLY
+.icon-btns {
+	.col-xs-1 {
+	    width: 12.5%;
+	}
+	.icon-btn {
+		color: @transparent;
+		float: left;
+		width: 35px;
+		height: 35px;
+		padding: 0;
+		text-indent: 100px;
+		border: none;
+		margin:0 3% 3% 0;
+		position: relative;
+		z-index: 1;
+		> :first-child {
+			color: @white;
+			border: none;
+			width: 35px;
+		}
+		i {
+			&:before {
+				margin-left: -100px ;
+				border: none;
+			}
+		}
+
+	}
+}
+
+// WECOME ACTIVATION PAGE
+.welcome-image {
+	img {
+		display: block;
+		width: 100px;
+		border: 5px solid @white;
+		border-radius: 100px;
+		margin: 0 auto;
+	}
+}
+
+

@@ -152,10 +152,10 @@ gulp.task("copyfiles", function() {
 		.pipe(gulp.dest("resources/assets/adminlte/pages/example2.html"));
 
 	gulp.src("resources/assets/adminlte/plugins/iCheck/square/blue.png")
-		.pipe(gulp.dest("assets/css/admin/blue.png"));
+		.pipe(gulp.dest("public/assets/css/admin/"));
 
 	gulp.src("resources/assets/adminlte/plugins/iCheck/square/blue@2x.png")
-		.pipe(gulp.dest("assets/css/admin/blue@2x.png"));
+		.pipe(gulp.dest("public/assets/css/admin/"));
 
 	/*
 	 |--------------------------------------------------------------------------

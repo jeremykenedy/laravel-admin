@@ -11729,6 +11729,30 @@ fieldset[disabled] .btn-yahoo.active {
 .alert .close {
   text-decoration: none;
 }
+.margin-top-1 {
+  margin-top: 1em;
+}
+.margin-top-2 {
+  margin-top: 2em;
+}
+.margin-bottom-1 {
+  margin-bottom: 1em;
+}
+.margin-bottom-2 {
+  margin-bottom: 2em;
+}
+.margin-left-1 {
+  margin-left: 1em;
+}
+.margin-left-2 {
+  margin-left: 2em;
+}
+.margin-right-1 {
+  margin-left: 1em;
+}
+.margin-right-2 {
+  margin-left: 2em;
+}
 .lockscreen-credentials {
   padding: 0 50px;
   margin-left: 0px;
@@ -11751,6 +11775,7 @@ fieldset[disabled] .btn-yahoo.active {
   background: #67aa49;
   color: #ffffff;
 }
+.btn-37signals:focus,
 .btn-37signals:hover {
   background: #329f2a;
   color: #ffffff;
@@ -11759,6 +11784,7 @@ fieldset[disabled] .btn-yahoo.active {
   background: #cd201f;
   color: #ffffff;
 }
+.btn-youtube:focus,
 .btn-youtube:hover {
   background: #AF1B1A;
   color: #ffffff;
@@ -11767,9 +11793,41 @@ fieldset[disabled] .btn-yahoo.active {
   background: #6441A5;
   color: #ffffff;
 }
+.btn-twitch:focus,
 .btn-twitch:hover {
   background: #55378E;
   color: #ffffff;
+}
+.icon-btns .col-xs-1 {
+  width: 12.5%;
+}
+.icon-btns .icon-btn {
+  color: transparent;
+  float: left;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  text-indent: 100px;
+  border: none;
+  margin: 0 3% 3% 0;
+  position: relative;
+  z-index: 1;
+}
+.icon-btns .icon-btn > :first-child {
+  color: #ffffff;
+  border: none;
+  width: 35px;
+}
+.icon-btns .icon-btn i:before {
+  margin-left: -100px;
+  border: none;
+}
+.welcome-image img {
+  display: block;
+  width: 100px;
+  border: 5px solid #ffffff;
+  border-radius: 100px;
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=admin-core.css.map */

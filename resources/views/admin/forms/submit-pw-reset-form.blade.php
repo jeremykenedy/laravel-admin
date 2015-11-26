@@ -18,7 +18,3 @@
 	{!! Form::label('email', Lang::get('auth.email'), array('class' => 'help-block text-center control-label sr-only')); !!}
 
 {!! Form::close() !!}
-
-@section('template_scripts')
-	{!! HTML::script('https://www.google.com/recaptcha/api.js', array('type' => 'text/javascript')) !!}
-@endsection

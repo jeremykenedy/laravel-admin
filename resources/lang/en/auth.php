@@ -17,11 +17,12 @@ return [
 	'sentEmail'			=> 'We have sent an email to :email.',
 	'clickInEmail'		=> 'Please click the link in it to activate your account.',
 	'anEmailWasSent'	=> 'An email was sent to :email on :date.',
-	'clickHereResend'	=> 'Click here to resend the email.',
+	'clickHereResend'	=> 'Click here to resend activation email',
 	'successActivated'	=> 'Success, your account has been activated.',
 	'unsuccessful'		=> 'Your account could not be activated; please try again.',
 	'notCreated'		=> 'Your account could not be created; please try again.',
 	'tooManyEmails'		=> 'Too many activation emails have been sent to :email.',
+	'welcome-activate'	=> 'Please activate your account.',
 
 	// LABELS
 	'whoops'			=> 'Whoops!',
@@ -66,10 +67,6 @@ return [
 	// REGISTER FOOTER PAGE LABEL
 	'login_link_icon'	=> 'user',
 	'login_link'		=> '&nbsp;&nbsp;&nbsp;I already have a membership',
-
-
-
-
 
 ];
 

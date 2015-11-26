@@ -14,6 +14,7 @@ use App\Models\Profile;
 use App\Traits\CaptchaTrait;
 use Laravel\Socialite\Facades\Socialite;
 use Validator;
+use Gravatar;
 
 class AuthController extends Controller {
 

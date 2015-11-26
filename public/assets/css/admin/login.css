@@ -11729,6 +11729,12 @@ fieldset[disabled] .btn-yahoo.active {
 .alert .close {
   text-decoration: none;
 }
+.image-no-drag img,
+.image-no-drag {
+  user-drag: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+}
 .margin-top-1 {
   margin-top: 1em;
 }

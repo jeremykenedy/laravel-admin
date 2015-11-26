@@ -27,7 +27,7 @@
 		            <div class="col-xs-10 col-xs-offset-1" >
 				        <div class="icon-with-message">
 					        <div class="welcome-image">
-					            {!! HTML::image('http://placekitten.com/g/128/128', 'User Image', array('class' => '')) !!}
+					            {!! HTML::image(Gravatar::get(Auth::user()->email), Auth::user()->name, array('class' => 'image-no-drag')) !!}
 					        </div>
 					        <div class="lockscreen-name margin-bottom-2">
 					        	<h3>

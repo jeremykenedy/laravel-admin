@@ -12,6 +12,8 @@
 @section('template_fastload_css')
 @endsection
 
+@include('partials.macros')
+
 @section('content')
     <div class="login-box">
 		<div class="login-logo">
@@ -42,19 +44,13 @@
 
 			<div class="row btn-block">
 				<div class="col-xs-12">
-					<a href="/auth/login">
-						<i class="fa fa-{{ Lang::get('auth.login_link_icon') }}" aria-hidden="true"></i>
-						{{ Lang::get('auth.login_link') }}
-					</a>
+					{!! HTML::icon_link( "/auth/login", 'fa fa-'.Lang::get('auth.login_link_icon'), Lang::get('auth.login_link'), array('title' => Lang::get('auth.login_link'))) !!}
 				</div>
 			</div>
 
 	        <div class="row btn-block">
 				<div class="col-xs-12">
-					<a id="forgot" href="/password/email">
-						<i class="fa fa-{{ Lang::get('auth.forgot_icon') }}" aria-hidden="true"></i>
-						{{ Lang::get('auth.forgot') }}
-					</a>
+					{!! HTML::icon_link( "/password/email", 'fa fa-'.Lang::get('auth.forgot_icon'), Lang::get('auth.forgot'), array('title' => Lang::get('auth.forgot'), 'id' => 'forgot')) !!}
 				</div>
 	        </div>
 
@@ -65,35 +61,6 @@
 @section('template_scripts')
 	{!! HTML::script('/assets/js/login.js', array('type' => 'text/javascript')) !!}
 	{!! HTML::script('https://www.google.com/recaptcha/api.js', array('type' => 'text/javascript')) !!}
-
-	<script type="text/javascript">
-
-		// CROSS BROWSER FORM CHECKBOX
-		$(function () {
-			$('input').iCheck({
-				checkboxClass: 'icheckbox_square-blue',
-				radioClass: 'iradio_square-blue',
-				increaseArea: '20%' // optional
-			});
-		});
-
-		// CHECK FOR PASSWORDS TO MATCH
-		document.addEventListener("DOMContentLoaded", function(event) {
-		  	matching_password_check();
-		});
-        function matching_password_check() {
-            var password = document.getElementById("password");
-            var confirm_password = document.getElementById("password_confirmation");
-            function validatePassword(){
-                if(password.value != confirm_password.value) {
-                    confirm_password.setCustomValidity("The Passwords do not match");
-                } else {
-                    confirm_password.setCustomValidity('');
-                }
-            }
-            password.onchange = validatePassword;
-            confirm_password.onkeyup = validatePassword;
-        }
-    </script>
-
+	@include('scripts.checkbox');
+	@include('scripts.html5-password-check');
 @endsection

@@ -12,6 +12,8 @@
 @section('template_fastload_css')
 @endsection
 
+@include('partials.macros')
+
 @section('content')
     <div class="login-box">
 		<div class="login-logo">
@@ -53,8 +55,7 @@
 	        <hr class="login-full-span">
 
 			<div class="input-group-btn text-center">
-				@include('partials.macros')
-				{!! HTML::icon_btn( '/resendEmail', 'fa fa-paper-plane-o margin-left-1', Lang::get('auth.clickHereResend'), array('title' => Lang::get('auth.clickHereResend'), 'class' => 'btn btn-primary btn-flat margin-top-1 margin-bottom-1', 'target' => '')) !!}
+				{!! HTML::icon_btn( '/resendEmail', 'fa fa-paper-plane-o margin-left-1', Lang::get('auth.clickHereResend'), array('title' => Lang::get('auth.clickHereResend'), 'class' => 'btn btn-primary btn-flat margin-top-1 margin-bottom-1')) !!}
 			</div>
 
       	</div>

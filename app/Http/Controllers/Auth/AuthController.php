@@ -150,7 +150,7 @@ class AuthController extends Controller {
 	public function resendEmail()
 	{
 		$user = \Auth::user();
-		if( $user->resent >= 30 )
+		if( $user->resent >= 3 )
 		{
 			return view('auth.tooManyEmails')->with('email', $user->email);
 		} else {

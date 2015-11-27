@@ -22,3 +22,5 @@
 <style type="text/css">
 	@yield('template_fastload_css')
 </style>
+
+

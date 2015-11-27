@@ -14,15 +14,18 @@ return [
     */
 
 	// ACTIVATION ITEMS
-	'sentEmail'			=> 'We have sent an email to :email.',
-	'clickInEmail'		=> 'Please click the link in it to activate your account.',
-	'anEmailWasSent'	=> 'An email was sent to :email on :date.',
-	'clickHereResend'	=> 'Click here to resend activation email',
-	'successActivated'	=> 'Success, your account has been activated.',
-	'unsuccessful'		=> 'Your account could not be activated; please try again.',
-	'notCreated'		=> 'Your account could not be created; please try again.',
-	'tooManyEmails'		=> 'Too many activation emails have been sent to :email.',
+	'sentEmail'			=> 'We have sent an E-mail to :email',
+	'clickInEmail'		=> 'Please click the link in it to activate your account',
+	'anEmailWasSent'	=> 'An E-mail was sent to :email on :date',
+	'clickHereResend'	=> 'Click here to resend activation E-mail',
+	'successActivated'	=> 'Success, your account has been activated',
+	'unsuccessful'		=> 'Your account could not be activated; please try again',
+	'notCreated'		=> 'Your account could not be created; please try again',
+	'tooManyEmails'		=> 'Too many activation E-mails have been sent to :email',
 	'welcome-activate'	=> 'Please activate your account.',
+	'login_link_another'=> '&nbsp;&nbsp;Sign in with another account',
+	'loggedOutLocked'	=> 'Try again with a different E-mail address',
+	'tryAnother'		=> 'Login with a differnet E-mail',
 
 	// LABELS
 	'whoops'			=> 'Whoops!',
@@ -56,8 +59,8 @@ return [
 	'resetPassword'		=> 'Reset Password',
 	'loggedIn'			=> 'You are logged in!',
 	'loggedOut'			=> 'Successfully Logged Out',
-    'failed' 			=> 'These credentials do not match our records.',
-    'throttle' 			=> 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed' 			=> 'These credentials do not match our records',
+    'throttle' 			=> 'Too many login attempts. Please try again in :seconds seconds',
 
 	// EMAIL LINKS
 	'pleaseActivate'	=> 'Please activate your account.',

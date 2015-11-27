@@ -32,6 +32,16 @@ Route::controllers([
 Route::get('/resendEmail', 'Auth\AuthController@resendEmail');
 Route::get('/activate/{code}', 'Auth\AuthController@activateAccount');
 
+// CUSTOM REDIRECTS
+Route::get('restart', function () {
+    \Auth::logout();
+    return redirect('auth/register')->with('anError',  \Lang::get('auth.loggedOutLocked'));
+});
+Route::get('another', function () {
+    \Auth::logout();
+    return redirect('auth/login')->with('anError',  \Lang::get('auth.tryAnother'));
+});
+
 // LARAVEL SOCIALITE AUTHENTICATION ROUTES
 Route::get('/social/redirect/{provider}', [
 	'as' 		=> 'social.redirect',
@@ -54,6 +64,9 @@ Route::get('register', function () {
 });
 Route::get('reset', function () {
     return redirect('password/email');
+});
+Route::get('admin', function () {
+    return redirect('dashboard');
 });
 
 // USER PAGE ROUTES - RUNNING THROUGH AUTH MIDDLEWARE
@@ -93,12 +106,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
-// PAGE ROUTE ALIASES
-// Route::get('app', function () {
-//     return redirect('/');
-// });
-
-
 // CATCH ALL ERROR FOR USERS AND NON USERS
 Route::any('/{page?}',function(){
 	if (Auth::check()) {
@@ -108,7 +115,10 @@ Route::any('/{page?}',function(){
 	}
 })->where('page','.*');
 
-
+// PAGE ROUTE ALIASES
+// Route::get('app', function () {
+//     return redirect('/');
+// });
 
 //***************************************************************************************//
 //***************************** USER ROUTING EXAMPLES BELOW *****************************//

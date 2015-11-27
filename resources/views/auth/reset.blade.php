@@ -12,24 +12,28 @@
 @section('template_fastload_css')
 @endsection
 
+@include('partials.macros')
+
 @section('content')
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
-				<div class="panel panel-default">
-					<div class="panel-heading">{{ Lang::get('titles.resetPword') }}</div>
-					<div class="panel-body">
-
-	        			@include('admin.partials.return-messages')
-
-	        			@include('admin.forms.reset-password-form')
-
-					</div>
-				</div>
-			</div>
+    <div class="login-box">
+		<div class="login-logo">
+			<a href="/">Lara<strong>Admin</strong>LTE</a>
 		</div>
-	</div>
+		<div class="login-box-body">
+
+			<h4 class="login-box-msg">
+			  	{{ Lang::get('titles.resetPword') }}
+			</h4>
+
+			@include('admin.forms.reset-password-form')
+
+      	</div>
+    </div>
 @endsection
 
 @section('template_scripts')
+	{!! HTML::script('/assets/js/login.js', array('type' => 'text/javascript')) !!}
+	{!! HTML::script('https://www.google.com/recaptcha/api.js', array('type' => 'text/javascript')) !!}
+	@include('scripts.checkbox');
+	@include('scripts.html5-password-check');
 @endsection

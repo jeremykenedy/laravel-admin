@@ -12,6 +12,8 @@
 @section('template_fastload_css')
 @endsection
 
+@include('partials.macros')
+
 @section('content')
 
     <div class="lockscreen-wrapper">
@@ -33,23 +35,11 @@
                 <div class="col-xs-8 col-xs-offset-2" >
                     <div class="text-center">
                         @if (Auth::check())
-                            <a href="/home" class="text-center btn btn-primary btn-block btn-flat">
-                                <i class="fa fa-dashboard"></i>
-                                &nbsp;Dashboard
-                            </a>
-                            <a href="/user" class="text-center btn btn-primary btn-block btn-flat">
-                                <i class="fa fa-user"></i>
-                                &nbsp;Profile
-                            </a>
+                            {!! HTML::icon_link( "/home", 'fa fa-dashboard', '&nbsp;Dashboard', array('title' => 'Dashboard', 'class' => 'text-center btn btn-primary btn-block btn-flat')) !!}
+                            {!! HTML::icon_link( "/user", 'fa fa-user', '&nbsp;Profile', array('title' => 'Profile', 'class' => 'text-center btn btn-primary btn-block btn-flat')) !!}
                         @else
-                            <a href="/login" class="text-center btn btn-primary btn-block btn-flat">
-                                <i class="fa fa-sign-in"></i>
-                                &nbsp;Sign In
-                            </a>
-                            <a href="/register" class="text-center btn btn-primary btn-block btn-flat">
-                                <i class="fa fa-user-plus"></i>
-                                &nbsp;Register a new membership
-                            </a>
+                            {!! HTML::icon_link( "/login", 'fa fa-sign-in', '&nbsp;Sign In', array('title' => 'Sign In', 'class' => 'text-center btn btn-primary btn-block btn-flat')) !!}
+                            {!! HTML::icon_link( "/register", 'fa fa-user-plus', '&nbsp;Register a new membership', array('title' => 'Register a new membership', 'class' => 'text-center btn btn-primary btn-block btn-flat')) !!}
                         @endif
                     </div>
                 </div>

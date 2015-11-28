@@ -123,7 +123,9 @@ class AuthController extends Controller {
             $profile = new Profile;
             $user->profile()->save($profile);
 
-			return view('auth.activateAccount')->with('email', $request->input('email'));
+			return view('auth.activateAccount')
+			    ->with('email', $request->input('email'))
+			    ->with('username', $request->input('name'));
 
 		} else {
 
@@ -150,14 +152,28 @@ class AuthController extends Controller {
 	public function resendEmail()
 	{
 		$user = \Auth::user();
-		if( $user->resent >= 3 )
+		$username				= $user->name;
+		$userEmail				= $user->email;
+		$attemptsAllowed 		= 4;
+		$attemptsUsed			= $user->resent;
+		$attemptsRemaining		= $attemptsAllowed - $attemptsUsed;
+		if( $attemptsUsed >= $attemptsAllowed )
 		{
-			return view('auth.tooManyEmails')->with('email', $user->email);
+			return view('auth.tooManyEmails')
+			    ->with('email', $userEmail)
+			    ->with('username', $username)
+			    ->with('attempts', $attemptsUsed)
+			    ->with('remaining', $attemptsRemaining);
+			;
 		} else {
 			$user->resent = $user->resent + 1;
 			$user->save();
 			$this->sendEmail($user);
-			return view('auth.activateAccount')->with('email', $user->email);
+			return view('auth.activateAccount')
+			    ->with('email', $userEmail)
+			    ->with('username', $username)
+			    ->with('attempts', $user->resent)
+			    ->with('remaining', $attemptsRemaining);
 		}
 	}
 

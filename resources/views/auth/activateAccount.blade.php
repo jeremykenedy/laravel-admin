@@ -29,12 +29,12 @@
 		            <div class="col-xs-10 col-xs-offset-1" >
 				        <div class="icon-with-message">
 					        <div class="welcome-image">
-					            {!! HTML::image(Gravatar::get(Auth::user()->email), Auth::user()->name, array('class' => 'image-no-drag')) !!}
+					            {!! HTML::image(Gravatar::get(Lang::get('auth.newUserEmail',['email' => $email] )), Lang::get('auth.newUsername',['username' => $username] ), array('class' => 'image-no-drag')) !!}
 					        </div>
 					        <div class="lockscreen-name margin-bottom-2">
 					        	<h3>
 					        		<strong>
-					        			Welcome {{ Auth::user()->name }}
+					        			{{ Lang::get('auth.newUserWelcome',['username' => $username] ) }}
 					        		</strong>
 					        	</h3>
 					        </div>
@@ -49,6 +49,12 @@
 				</p>
 				<p>
 					{{ Lang::get('auth.clickInEmail') }}
+				</p>
+				<p>
+					{{ Lang::get('auth.attempsUsed',[
+						'attempts' => $attempts,
+						'remaining' => $remaining
+					]) }}
 				</p>
 		    </div>
 

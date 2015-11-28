@@ -14,6 +14,11 @@ return [
     */
 
 	// ACTIVATION ITEMS
+    'newUsername'		=> ':username',
+    'newUserEmail'		=> ':email',
+    'newUserWelcome'	=> 'Welcome :username',
+	'attempsUsed'		=> 'You have :remaining attempts remaining',
+	'attempsDepleted'   => 'Attempted activation :attempts times',
 	'sentEmail'			=> 'We have sent an E-mail to :email',
 	'clickInEmail'		=> 'Please click the link in it to activate your account',
 	'anEmailWasSent'	=> 'An E-mail was sent to :email on :date',

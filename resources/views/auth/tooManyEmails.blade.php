@@ -49,6 +49,9 @@
 				<p>
 					{{ Lang::get('auth.tooManyEmails', ['email' => $email] ) }}
 				</p>
+				<p>
+					{{ Lang::get('auth.attempsDepleted',['attempts' => $attempts] ) }}
+				</p>
 		    </div>
 
 	        <hr class="login-full-span">

@@ -27,10 +27,15 @@ Route::controllers([
 	'auth' 		=> 'Auth\AuthController',
 	'password' 	=> 'Auth\PasswordController',
 ]);
-
 // REGISTRATION EMAIL CONFIRMATION ROUTES
-Route::get('/resendEmail', 'Auth\AuthController@resendEmail');
-Route::get('/activate/{code}', 'Auth\AuthController@activateAccount');
+Route::get('/resendEmail', [
+    'as' 		=> 'user',
+	'uses'		=> 'Auth\AuthController@resendEmail'
+]);
+Route::get('/activate/{code}', [
+    'as' 		=> 'user',
+	'uses'		=> 'Auth\AuthController@activateAccount'
+]);
 
 // CUSTOM REDIRECTS
 Route::get('restart', function () {

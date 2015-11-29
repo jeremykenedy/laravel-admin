@@ -16,6 +16,7 @@
 
 @stop
 
+{{-- Load Layout Content --}}
 @section('layout-content')
 
 	@include('admin.partials.main-nav')

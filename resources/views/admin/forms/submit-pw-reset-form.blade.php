@@ -3,6 +3,7 @@
 
     <div class="lockscreen-item">
         <div class="lockscreen-image">
+        	{{-- Havent decided what to put here yet - jk --}}
             {!! HTML::image('http://placekitten.com/g/128/128', 'User Image', array('class' => '')) !!}
         </div>
 

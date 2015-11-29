@@ -18,9 +18,6 @@
 
 @section('layout-content')
 
-{{--
-	@include('admin.partials.main-nav')
- --}}
 	@yield('content')
 
 @stop

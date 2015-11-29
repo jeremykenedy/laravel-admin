@@ -134,7 +134,7 @@ Route::any('/{page?}',function(){
 
 // 	// OPTION - GO DIRECTLY TO TEMPLATE
 // 	Route::get('/', function () {
-// 	    return view('pages.home');
+// 	    return view('pages.user-home');
 // 	});
 
 // 	// OPTION - USE CONTROLLER

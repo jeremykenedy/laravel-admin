@@ -9,28 +9,41 @@ use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
 
-//AUTH
+//NEW AUTH
 
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        return view('pages.home');
+        $user = \Auth::user();
+        $userRole       = $user->hasRole('user');
+        $editorRole     = $user->hasRole('editor');
+        $adminRole      = $user->hasRole('administrator');
+        $access;
+
+        if($userRole)
+        {
+            $access = 'User';
+        } elseif ($editorRole) {
+            $access = 'Editor';
+        } elseif ($adminRole) {
+            $access = 'Administrator';
+        }
+
+        return view('pages.user-home')->withUser($user)->withAccess($access);
     }
 
     public function getHome()
     {
-        return view('pages.home');
+        return view('pages.user-home');
     }
 
 
-//LTE
-
-
-
+//OLD LTE
 
     /**
     * Show the User DASHBOARD Page
@@ -51,8 +64,6 @@ class UserController extends Controller
     {
         return view('admin.layouts.user-profile');
     }
-
-
 
     public function show($id)
     {

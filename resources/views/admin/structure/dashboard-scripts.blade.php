@@ -1,3 +1,7 @@
+
+{!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js', array('type' => 'text/javascript')) !!}
+
+
 {!! HTML::script('/assets/js/admin/admin.js', array('type' => 'text/javascript')) !!}
 
 {{-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip --}}

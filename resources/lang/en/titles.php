@@ -12,8 +12,8 @@ return [
     |
     */
 
-    'title'			=> 'LaraAdminLTE',
-	'app'			=> 'LaraAdminLTE 2 | Dashboard',
+    'title'			=> 'LaraAdmin',
+	'app'			=> 'LaraAdmin | Dashboard',
 	'app2'			=> 'Laravel 5',
 	'home'			=> 'Home',
 	'login'			=> 'Sign in to start your session',

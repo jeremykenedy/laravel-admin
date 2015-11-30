@@ -29,10 +29,6 @@
 
 @section('template_scripts')
 
-
-
-	 @include('admin.structure.dashboard-scripts')
-
-
+    @include('admin.structure.dashboard-scripts')
 
 @endsection

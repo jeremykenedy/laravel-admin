@@ -19,11 +19,10 @@ class UserController extends Controller
 
     public function index()
     {
-        $user = \Auth::user();
+        $user           = \Auth::user();
         $userRole       = $user->hasRole('user');
         $editorRole     = $user->hasRole('editor');
         $adminRole      = $user->hasRole('administrator');
-        $access;
 
         if($userRole)
         {
@@ -41,7 +40,6 @@ class UserController extends Controller
     {
         return view('pages.user-home');
     }
-
 
 //OLD LTE
 

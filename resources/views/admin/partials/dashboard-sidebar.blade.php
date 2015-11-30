@@ -9,7 +9,11 @@
               {!! HTML::image(Gravatar::get(Auth::user()->email), Auth::user()->name, array('class' => 'img-circle', 'draggable' => 'false')) !!}
             </div>
             <div class="pull-left info">
-              <p><?php echo Auth::user()->name; ?></p>
+              <p>
+                {{ (Auth::user()->name === Auth::user()->email) ? ((is_null(Auth::user()->first_name)) ? (Auth::user()->name) : (Auth::user()->first_name)) : (((is_null(Auth::user()->name)) ? (Auth::user()->email) : (Auth::user()->name))) }}
+              </p>
+
+
               {{-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a> --}}
             </div>
           </div>
@@ -27,18 +31,49 @@
           {{--  /.search form --}}
 
           {{-- sidebar menu: : style can be found in sidebar.less --}}
-{{--           <ul class="sidebar-menu">
-            <li class="header">MAIN NAVIGATION</li>
-            <li class="active treeview">
-              <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-              </ul>
+          <ul class="sidebar-menu">
+            <li class="header">
+              MAIN NAVIGATION
             </li>
-            <li class="treeview">
+            <li class="active">
+                <a href="/dashboard">
+                    <i class="fa fa-dashboard"></i>
+                    <span>
+                        Dashboard
+                    </span>
+                </a>
+            </li>
+
+            @if ($user->profile)
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-user"></i>
+                        <span>User Profile</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="/profile/{{ Auth::user()->name }}" title="view profile">
+                                <i class="fa fa-user"></i>
+                                View Profile
+                            </a>
+                        </li>
+                        @if (Auth::user()->id == $user->id)
+                            <li>
+                                <a href="/profile/{{ Auth::user()->name }}/edit" title="edit profile">
+                                    <i class="fa fa-cog"></i>
+                                    {{ Lang::get('titles.editProfile') }}
+                                </a>
+                            </li>
+                        @endif
+                    </ul>
+                </li>
+            @endif
+
+            <li class="header"></li>
+            <li><a href="/logout"><i class="fa fa-sign-out text-red"></i> <span>Logout</span></a></li>
+
+{{--             <li class="treeview">
               <a href="#">
                 <i class="fa fa-files-o"></i>
                 <span>Layout Options</span>
@@ -50,8 +85,8 @@
                 <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
                 <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
               </ul>
-            </li>
-            <li>
+            </li> --}}
+{{--             <li>
               <a href="pages/widgets.html">
                 <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">new</small>
               </a>
@@ -160,8 +195,8 @@
             <li class="header">LABELS</li>
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
-          </ul> --}}
+            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li> --}}
+          </ul>
         </section>
         {{--  /.sidebar --}}
       </aside>

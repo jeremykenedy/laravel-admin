@@ -198,7 +198,25 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   {!! HTML::image(Gravatar::get(Auth::user()->email), Auth::user()->name, array('class' => 'user-image', 'draggable' => 'false')) !!}
                   <span class="hidden-xs">
-                    <?php echo Auth::user()->name; ?>
+                    {{ (Auth::user()->name === Auth::user()->email) ? ((is_null(Auth::user()->first_name)) ? (Auth::user()->name) : (Auth::user()->first_name)) : (((is_null(Auth::user()->name)) ? (Auth::user()->email) : (Auth::user()->name))) }}
+
+
+
+
+
+
+
+
+{{--
+
+<p class="lead">
+
+ --}}
+
+
+
+
+
                   </span>
                 </a>
                 <ul class="dropdown-menu">
@@ -206,8 +224,16 @@
                   <li class="user-header">
                     {!! HTML::image(Gravatar::get(Auth::user()->email), Auth::user()->name, array('class' => 'img-circle', 'draggable' => 'false')) !!}
                     <p>
-                      <?php echo Auth::user()->name; ?> - Web Developer
+
+
+                      {{ Auth::user()->name }} - {{ Auth::user()->profile->career_title }}
+
+
+
                       <small>Member since Nov. 2012</small>
+
+
+
                     </p>
                   </li>
                   <!-- Menu Body -->

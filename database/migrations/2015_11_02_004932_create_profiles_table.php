@@ -20,6 +20,8 @@ class CreateProfilesTable extends Migration
             $table->text('bio')->nullable();
             $table->string('twitter_username')->nullable();
             $table->string('github_username')->nullable();
+            $table->string('career_title')->nullable();
+            $table->text('education')->nullable();
             $table->timestamps();
         });
     }

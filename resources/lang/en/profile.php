@@ -26,9 +26,13 @@ return [
 	'showProfileBio'			=> 'Bio',
 	'showProfileTwitterUsername'=> 'Twitter Username',
 	'showProfileGitHubUsername'	=> 'Github Username',
+	'showProfileAccessLevel'	=> 'Access Level',
+	'showProfileGravatar'		=> 'Gravatar',
+	'showProfileEducation'		=> 'Education',
+	'showProfilecareerTitle'	=> 'Occupation',
 
 	// USER PROFILE PAGE
-	'showProfileTitle'			=> 'User Profile',
+	'showProfileTitle'			=> ':username\'s Profile',
 
 	// USER EDIT PROFILE PAGE
 	'editProfileTitle'			=> 'Edit User Profile',
@@ -45,6 +49,13 @@ return [
 
 	'label-twitter_username'	=> 'Your Twitter username:',
 	'ph-twitter_username'		=> 'Enter your Twitter username',
+
+	'label-career_title'		=> 'Your career title:',
+	'ph-career_title'			=> 'Enter your career title',
+
+	'label-education'			=> 'Your education:',
+	'ph-education'				=> 'Enter your education',
+
 	'submitButton'				=> 'Submit',
 
 ];

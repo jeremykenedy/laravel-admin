@@ -36,7 +36,8 @@ class ProfilesController extends Controller {
             'location'          => 'required',
             'bio'               => '',
             'twitter_username'  => '',
-            'github_username'   => ''
+            'career_title'      => '',
+            'education'         => '',
         ]);
     }
 
@@ -51,12 +52,31 @@ class ProfilesController extends Controller {
         try {
             $user = $this->getUserByUsername($username);
             //dd($user->toArray());
+            $userRole           = $user->hasRole('user');
+            $editorRole         = $user->hasRole('editor');
+            $adminRole          = $user->hasRole('administrator');
+            $displayusername    = ($user->name === $user->email) ? ((is_null($user->first_name)) ? ($user->name) : ($user->first_name)) : (((is_null($user->name)) ? ($user->email) : ($user->name)));
+            $access;
+
+            if($userRole)
+            {
+                $access = 'User';
+            } elseif ($editorRole) {
+                $access = 'Editor';
+            } elseif ($adminRole) {
+                $access = 'Administrator';
+            }
+
+
         } catch (ModelNotFoundException $e) {
             return view('pages.status')
                 ->with('error',\Lang::get('profile.notYourProfile'))
                 ->with('error_title',\Lang::get('profile.notYourProfileTitle'));
         }
-        return view('profiles.show')->withUser($user);
+        return view('profiles.show')
+            ->withUser($user)
+            ->withAccess($access)
+            ->withDisplayusername($displayusername);
     }
 
     /**
@@ -102,7 +122,7 @@ class ProfilesController extends Controller {
     {
         $user = $this->getUserByUsername($username);
 
-        $input = Input::only('location', 'bio', 'twitter_username', 'github_username');
+        $input = Input::only('location', 'bio', 'twitter_username', 'github_username', 'career_title', 'education');
 
         $profile_validator = $this->profile_validator($request->all());
 

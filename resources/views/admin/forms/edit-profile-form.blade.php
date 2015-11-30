@@ -27,7 +27,23 @@
 	<div class="form-group has-feedback">
 		{!! Form::label('github_username', Lang::get('profile.label-github_username') , array('class' => 'col-sm-4 control-label')); !!}
 		<div class="col-sm-6">
-			{!! Form::text('github_username', old('github_username'), array('id' => 'github_username', 'class' => 'form-control', 'placeholder' => Lang::get('profile.ph-twitter_username'))) !!}
+			{!! Form::text('github_username', old('github_username'), array('id' => 'github_username', 'class' => 'form-control', 'placeholder' => Lang::get('profile.ph-github_username'))) !!}
+			<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
+		</div>
+	</div>
+
+	<div class="form-group has-feedback">
+		{!! Form::label('career_title', Lang::get('profile.label-career_title') , array('class' => 'col-sm-4 control-label')); !!}
+		<div class="col-sm-6">
+			{!! Form::text('career_title', old('career_title'), array('id' => 'career_title', 'class' => 'form-control', 'placeholder' => Lang::get('profile.ph-career_title'))) !!}
+			<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
+		</div>
+	</div>
+
+	<div class="form-group has-feedback">
+		{!! Form::label('education', Lang::get('profile.label-education') , array('class' => 'col-sm-4 control-label')); !!}
+		<div class="col-sm-6">
+			{!! Form::text('education', old('education'), array('id' => 'education', 'class' => 'form-control', 'placeholder' => Lang::get('profile.ph-education'))) !!}
 			<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
 		</div>
 	</div>
@@ -39,3 +55,4 @@
 	</div>
 
 {!! Form::close() !!}
+

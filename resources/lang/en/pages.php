@@ -9,9 +9,13 @@ return [
 	|
 	*/
 
+	//SHARED
+	"dashboard-access-level"	=> ":access Access",
+
 	// USER DASHBOARD PAGE
 	"dashboard-welcome"			=> ":username's Dashboard",
-	"dashboard-access-level"	=> ":access Control panel",
+
+
 
 ];
 

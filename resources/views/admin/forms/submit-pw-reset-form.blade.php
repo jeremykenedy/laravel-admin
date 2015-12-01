@@ -1,5 +1,5 @@
 {!! Form::open(array('url' => url('/password/email'), 'method' => 'POST', 'class' => 'lockscreen-credentials form-horizontal', 'role' => 'form')) !!}
-{!! csrf_field() !!}
+	{!! csrf_field() !!}
 
     <div class="lockscreen-item">
         <div class="lockscreen-image">

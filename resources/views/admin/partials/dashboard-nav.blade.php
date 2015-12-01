@@ -217,6 +217,9 @@
 
 
 
+
+
+
                   </span>
                 </a>
                 <ul class="dropdown-menu">
@@ -224,16 +227,8 @@
                   <li class="user-header">
                     {!! HTML::image(Gravatar::get(Auth::user()->email), Auth::user()->name, array('class' => 'img-circle', 'draggable' => 'false')) !!}
                     <p>
-
-
-                      {{ Auth::user()->name }} - {{ Auth::user()->profile->career_title }}
-
-
-
-                      <small>Member since Nov. 2012</small>
-
-
-
+                      {{ (Auth::user()->name === Auth::user()->email) ? ((is_null(Auth::user()->first_name)) ? (Auth::user()->name) : (Auth::user()->first_name)) : (((is_null(Auth::user()->name)) ? (Auth::user()->email) : (Auth::user()->name))) }} - {{ Auth::user()->profile->career_title }}
+                      <small>Member since {{ date("M. Y", strtotime(Auth::user()->created_at)) }}</small>
                     </p>
                   </li>
                   <!-- Menu Body -->

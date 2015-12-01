@@ -102,13 +102,30 @@ class ProfilesController extends Controller {
         try {
             $user = $this->getUserByUsername($username);
             //dd($user->toArray());
+            $userRole           = $user->hasRole('user');
+            $editorRole         = $user->hasRole('editor');
+            $adminRole          = $user->hasRole('administrator');
+            $displayusername    = ($user->name === $user->email) ? ((is_null($user->first_name)) ? ($user->name) : ($user->first_name)) : (((is_null($user->name)) ? ($user->email) : ($user->name)));
+            $access;
+
+            if($userRole)
+            {
+                $access = 'User';
+            } elseif ($editorRole) {
+                $access = 'Editor';
+            } elseif ($adminRole) {
+                $access = 'Administrator';
+            }
         } catch (ModelNotFoundException $e) {
             return view('pages.status')
                 ->with('error',\Lang::get('profile.notYourProfile'))
                 ->with('error_title',\Lang::get('profile.notYourProfileTitle'));
         }
         //dd($user->toArray());
-        return view('profiles.edit')->withUser($user);
+        return view('profiles.edit')
+            ->withUser($user)
+            ->withAccess($access)
+            ->withDisplayusername($displayusername);
     }
 
     /**

@@ -9,7 +9,7 @@
 
 		<div class="box-body">
 			<div class="form-group has-feedback">
-				{!! Form::label('location', Lang::get('profile.label-location') , array('class' => 'col-lg-3 control-label margin-bottom-5')); !!}
+				{!! Form::label('location', Lang::get('profile.label-location') , array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
 				<div class="col-lg-9">
 	              	<div class="input-group">
 	                	{!! Form::text('location', old('location'), array('id' => 'location', 'class' => 'form-control', 'placeholder' => Lang::get('profile.ph-location'))) !!}
@@ -19,7 +19,7 @@
 			</div>
 
 			<div class="form-group has-feedback">
-				{!! Form::label('bio', Lang::get('profile.label-bio') , array('class' => 'col-lg-3 control-label margin-bottom-5')); !!}
+				{!! Form::label('bio', Lang::get('profile.label-bio') , array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
 				<div class="col-lg-9">
 	              	<div class="input-group">
 	                	{!! Form::textarea('bio', old('bio'), array('id' => 'bio', 'class' => 'form-control', 'placeholder' => Lang::get('profile.ph-bio'))) !!}
@@ -29,7 +29,7 @@
 			</div>
 
 			<div class="form-group has-feedback">
-				{!! Form::label('twitter_username', Lang::get('profile.label-twitter_username') , array('class' => 'col-lg-3 control-label margin-bottom-5')); !!}
+				{!! Form::label('twitter_username', Lang::get('profile.label-twitter_username') , array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
 				<div class="col-lg-9">
 	              	<div class="input-group">
 	                	{!! Form::text('twitter_username', old('twitter_username'), array('id' => 'twitter_username', 'class' => 'form-control', 'placeholder' => Lang::get('profile.ph-twitter_username'))) !!}
@@ -39,7 +39,7 @@
 			</div>
 
 			<div class="form-group has-feedback">
-				{!! Form::label('github_username', Lang::get('profile.label-github_username') , array('class' => 'col-lg-3 control-label margin-bottom-5')); !!}
+				{!! Form::label('github_username', Lang::get('profile.label-github_username') , array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
 				<div class="col-lg-9">
 	              	<div class="input-group">
 	                	{!! Form::text('github_username', old('github_username'), array('id' => 'github_username', 'class' => 'form-control', 'placeholder' => Lang::get('profile.ph-github_username'))) !!}
@@ -49,7 +49,7 @@
 			</div>
 
 			<div class="form-group has-feedback">
-				{!! Form::label('career_title', Lang::get('profile.label-career_title') , array('class' => 'col-lg-3 control-label margin-bottom-5')); !!}
+				{!! Form::label('career_title', Lang::get('profile.label-career_title') , array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
 				<div class="col-lg-9">
 	              	<div class="input-group">
 	                	{!! Form::text('career_title', old('career_title'), array('id' => 'career_title', 'class' => 'form-control', 'placeholder' => Lang::get('profile.ph-career_title'))) !!}
@@ -59,7 +59,7 @@
 			</div>
 
 			<div class="form-group has-feedback">
-				{!! Form::label('education', Lang::get('profile.label-education') , array('class' => 'col-lg-3 control-label margin-bottom-5')); !!}
+				{!! Form::label('education', Lang::get('profile.label-education') , array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
 				<div class="col-lg-9">
 	              	<div class="input-group">
 	                	{!! Form::text('education', old('education'), array('id' => 'education', 'class' => 'form-control', 'placeholder' => Lang::get('profile.ph-education'))) !!}
@@ -70,7 +70,7 @@
 		</div>
 
 		<div class="box-footer">
-			{!! Form::button(Lang::get('profile.submitButton'), array('class' => 'btn btn-primary btn-lg btn-block','type' => 'submit')) !!}
+			{!! Form::button('<i class="fa fa-fw fa-save" aria-hidden="true"></i> '.Lang::get('profile.submitButton'), array('class' => 'btn btn-primary btn-lg btn-block margin-bottom-1','type' => 'submit')) !!}
 		</div>
 
 	{!! Form::close() !!}

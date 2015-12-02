@@ -8,11 +8,41 @@
 
 @section('template_fastload_css')
 
-{{-- move to scss later --}}
-.margin-bottom-5 {
-	margin-bottom: 5px !important;
-}
-
+	{{-- move to scss later --}}
+	.margin-bottom-half {
+		margin-bottom: .5em !important;
+	}
+	.margin-bottom-1 {
+		margin-bottom: 1em !important;
+	}
+	.margin-bottom-2 {
+		margin-bottom: 2em !important;
+	}
+	.margin-bottom-5 {
+		margin-bottom: 5em !important;
+	}
+	{{-- move to scss later --}}
+	.alert .close {
+		font-size:3.5em;
+		font-weight: 100;
+		-webkit-transition: all .15s ease-in-out;
+		-moz-transition: all .15s ease-in-out;
+		-o-transition: all .15s ease-in-out;
+		transition: all .15s ease-in-out;
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+	.alert .close:active {
+		-webkit-transform: rotate(180deg);
+		-moz-transform: rotate(180deg);
+		-ms-transform: rotate(180deg);
+		-o-transform: rotate(180deg);
+		transform: rotate(180deg);
+		opacity: 0 !important;
+	}
 
 @endsection
 
@@ -20,7 +50,6 @@
 	 <div class="content-wrapper">
 	    <section class="content-header">
 			<h1>
-
 				{{ Lang::get('profile.editProfileTitle',['username' => $displayusername] ) }}
 				<small> {{ Lang::get('pages.dashboard-access-level',['access' => $access] ) }} </small>
 			</h1>

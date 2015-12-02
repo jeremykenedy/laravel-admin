@@ -77,13 +77,11 @@
 					        	{{ Lang::get('profile.showProfileAccessLevel') }}
 					        </strong>
 					        <p class="text-muted">
-								{{-- $access --}}
+								{{ Lang::get('pages.dashboard-access-level',['access' => $access] ) }}
 					        </p>
 
 			            </div>
 			        </div>
-
-
 
 			        {{-- About Me Box --}}
 			        <div class="box box-primary">

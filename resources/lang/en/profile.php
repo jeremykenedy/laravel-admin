@@ -38,22 +38,22 @@ return [
 	'editProfileTitle'			=> 'Edit User Profile',
 
 	// USER EDIT PROFILE FORM
-	'label-location'			=> 'Your location:',
+	'label-location'			=> 'Your location',
 	'ph-location'				=> 'Enter your location',
 
-	'label-bio'					=> 'Your bio:',
+	'label-bio'					=> 'Your bio',
 	'ph-bio'					=> 'Enter your bio',
 
-	'label-github_username'		=> 'Your GitHub User:',
+	'label-github_username'		=> 'Your GitHub User',
 	'ph-github_username'		=> 'Enter your GitHub username',
 
-	'label-twitter_username'	=> 'Your Twitter User:',
+	'label-twitter_username'	=> 'Your Twitter User',
 	'ph-twitter_username'		=> 'Enter your Twitter username',
 
-	'label-career_title'		=> 'Your Occupation:',
+	'label-career_title'		=> 'Your Occupation',
 	'ph-career_title'			=> 'Enter your occupation',
 
-	'label-education'			=> 'Your Education:',
+	'label-education'			=> 'Your Education',
 	'ph-education'				=> 'Enter your education',
 
 	'submitButton'				=> 'Save',

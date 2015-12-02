@@ -44,18 +44,18 @@ return [
 	'label-bio'					=> 'Your bio:',
 	'ph-bio'					=> 'Enter your bio',
 
-	'label-github_username'		=> 'Your GitHub username:',
+	'label-github_username'		=> 'Your GitHub User:',
 	'ph-github_username'		=> 'Enter your GitHub username',
 
-	'label-twitter_username'	=> 'Your Twitter username:',
+	'label-twitter_username'	=> 'Your Twitter User:',
 	'ph-twitter_username'		=> 'Enter your Twitter username',
 
-	'label-career_title'		=> 'Your career title:',
-	'ph-career_title'			=> 'Enter your career title',
+	'label-career_title'		=> 'Your Occupation:',
+	'ph-career_title'			=> 'Enter your occupation',
 
-	'label-education'			=> 'Your education:',
+	'label-education'			=> 'Your Education:',
 	'ph-education'				=> 'Enter your education',
 
-	'submitButton'				=> 'Submit',
+	'submitButton'				=> 'Save',
 
 ];

@@ -5491,14 +5491,14 @@ fieldset[disabled] .btn-yahoo.active {
     white-space: normal !important;
   }
 }
+body {
+  background: #222d32;
+}
 .g-recaptcha {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 304px;
-}
-.alert .close {
-  text-decoration: none;
 }
 .image-no-drag img,
 .image-no-drag {
@@ -5507,28 +5507,34 @@ fieldset[disabled] .btn-yahoo.active {
   -webkit-user-drag: none;
 }
 .margin-top-1 {
-  margin-top: 1em;
+  margin-top: 1em !important;
 }
 .margin-top-2 {
-  margin-top: 2em;
+  margin-top: 2em !important;
 }
 .margin-bottom-1 {
-  margin-bottom: 1em;
+  margin-bottom: 1em !important;
 }
 .margin-bottom-2 {
-  margin-bottom: 2em;
+  margin-bottom: 2em !important;
+}
+.margin-bottom-5 {
+  margin-bottom: 5em !important;
 }
 .margin-left-1 {
-  margin-left: 1em;
+  margin-left: 1em !important;
 }
 .margin-left-2 {
-  margin-left: 2em;
+  margin-left: 2em !important;
 }
 .margin-right-1 {
-  margin-left: 1em;
+  margin-left: 1em !important;
 }
 .margin-right-2 {
-  margin-left: 2em;
+  margin-left: 2em !important;
+}
+.margin-bottom-half {
+  margin-bottom: .5em !important;
 }
 .lockscreen-credentials {
   padding: 0 50px;
@@ -5605,6 +5611,30 @@ fieldset[disabled] .btn-yahoo.active {
   border: 5px solid #ffffff;
   border-radius: 100px;
   margin: 0 auto;
+}
+.navbar-nav > li > a {
+  min-height: 50px;
+}
+.sidebar-menu .treeview-menu > li > a {
+  padding: 12px 5px 12px 15px;
+}
+.sidebar-menu .treeview-menu > li > a:hover {
+  background: #1e282c;
+  margin-left: -2px;
+  padding-left: 17px;
+}
+.alert .close {
+  text-decoration: none;
+  font-size: 3.5em;
+  font-weight: 100;
+  transition: all 0.15s ease-in-out;
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+.alert .close:active {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  opacity: 0 !important;
 }
 
 /*# sourceMappingURL=admin-core.css.map */

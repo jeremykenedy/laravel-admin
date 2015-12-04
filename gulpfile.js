@@ -90,9 +90,9 @@
 	var enable_compile_admin_js		= 1;			// Compile Admin JS?
 
 	/* LOGIN -------------------------------------------------------------------*/
-	var enable_compile_login 		= 0;			// Compile Login Assets?
-	var enable_compile_login_css	= 0;			// Compile Login CSS?
-	var enable_compile_login_js		= 0;			// Compile Login JS?
+	var enable_compile_login 		= 1;			// Compile Login Assets?
+	var enable_compile_login_css	= 1;			// Compile Login CSS?
+	var enable_compile_login_js		= 1;			// Compile Login JS?
 
 	/* APP __-------------------------------------------------------------------*/
 	var enable_compile_app			= 0;			// Compile App Assets?
@@ -247,11 +247,11 @@ elixir(function(mix) {
 				'public/assets/css/admin/components/admin-skins.css',									// ADMIN LTE SKINS INPUT
 				'public/assets/css/admin/components/admin-font-icons.css',								// ADMIN LTE FONT ICONS INPUT
 		        'resources/assets/adminlte/plugins/iCheck/flat/blue.css',								// ADMINLTE PLUGIN CSS - iCheck
-		        'resources/assets/adminlte/plugins/morris/morris.css',									// ADMINLTE PLUGIN CSS - Morris chart
-		        'resources/assets/adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.css',				// ADMINLTE PLUGIN CSS - jvectormap
-		        'resources/assets/adminlte/plugins/datepicker/datepicker3.css',							// ADMINLTE PLUGIN CSS - Date Picker
-		        'resources/assets/adminlte/plugins/daterangepicker/daterangepicker-bs3.css',			// ADMINLTE PLUGIN CSS - Daterange picker
-				'resources/assets/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css'	    // ADMINLTE PLUGIN CSS - Bootstrap wysihtml5 text editor
+		        //'resources/assets/adminlte/plugins/morris/morris.css',									// ADMINLTE PLUGIN CSS - Morris chart
+		        //'resources/assets/adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.css',				// ADMINLTE PLUGIN CSS - jvectormap
+		        //'resources/assets/adminlte/plugins/datepicker/datepicker3.css',							// ADMINLTE PLUGIN CSS - Date Picker
+		        //'resources/assets/adminlte/plugins/daterangepicker/daterangepicker-bs3.css',			// ADMINLTE PLUGIN CSS - Daterange picker
+				//'resources/assets/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css'	    // ADMINLTE PLUGIN CSS - Bootstrap wysihtml5 text editor
 		    ],
 		    'public/assets/css/admin/admin.css', './');													// SINGLE FILE OUTPUT
 		}

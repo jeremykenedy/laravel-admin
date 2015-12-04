@@ -28,7 +28,7 @@
 			        {{-- About Me Box --}}
 			        <div class="box box-primary">
 			            <div class="box-header with-border">
-			                <h3 class="box-title">The Basics</h3>
+			                <h3 class="box-title">About Me</h3>
 			            </div>
 			            <div class="box-body">
 
@@ -77,18 +77,10 @@
 					        	{{ Lang::get('profile.showProfileAccessLevel') }}
 					        </strong>
 					        <p class="text-muted">
-								{{ Lang::get('pages.dashboard-access-level',['access' => $access] ) }}
+								{{ $access }}
 					        </p>
 
-			            </div>
-			        </div>
-
-			        {{-- About Me Box --}}
-			        <div class="box box-primary">
-			            <div class="box-header with-border">
-			                <h3 class="box-title">About Me</h3>
-			            </div>
-			            <div class="box-body">
+					        <hr>
 
 							@if ($user->profile->career_title)
 						        <strong>
@@ -141,6 +133,7 @@
 						        </p>
 						        <hr>
 							@endif
+
 
 							@if ($user->profile->twitter_username)
 						        <strong>

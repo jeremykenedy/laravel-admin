@@ -22,8 +22,8 @@
     {{-- Load Layout --}}
     @yield('layout-content')
 
-    {{-- Load Global Scripts --}}
-    @include('admin.partials.scripts')
+    {{-- Load Layout Footer --}}
+    @yield('layout-footer')
 
     {{-- Load Layout Scripts --}}
     @yield('layout-scripts')

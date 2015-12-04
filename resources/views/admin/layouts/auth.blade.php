@@ -22,10 +22,10 @@
 
 @stop
 
-{{-- Load Common Layout Scripts --}}
+{{-- Load Layout Scripts --}}
 @section('layout-scripts')
 
-	{{-- Load Template Scripts --}}
+	@include('admin.partials.scripts')
 	@yield('template_scripts')
 
 @stop

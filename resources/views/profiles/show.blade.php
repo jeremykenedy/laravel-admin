@@ -7,28 +7,6 @@
 @endsection
 
 @section('template_fastload_css')
-	{{-- move to scss later --}}
-	.alert .close {
-		font-size:3.5em;
-		font-weight: 100;
-		-webkit-transition: all .15s ease-in-out;
-		-moz-transition: all .15s ease-in-out;
-		-o-transition: all .15s ease-in-out;
-		transition: all .15s ease-in-out;
-		-webkit-transform: rotate(360deg);
-		-moz-transform: rotate(360deg);
-		-ms-transform: rotate(360deg);
-		-o-transform: rotate(360deg);
-		transform: rotate(360deg);
-	}
-	.alert .close:active {
-		-webkit-transform: rotate(180deg);
-		-moz-transform: rotate(180deg);
-		-ms-transform: rotate(180deg);
-		-o-transform: rotate(180deg);
-		transform: rotate(180deg);
-		opacity: 0 !important;
-	}
 @endsection
 
 @section('content')
@@ -52,171 +30,19 @@
 				@endif
 			@endif
 
- 			{{-- LEFT/TOP COLUMN --}}
 			<div class="row">
+
+				{{-- LEFT/TOP COLUMN --}}
 			    <div class="col-lg-4 col-md-5 col-sm-6">
-
-			        {{-- Profile Image --}}
-			        <div class="box box-primary">
-			            <div class="box-body box-profile">
-							{!! HTML::image(Gravatar::get($user->email), $user->name, array('class' => 'profile-user-img img-responsive img-circle', 'draggable' => 'false')) !!}
-			                <h3 class="profile-username text-center">
-			                	{{ $user->first_name }} {{ $user->last_name }}
-			                </h3>
-			                <p class="text-muted text-center">
-			                	{{ $user->profile->career_title}}
-			                </p>
-							{{--
-			                <ul class="list-group list-group-unbordered">
-			                    <li class="list-group-item">
-			                        <b>Followers</b> <a class="pull-right">1,322</a>
-			                    </li>
-			                    <li class="list-group-item">
-			                        <b>Following</b> <a class="pull-right">543</a>
-			                    </li>
-			                    <li class="list-group-item">
-			                        <b>Friends</b> <a class="pull-right">13,287</a>
-			                    </li>
-			                </ul>
-			                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
- 							--}}
-			            </div>
-			        </div>
-
-			        {{-- About Me Box --}}
-			        <div class="box box-primary">
-			            <div class="box-header with-border">
-			                <h3 class="box-title">About Me</h3>
-			            </div>
-			            <div class="box-body">
-
-							@if ($user->name)
-						        <strong>
-						        	<i class="fa fa-user margin-r-5"></i>
-						        	{{ Lang::get('profile.showProfileUsername') }}
-						        </strong>
-						        <p class="text-muted">
-									{{ $user->name }}
-						        </p>
-							@endif
-
-							@if ($user->first_name)
-						        <strong>
-						        	<i class="fa fa-user margin-r-5"></i>
-						        	{{ Lang::get('profile.showProfileFirstName') }}
-						        </strong>
-						        <p class="text-muted">
-									{{ $user->first_name }}
-						        </p>
-							@endif
-
-							@if ($user->last_name)
-						        <strong>
-						        	<i class="fa fa-user margin-r-5"></i>
-						        	{{ Lang::get('profile.showProfileLastName') }}
-						        </strong>
-						        <p class="text-muted">
-									{{ $user->last_name }}
-						        </p>
-							@endif
-
-							@if ($user->email)
-						        <strong>
-						        	<i class="fa fa-envelope margin-r-5"></i>
-						        	{{ Lang::get('profile.showProfileEmail') }}
-						        </strong>
-						        <p class="text-muted">
-									{{ $user->email }}
-						        </p>
-							@endif
-
-					        <strong>
-					        	<i class="fa fa-unlock margin-r-5"></i>
-					        	{{ Lang::get('profile.showProfileAccessLevel') }}
-					        </strong>
-					        <p class="text-muted">
-								{{ $access }}
-					        </p>
-
-					        <hr>
-
-							@if ($user->profile->career_title)
-						        <strong>
-						        	<i class="fa fa-briefcase margin-r-5"></i>
-						        	{{ Lang::get('profile.showProfilecareerTitle') }}
-						        </strong>
-						        <p class="text-muted">
-									{{ $user->profile->career_title }}
-						        </p>
-							@endif
-
-							@if ($user->profile->education)
-						        <strong>
-						        	<i class="fa fa-book margin-r-5"></i>
-						        	{{ Lang::get('profile.showProfileEducation') }}
-						        </strong>
-						        <p class="text-muted">
-									{{ $user->profile->education }}
-						        </p>
-							@endif
-
-							@if ($user->profile->location)
-						        <strong>
-						        	<i class="fa fa-map-marker margin-r-5"></i>
-						        	{{ Lang::get('profile.showProfileLocation') }}
-						        </strong>
-						        <p class="text-muted">
-									{{ $user->profile->location }}
-						        </p>
-							@endif
-
-							{{--
-							<strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
-			                <p>
-			                    <span class="label label-danger">UI Design</span>
-			                    <span class="label label-success">Coding</span>
-			                    <span class="label label-info">Javascript</span>
-			                    <span class="label label-warning">PHP</span>
-			                    <span class="label label-primary">Node.js</span>
-			                </p>
-			                <hr> --}}
-
-							@if ($user->profile->bio)
-						        <strong>
-						        	<i class="fa fa-file-text-o margin-r-5"></i>
-						        	{{ Lang::get('profile.showProfileBio') }}
-						        </strong>
-						        <p>
-									{{ $user->profile->bio }}
-						        </p>
-						        <hr>
-							@endif
-
-
-							@if ($user->profile->twitter_username)
-						        <strong>
-						        	<i class="fa fa-twitter margin-r-5"></i>
-						        	{{ Lang::get('profile.showProfileTwitterUsername') }}
-						        </strong>
-						        <p>
-									{!! HTML::link('https://twitter.com/'.$user->profile->twitter_username, $user->profile->twitter_username, array('class' => 'twitter-link', 'target' => '_blank')) !!}
-						        </p>
-							@endif
-
-							@if ($user->profile->github_username)
-						        <strong>
-						        	<i class="fa fa-github margin-r-5"></i>
-						        	{{ Lang::get('profile.showProfileGitHubUsername') }}
-						        </strong>
-						        <p>
-									{!! HTML::link('https://github.com/'.$user->profile->github_username, $user->profile->github_username, array('class' => 'github-link', 'target' => '_blank')) !!}
-						        </p>
-							@endif
-
-			            </div>
-			        </div>
-
+			    	@include('admin.modules.profile-image-box')
+					@include('admin.modules.profile-basics')
 			    </div>
+
+			    {{-- RIGHT/BOTTOM COLUMN --}}
+			    <div class="col-lg-8 col-md-7 col-sm-6">
+			    	@include('admin.modules.profile-about')
+			    </div>
+
 			</div>
 
 	    </section>

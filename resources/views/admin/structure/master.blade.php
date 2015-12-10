@@ -19,13 +19,19 @@
     {{-- Load Google Analytics --}}
     {{-- @include('blog.partials.analytics') --}}
 
-    {{-- Load Layout --}}
+    {{-- Load Layout HEADER --}}
+    @yield('layout-header')
+
+    {{-- Load Layout CONTENT --}}
     @yield('layout-content')
 
-    {{-- Load Layout Footer --}}
+    {{-- Load Layout SIDEBAR --}}
+    @yield('layout-sidebar')
+
+    {{-- Load Layout FOOTER --}}
     @yield('layout-footer')
 
-    {{-- Load Layout Scripts --}}
+    {{-- Load Layout SCRIPTS --}}
     @yield('layout-scripts')
 
   </body>

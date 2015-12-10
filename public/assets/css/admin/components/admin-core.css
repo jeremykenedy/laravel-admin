@@ -5491,9 +5491,6 @@ fieldset[disabled] .btn-yahoo.active {
     white-space: normal !important;
   }
 }
-body {
-  background: #222d32;
-}
 .g-recaptcha {
   display: block;
   margin-left: auto;
@@ -5505,6 +5502,9 @@ body {
   user-drag: none;
   -moz-user-select: none;
   -webkit-user-drag: none;
+}
+.content-wrapper {
+  min-height: auto !important;
 }
 .margin-top-1 {
   margin-top: 1em !important;

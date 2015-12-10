@@ -26,7 +26,7 @@
 			<div class="row">
 
 				{{-- LEFT/TOP COLUMN --}}
-				<div class="col-lg-8 col-md-7 col-sm-6">
+				<div class="col-lg-8 col-md-12 col-sm-12">
 					@if ($user->profile)
 						@if (Auth::user()->id == $user->id)
 							@include('admin.partials.return-callouts')
@@ -42,7 +42,7 @@
 				</div>
 
 			    {{-- RIGHT/BOTTOM COLUMN --}}
-			    <div class="col-lg-4 col-md-5 col-sm-6">
+			    <div class="col-lg-4 col-md-12 col-sm-12">
 			    	@include('admin.modules.profile-basics')
 			    	@include('admin.modules.profile-about')
 			    </div>

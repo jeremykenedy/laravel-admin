@@ -1,6 +1,6 @@
 {{-- Load Layout Body Classes --}}
 <?php
-	$layoutBodybodyClasses = 'hold-transition skin-blue sidebar-mini ';  // Can also add class 'fixed'
+	$layoutBodybodyClasses = 'hold-transition skin-blue sidebar-mini fixed ';  // Can also add class 'fixed'
 ?>
 
 @extends('admin.structure.master')
@@ -11,26 +11,31 @@
 	@include('admin.structure.head')
 @stop
 
-@include('admin.partials.header')
-@include('admin.partials.dashboard-sidebar')
+{{-- Load Layout HEADER --}}
+@section('layout-header')
+	@include('admin.partials.header')
+	@include('admin.partials.dashboard-sidebar')
+@stop
 
-{{-- Load Layout Content --}}
+{{-- Load Layout CONTENT --}}
 @section('layout-content')
 	@yield('content')
 @stop
 
-@include('admin.modules.control-sidebar')
+{{-- Load Layout SIDEBAR --}}
+@section('layout-sidebar')
+	@include('admin.modules.control-sidebar')
+@stop
 
-{{-- Load Dashobard Footer --}}
+{{-- Load Dashobard FOOTER --}}
 @section('layout-footer')
 	@include('admin.partials.footer')
 @stop
 
-{{-- Load Layout Scripts --}}
+{{-- Load Layout SCRIPTS --}}
 @section('layout-scripts')
 
 	@include('admin.partials.scripts')
 	@yield('template_scripts')
 
 @stop
-

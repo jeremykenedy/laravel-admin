@@ -11,7 +11,7 @@
 
 @section('template_fastload_css')
 	{{-- move to scss later --}}
-	.alert .close {
+{{-- 	.alert .close {
 		font-size:3.5em;
 		font-weight: 100;
 		-webkit-transition: all .15s ease-in-out;
@@ -31,7 +31,7 @@
 		-o-transform: rotate(180deg);
 		transform: rotate(180deg);
 		opacity: 0 !important;
-	}
+	} --}}
 @endsection
 
 @include('partials.macros')
@@ -54,10 +54,10 @@
 					<p class="text-center margin-top-1 margin-bottom-2">- OR -</p>
 
 					{{-- Calls Social Media Login Buttons with Icon Only --}}
-					@include('partials.sm-logins-icons')
+					{{--@include('partials.sm-logins-icons')--}}
 
 					{{-- Calls Social Media Login Buttons with Text and Icon --}}
-					{{-- @include('partials.sm-logins-full') --}}
+					@include('partials.sm-logins-full')
 
 				</div>
 			</div>

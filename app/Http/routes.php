@@ -109,7 +109,29 @@ Route::group(['middleware' => 'auth'], function () {
 		'uses' 		=> 'ProfilesController@show'
 	]);
 
+
+	// MOVE THIS TO FILTER THROUGH ADMIN MIDDLWARE - HERE FOR DEV ONLY
+	Route::resource('users', 'UsersManagementController');
+	Route::get('users', [
+		'middleware' 	=> 'auth',
+		'as' 			=> '{username}',
+		'uses' 			=> 'UsersManagementController@showUsersMainPanel'
+	]);
+
+
+
 });
+
+
+
+
+
+
+
+
+
+
+
 
 // CATCH ALL ERROR FOR USERS AND NON USERS
 Route::any('/{page?}',function(){

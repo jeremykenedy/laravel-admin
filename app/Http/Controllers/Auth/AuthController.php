@@ -123,9 +123,13 @@ class AuthController extends Controller {
             $profile = new Profile;
             $user->profile()->save($profile);
 
+			$attemptsAllowed 		= 4;
+
 			return view('auth.activateAccount')
-			    ->with('email', $request->input('email'))
-			    ->with('username', $request->input('name'));
+			    ->with('email', $user->email)
+			    ->with('username', $user->name)
+			    ->with('attempts', $user->resent)
+			    ->with('remaining', ($attemptsAllowed - ($user->resent)));
 
 		} else {
 

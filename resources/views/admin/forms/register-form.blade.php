@@ -43,13 +43,13 @@
         <div class="col-xs-6">
             <div class="checkbox icheck">
                 {!! Form::label('agree', 'I agree to the terms', array('class' => 'sr-only')); !!}
-                {!! Form::checkbox('agree', 'agree', true, array('id' => 'agree', 'required' => 'required')); !!}
+                {!! Form::checkbox('agree', 'agree', true, array('id' => 'agree',  'class' => 'icheckbox_square-blue','required' => 'required')); !!}
                 &nbsp; I agree to the {!! HTML::link('#', 'terms'); !!}
             </div>
         </div>
+
         <div class="col-xs-6">
             {!! Form::button('<i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;'.Lang::get('auth.register_submit'), array('class' => 'btn btn-primary btn-block btn-flat','type' => 'submit')) !!}
         </div>
     </div>
 {!! Form::close() !!}
-

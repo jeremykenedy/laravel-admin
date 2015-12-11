@@ -247,11 +247,13 @@ elixir(function(mix) {
 				'public/assets/css/admin/components/admin-skins.css',									// ADMIN LTE SKINS INPUT
 				'public/assets/css/admin/components/admin-font-icons.css',								// ADMIN LTE FONT ICONS INPUT
 		        'resources/assets/adminlte/plugins/iCheck/flat/blue.css',								// ADMINLTE PLUGIN CSS - iCheck
-		        //'resources/assets/adminlte/plugins/morris/morris.css',									// ADMINLTE PLUGIN CSS - Morris chart
-		        //'resources/assets/adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.css',				// ADMINLTE PLUGIN CSS - jvectormap
-		        //'resources/assets/adminlte/plugins/datepicker/datepicker3.css',							// ADMINLTE PLUGIN CSS - Date Picker
-		        //'resources/assets/adminlte/plugins/daterangepicker/daterangepicker-bs3.css',			// ADMINLTE PLUGIN CSS - Daterange picker
-				//'resources/assets/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css'	    // ADMINLTE PLUGIN CSS - Bootstrap wysihtml5 text editor
+		        'resources/assets/adminlte/plugins/morris/morris.css',									// ADMINLTE PLUGIN CSS - Morris chart
+		        'resources/assets/adminlte/plugins/datatables/dataTables.bootstrap.css',				// ADMINLTE PLUGIN CSS - DataTables
+		        'resources/assets/adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.css',				// ADMINLTE PLUGIN CSS - jvectormap
+		        'resources/assets/adminlte/plugins/datepicker/datepicker3.css',							// ADMINLTE PLUGIN CSS - Date Picker
+		        'resources/assets/adminlte/plugins/daterangepicker/daterangepicker-bs3.css',			// ADMINLTE PLUGIN CSS - Daterange picker
+				'resources/assets/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css'	    // ADMINLTE PLUGIN CSS - Bootstrap wysihtml5 text editor
+
 		    ],
 		    'public/assets/css/admin/admin.css', './');													// SINGLE FILE OUTPUT
 		}
@@ -264,7 +266,8 @@ elixir(function(mix) {
 					'js/jquery-ui.js',
 					'bootstrap/dist/js/bootstrap.js',
 					'adminlte/dist/js/app.js',
-					'adminlte/dist/js/pages/dashboard.js',
+					'adminlte/plugins/datatables/jquery.dataTables.min.js',
+					'adminlte/plugins/datatables/dataTables.bootstrap.min.js',
 					'adminlte/plugins/morris/morris.js',
 					'adminlte/plugins/sparkline/jquery.sparkline.js',
 					'adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.js',
@@ -275,6 +278,8 @@ elixir(function(mix) {
 					'adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js',
 					'adminlte/plugins/slimScroll/jquery.slimscroll.js',
 					'adminlte/plugins/fastclick/fastclick.js',
+					'public/assets/js/app.js',
+					'adminlte/dist/js/pages/dashboard.js',
 			    ],
 				'public/assets/js/admin/admin.js',
 				'resources/assets'

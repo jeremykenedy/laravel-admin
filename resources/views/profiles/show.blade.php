@@ -13,7 +13,6 @@
 	 <div class="content-wrapper">
 	    <section class="content-header">
 			<h1>
-
 				{{ Lang::get('profile.showProfileTitle',['username' => $displayusername] ) }}
 				<small> {{ Lang::get('pages.dashboard-access-level',['access' => $access] ) }} </small>
 			</h1>

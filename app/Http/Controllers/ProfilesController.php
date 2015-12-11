@@ -14,6 +14,15 @@ use Input;
 
 class ProfilesController extends Controller {
 
+    /*
+    |--------------------------------------------------------------------------
+    | User Profiles Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller renders the "View Profile" and "Edit Profile" pages.
+    |
+    */
+
     //use AuthenticatesAndRegistersUsers;
     protected $auth;
     protected $userRepository;

@@ -16,7 +16,7 @@
 	<div class="row">
 		<div class="col-xs-6">
 			<div class="checkbox icheck">
-				{!! Form::checkbox('remember', 'remember', true, array('id' => 'remember')); !!}
+				{!! Form::checkbox('remember', 'remember', true, array('id' => 'remember', 'class' => 'icheckbox_square-blue')); !!}
 				{!! Form::label('remember', Lang::get('auth.rememberMe')); !!}
 			</div>
 		</div>

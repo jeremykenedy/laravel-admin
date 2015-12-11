@@ -33,12 +33,12 @@ class UserController extends Controller
             $access = 'Administrator';
         }
 
-        return view('pages.user-home')->withUser($user)->withAccess($access);
+        return view('admin.pages.user-home')->withUser($user)->withAccess($access);
     }
 
     public function getHome()
     {
-        return view('pages.user-home');
+        return view('admin.pages.user-home');
     }
 
 //OLD LTE

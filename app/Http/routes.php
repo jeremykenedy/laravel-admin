@@ -111,6 +111,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 	// MOVE THIS TO FILTER THROUGH ADMIN MIDDLWARE - HERE FOR DEV ONLY
+
 	Route::resource('users', 'UsersManagementController');
 	Route::get('users', [
 		'middleware' 	=> 'auth',
@@ -118,7 +119,11 @@ Route::group(['middleware' => 'auth'], function () {
 		'uses' 			=> 'UsersManagementController@showUsersMainPanel'
 	]);
 
-
+	Route::get('edit-users', [
+		'middleware' 	=> 'auth',
+		'as' 			=> '{username}',
+		'uses' 			=> 'UsersManagementController@editUsersMainPanel'
+	]);
 
 });
 

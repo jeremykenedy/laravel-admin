@@ -48,15 +48,31 @@
             @endif
 
 
+
+
+
             <li class="treeview">
                 {!! HTML::icon_link( "/users", 'fa '.Lang::get('sidebar-nav.link_icon_users'), "<span>".Lang::get('sidebar-nav.link_title_users')."</span><i class='fa ".Lang::get('sidebar-nav.caret_folded')." pull-right'></i>", array('title' => Lang::get('sidebar-nav.link_title_users'))) !!}
                 <ul class="treeview-menu">
                     <li>
                         {!! HTML::icon_link( "/users", 'fa '.Lang::get('sidebar-nav.link_icon_users_view'), Lang::get('sidebar-nav.link_title_users_view'), array('title' => Lang::get('sidebar-nav.link_title_users_view'))) !!}
+
+{{--   <a href="/users">
+    <i class="fa {{ Lang::get('sidebar-nav.link_icon_users_view') }}"></i>
+    <span>
+      {{ Lang::get('sidebar-nav.link_title_users_view') }}
+    </span>
+    <small class="label pull-right bg-blue">
+      {{$total_users}}
+    </small>
+  </a> --}}
+
+
+
                     </li>
                     @if (Auth::user()->id == $user->id)
                         <li>
-                            {!! HTML::icon_link( "/profile/".Auth::user()->name."/edit", 'fa '.Lang::get('sidebar-nav.link_icon_users_edit'), Lang::get('sidebar-nav.link_title_users_edit'), array('title' => Lang::get('sidebar-nav.link_title_users_edit'))) !!}
+                            {!! HTML::icon_link( "/edit-users/", 'fa '.Lang::get('sidebar-nav.link_icon_users_edit'), Lang::get('sidebar-nav.link_title_users_edit'), array('title' => Lang::get('sidebar-nav.link_title_users_edit'))) !!}
                         </li>
                     @endif
                 </ul>

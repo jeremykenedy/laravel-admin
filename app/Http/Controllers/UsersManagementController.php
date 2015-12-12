@@ -32,7 +32,7 @@ class UsersManagementController extends Controller {
 	}
 
 	/**
-	 * Show the Users Management Main Page to the user.
+	 * Show the Users Management Main Page to the Admin.
 	 *
 	 * @return Response
 	 */
@@ -64,6 +64,44 @@ class UsersManagementController extends Controller {
         	]
         );
 	}
+
+    /**
+     * Edit the Users Management Main Page to the Admin.
+     *
+     * @return Response
+     */
+    public function editUsersMainPanel()
+    {
+
+        $user           = \Auth::user();
+        $users          = \DB::table('users')->get();
+        $total_users    = \DB::table('users')->count();
+        $userRole       = $user->hasRole('user');
+        $editorRole     = $user->hasRole('editor');
+        $adminRole      = $user->hasRole('administrator');
+
+        if($userRole)
+        {
+            $access = 'User';
+        } elseif ($editorRole) {
+            $access = 'Editor';
+        } elseif ($adminRole) {
+            $access = 'Administrator';
+        }
+
+        return view('admin.pages.edit-users', [
+                'users'         => $users,
+                'total_users'   => $total_users,
+                'user'          => $user,
+                'access'        => $access,
+                '' => $total_users,
+            ]
+        );
+    }
+
+
+
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -171,20 +209,6 @@ class UsersManagementController extends Controller {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * Display the specified resource.
      *
@@ -211,7 +235,7 @@ class UsersManagementController extends Controller {
         $user = User::find($id);
         $user->delete();
 
-        return redirect('users')->with('status', 'Successfully deleted the user!');
+        return redirect('edit-users')->with('status', 'Successfully deleted the user!');
     }
 
 }

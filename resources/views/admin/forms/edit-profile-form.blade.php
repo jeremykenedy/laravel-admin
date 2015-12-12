@@ -70,7 +70,7 @@
 		</div>
 
 		<div class="box-footer">
-			{!! Form::button('<i class="fa fa-fw fa-save" aria-hidden="true"></i> '.Lang::get('profile.submitButton'), array('class' => 'btn btn-primary btn-lg btn-block margin-bottom-1','type' => 'submit')) !!}
+			{!! Form::button('<i class="fa fa-fw fa-save" aria-hidden="true"></i> '.Lang::get('profile.submitButton'), array('class' => 'btn btn-primary btn-lg btn-block margin-bottom-1','type' => 'button', 'data-toggle' => 'modal', 'data-target' => '#confirmSave', 'data-title' => 'Save Changes', 'data-message' => 'Are you sure you want to save your changes ?')) !!}
 		</div>
 
 	{!! Form::close() !!}

@@ -1,136 +1,75 @@
-### Laravel-Auth is a Complete Build of Laravel 5.1 with FULL Email and Social Authentication - COMPLETE WORKING Implementation. [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+# laravel-admin [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
 [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework) [![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) ![Bower version](https://img.shields.io/bower/v/bootstrap.svg) [![npm version](https://img.shields.io/npm/v/bootstrap.svg)](https://www.npmjs.com/package/bootstrap) [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
 [![Selenium Test Status](https://saucelabs.com/browser-matrix/bootstrap.svg)](https://saucelabs.com/u/bootstrap)
 
-Laravel 5.1 with user authentication, registration with email confirmation, social media authentication, password recovery, and captcha protection. This also makes full use of Controllers for the routes, templates for the views, and makes use of middleware for routing.  Super easy setup, can be done in 15 minutes. It will take longer to obtain your Facebook, Twitter, and Google Plus API Keys than it will to set this up.
+A [Laravel](http://laravel.com/) 5.1.x, [Bootstrap](http://getbootstrap.com) 3.5.x, and [AdminLTE](https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html) 2.3.x. project.
 
-###### Updates:
-* Added eloquent editable user profile.
-
-###### A [Laravel](http://laravel.com/) 5.1.x with minimal [Bootstrap](http://getbootstrap.com) 3.5.x project.
-| Laravel 5.1 Complete Authentication Features  |
+| Laravel-Admin Features  |
 | :------------ |
 |Built on [Laravel](http://laravel.com/) 5.1|
+|Admin is built on [AdminLTE](https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html) 2.3|
 |Uses [MySQL](https://github.com/mysql) Database|
 |Uses [Artisan](http://laravel.com/docs/5.1/artisan) to manage database migration, schema creations, and create/publish page controller templates|
 |Dependencies are managed with [COMPOSER](https://getcomposer.org/)|
+|Assets are managed with [BOWER](http://bower.io/)|
+|Assets are organized and processed with [GULPJS](http://gulpjs.com/)|
 |Laravel Scaffolding **User** and **Administrator Authentication**.|
-|User Registration with email verification|
-|User roles implementation|
-|User Login with remember password|
-|User Password Reset|
-|User Socialite Logins ready to go - See API list below|
-|Google Captcha Protection|
-|Custom 404 Page|
-
-| Next up on development  |
-| :------------ |
-|Add eloquent user profiles with gravatar|
-|Maybe use Google APIv3 for user address entry lookup|
-|Maybe capture IP to users table upon signup|
+|User Registration|
+|User Login|
+|User Dashboard|
+|User Profile|
+|User Forgot Password|
+|User email address based Gravatar|
+|404 Page for public|
+|404 Page for users|
 
 ### Quick Project Setup
-1. Run `sudo git clone https://github.com/jeremykenedy/laravel-auth.git laravel-authentication`
+1. Run `git clone https://github.com/jeremykenedy/laravel-admin.git laravel-admin`
 2. Create a MySQL database for the project
     * ```mysql -u root -p```, if using Vagrant: ```mysql -u homestead -psecret```
-    * ```create database laravelAuth;```
+    * ```create database laravelAdmin;```
     * ```\q```
-3. From the projects root run `cp .env.example .env`
+3. From the projects root run `sudo cp .env.example .env`
 4. Configure your `.env` file
-5. Run `sudo composer update` from the projects root folder
-6. From the projects root folder run `sudo chmod -R 755 ../laravel-authentication`
-7. From the projects root folder run `php artisan key:generate`
-8. From the projects root folder run `php artisan migrate`
-9. From the projects root folder run `composer dump-autoload`
-10. From the projects root folder run `php artisan db:seed`
+5. From the projects root folder run `sudo chmod -R 777 ../laravel-admin`
+6. Run `sudo composer update` from the projects root folder
+7. Run `sudo npm install` from the projects root folder
+8. Run `bower update` from the projects root folder
+9. Run `sudo gulp copyfiles` from the projects root folder
+10. Run `sudo gulp` from the projects root folder
+  * NOTE: In production run `sudo gulp --production`
+11. From the projects root folder run `sudo chmod -R 755 ../laravel-admin`
+12. From the projects root folder run `php artisan key:generate`
+13. From the projects root folder run `php artisan migrate`
+14. From the projects root folder run `composer dump-autoload`
+15. From the projects root folder run `php artisan db:seed`
 
 ###### Seeds
 1. Seeded Roles
    * user
    * editor
    * administrator
-2. Seeded Example **User**
-   * **Username**: user
-   * **Email**: jeremy@jeremykenedy.com
-   * **Password**: password
-2. Seeded Example **Admin**
-   * **Username**: admin
-   * **Email**: jeremykenedy@gmail.com
-   * **Password**: password
 
-And thats it with the caveat of setting up and configuring your development environemnt. I recommend [VAGRANT](https://docs.vagrantup.com/v2/getting-started/) or the Laravel configure version of Vagrant called [HOMESTEAD](http://laravel.com/docs/5.1/homestead).
-
-### Laravel-Authentication URL's (routes)
-* ```/```
+### Laravel-Admin URL's (routes)
 * ```/auth/login```
 * ```/auth/logout```
 * ```/auth/register```
-* ```/password/email```
+* ```/user```
+* ```/user/{user id}```
+* ```/auth/admin```
+* ```/auth/superadmin```
 
-
-### Laravel-Authentication Alias Redirect URL's (routes)
+### Laravel-Admin Alias Redirect URL's (routes)
+* ```/admin```
+* ```/superadmin```
 * ```/home```
+* ```/dashboard```
 * ```/login```
 * ```/logout```
 * ```/register```
 * ```/reset```
-
-### Get Socialite Login API Keys:
-* [Google Captcha API] (https://www.google.com/recaptcha/admin#list)
-* [Facebook API] (https://developers.facebook.com/)
-* [Twitter API] (https://apps.twitter.com/)
-* [Google &plus; API] (https://console.developers.google.com/)
-* [GitHub API] (https://github.com/settings/applications/new)
-* [YouTube API] (https://developers.google.com/youtube/v3/getting-started)
-* [Twitch TV API] (http://www.twitch.tv/kraken/oauth2/clients/new)
-* [Instagram API] (https://instagram.com/developer/register/)
-* [37 Signals API] (https://github.com/basecamp/basecamp-classic-api)
-
-### Add More Socialite Logins
-* See full list of providers: [http://socialiteproviders.github.io](http://socialiteproviders.github.io/#providers)
-###### **Steps**:
-  1. Go to [http://socialiteproviders.github.io](http://socialiteproviders.github.io/providers/twitch/) and select the provider to be added.
-  2. From the projects root folder in terminal run compser command to get the needed package.
-     * Example:
-      ```
-         composer require socialiteproviders/twitch
-      ```
-  3. From the projects root folder run ```composer update```
-  4. Add the service provider to ```/app/services.php```
-     * Example:
-     ```
-   	'twitch' => [
-   	    'client_id' 	=> env('TWITCH_KEY'),
-   	    'client_secret' => env('TWITCH_SECRET'),
-   	    'redirect' 		=> env('TWITCH_REDIRECT_URI'),
-   	],     
-     ```
-  5. Add the API credentials to ``` /.env  ```
-     * Example:
-      ```
-         TWITCH_KEY=YOURKEYHERE
-         TWITCH_SECRET=YOURSECRETHERE
-         TWITCH_REDIRECT_URI=http://YOURWEBSITEURL.COM/social/handle/twitch
-      ```
-  6. Add the social media login link:
-      * Example:
-      In file ```/resources/views/auth/login.blade.php``` add ONE of the following:
-         * Conventional HTML:
-      ```
-      
-         <a href="{{ route('social.redirect', ['provider' => 'twitch']) }}" class="btn btn-lg btn-primary btn-block twitch">Twitch</a>
-      
-      ```      
-         * Use Laravel HTML Facade (recommended)
-      ```
-      
-         {!! HTML::link(route('social.redirect', ['provider' => 'twitch']), 'Twitch', array('class' => 'btn btn-lg btn-primary btn-block twitch')) !!}
-      
-      ```
-
---
 
 ## [Laravel](http://laravel.com/) PHP Framework
 
@@ -174,39 +113,20 @@ APP_DEBUG=true
 APP_KEY=SomeRandomString
 
 DB_HOST=localhost
-DB_DATABASE=homestead
-DB_USERNAME=YOURDATABSEusernameHERE
-DB_PASSWORD=YOURDATABSEpasswordHERE
+DB_DATABASE=laravelAdmin
+DB_USERNAME=homestead
+DB_PASSWORD=secret
 
 CACHE_DRIVER=file
 SESSION_DRIVER=file
 QUEUE_DRIVER=sync
 
 MAIL_DRIVER=smtp
-MAIL_HOST=smtp.gmail.com
-MAIL_PORT=465
-MAIL_USERNAME=YOURGMAILusernameHERE
-MAIL_PASSWORD=YOURGMAILpasswordHERE
-MAIL_ENCRYPTION=tls
-
-# https://www.google.com/recaptcha/admin#list
-RE_CAP_SITE=YOURGOOGLECAPTCHAsitekeyHERE
-RE_CAP_SECRET=YOURGOOGLECAPTCHAsecretHERE
-
-# https://developers.facebook.com/
-FB_ID=YOURFACEBOOKidHERE
-FB_SECRET=YOURFACEBOOKsecretHERE
-FB_REDIRECT=http://yourwebsiteURLhere.com/social/handle/facebook
-
-# https://apps.twitter.com/
-TW_ID=YOURTWITTERidHERE
-TW_SECRET=YOURTWITTERkeyHERE
-TW_REDIRECT=http://yourwebsiteURLhere.com/social/handle/twitter
-
-# https://console.developers.google.com/
-GOOGLE_ID=YOURGOOGLEPLUSidHERE
-GOOGLE_SECRET=YOURGOOGLEPLUSsecretHERE
-GOOGLE_REDIRECT=http://yourwebsiteURLhere.com/social/handle/google
+MAIL_HOST=mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
 ```
 
 ### File Structure
@@ -226,6 +146,7 @@ laravel-admin/
     ├── app/
     │    ├── User.php
     │    └── Http/
+    │       ├── breadcrumbs.php
     │       ├── kernal.php
     │       ├── routes.php
     │       ├── Controllers/
@@ -237,77 +158,135 @@ laravel-admin/
     │       │   ├── UsersController.php
     │       │   └── WelcomeController.php
     │       ├── Middleware/
+    │       │   ├── Admin.php
     │       │   ├── Authenticate.php
     │       │   ├── EncryptCookies.php
     │       │   ├── RedirectAuthenticated.php
+    │       │   ├── SuperAdmin.php
     │       │   └── VerifyCsrfToken.php
     │       └── Requests/
     │           └── Request.php
     ├── config/
     │   ├── app.php
     │   ├── auth.php
+    │   ├── bootstrapper.php
+    │   ├── breadcrumbs.php
+    │   ├── broadcasting.php
     │   ├── cache.php
     │   ├── compile.php
     │   ├── database.php
     │   ├── filesystems.php
+    │   ├── gravatar.php
+    │   ├── image.php
     │   ├── mail.php
     │   ├── queue.php
     │   ├── services.php
     │   ├── session.php
+    │   ├── sluggable.php
     │   └── view.php
     ├── database/
     │   ├── migrations/
-    │   │   ├──
-    │   │   ├──
-    │   │   └──
+    │   │   ├── 2014_10_12_000000_create_users_table.php
+    │   │   ├── 2014_10_12_100000_create_password_resets_table.php
+    │   │   └── 2015_10_06_064037_add_userlevels_to_users_table.php
     │   └── seeds/
-    │       ├──
-    │       ├──
     │       └── DatabaseSeeder.php
     ├── public/
     │   ├── .htaccess
     │   ├── index.php
     │   └── assets/
     │       ├── css/
+    │       │   ├── admin/
+    │       │   │   ├── admin.css
+    │       │   │   ├── login.css
+    │       │   │   └── components/
+    │       │   │       ├── admin-core.css
+    │       │   │       ├── admin-font-icons.css
+    │       │   │       ├── admin-plugins.css
+    │       │   │       ├── admin-skins.css
+    │       │   │       └── login-plugins.css
+    │       │   ├── fonts/
+    │       │   └── vendor/
+    │       │       └── bootstrap.css
     │       ├── fonts
     │       └── js
+    │           ├── login.js
+    │           └── admin/
+    │               ├── admin-plugins.js
+    │               └── admin.js
     └── resources/
         ├── assets/
         ├── lang/
         └── views/
-            ├── app.blade.php
-            ├── app.home.php   //TODO[maybe.. :)~ ]: TO BE REMOVED AFTER CAN SAFELY CONFIRM OK
-            ├── emails/
-            │   ├── activateAccount.blade.php
-            │   └── password.blade.php
+            ├── welcome.blade.php
+            ├── admin/
+            │   ├── errors/
+            │   │   └── users404.blade.php
+            │   ├── forms/
+            │   │   ├── login.blade.php
+            │   │   ├── register.blade.php
+            │   │   └── reset-pw.blade.php
+            │   ├── layouts/
+            │   │   ├── dashboard.blade.php
+            │   │   └── user-progile.blade.php
+            │   ├── modules/
+            │   │   ├── blank.blade.php
+            │   │   ├── calendar-tasks.blade.php
+            │   │   ├── chat-boxes.blade.php
+            │   │   ├── control-sidebar.blade.php
+            │   │   ├── quick-email-widget.blade.php
+            │   │   ├── sales-graph.blade.php
+            │   │   ├── stat-boxes.blade.php
+            │   │   ├── tabbed-charts.blade.php
+            │   │   ├── todo-list.blade.php
+            │   │   └── visitors.blade.php
+            │   ├── partials/
+            │   │   ├── breadcrumbs.blade.php
+            │   │   ├── footer.blade.php
+            │   │   ├── header.php.php
+            │   │   ├── main-sidebar.blade.php
+            │   │   └── nav.blade.php
+            │   └── structure/
+            │       ├── head.blade.php
+            │       ├── jscripts.blade.php
+            │       └── master.blade.php
             ├── auth/
-            │   ├── activateAccount.blade.php
-            │   ├── guest_activate.blade.php
             │   ├── login.blade.php
             │   ├── password.blade.php
             │   ├── register.blade.php
-            │   ├── reset.blade.php
-            │   └── tooManyEmails.blade.php
+            │   └── reset.blade.php
             ├── emails/
-            │   ├── activateAccount.blade.php
+            │   ├── contact.blade.php
             │   └── password.blade.php
             ├── errors/
-            │   ├── 403.blade.php
             │   ├── 404.blade.php
             │   └── 503.blade.php
-            ├── pages/
-            │   ├── home.blade.php
-            │   └── status.blade.php
             └── vendor/
 
 ```
 
 #### Laravel Developement Packages Used References
+
+###### FORM and HTML classes for Laravel 5.1
 * [Documentation and Usage](https://github.com/illuminate/html)
-* http://laravel.com/docs/5.1/authentication
-* http://laravel.com/docs/5.1/authorization
-* http://laravel.com/docs/5.1/routing
-* http://laravel.com/docs/5.0/schema
+
+###### Bootstrapper for Laravel 5.1
+* [Documentation and Usage](http://bootstrapper.eu1.frbit.net/)
+* [Repository](https://github.com/patricktalmadge/bootstrapper/)
+
+###### Gravatar for Laravel 5.1
+* [Documentation, Repository, and Usage](https://github.com/creativeorange/gravatar)
+
+###### Image Processing for Laravel 5.1
+* [Documentation and Usage](http://image.intervention.io/getting_started/installation#laravel)
+* [Repository](https://github.com/Intervention/image)
+
+###### Breadcrumbs for Laravel 5.1
+* [Documentation and Usage](http://laravel-breadcrumbs.davejamesmiller.com/en/latest/index.html)
+* [Repository](https://github.com/davejamesmiller/laravel-breadcrumbs)
+
+###### Eloquent-Sluggable for Laravel 5.1
+* [Documentation, Repository, and Usage](https://github.com/cviebrock/eloquent-sluggable)
 
 ---
 

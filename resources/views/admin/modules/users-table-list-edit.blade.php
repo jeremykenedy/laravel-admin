@@ -28,7 +28,6 @@
 				<td>
 					<!-- edit this nerd (uses the edit method found at GET /users/{id}/edit -->
 					<a class="btn btn-small btn-info btn-block btn-flat" href="{{ URL::to('users/' . $value->id . '/edit') }}">Edit this User</a>
-
 				</td>
 			</tr>
 		@endforeach

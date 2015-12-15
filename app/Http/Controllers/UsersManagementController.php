@@ -10,6 +10,18 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Validator;
 use Input;
 
+
+
+
+
+
+use Illuminate\Support\Facades;
+use App\Logic\User\UserRepository;
+use App\Models\Social;
+use App\Models\Role;
+use App\Models\UsersRole;
+use App\Models\Profile;
+
 class UsersManagementController extends Controller {
 
 	/*
@@ -90,18 +102,13 @@ class UsersManagementController extends Controller {
         }
 
         return view('admin.pages.edit-users', [
-                'users'         => $users,
-                'total_users'   => $total_users,
-                'user'          => $user,
-                'access'        => $access,
-                '' => $total_users,
+                'users'             => $users,
+                'total_users'       => $total_users,
+                'user'              => $user,
+                'access'            => $access,
             ]
         );
     }
-
-
-
-
 
     /**
      * Get a validator for an incoming registration request.
@@ -142,9 +149,25 @@ class UsersManagementController extends Controller {
     public function edit($id)
     {
         // GET THE USER
-        $user = User::find($id);
+        $user           = User::find($id);
+        $userRole       = $user->hasRole('user');
+        $editorRole     = $user->hasRole('editor');
+        $adminRole      = $user->hasRole('administrator');
+        if($userRole)
+        {
+            $access = '1';
+        } elseif ($editorRole) {
+            $access = '2';
+        } elseif ($adminRole) {
+            $access = '3';
+        }
 
-        return view('admin.pages.edit-user')->withUser($user);
+        return view('admin.pages.edit-user', [
+                'user'              => $user,
+                'access'            => $access,
+            ]
+        )->with('status', 'Successfully updated user!');
+
     }
 
     /**
@@ -156,6 +179,8 @@ class UsersManagementController extends Controller {
      */
     public function update(Request $request, $id)
     {
+
+        $current_roles = array('3','2','1');
 
         $rules = array(
             'name'              => 'required',
@@ -169,11 +194,17 @@ class UsersManagementController extends Controller {
                 $request, $validator
             );
         } else {
-            $user 				= User::find($id);
-            $user->name         = $request->input('name');
-            $user->email        = $request->input('email');
+            $user 				        = User::find($id);
+            $user->name                 = $request->input('name');
+            $user->email                = $request->input('email');
+
+            $input = Input::only('role_id');
+            $user->removeRole($current_roles);
+            $user->assignRole($input);
             $user->save();
-            return redirect('users')->with('status', 'Successfully updated user!');
+
+            return redirect('users/' . $user->id . '/edit')->with('status', 'Successfully updated the user!');
+
         }
     }
 
@@ -183,7 +214,6 @@ class UsersManagementController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //public function store()
     public function store(Request $request)
     {
 

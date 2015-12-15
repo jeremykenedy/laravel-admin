@@ -25,10 +25,11 @@
 
 
 
-<!-- if there are creation errors, they will show here -->
-{!! HTML::ul($errors->all()) !!}
+
 
 {!! Form::model($user, array('action' => array('UsersManagementController@update', $user->id), 'method' => 'PUT')) !!}
+
+@include('admin.partials.return-messages')
 
 	<div class="form-group">
 		{!! Form::label('name', 'Name') !!}
@@ -41,14 +42,13 @@
 	</div>
 
 	<div class="form-group">
-		{!! Form::label('nerd_level', 'User Level') !!}
-		{!! Form::select('nerd_level', array('0' => 'Select a Level', '1' => 'Sees Sunlight', '2' => 'Foosball Fanatic', '3' => 'Basement Dweller'), null, array('class' => 'form-control')) !!}
+		{!! Form::label('role_id', 'User Access Level') !!}
+		{!! Form::select('role_id', array('0' => 'Select a Level', '1' => 'User', '2' => 'Editor', '3' => 'Administrator'), $access, array('class' => 'form-control')) !!}
 	</div>
 
 	{!! Form::submit('Edit the User!', array('class' => 'btn btn-primary')) !!}
 
 {!! Form::close() !!}
-
 
 
 

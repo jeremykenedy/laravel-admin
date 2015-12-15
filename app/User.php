@@ -71,17 +71,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->belongsToMany('App\Models\Role')->withTimestamps();
     }
-
     public function hasRole($name)
     {
         foreach($this->roles as $role)
         {
             if($role->name == $name) return true;
         }
-
         return false;
     }
-
     public function assignRole($role)
     {
         return $this->roles()->attach($role);

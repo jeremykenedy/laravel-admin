@@ -157,7 +157,7 @@ class AuthController extends Controller {
 
 	public function resendEmail()
 	{
-		$user = \Auth::user();
+		$user 					= \Auth::user();
 		$username				= $user->name;
 		$userEmail				= $user->email;
 		$attemptsAllowed 		= 4;

@@ -2,71 +2,12 @@
 //////////////// AUTH PAGES SYLING BELOW ////////////////////
 /////////////////////////////////////////////////////////////
 
-// COLORS
-@transparent:				transparent;
-@white:						#ffffff;
-@basecamp_bg:				#67aa49;
-@basecamp_bg_hover:			#329f2a;
-@youtube_bg:				#cd201f;
-@twitch_bg:					#6441A5;
-@youtube_bg_hover:			#AF1B1A;
-@twitch_bg_hover:			#55378E;
-@almost-black:				#222d32;
-
-// THEME COLORS
-@theme_color1:				@almost-black;
-
 // SHARED AUTH
-body {
-	//background: @theme_color1;
-}
 .g-recaptcha {
   	display: block;
   	margin-left: auto;
   	margin-right: auto;
   	width: 304px;
-}
-.image-no-drag img,
-.image-no-drag {
-	user-drag: none;
-	-moz-user-select: none;
-	-webkit-user-drag: none;
-}
-.content-wrapper {
-	min-height: auto !important;
-	// height: 100% !important;
-}
-
-// MARGIN CLASSES - CONVERT USING FOR LOOP LATER
-.margin-top-1 {
-	margin-top: 1em !important;
-}
-.margin-top-2 {
-	margin-top: 2em !important;
-}
-.margin-bottom-1 {
-	margin-bottom: 1em !important;
-}
-.margin-bottom-2 {
-	margin-bottom: 2em !important;
-}
-.margin-bottom-5 {
-	margin-bottom: 5em !important;
-}
-.margin-left-1 {
-	margin-left: 1em !important;
-}
-.margin-left-2 {
-	margin-left: 2em !important;
-}
-.margin-right-1 {
-	margin-left: 1em !important;
-}
-.margin-right-2 {
-	margin-left: 2em !important;
-}
-.margin-bottom-half {
-	margin-bottom: .5em !important;
 }
 
 // RESET/FORGOT PASSWORD PAGE
@@ -91,66 +32,6 @@ body {
 	margin-right: -20px;
 }
 
-// SM ICONS
-.btn-37signals  {
-	background: @basecamp_bg;
-	color: @white;
-	&:focus,
-	&:hover {
-		background: @basecamp_bg_hover;
-		color: @white;
-	}
-}
-.btn-youtube {
-	background: @youtube_bg;
-	color: @white;
-	&:focus,
-	&:hover {
-		background: @youtube_bg_hover;
-		color: @white;
-	}
-}
-.btn-twitch {
-	background: @twitch_bg;
-	color: @white;
-	&:focus,
-	&:hover {
-		background: @twitch_bg_hover;
-		color: @white;
-	}
-}
-
-// SM LOGIN AS ICON BUTTONS ONLY
-.icon-btns {
-	.col-xs-1 {
-	    width: 12.5%;
-	}
-	.icon-btn {
-		color: @transparent;
-		float: left;
-		width: 35px;
-		height: 35px;
-		padding: 0;
-		text-indent: 100px;
-		border: none;
-		margin:0 3% 3% 0;
-		position: relative;
-		z-index: 1;
-		> :first-child {
-			color: @white;
-			border: none;
-			width: 35px;
-		}
-		i {
-			&:before {
-				margin-left: -100px ;
-				border: none;
-			}
-		}
-
-	}
-}
-
 // WECOME ACTIVATION PAGE
 .welcome-image {
 	img {
@@ -161,49 +42,3 @@ body {
 		margin: 0 auto;
 	}
 }
-
-// DASHBOARD
-.navbar-nav > li > a {
-    min-height: 50px;
-}
-.sidebar-menu {
-	.treeview-menu {
-		> li {
-			> a {
-				padding: 12px 5px 12px 15px;
-				&:hover {
-					background: #1e282c;
-					margin-left: -2px;
-					padding-left: 17px;
-				}
-			}
-		}
-	}
-}
-
-// CLOSE BUTTON
-.alert {
-	.close {
-		text-decoration: none;
-		font-size:3.5em;
-		font-weight: 100;
-		-webkit-transition: all .15s ease-in-out;
-		-moz-transition: all .15s ease-in-out;
-		-o-transition: all .15s ease-in-out;
-		transition: all .15s ease-in-out;
-		-webkit-transform: rotate(360deg);
-		-moz-transform: rotate(360deg);
-		-ms-transform: rotate(360deg);
-		-o-transform: rotate(360deg);
-		transform: rotate(360deg);
-		&:active {
-			-webkit-transform: rotate(180deg);
-			-moz-transform: rotate(180deg);
-			-ms-transform: rotate(180deg);
-			-o-transform: rotate(180deg);
-			transform: rotate(180deg);
-			opacity: 0 !important;
-		}
-	}
-}
-

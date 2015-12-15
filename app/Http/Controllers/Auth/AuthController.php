@@ -112,6 +112,8 @@ class AuthController extends Controller {
 		$user->last_name 		= $request->input('last_name');
 		$user->email 			= $request->input('email');
 		$user->password 		= bcrypt($request->input('password'));
+		$user->gravatar 		= Gravatar::get($request->input('email'));
+
 		$user->activation_code 	= $activation_code;
 
 		if ($user->save()) {
@@ -248,6 +250,9 @@ class AuthController extends Controller {
                 $social_data->social_id 			= $user->id;
                 $social_data->provider 				= $provider;
                 $new_social_user->social()->save($social_data);
+
+				// GRAVATAR
+				$new_social_user->gravatar            	= Gravatar::get($user->email);
 
                 // ADD ROLE
                 $role = Role::whereName('user')->first();

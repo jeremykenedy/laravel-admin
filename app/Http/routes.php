@@ -59,34 +59,44 @@ Route::get('/social/handle/{provider}',[
 
 // AUTHENTICATION ALIASES/REDIRECTS
 Route::get('login', function () {
-    return redirect('auth/login');
+    return redirect('/auth/login');
 });
 Route::get('logout', function () {
-    return redirect('auth/logout');
+    return redirect('/auth/logout');
 });
 Route::get('register', function () {
-    return redirect('auth/register');
+    return redirect('/auth/register');
 });
 Route::get('reset', function () {
-    return redirect('password/email');
+    return redirect('/password/email');
 });
 Route::get('admin', function () {
-    return redirect('dashboard');
+    return redirect('/dashboard');
+});
+Route::get('home', function () {
+    return redirect('/dashboard');
 });
 
 // USER PAGE ROUTES - RUNNING THROUGH AUTH MIDDLEWARE
 Route::group(['middleware' => 'auth'], function () {
 
 	// USER DASHBOARD ROUTE
-	Route::get('home', function () {
-	    return redirect('/dashboard');
-	});
-
 	Route::get('/dashboard', [
 	    'as' 		=> 'user',
 	    'uses' 		=> 'UserController@index'
 	]);
 
+	// USERS VIEWABLE PROFILE
+	Route::get('profile/{username}', [
+		'as' 		=> '{username}',
+		'uses' 		=> 'ProfilesController@show'
+	]);
+	Route::get('dashboard/profile/{username}', [
+		'as' 		=> '{username}',
+		'uses' 		=> 'ProfilesController@show'
+	]);
+
+	// MIDDLEWARE INCEPTIONED - MAKE SURE THIS IS THE CURRENT USERS PROFILE TO EDIT
 	Route::group(['middleware'=> 'currentUser'], function () {
 			Route::resource(
 				'profile',
@@ -99,40 +109,44 @@ Route::group(['middleware' => 'auth'], function () {
 				]
 			);
 	});
-	Route::get('profile/{username}', [
-		'as' 		=> '{username}',
-		'uses' 		=> 'ProfilesController@show'
-	]);
-
-	Route::get('dashboard/profile/{username}', [
-		'as' 		=> '{username}',
-		'uses' 		=> 'ProfilesController@show'
-	]);
-
-
-	// MOVE THIS TO FILTER THROUGH ADMIN MIDDLWARE - HERE FOR DEV ONLY
-
-	Route::resource('users', 'UsersManagementController');
-	Route::get('users', [
-		'middleware' 	=> 'auth',
-		'as' 			=> '{username}',
-		'uses' 			=> 'UsersManagementController@showUsersMainPanel'
-	]);
-
-	Route::get('edit-users', [
-		'middleware' 	=> 'auth',
-		'as' 			=> '{username}',
-		'uses' 			=> 'UsersManagementController@editUsersMainPanel'
-	]);
 
 });
 
 
 
+// ADMINISTRATOR ACCESS LEVEL PAGE ROUTES - RUNNING THROUGH ADMINISTRATOR MIDDLEWARE
+Route::group(['middleware' => 'administrator'], function () {
+
+	// SHOW ALL USERS PAGE
+	Route::resource('users', 'UsersManagementController');
+	Route::get('users', [
+		'as' 			=> '{username}',
+		'uses' 			=> 'UsersManagementController@showUsersMainPanel'
+	]);
+
+	Route::get('edit-users', [
+		'as' 			=> '{username}',
+		'uses' 			=> 'UsersManagementController@editUsersMainPanel'
+	]);
+
+	//TEST ROUTE ONLY
+	Route::get('administrator', function () {
+	    echo 'Welcome to your ADMINISTRATOR page '. Auth::user()->email .'.';
+	});
+
+});
 
 
+// EDITOR ACCESS LEVEL PAGE ROUTES - RUNNING THROUGH EDITOR MIDDLEWARE
+Route::group(['middleware' => 'editor'], function () {
 
 
+	//TEST ROUTE ONLY
+	Route::get('editor', function () {
+	    echo 'Welcome to your EDITOR page '. Auth::user()->email .'.';
+	});
+
+});
 
 
 

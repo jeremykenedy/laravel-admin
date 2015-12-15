@@ -7,11 +7,11 @@
         {{--  GRAVATAR AND USE STATUS PANEL --}}
         <div class="user-panel">
             <div class="pull-left image">
-                {!! HTML::image(Gravatar::get(Auth::user()->email), Auth::user()->name, array('class' => 'img-circle', 'draggable' => 'false')) !!}
+              {!! HTML::show_gravatar() !!}
             </div>
             <div class="pull-left info">
                 <p>
-                    {{ (Auth::user()->name === Auth::user()->email) ? ((is_null(Auth::user()->first_name)) ? (Auth::user()->name) : (Auth::user()->first_name)) : (((is_null(Auth::user()->name)) ? (Auth::user()->email) : (Auth::user()->name))) }}
+                    {!! HTML::show_username() !!}
                 </p>
                 {{-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a> --}}
             </div>
@@ -28,17 +28,17 @@
             </li>
 
             <li class="active">
-                {!! HTML::icon_link( "/dashboard", 'fa '.Lang::get('sidebar-nav.link_icon_dashboard'), Lang::get('sidebar-nav.link_title_dashboard'), array('title' => Lang::get('sidebar-nav.link_title_dashboard'))) !!}
+                {!! HTML::icon_link( "/dashboard", 'fa '.Lang::get('sidebar-nav.link_icon_dashboard'), "<span>".Lang::get('sidebar-nav.link_title_dashboard')."</span>", array('title' => Lang::get('sidebar-nav.link_title_dashboard'))) !!}
             </li>
 
-            @if ($user->profile)
+            @if (Auth::user()->profile)
                 <li class="treeview">
                     {!! HTML::icon_link( "/profile/".Auth::user()->name, 'fa '.Lang::get('sidebar-nav.link_icon_profile_top'), "<span>".Lang::get('sidebar-nav.link_title_profile_top')."</span><i class='fa ".Lang::get('sidebar-nav.caret_folded')." pull-right'></i>", array('title' => Lang::get('sidebar-nav.link_title_profile_top'))) !!}
                     <ul class="treeview-menu">
                         <li>
                             {!! HTML::icon_link( "/profile/".Auth::user()->name, 'fa '.Lang::get('sidebar-nav.link_icon_profile_view'), Lang::get('sidebar-nav.link_title_profile_view'), array('title' => Lang::get('sidebar-nav.link_title_profile_view'))) !!}
                         </li>
-                        @if (Auth::user()->id == $user->id)
+                        @if (Auth::user()->id == Auth::user()->id)
                             <li>
                                 {!! HTML::icon_link( "/profile/".Auth::user()->name."/edit", 'fa '.Lang::get('sidebar-nav.link_icon_profile_edit'), Lang::get('sidebar-nav.link_title_profile_edit'), array('title' => Lang::get('sidebar-nav.link_title_profile_edit'))) !!}
                             </li>
@@ -50,47 +50,34 @@
 
 
 
-
+          @if (Auth::user()->hasRole('administrator'))
             <li class="treeview">
                 {!! HTML::icon_link( "/users", 'fa '.Lang::get('sidebar-nav.link_icon_users'), "<span>".Lang::get('sidebar-nav.link_title_users')."</span><i class='fa ".Lang::get('sidebar-nav.caret_folded')." pull-right'></i>", array('title' => Lang::get('sidebar-nav.link_title_users'))) !!}
                 <ul class="treeview-menu">
                     <li>
                         {!! HTML::icon_link( "/users", 'fa '.Lang::get('sidebar-nav.link_icon_users_view'), Lang::get('sidebar-nav.link_title_users_view'), array('title' => Lang::get('sidebar-nav.link_title_users_view'))) !!}
-
-{{--   <a href="/users">
-    <i class="fa {{ Lang::get('sidebar-nav.link_icon_users_view') }}"></i>
-    <span>
-      {{ Lang::get('sidebar-nav.link_title_users_view') }}
-    </span>
-    <small class="label pull-right bg-blue">
-      {{$total_users}}
-    </small>
-  </a> --}}
-
-
-
+                        {{--   <a href="/users">
+                            <i class="fa {{ Lang::get('sidebar-nav.link_icon_users_view') }}"></i>
+                            <span>
+                              {{ Lang::get('sidebar-nav.link_title_users_view') }}
+                            </span>
+                            <small class="label pull-right bg-blue">
+                              {{$total_users}}
+                            </small>
+                          </a> --}}
                     </li>
-                    @if (Auth::user()->id == $user->id)
-                        <li>
-                            {!! HTML::icon_link( "/edit-users/", 'fa '.Lang::get('sidebar-nav.link_icon_users_edit'), Lang::get('sidebar-nav.link_title_users_edit'), array('title' => Lang::get('sidebar-nav.link_title_users_edit'))) !!}
-                        </li>
-                    @endif
+                  <li>
+                      {!! HTML::icon_link( "/edit-users/", 'fa '.Lang::get('sidebar-nav.link_icon_users_edit'), Lang::get('sidebar-nav.link_title_users_edit'), array('title' => Lang::get('sidebar-nav.link_title_users_edit'))) !!}
+                  </li>
                 </ul>
             </li>
-
-
-
-
+          @endif
 
             <li class="header"></li>
 
             <li>
                 {!! HTML::icon_link( "/logout", 'fa '.Lang::get('sidebar-nav.link_icon_logout'), "<span>".Lang::get('sidebar-nav.link_title_logout')."</span>", array('title' => Lang::get('sidebar-nav.link_title_logout'))) !!}
             </li>
-
-
-
-
             {{--
                   <li class="treeview">
                     <a href="#">

@@ -196,9 +196,9 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  {!! HTML::image(Gravatar::get(Auth::user()->email), Auth::user()->name, array('class' => 'user-image', 'draggable' => 'false')) !!}
+                  {!! HTML::show_gravatar('','','user-image') !!}
                   <span class="hidden-xs">
-                    {{ (Auth::user()->name === Auth::user()->email) ? ((is_null(Auth::user()->first_name)) ? (Auth::user()->name) : (Auth::user()->first_name)) : (((is_null(Auth::user()->name)) ? (Auth::user()->email) : (Auth::user()->name))) }}
+                    {!! HTML::show_username() !!}
 
 
 

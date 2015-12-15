@@ -1,7 +1,9 @@
 {{-- Profile Image --}}
 <div class="box box-primary">
     <div class="box-body box-profile">
-		{!! HTML::image(Gravatar::get($user->email), $user->name, array('class' => 'profile-user-img img-responsive img-circle', 'draggable' => 'false')) !!}
+
+        {!! HTML::show_gravatar($user->gravatar,'','profile-user-img img-responsive img-circle') !!}
+
         <h3 class="profile-username text-center">
         	{{ $user->first_name }} {{ $user->last_name }}
         </h3>

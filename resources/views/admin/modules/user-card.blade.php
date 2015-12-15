@@ -5,7 +5,7 @@
 	</dt>
 	<dd>
 		<a href="https://en.gravatar.com/" target="blank" title="Go to gravatar.com">
-			{!! HTML::image(Gravatar::get(Auth::user()->email), Auth::user()->name, array('class' => 'user-image img-circle', 'draggable' => 'false')) !!}
+			{!! HTML::show_gravatar($user->gravatar,'','user-img img-responsive img-circle') !!}
 		</a>
 	</dd>
 

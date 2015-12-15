@@ -278,7 +278,6 @@ elixir(function(mix) {
 					'adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js',
 					'adminlte/plugins/slimScroll/jquery.slimscroll.js',
 					'adminlte/plugins/fastclick/fastclick.js',
-					'public/assets/js/app.js',
 					'adminlte/dist/js/pages/dashboard.js',
 			    ],
 				'public/assets/js/admin/admin.js',

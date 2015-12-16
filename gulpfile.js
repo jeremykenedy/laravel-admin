@@ -279,6 +279,7 @@ elixir(function(mix) {
 					'adminlte/plugins/slimScroll/jquery.slimscroll.js',
 					'adminlte/plugins/fastclick/fastclick.js',
 					'adminlte/dist/js/pages/dashboard.js',
+					'js/random-class-color.js',
 			    ],
 				'public/assets/js/admin/admin.js',
 				'resources/assets'

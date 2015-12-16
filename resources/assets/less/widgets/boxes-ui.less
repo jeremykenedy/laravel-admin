@@ -1,0 +1,112 @@
+
+
+
+// THIS IS A MESS -> WELL GET BACK TO THIS LITTLE PROJECT LATER
+
+.ui-resizable-handle.ui-resizable-e {
+position:relative;
+float: right;
+top: 40px !important;
+position: absolute !important;
+right: 3px;
+
+background-color: #ffffff !important;
+
+width: 14px;
+height: 0;
+padding-top:15px;
+
+
+}
+.ui-resizable-handle.ui-resizable-e:hover,
+.ui-resizable-handle.ui-resizable-e:focus,
+.ui-resizable-handle.ui-resizable-e:active{
+
+  right: 0;
+
+
+}
+
+
+.ui-resizable-handle.ui-resizable-e {
+ position: relative;
+  cursor: ew-resize;
+transform: rotate(-90deg);
+}
+.ui-resizable-handle.ui-resizable-e:before {
+ content: '';
+  position: absolute;
+  left: 0;
+  border-top: 7px solid transparent;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  opacity:.6;
+
+
+
+}
+
+.ui-resizable-handle.ui-resizable-e:after {
+  content: '';
+  position: absolute;
+  left: 1px;
+  border-top: 6px solid #ffffff;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+}
+
+
+.ui-resizable-handle.ui-resizable-e:hover:before {
+  border-top-color: #d2d6de;
+}
+
+
+
+
+
+.collapsed-box .ui-resizable-handle.ui-resizable-e {
+
+
+  display: none;
+}
+
+
+
+
+
+
+.resizable {
+overflow: overlay;
+overflow-x: auto
+
+}
+
+.ui-resizable-handle.ui-resizable-s {
+
+background-color: blue;
+width: 30px;
+height: 30px;
+
+}
+
+
+
+// .ui-resizable-handle.ui-resizable-s {
+
+// background-color: blue;
+// width: 30px;
+// height: 30px;
+
+// }
+
+// .ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se {
+
+// background-color: yellow;
+// width: 40px;
+// height: 40px;
+// z-index: 11111;
+// position: relative;
+
+
+
+// }

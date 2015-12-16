@@ -1,9 +1,7 @@
-{{-- Profile Image --}}
-<div class="box box-primary">
+{{-- Profile Image Box --}}
+<div class="box box-primary bg-random">
     <div class="box-body box-profile">
-
         {!! HTML::show_gravatar($user->gravatar,'','profile-user-img img-responsive img-circle') !!}
-
         <h3 class="profile-username text-center">
         	{{ $user->first_name }} {{ $user->last_name }}
         </h3>
@@ -23,6 +21,6 @@
             </li>
         </ul>
         <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
-			--}}
+		--}}
     </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="box">
+<div class="box draggable resizable">
     <div class="box-header with-border">
         <h3 class="box-title">
             {{ Lang::get('modules.welcomeTitle') }}

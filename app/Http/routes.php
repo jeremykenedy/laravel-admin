@@ -112,24 +112,27 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
-
-
 // ADMINISTRATOR ACCESS LEVEL PAGE ROUTES - RUNNING THROUGH ADMINISTRATOR MIDDLEWARE
 Route::group(['middleware' => 'administrator'], function () {
 
-	// SHOW ALL USERS PAGE
+	// SHOW ALL USERS PAGE ROUTE
 	Route::resource('users', 'UsersManagementController');
 	Route::get('users', [
 		'as' 			=> '{username}',
 		'uses' 			=> 'UsersManagementController@showUsersMainPanel'
 	]);
 
+	// EDIT USERS PAGE ROUTE
 	Route::get('edit-users', [
 		'as' 			=> '{username}',
 		'uses' 			=> 'UsersManagementController@editUsersMainPanel'
 	]);
 
-	//TEST ROUTE ONLY
+	// TAG CONTROLLER PAGE ROUTE
+	Route::resource('admin/skilltags', 'SkillsTagController', ['except' => 'show']);
+
+
+	// TEST ROUTE ONLY ROUTE
 	Route::get('administrator', function () {
 	    echo 'Welcome to your ADMINISTRATOR page '. Auth::user()->email .'.';
 	});
@@ -140,15 +143,12 @@ Route::group(['middleware' => 'administrator'], function () {
 // EDITOR ACCESS LEVEL PAGE ROUTES - RUNNING THROUGH EDITOR MIDDLEWARE
 Route::group(['middleware' => 'editor'], function () {
 
-
 	//TEST ROUTE ONLY
 	Route::get('editor', function () {
 	    echo 'Welcome to your EDITOR page '. Auth::user()->email .'.';
 	});
 
 });
-
-
 
 
 

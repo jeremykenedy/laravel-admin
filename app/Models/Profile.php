@@ -28,4 +28,34 @@ class Profile extends Model {
 		return $this->belongsTo('App\User');
 	}
 
+    /**
+     * The many-to-many relationship between posts and tags.
+     *
+     * @return BelongsToMany
+     */
+    public function skillstags()
+    {
+        return $this->belongsToMany('App\SkillsTag', 'skills_tag_pivot');
+    }
+
+    /**
+     * Sync tag relation adding new tags as needed
+     *
+     * @param array $skilltags
+     */
+	public function syncTags(array $skilltags)
+	{
+		SkillsTag::addNeededTags($skilltags);
+
+		if (count($skilltags)) {
+		$this->skillstags()->sync(
+		  	SkillsTag::whereIn('tag', $skilltags)->lists('id')->all()
+		);
+		return;
+		}
+
+		$this->skillstags()->detach();
+	}
+
+
 }

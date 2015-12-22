@@ -1,5 +1,4 @@
-<?php
-namespace App;
+<?php namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -40,3 +39,4 @@ class SkillsTag extends Model
     }
   }
 }
+

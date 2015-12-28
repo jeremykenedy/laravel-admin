@@ -13,12 +13,12 @@ class UsersRole extends Model {
 	 */
 	public function user()
 	{
-		return $this->belongsTo('App\User');
+		return $this->belongsTo('App\Models\User;');
 	}
 
     public function UserRole()
     {
-        return $this->hasOne('App\User');
+        return $this->hasOne('App\Models\User;');
     }
 
 }

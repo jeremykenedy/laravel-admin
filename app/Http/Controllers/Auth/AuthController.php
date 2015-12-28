@@ -7,7 +7,8 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades;
 use App\Logic\User\UserRepository;
-use App\User;
+use App\Logic\User\CaptureIp;
+use App\Models\User;
 use App\Models\Social;
 use App\Models\Role;
 use App\Models\Profile;
@@ -48,7 +49,6 @@ class AuthController extends Controller {
 	 */
 	public function __construct(Guard $auth, UserRepository $userRepository)
 	{
-
 		$this->middleware('guest',
 			['except' =>
 				['getLogout', 'resendEmail', 'activateAccount']]);
@@ -112,10 +112,18 @@ class AuthController extends Controller {
 		$user->last_name 		= $request->input('last_name');
 		$user->email 			= $request->input('email');
 		$user->password 		= bcrypt($request->input('password'));
+
+		// GET GRAVATAR
 		$user->gravatar 		= Gravatar::get($request->input('email'));
 
+		// GET ACTIVATION CODE
 		$user->activation_code 	= $activation_code;
 
+		// GET IP ADDRESS
+		$userIpAddress 				= new CaptureIp;
+		$user->signup_ip_address	= $userIpAddress->getClientIp();
+
+		// SAVE THE USER
 		if ($user->save()) {
 
 			$this->sendEmail($user);
@@ -245,19 +253,26 @@ class AuthController extends Controller {
                 $new_social_user->active           	= '1';
 				$the_activation_code 				= str_random(60) . $user->email;
 				$new_social_user->activation_code 	= $the_activation_code;
+
+				// GET IP ADDRESS
+				$userIpAddress 										= new CaptureIp;
+				$new_social_user->signup_sm_ip_address				= $userIpAddress->getClientIp();
+
+				// SAVE THE USER
                 $new_social_user->save();
+
+                // GET SOCIAL MEDIA LOGIN DATA
                 $social_data 						= new Social;
                 $social_data->social_id 			= $user->id;
                 $social_data->provider 				= $provider;
                 $new_social_user->social()->save($social_data);
 
-				// GRAVATAR
+				// GET GRAVATAR
 				$new_social_user->gravatar            	= Gravatar::get($user->email);
 
                 // ADD ROLE
                 $role = Role::whereName('user')->first();
                 $new_social_user->assignRole($role);
-
                 $social_user = $new_social_user;
 
                 // LINK TO PROFILE TABLE

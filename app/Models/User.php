@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use App\Logic\User\CaptureIp;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
@@ -33,33 +34,45 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     // REGISTRATION VALIDATION RULES
     public static $rules = [
-        'name'                  => 'required',
-        'first_name'            => 'required',
-        'last_name'             => 'required',
-        'email'                 => 'required|email|unique:users',
-        'password'              => 'required|min:6|max:20',
-        'password_confirmation' => 'required|same:password',
-        'g-recaptcha-response'  => 'required'
+        'name'                          => 'required',
+        'first_name'                    => 'required',
+        'last_name'                     => 'required',
+        'email'                         => 'required|email|unique:users',
+        'password'                      => 'required|min:6|max:20',
+        'password_confirmation'         => 'required|same:password',
+        'g-recaptcha-response'          => 'required'
     ];
 
     // REGISTRATION ERROR MESSAGES
     public static $messages = [
-        'name.required'         => 'Username is required',
-        'first_name.required'   => 'First Name is required',
-        'last_name.required'    => 'Last Name is required',
-        'email.required'        => 'Email is required',
-        'email.email'           => 'Email is invalid',
-        'password.required'     => 'Password is required',
-        'password.min'          => 'Password needs to have at least 6 characters',
-        'password.max'          => 'Password maximum length is 20 characters',
+        'name.required'                 => 'Username is required',
+        'first_name.required'           => 'First Name is required',
+        'last_name.required'            => 'Last Name is required',
+        'email.required'                => 'Email is required',
+        'email.email'                   => 'Email is invalid',
+        'password.required'             => 'Password is required',
+        'password.min'                  => 'Password needs to have at least 6 characters',
+        'password.max'                  => 'Password maximum length is 20 characters',
         'g-recaptcha-response.required' => 'Captcha is required'
     ];
 
     // ACCOUNT EMAIL ACTIVATION
     public function accountIsActive($code) {
+
+        // CHECK IF ACTIVATION CODE MATCHES THE ONE WE SENT
         $user = User::where('activation_code', '=', $code)->first();
-        $user->active = 1;
-        $user->activation_code = '';
+
+        // GET IP ADDRESS
+        $userIpAddress                          = new CaptureIp;
+        $user->signup_confirmation_ip_address   = $userIpAddress->getClientIp();
+
+        // SET THE USER TO ACTIVE
+        $user->active                           = 1;
+
+        // CLEAR THE ACTIVATION CODE
+        $user->activation_code                  = '';
+
+        // SAVE THE USER
         if($user->save()) {
             \Auth::login($user);
         }
@@ -78,7 +91,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         {
             if($role->name == $name) return true;
         }
-
         return false;
     }
 
@@ -97,6 +109,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->hasOne('App\Models\Profile');
     }
+
     public function profiles()
     {
         return $this->belongsToMany('App\Models\Profile')->withTimestamps();
@@ -108,7 +121,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         {
             if($profile->name == $name) return true;
         }
-
         return false;
     }
 

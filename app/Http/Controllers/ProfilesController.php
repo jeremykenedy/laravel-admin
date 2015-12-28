@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Logic\User\UserRepository;
 use App\Models\Profile;
-use App\User;
+use App\Models\User;
 use Validator;
 use Input;
 

@@ -57,9 +57,24 @@
 
 @section('template_scripts')
 
-	 @include('admin.structure.dashboard-scripts')
+	@include('admin.structure.dashboard-scripts')
+
+	{!! HTML::script('//maps.googleapis.com/maps/api/js?libraries=places&dummy=.js', array('type' => 'text/javascript')) !!}
 
 	<script type="text/javascript">
+
+	    //FUNCTION TO ASSIST WITH AUTO ADDRESS INPUT USING GOOGLE MAPS API3
+	    //<![CDATA[
+	    window.onload=function(){
+	        if(document.getElementById("location"))
+	        {
+	            var input = document.getElementById('location');
+	            var options; // = {componentRestrictions: {country: 'us'}};
+	            var autocomplete = new google.maps.places.Autocomplete(input, options);
+	        }
+	     }//]]>
+
+		// MODEL SAVE CONFIRMATION
 		$('#confirmSave').on('show.bs.modal', function (e) {
 			var message = $(e.relatedTarget).attr('data-message');
 			var title = $(e.relatedTarget).attr('data-title');

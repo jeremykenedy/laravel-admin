@@ -36,15 +36,16 @@ A [Laravel](http://laravel.com/) 5.1.x, [Bootstrap](http://getbootstrap.com) 3.5
 5. From the projects root folder run `sudo chmod -R 777 ../laravel-admin`
 6. Run `sudo composer update` from the projects root folder
 7. Run `sudo npm install` from the projects root folder
-8. Run `bower update` from the projects root folder
-9. Run `sudo gulp copyfiles` from the projects root folder
-10. Run `sudo gulp` from the projects root folder
+8. From the projects root folder run `sudo chmod -R 777 ../laravel-admin`
+9. Run `bower update` from the projects root folder
+10. Run `sudo gulp copyfiles` from the projects root folder
+11. Run `sudo gulp` from the projects root folder
   * NOTE: In production run `sudo gulp --production`
-11. From the projects root folder run `sudo chmod -R 755 ../laravel-admin`
-12. From the projects root folder run `php artisan key:generate`
-13. From the projects root folder run `php artisan migrate`
-14. From the projects root folder run `composer dump-autoload`
-15. From the projects root folder run `php artisan db:seed`
+12. From the projects root folder run `sudo chmod -R 755 ../laravel-admin`
+13. From the projects root folder run `php artisan key:generate`
+14. From the projects root folder run `php artisan migrate`
+15. From the projects root folder run `composer dump-autoload`
+16. From the projects root folder run `php artisan db:seed`
 
 ###### Seeds
 1. Seeded Roles

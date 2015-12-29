@@ -55,7 +55,7 @@
 		elixir = require('laravel-elixir'),
 	    sass = require('gulp-ruby-sass'),
 	    autoprefixer = require('gulp-autoprefixer'),
-	    minifycss = require('gulp-minify-css'),
+	    nano = require('gulp-cssnano'),
 	    jshint = require('gulp-jshint'),
 	    uglify = require('gulp-uglify'),
 	    imagemin = require('gulp-imagemin'),

@@ -11846,6 +11846,15 @@ button:active {
 .collapsed-box .ui-resizable-handle.ui-resizable-e {
   display: none;
 }
+.resizable {
+  overflow: overlay;
+  overflow-x: auto;
+}
+.ui-resizable-handle.ui-resizable-s {
+  background-color: blue;
+  width: 30px;
+  height: 30px;
+}
 .content-wrapper {
   min-height: auto !important;
 }

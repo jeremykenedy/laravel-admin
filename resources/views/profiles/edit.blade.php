@@ -16,11 +16,9 @@
 				{{ Lang::get('profile.editProfileTitle',['username' => $displayusername] ) }}
 				<small> {{ Lang::get('pages.dashboard-access-level',['access' => $access] ) }} </small>
 			</h1>
-            <ol class="breadcrumb">
-                <li><a href="/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                <li><a href="/profile/{{ Auth::user()->name }}"><i class="fa fa-user"></i> Profile</a></li>
-                <li class="active"><i class="fa fa-cog"></i> Edit</li>
-            </ol>
+
+            {!! Breadcrumbs::render('profile_edit', $user) !!}
+
 	    </section>
 	    <section class="content">
 			<div class="row">

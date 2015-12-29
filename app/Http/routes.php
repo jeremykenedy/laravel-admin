@@ -82,7 +82,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 	// USER DASHBOARD ROUTE
 	Route::get('/dashboard', [
-	    'as' 		=> 'user',
+	    'as' 		=> 'dashboard',
 	    'uses' 		=> 'UserController@index'
 	]);
 

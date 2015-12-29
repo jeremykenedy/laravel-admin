@@ -16,10 +16,9 @@
 				{{ Lang::get('profile.showProfileTitle',['username' => $displayusername] ) }}
 				<small> {{ Lang::get('pages.dashboard-access-level',['access' => $access] ) }} </small>
 			</h1>
-            <ol class="breadcrumb">
-                <li><a href="/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                <li class="active"><i class="fa fa-user"></i> Profile</li>
-            </ol>
+
+			{!! Breadcrumbs::render('profile', $user) !!}
+
 	    </section>
 	    <section class="content">
 

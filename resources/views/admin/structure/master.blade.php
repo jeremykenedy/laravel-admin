@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {{-- Load Head --}}
-    @include('admin.structure.head')
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes" name="viewport">
+    <title>@if (trim($__env->yieldContent('template_title')))@yield('template_title') | @endif {{ Lang::get('titles.app') }}</title>
+    <meta name="description" content="">
+    <meta name="author" content="Jeremy Kenedy">
+
+    {{-- Load Layout Head --}}
+    @yield('layout-head')
+
   </head>
-  <body class="hold-transition skin-blue sidebar-mini">
+
+  <body class="{{ isset($layoutBodybodyClasses) ? $layoutBodybodyClasses : '' }} {{ isset($templateBodybodyClasses) ? $templateBodybodyClasses : '' }}">
 
     {{-- Load Google Analytics --}}
     {{-- @include('blog.partials.analytics') --}}
 
-    <div class="wrapper">
+    {{-- Load Layout HEADER --}}
+    @yield('layout-header')
 
-      {{-- Load Template Specific Header --}}
-      @yield('template-header')
+    {{-- Load Layout CONTENT --}}
+    @yield('layout-content')
 
-      {{-- Load Template Specific Sidebar --}}
-      @yield('template-sidebar')
+    {{-- Load Layout SIDEBAR --}}
+    @yield('layout-sidebar')
 
-      {{-- Load Template Specific Content --}}
-      @yield('template-content')
+    {{-- Load Layout FOOTER --}}
+    @yield('layout-footer')
 
-      {{-- Load Admin Footer --}}
-      @include('admin.partials.footer')
-
-      {{-- Load Template Specific Footer --}}
-      @yield('additional-template-footer')
-
-    </div>
-
-    {{-- Load Template Scripts --}}
-    @yield('template-jscripts')
+    {{-- Load Layout SCRIPTS --}}
+    @yield('layout-scripts')
 
   </body>
 </html>

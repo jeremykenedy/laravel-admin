@@ -1,72 +1,41 @@
+{{-- Load Layout Body Classes --}}
 <?php
-  $user = Auth::user();
-  $username = $user->name;
-  $userlevel = $user->user_level;
+	$layoutBodybodyClasses = 'hold-transition skin-blue sidebar-mini fixed ';  // Can also add class 'fixed'
 ?>
 
 @extends('admin.structure.master')
 
-@section('style-sheets')
-  {!!HTML::style('/assets/css/admin/admin.css') !!}
+{{-- Load Auth Layout Head --}}
+@section('layout-head')
+    {{-- Load Common Admin Head --}}
+	@include('admin.structure.head')
 @stop
 
-@section('template-header')
-  @include('admin.partials.header')
+{{-- Load Layout HEADER --}}
+@section('layout-header')
+	@include('admin.partials.header')
+	@include('admin.partials.dashboard-sidebar')
 @stop
 
-@section('template-sidebar')
-  @include('admin.partials.main-sidebar')
+{{-- Load Layout CONTENT --}}
+@section('layout-content')
+	@yield('content')
 @stop
 
-@section('template-content')
-
-  <div class="content-wrapper">
-    <section class="content-header">
-      <h1>
-        {{ $username }}'s Dashboard
-          <small>
-            @if ($userlevel == 1)
-                User
-            @elseif ($userlevel == 2)
-                Admin
-            @elseif ($userlevel == 3)
-                Super Admin
-            @else
-                NOT ACTIVE
-            @endif
-            Control panel
-          </small>
-      </h1>
-      {!! Breadcrumbs::render() !!}
-    </section>
-    <section class="content">
-      @include('admin.modules.blank')
-{{--       @include('admin.modules.stat-boxes') --}}
-      <div class="row">
-{{--         <section class="col-lg-7 connectedSortable">
-          @include('admin.modules.tabbed-charts')
-          @include('admin.modules.chat-boxes')
-          @include('admin.modules.todo-list')
-          @include('admin.modules.quick-email-widget')
-        </section>
-         right col (We are only adding the ID to make the widgets sortable)
-        <section class="col-lg-5 connectedSortable">
-          {{-- @include('admin.modules.visitors-box')
-          @include('admin.modules.sales-graph')
-          @include('admin.modules.calendar-tasks')
-        </section><!-- right col --> --}}
-      </div>
-    </section>
-  </div>
-
+{{-- Load Layout SIDEBAR --}}
+@section('layout-sidebar')
+	@include('admin.modules.control-sidebar')
 @stop
 
-@section('additional-template-footer')
-  @include('admin.modules.control-sidebar')
+{{-- Load Dashobard FOOTER --}}
+@section('layout-footer')
+	@include('admin.partials.footer')
 @stop
 
-@section('template-jscripts')
-  @include('admin.structure.jscripts')
-@stop
+{{-- Load Layout SCRIPTS --}}
+@section('layout-scripts')
+
+	@include('admin.partials.scripts')
+	@yield('template_scripts')
 
 @stop

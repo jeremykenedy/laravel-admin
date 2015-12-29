@@ -1,35 +1,39 @@
-<!-- resources/views/auth/reset.blade.php -->
+{{-- Set Template Body Classes --}}
+<?php
+	$templateBodybodyClasses = 'login-page';
+?>
 
-<form method="POST" action="/password/reset">
-    {!! csrf_field() !!}
-    <input type="hidden" name="token" value="{{ $token }}">
+@extends('admin.layouts.auth')
 
-    @if (count($errors) > 0)
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
+@section('template_title')
+	Reset Password
+@endsection
 
-    <div>
-        Email
-        <input type="email" name="email" value="{{ old('email') }}">
+@section('template_fastload_css')
+@endsection
+
+@include('partials.macros')
+
+@section('content')
+    <div class="login-box">
+		<div class="login-logo">
+			<a href="/">Lara<strong>Admin</strong>LTE</a>
+		</div>
+		<div class="login-box-body">
+
+			<h4 class="login-box-msg">
+			  	{{ Lang::get('titles.resetPword') }}
+			</h4>
+
+			@include('admin.forms.reset-password-form')
+
+      	</div>
     </div>
+@endsection
 
-    <div>
-        Password
-        <input type="password" name="password">
-    </div>
-
-    <div>
-        Confirm Password
-        <input type="password" name="password_confirmation">
-    </div>
-
-    <div>
-        <button type="submit">
-            Reset Password
-        </button>
-    </div>
-</form>
+@section('template_scripts')
+	{!! HTML::script('/assets/js/login.js', array('type' => 'text/javascript')) !!}
+	{!! HTML::script('https://www.google.com/recaptcha/api.js', array('type' => 'text/javascript')) !!}
+	@include('scripts.checkbox');
+	@include('scripts.html5-password-check');
+@endsection

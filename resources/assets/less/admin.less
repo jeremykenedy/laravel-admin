@@ -1,1 +1,140 @@
 @import "../adminlte/build/less/AdminLTE";
+@import "variables";
+@import "mixins";
+@import "auth";
+@import "dashboard";
+
+@import "widgets/profile-image-boxes.less";
+@import "widgets/boxes-ui.less";
+
+// WRAPPER CLASSES
+.content-wrapper {
+	min-height: auto !important;
+}
+
+// CLOSE BUTTONS
+.close-x() {
+	text-decoration: none;
+	font-size:3.5em;
+	font-weight: 100;
+	.fade-out-animation;
+}
+.alert {
+	.close {
+		.close-x;
+	}
+}
+.modal {
+	button {
+		&.close{
+			.close-x;
+		    line-height: .5;
+		}
+	}
+}
+
+// RESPONSIVE DATATABLES
+.table-responsive .row{
+	margin-left: 0;
+	margin-right: 0;
+}
+
+// SM ICONS
+.btn-37signals  {
+	background: @basecamp_bg;
+	color: @white;
+	&:focus,
+	&:hover {
+		background: @basecamp_bg_hover;
+		color: @white;
+	}
+}
+.btn-youtube {
+	background: @youtube_bg;
+	color: @white;
+	&:focus,
+	&:hover {
+		background: @youtube_bg_hover;
+		color: @white;
+	}
+}
+.btn-twitch {
+	background: @twitch_bg;
+	color: @white;
+	&:focus,
+	&:hover {
+		background: @twitch_bg_hover;
+		color: @white;
+	}
+}
+
+// SM LOGIN AS ICON BUTTONS ONLY
+.icon-btns {
+	.col-xs-1 {
+	    width: 12.5%;
+	}
+	.icon-btn {
+		color: @transparent;
+		float: left;
+		width: 35px;
+		height: 35px;
+		padding: 0;
+		text-indent: 100px;
+		border: none;
+		margin:0 3% 3% 0;
+		position: relative;
+		z-index: 1;
+		> :first-child {
+			color: @white;
+			border: none;
+			width: 35px;
+		}
+		i {
+			&:before {
+				margin-left: -100px ;
+				border: none;
+			}
+		}
+
+	}
+}
+
+// IMAGE CLASSES
+.image-no-drag img,
+.image-no-drag {
+	user-drag: none;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+}
+
+// MARGIN CLASSES - CONVERT USING FOR LOOP LATER
+.margin-top-1 {
+	margin-top: 1em !important;
+}
+.margin-top-2 {
+	margin-top: 2em !important;
+}
+.margin-bottom-1 {
+	margin-bottom: 1em !important;
+}
+.margin-bottom-2 {
+	margin-bottom: 2em !important;
+}
+.margin-bottom-5 {
+	margin-bottom: 5em !important;
+}
+.margin-left-1 {
+	margin-left: 1em !important;
+}
+.margin-left-2 {
+	margin-left: 2em !important;
+}
+.margin-right-1 {
+	margin-left: 1em !important;
+}
+.margin-right-2 {
+	margin-left: 2em !important;
+}
+.margin-bottom-half {
+	margin-bottom: .5em !important;
+}

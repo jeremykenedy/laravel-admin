@@ -55,7 +55,7 @@
 		elixir = require('laravel-elixir'),
 	    sass = require('gulp-ruby-sass'),
 	    autoprefixer = require('gulp-autoprefixer'),
-	    minifycss = require('gulp-minify-css'),
+	    nano = require('gulp-cssnano'),
 	    jshint = require('gulp-jshint'),
 	    uglify = require('gulp-uglify'),
 	    imagemin = require('gulp-imagemin'),
@@ -151,6 +151,12 @@ gulp.task("copyfiles", function() {
 	gulp.src("vendor/bower_dl/adminLTE/index2.html")
 		.pipe(gulp.dest("resources/assets/adminlte/pages/example2.html"));
 
+	gulp.src("resources/assets/adminlte/plugins/iCheck/square/blue.png")
+		.pipe(gulp.dest("public/assets/css/admin/"));
+
+	gulp.src("resources/assets/adminlte/plugins/iCheck/square/blue@2x.png")
+		.pipe(gulp.dest("public/assets/css/admin/"));
+
 	/*
 	 |--------------------------------------------------------------------------
 	 | Copy Bootstrap and FontAwesome
@@ -232,9 +238,9 @@ elixir(function(mix) {
 			mix.less('admin.less', 'public/assets/css/admin/components/admin-core.css');
 			mix.less('admin-skins.less', 'public/assets/css/admin/components/admin-skins.css');
 			mix.less('admin-font-icons.less', 'public/assets/css/admin/components/admin-font-icons.css');
-			mix.less('bootstrap.less', 'public/assets/css/vendor/bootstrap.css');
+			mix.less('bootstrap/bootstrap.less', 'public/assets/css/vendor/bootstrap.css');
 
-			//COMBINE ADMIN DASHBOARD CSS FILES INTO SINGLE FILE - ADMIN CSS
+			// //COMBINE ADMIN DASHBOARD CSS FILES INTO SINGLE FILE - ADMIN CSS
 		    mix.styles([
 				'public/assets/css/vendor/bootstrap.css',												// BOOTSTRAP CORE INPUT
 				'public/assets/css/admin/components/admin-core.css',									// ADMIN LTE CORE INPUT
@@ -242,10 +248,12 @@ elixir(function(mix) {
 				'public/assets/css/admin/components/admin-font-icons.css',								// ADMIN LTE FONT ICONS INPUT
 		        'resources/assets/adminlte/plugins/iCheck/flat/blue.css',								// ADMINLTE PLUGIN CSS - iCheck
 		        'resources/assets/adminlte/plugins/morris/morris.css',									// ADMINLTE PLUGIN CSS - Morris chart
+		        'resources/assets/adminlte/plugins/datatables/dataTables.bootstrap.css',				// ADMINLTE PLUGIN CSS - DataTables
 		        'resources/assets/adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.css',				// ADMINLTE PLUGIN CSS - jvectormap
 		        'resources/assets/adminlte/plugins/datepicker/datepicker3.css',							// ADMINLTE PLUGIN CSS - Date Picker
 		        'resources/assets/adminlte/plugins/daterangepicker/daterangepicker-bs3.css',			// ADMINLTE PLUGIN CSS - Daterange picker
 				'resources/assets/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css'	    // ADMINLTE PLUGIN CSS - Bootstrap wysihtml5 text editor
+
 		    ],
 		    'public/assets/css/admin/admin.css', './');													// SINGLE FILE OUTPUT
 		}
@@ -258,7 +266,8 @@ elixir(function(mix) {
 					'js/jquery-ui.js',
 					'bootstrap/dist/js/bootstrap.js',
 					'adminlte/dist/js/app.js',
-					'adminlte/dist/js/pages/dashboard.js',
+					'adminlte/plugins/datatables/jquery.dataTables.min.js',
+					'adminlte/plugins/datatables/dataTables.bootstrap.min.js',
 					'adminlte/plugins/morris/morris.js',
 					'adminlte/plugins/sparkline/jquery.sparkline.js',
 					'adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.js',
@@ -269,6 +278,8 @@ elixir(function(mix) {
 					'adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js',
 					'adminlte/plugins/slimScroll/jquery.slimscroll.js',
 					'adminlte/plugins/fastclick/fastclick.js',
+					'adminlte/dist/js/pages/dashboard.js',
+					'js/random-class-color.js',
 			    ],
 				'public/assets/js/admin/admin.js',
 				'resources/assets'

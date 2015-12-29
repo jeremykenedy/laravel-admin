@@ -9,6 +9,12 @@
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the controller to call when that URI is requested.
 |
+| http://laravel.com/docs/5.1/authentication
+| http://laravel.com/docs/5.1/authorization
+| http://laravel.com/docs/5.1/routing
+| http://laravel.com/docs/5.0/schema
+| http://socialiteproviders.github.io/
+|
 */
 
 // HOMEPAGE ROUTE
@@ -16,90 +22,137 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// AUTHENTICATION ROUTES
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+// ALL AUTHENTICATION ROUTES - HANDLED IN THE CONTROLLERS
+Route::controllers([
+	'auth' 		=> 'Auth\AuthController',
+	'password' 	=> 'Auth\PasswordController',
+]);
+// REGISTRATION EMAIL CONFIRMATION ROUTES
+Route::get('/resendEmail', [
+    'as' 		=> 'user',
+	'uses'		=> 'Auth\AuthController@resendEmail'
+]);
+Route::get('/activate/{code}', [
+    'as' 		=> 'user',
+	'uses'		=> 'Auth\AuthController@activateAccount'
+]);
 
-// AUTHENTICATION REGISTRATION ROUTES
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
+// CUSTOM REDIRECTS
+Route::get('restart', function () {
+    \Auth::logout();
+    return redirect('auth/register')->with('anError',  \Lang::get('auth.loggedOutLocked'));
+});
+Route::get('another', function () {
+    \Auth::logout();
+    return redirect('auth/login')->with('anError',  \Lang::get('auth.tryAnother'));
+});
+
+// LARAVEL SOCIALITE AUTHENTICATION ROUTES
+Route::get('/social/redirect/{provider}', [
+	'as' 		=> 'social.redirect',
+	'uses' 		=> 'Auth\AuthController@getSocialRedirect'
+]);
+Route::get('/social/handle/{provider}',[
+	'as' 		=> 'social.handle',
+	'uses' 		=> 'Auth\AuthController@getSocialHandle'
+]);
 
 // AUTHENTICATION ALIASES/REDIRECTS
 Route::get('login', function () {
-    return redirect('auth/login');
+    return redirect('/auth/login');
 });
 Route::get('logout', function () {
-    return redirect('auth/logout');
+    return redirect('/auth/logout');
 });
 Route::get('register', function () {
-    return redirect('auth/register');
+    return redirect('/auth/register');
+});
+Route::get('reset', function () {
+    return redirect('/password/email');
+});
+Route::get('admin', function () {
+    return redirect('/dashboard');
+});
+Route::get('home', function () {
+    return redirect('/dashboard');
 });
 
-// PASSWORD RESET LINK REQUEST ROUTES
-Route::get('password/email', 'Auth\PasswordController@getEmail');
-Route::post('password/email', 'Auth\PasswordController@postEmail');
+// USER PAGE ROUTES - RUNNING THROUGH AUTH MIDDLEWARE
+Route::group(['middleware' => 'auth'], function () {
 
-// Password reset routes...
-Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
-Route::post('password/reset', 'Auth\PasswordController@postReset');
-Route::get('/reset', function () {
-    return view('auth.password');
-});
+	// USER DASHBOARD ROUTE
+	Route::get('/dashboard', [
+	    'as' 		=> 'dashboard',
+	    'uses' 		=> 'UserController@index'
+	]);
 
-// USER PAGES ROUTING
-$router->group([
-  	'middleware' => 'auth',
-], function () {
-	Route::get('user', ['as' => 'user', 'uses' => 'UsersController@showUserProfile']);
-	Route::get('home', ['as' => 'dashboard', 'uses' => 'AdminController@showAdminDashboard']);
-});
+	// USERS VIEWABLE PROFILE
+	Route::get('profile/{username}', [
+		'as' 		=> '{username}',
+		'uses' 		=> 'ProfilesController@show'
+	]);
+	Route::get('dashboard/profile/{username}', [
+		'as' 		=> '{username}',
+		'uses' 		=> 'ProfilesController@show'
+	]);
 
-// ADMIN PAGES ALIASES
-Route::get('admin', function () {return redirect('home');});
-//Route::get('home', function () {return redirect('dashboard');});
-
-
-// ADMIN PAGES ROUTING
-$router->group([
-  'middleware' => 'admin',
-], function () {
-	Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'AdminController@showAdminDashboard']);
-});
-
-////// WORKING HERE - NEED TO PUT IN CONTROLLER - WAITING UNTIL ACTUALL WORK ON THOSE PAGES.
-// SUPER ADMIN ADMIN PAGES ROUTING
-$router->group([
-  'middleware' => 'superadmin',
-], function () {
-
-	Route::get('superadmin', function () {
-	    echo 'Welcome to your superadmin page '. Auth::user()->email .'.';
-
+	// MIDDLEWARE INCEPTIONED - MAKE SURE THIS IS THE CURRENT USERS PROFILE TO EDIT
+	Route::group(['middleware'=> 'currentUser'], function () {
+			Route::resource(
+				'profile',
+				'ProfilesController', [
+					'only' 	=> [
+						'show',
+						'edit',
+						'update'
+					]
+				]
+			);
 	});
 
-	Route::get('user/{id}', ['as' => 'user/{id}', function ($id) {
-		$user = App\User::find($id);
-		echo 'User ID: '	. $id.			'<br />';
-		echo 'User Email: '	. $user->email.	'<br />';
-		echo 'User Name: '	. $user->name.	'<br />';
-		echo '<a href="/auth/logout">Logout</a>';
-	}]);
+});
+
+// ADMINISTRATOR ACCESS LEVEL PAGE ROUTES - RUNNING THROUGH ADMINISTRATOR MIDDLEWARE
+Route::group(['middleware' => 'administrator'], function () {
+
+	// SHOW ALL USERS PAGE ROUTE
+	Route::resource('users', 'UsersManagementController');
+	Route::get('users', [
+		'as' 			=> '{username}',
+		'uses' 			=> 'UsersManagementController@showUsersMainPanel'
+	]);
+
+	// EDIT USERS PAGE ROUTE
+	Route::get('edit-users', [
+		'as' 			=> '{username}',
+		'uses' 			=> 'UsersManagementController@editUsersMainPanel'
+	]);
+
+	// TAG CONTROLLER PAGE ROUTE
+	Route::resource('admin/skilltags', 'SkillsTagController', ['except' => 'show']);
+
+
+	// TEST ROUTE ONLY ROUTE
+	Route::get('administrator', function () {
+	    echo 'Welcome to your ADMINISTRATOR page '. Auth::user()->email .'.';
+	});
 
 });
 
-// TEST OF IMAGE ROUTING WITH BACKEND FILTER
-// Route::get('/image', function()
-// {
-//     $img = Image::make('http://www.entheosweb.com/fireworks/images/tracing/img18.jpg');
-//     $img->resize(300, 200);
-//     $img->pixelate(10);
-//     $img->colorize(0, 30, 0);
-//     $img->opacity(.9);
-//     return $img->response('jpg');
-// });
 
-// CATCH ALL ERROR HANDLING FOR NOW
+// EDITOR ACCESS LEVEL PAGE ROUTES - RUNNING THROUGH EDITOR MIDDLEWARE
+Route::group(['middleware' => 'editor'], function () {
+
+	//TEST ROUTE ONLY
+	Route::get('editor', function () {
+	    echo 'Welcome to your EDITOR page '. Auth::user()->email .'.';
+	});
+
+});
+
+
+
+// CATCH ALL ERROR FOR USERS AND NON USERS
 Route::any('/{page?}',function(){
 	if (Auth::check()) {
 	    return view('admin.errors.users404');
@@ -108,3 +161,34 @@ Route::any('/{page?}',function(){
 	}
 })->where('page','.*');
 
+// PAGE ROUTE ALIASES
+// Route::get('app', function () {
+//     return redirect('/');
+// });
+
+//***************************************************************************************//
+//***************************** USER ROUTING EXAMPLES BELOW *****************************//
+//***************************************************************************************//
+
+// //** OPTION - ALL FOLLOWING ROUTES RUN THROUGH AUTHETICATION VIA MIDDLEWARE **//
+// Route::group(['middleware' => 'auth'], function () {
+
+// 	// OPTION - GO DIRECTLY TO TEMPLATE
+// 	Route::get('/', function () {
+// 	    return view('pages.user-home');
+// 	});
+
+// 	// OPTION - USE CONTROLLER
+// 	Route::get('/', [
+// 	    'as' 			=> 'user',
+// 	    'uses' 			=> 'UsersController@index'
+// 	]);
+
+// });
+
+// //** OPTION - SINGLE ROUTE USING A CONTROLLER AND AUTHENTICATION VIA MIDDLEWARE **//
+// Route::get('/', [
+//     'middleware' 	=> 'auth',
+//     'as' 			=> 'user',
+//     'uses' 			=> 'UsersController@index'
+// ]);

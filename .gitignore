@@ -10,12 +10,15 @@
 Thumbs.db
 
 ### Sass ###
-#bower_components/*
 /.sass-cache/*
 .sass-cache
 
 ### SUBLIMETEXT BOOGERS ###
 *.sublime-workspace
+
+### PHPSTORM BOOGERS ###
+.idea/*
+/.idea/*
 
 ### DIFFERENT TYPE OF MASTER CONFIGS ###
 .env
@@ -35,6 +38,8 @@ vendor
 node_modules
 Homestead.yaml
 Homestead.json
+bower_components/*
+node_modules/*
 
 ## IGNORE FOR NOW DUE TO GITHUB CONFLICTS
 README.md

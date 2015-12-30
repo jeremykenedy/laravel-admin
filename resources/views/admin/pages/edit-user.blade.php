@@ -13,12 +13,12 @@
 	 <div class="content-wrapper">
 	    <section class="content-header">
 
-	    	<h1>Edit {{ $user->name }}</h1>
+	    	<h1>
+	    		Edit {{ $user->name }}
+	    	</h1>
 
-            <ol class="breadcrumb">
-                <li><a href="{{ URL::to('users') }}"><i class="fa fa-users"></i> Users</a></li>
-                <li class="active">{{ $user->name }}</li>
-            </ol>
+			{!! Breadcrumbs::render('edit_user_admin_view', $user) !!}
+
 	    </section>
 	    <section class="content">
 

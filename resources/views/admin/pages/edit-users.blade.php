@@ -12,13 +12,12 @@
 @section('content')
 	 <div class="content-wrapper">
 	    <section class="content-header">
+
 			<h1>
 				{{ Lang::get('pages.dashboard-welcome',['username' => $user->name] ) }} <small> {{ Lang::get('pages.dashboard-access-level',['access' => $access] ) }} </small>
 			</h1>
-            <ol class="breadcrumb">
-                <li><a href="/users"><i class="fa fa-users"></i> Users</a></li>
-                <li class="active"><i class="fa fa-smile-o"></i> Show Users</li>
-            </ol>
+
+            {!! Breadcrumbs::render('edit_users') !!}
 
 	    </section>
 	    <section class="content">

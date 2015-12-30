@@ -1,26 +1,22 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Validator;
-use Input;
-
-
-
-
-
-
-use Illuminate\Support\Facades;
 use App\Logic\User\UserRepository;
-use App\Models\Social;
-use App\Models\Role;
 use App\Models\UsersRole;
 use App\Models\Profile;
+use App\Http\Requests;
+use App\Models\Social;
+use App\Models\User;
+use App\Models\Role;
+
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades;
+use Illuminate\Http\Request;
+
+use Validator;
+use Input;
 
 class UsersManagementController extends Controller {
 
@@ -130,17 +126,6 @@ class UsersManagementController extends Controller {
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        // load the create form (app/views/nerds/create.blade.php)
-        return view('nerds.create');
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -207,6 +192,39 @@ class UsersManagementController extends Controller {
 
         }
     }
+
+
+
+
+
+
+
+
+
+    /**
+     * Show the form for creating a new User.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin.pages.create-user');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Store a newly created resource in storage.

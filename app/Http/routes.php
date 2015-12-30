@@ -128,6 +128,13 @@ Route::group(['middleware' => 'administrator'], function () {
 		'uses' 			=> 'UsersManagementController@editUsersMainPanel'
 	]);
 
+	// CREATE USERS PAGE ROUTE
+	Route::get('create-user', [
+		'as' 			=> '{username}',
+		'uses' 			=> 'UsersManagementController@create'
+	]);
+
+
 	// TAG CONTROLLER PAGE ROUTE
 	Route::resource('admin/skilltags', 'SkillsTagController', ['except' => 'show']);
 

@@ -4,13 +4,13 @@
             @if (!$breadcrumb->last)
                 <li>
                 	<a href="{{{ $breadcrumb->url }}}">
-                		<i class="fa fa-{{{ $breadcrumb->icon }}}" aria-label="{{{ $breadcrumb->icon }}} icon"></i>
+                		<i class="fa {{{ $breadcrumb->icon }}}" aria-label="{{{ $breadcrumb->icon }}} icon"></i>
                 		{{{ $breadcrumb->title }}}
                 	</a>
                 </li>
             @else
                 <li class="active">
-                	<i class="fa fa-{{{ $breadcrumb->icon }}}" aria-label="{{{ $breadcrumb->icon }}} icon"></i>
+                	<i class="fa {{{ $breadcrumb->icon }}}" aria-label="{{{ $breadcrumb->icon }}} icon"></i>
                 	{{{ $breadcrumb->title }}}
                 </li>
             @endif

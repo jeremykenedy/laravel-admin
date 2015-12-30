@@ -5,10 +5,9 @@
     $.widget.bridge('uibutton', $.ui.button);
 
     // Initialize jQuery UI Elements
-	$(document).ready(function() {
-		$('.draggable').draggable();
-		$('.resizable').resizable();
-
-	});
+	// $(document).ready(function() {
+	// 	$('.draggable').draggable();
+	// 	$('.resizable').resizable();
+	// });
 
 </script>

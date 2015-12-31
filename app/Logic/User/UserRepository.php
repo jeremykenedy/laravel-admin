@@ -38,18 +38,18 @@ class UserRepository {
 
     public function resetPassword( User $user  )
     {
-        $token = sha1(mt_rand());
-        $password = new Password;
-        $password->email = $user->email;
-        $password->token = $token;
-        $password->created_at = Carbon::now();
+        $token                  = sha1(mt_rand());
+        $password               = new Password;
+        $password->email        = $user->email;
+        $password->token        = $token;
+        $password->created_at   = Carbon::now();
         $password->save();
 
         $data = [
-            'first_name'    => $user->first_name,
-            'token'         => $token,
-            'subject'       => 'Password Reset Link',
-            'email'         => $user->email
+            'first_name'        => $user->first_name,
+            'token'             => $token,
+            'subject'           => 'Password Reset Link',
+            'email'             => $user->email
         ];
 
         $this->userMailer->passwordReset($user->email, $data);

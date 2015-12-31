@@ -128,16 +128,8 @@ Route::group(['middleware' => 'administrator'], function () {
 		'uses' 			=> 'UsersManagementController@editUsersMainPanel'
 	]);
 
-	// CREATE USERS PAGE ROUTE
-	Route::get('create-user', [
-		'as' 			=> '{username}',
-		'uses' 			=> 'UsersManagementController@create'
-	]);
-
-
 	// TAG CONTROLLER PAGE ROUTE
 	Route::resource('admin/skilltags', 'SkillsTagController', ['except' => 'show']);
-
 
 	// TEST ROUTE ONLY ROUTE
 	Route::get('administrator', function () {
@@ -145,7 +137,6 @@ Route::group(['middleware' => 'administrator'], function () {
 	});
 
 });
-
 
 // EDITOR ACCESS LEVEL PAGE ROUTES - RUNNING THROUGH EDITOR MIDDLEWARE
 Route::group(['middleware' => 'editor'], function () {
@@ -157,8 +148,6 @@ Route::group(['middleware' => 'editor'], function () {
 
 });
 
-
-
 // CATCH ALL ERROR FOR USERS AND NON USERS
 Route::any('/{page?}',function(){
 	if (Auth::check()) {
@@ -168,34 +157,32 @@ Route::any('/{page?}',function(){
 	}
 })->where('page','.*');
 
-// PAGE ROUTE ALIASES
-// Route::get('app', function () {
-//     return redirect('/');
-// });
-
 //***************************************************************************************//
 //***************************** USER ROUTING EXAMPLES BELOW *****************************//
 //***************************************************************************************//
 
-// //** OPTION - ALL FOLLOWING ROUTES RUN THROUGH AUTHETICATION VIA MIDDLEWARE **//
-// Route::group(['middleware' => 'auth'], function () {
+//** OPTION - ALL FOLLOWING ROUTES RUN THROUGH AUTHETICATION VIA MIDDLEWARE **//
+/*
+Route::group(['middleware' => 'auth'], function () {
 
-// 	// OPTION - GO DIRECTLY TO TEMPLATE
-// 	Route::get('/', function () {
-// 	    return view('pages.user-home');
-// 	});
+	// OPTION - GO DIRECTLY TO TEMPLATE
+	Route::get('/', function () {
+	    return view('pages.user-home');
+	});
 
-// 	// OPTION - USE CONTROLLER
-// 	Route::get('/', [
-// 	    'as' 			=> 'user',
-// 	    'uses' 			=> 'UsersController@index'
-// 	]);
+	// OPTION - USE CONTROLLER
+	Route::get('/', [
+	    'as' 			=> 'user',
+	    'uses' 			=> 'UsersController@index'
+	]);
 
-// });
-
-// //** OPTION - SINGLE ROUTE USING A CONTROLLER AND AUTHENTICATION VIA MIDDLEWARE **//
-// Route::get('/', [
-//     'middleware' 	=> 'auth',
-//     'as' 			=> 'user',
-//     'uses' 			=> 'UsersController@index'
-// ]);
+});
+*/
+//** OPTION - SINGLE ROUTE USING A CONTROLLER AND AUTHENTICATION VIA MIDDLEWARE **//
+/*
+Route::get('/', [
+    'middleware' 	=> 'auth',
+    'as' 			=> 'user',
+    'uses' 			=> 'UsersController@index'
+]);
+*/

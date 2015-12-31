@@ -70,7 +70,7 @@
                       {!! HTML::icon_link( "/edit-users/", 'fa '.Lang::get('sidebar-nav.link_icon_users_edit'), Lang::get('sidebar-nav.link_title_users_edit'), array('title' => Lang::get('sidebar-nav.link_title_users_edit'))) !!}
                   </li>
                   <li>
-                    {!! HTML::icon_link( "/create-user/", 'fa '.Lang::get('sidebar-nav.link_icon_user_create'), Lang::get('sidebar-nav.link_title_user_create'), array('title' => Lang::get('sidebar-nav.link_title_user_create'))) !!}
+                    {!! HTML::icon_link( "/users/create", 'fa '.Lang::get('sidebar-nav.link_icon_user_create'), Lang::get('sidebar-nav.link_title_user_create'), array('title' => Lang::get('sidebar-nav.link_title_user_create'))) !!}
                   </li>
 
 

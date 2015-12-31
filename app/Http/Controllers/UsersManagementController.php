@@ -193,14 +193,6 @@ class UsersManagementController extends Controller {
         }
     }
 
-
-
-
-
-
-
-
-
     /**
      * Show the form for creating a new User.
      *
@@ -210,6 +202,15 @@ class UsersManagementController extends Controller {
     {
         return view('admin.pages.create-user');
     }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -238,7 +239,7 @@ class UsersManagementController extends Controller {
         $rules = array(
             'name'          => 'required|max:255',
             'email'         => 'required|email|max:255|unique:nerds',
-            'nerd_level'    => 'required|numeric'
+            'user_level'    => 'required|numeric'
         );
 
         $validator = $this->validator($request->all(), $rules);
@@ -248,14 +249,35 @@ class UsersManagementController extends Controller {
                 $request, $validator
             );
         } else {
-            $nerd               = new Nerd;
-            $nerd->name         = $request->input('name');
-            $nerd->email        = $request->input('email');
-            $nerd->nerd_level   = $request->input('nerd_level');
-            $nerd->save();
-            return redirect('nerds')->with('message', 'Successfully created nerd!');
+            // $nerd               = new Nerd;
+            // $nerd->name         = $request->input('name');
+            // $nerd->email        = $request->input('email');
+            // $nerd->user_level   = $request->input('user_level');
+            // $nerd->save();
+            // return redirect('nerds')->with('message', 'Successfully created nerd!');
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Display the specified resource.

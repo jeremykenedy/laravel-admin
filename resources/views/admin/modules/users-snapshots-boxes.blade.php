@@ -29,7 +29,7 @@
 				<div class="small-box bg-green">
 					<div class="inner">
 						<h3>
-							{{$total_users}}
+							{{$total_users_confirmed}}
 						</h3>
 						<p>
 							<strong>Confirmed</strong>
@@ -44,7 +44,7 @@
 				<div class="small-box bg-red">
 					<div class="inner">
 						<h3>
-							{{$total_users}}
+							{{$total_users_locked}}
 						</h3>
 						<p>
 							<strong>Locked</strong>
@@ -59,7 +59,7 @@
 				<div class="small-box bg-yellow">
 					<div class="inner">
 						<h3>
-							{{$total_users}}
+							{{$total_users_new}}
 						</h3>
 						<p>
 							<strong>New</strong>

@@ -58,4 +58,38 @@ return [
 
 	'submitButton'				=> 'Save',
 
+	// USER EDIT MODAL
+	'edit_user__modal_text_confirm_message'			=> 'Are you sure you want to save your changes ?',
+	'edit_user__modal_text_confirm_btn'				=> 'Save Changes',
+
+
+// CREATE NEW USER PAGE
+
+
+
+
+
+
+
+// 'create_user_label_'		=> 'YYYYYYYYYYYYYYY',
+// 'create_user_ph_'			=> 'YYYYYYYYYYYYYYY',
+// 'create_user_icon_'			=> 'YYYYYYYYYYYYYYY',
+// 'create_user_button_text'	=> 'YYYYYYYYYYYYYYY',
+// 'create_user_button_icon'	=> 'YYYYYYYYYYYYYYY',
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ];

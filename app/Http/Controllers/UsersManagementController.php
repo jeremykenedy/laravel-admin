@@ -54,12 +54,24 @@ class UsersManagementController extends Controller {
 	public function showUsersMainPanel()
 	{
 
-        $user           = \Auth::user();
-        $users 			= \DB::table('users')->get();
-        $total_users 	= \DB::table('users')->count();
-        $userRole       = $user->hasRole('user');
-        $editorRole     = $user->hasRole('editor');
-        $adminRole      = $user->hasRole('administrator');
+        $user                   = \Auth::user();
+        $users 			        = \DB::table('users')->get();
+
+        $total_users 	        = \DB::table('users')->count();
+
+        $attemptsAllowed        = 4;
+
+        $total_users_confirmed  = \DB::table('users')->count();
+        $total_users_confirmed  = \DB::table('users')->where('active', '1')->count();
+        $total_users_locked = \DB::table('users')->where('resent', '>', 3)->count();
+
+
+        $total_users_new        = \DB::table('users')->where('active', '0')->count();
+
+
+        $userRole               = $user->hasRole('user');
+        $editorRole             = $user->hasRole('editor');
+        $adminRole              = $user->hasRole('administrator');
 
         if($userRole)
         {
@@ -71,11 +83,14 @@ class UsersManagementController extends Controller {
         }
 
         return view('admin.pages.show-users', [
-        		'users' 		=> $users,
-        		'total_users' 	=> $total_users,
-        		'user' 			=> $user,
-        		'access' 	    => $access,
-        		''              => $total_users,
+        		'users' 		          => $users,
+        		'total_users' 	          => $total_users,
+        		'user' 			          => $user,
+        		'access' 	              => $access,
+        		'total_users'             => $total_users,
+                'total_users_confirmed'   => $total_users_confirmed,
+                'total_users_locked'      => $total_users_locked,
+                'total_users_new'         => $total_users_new,
         	]
         );
 	}

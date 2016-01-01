@@ -50,9 +50,52 @@
 				</div>
 
 				<div class="form-group has-feedback">
+					{!! Form::label('first_name', 'First Name', array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
+					<div class="col-lg-9">
+				      	<div class="input-group">
+				        	{!! Form::text('first_name', NULL, array('id' => 'first_name', 'class' => 'form-control', 'placeholder' => 'First Name')) !!}
+				        	<label class="input-group-addon" for="first_name"><i class="fa fa-fw fa-user" aria-hidden="true"></i></label>
+				      	</div>
+					</div>
+				</div>
+
+				<div class="form-group has-feedback">
+					{!! Form::label('last_name', 'Last Name', array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
+					<div class="col-lg-9">
+				      	<div class="input-group">
+				        	{!! Form::text('last_name', NULL, array('id' => 'last_name', 'class' => 'form-control', 'placeholder' => 'Last Name')) !!}
+				        	<label class="input-group-addon" for="last_name"><i class="fa fa-fw fa-user" aria-hidden="true"></i></label>
+				      	</div>
+					</div>
+				</div>
+
+				<div class="form-group has-feedback">
 					{!! Form::label('user_level', 'User Access Level' , array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
 					<div class="col-lg-9">
-				        {!! Form::select('user_level', array('0' => 'Select Access Level', '1' => 'User', '2' => 'Editor', '3' => 'Administrator'), NULL, array('class' => 'form-control')) !!}
+						<div class="input-group">
+				        	{!! Form::select('user_level', array('0' => 'Select Access Level', '1' => 'User', '2' => 'Editor', '3' => 'Administrator'), NULL, array('class' => 'form-control')) !!}
+							<label class="input-group-addon" for="user_level"><i class="fa fa-fw fa-exclamation-circle" aria-hidden="true"></i></label>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group has-feedback">
+					{!! Form::label('password', 'Password', array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
+					<div class="col-lg-9">
+				      	<div class="input-group">
+				        	{!! Form::text('password', NULL, array('id' => 'password', 'class' => 'form-control', 'placeholder' => 'Password')) !!}
+				        	<label class="input-group-addon" for="password"><i class="fa fa-fw fa-lock" aria-hidden="true"></i></label>
+				      	</div>
+					</div>
+				</div>
+
+				<div class="form-group has-feedback">
+					{!! Form::label('password_confirmation', 'Confirm Password', array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
+					<div class="col-lg-9">
+				      	<div class="input-group">
+				        	{!! Form::text('password_confirmation', NULL, array('id' => 'password_confirmation', 'class' => 'form-control', 'placeholder' => 'Confirm Password')) !!}
+				        	<label class="input-group-addon" for="password_confirmation"><i class="fa fa-fw fa-lock" aria-hidden="true"></i></label>
+				      	</div>
 					</div>
 				</div>
 

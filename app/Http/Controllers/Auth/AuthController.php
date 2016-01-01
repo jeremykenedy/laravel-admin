@@ -255,8 +255,8 @@ class AuthController extends Controller {
 				$new_social_user->activation_code 	= $the_activation_code;
 
 				// GET IP ADDRESS
-				$userIpAddress 										= new CaptureIp;
-				$new_social_user->signup_sm_ip_address				= $userIpAddress->getClientIp();
+				$userIpAddress 								= new CaptureIp;
+				$new_social_user->signup_sm_ip_address		= $userIpAddress->getClientIp();
 
 				// SAVE THE USER
                 $new_social_user->save();
@@ -268,7 +268,7 @@ class AuthController extends Controller {
                 $new_social_user->social()->save($social_data);
 
 				// GET GRAVATAR
-				$new_social_user->gravatar            	= Gravatar::get($user->email);
+				$new_social_user->gravatar          = Gravatar::get($user->email);
 
                 // ADD ROLE
                 $role = Role::whereName('user')->first();

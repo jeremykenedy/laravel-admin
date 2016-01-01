@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use App\Logic\User\UserRepository;
+use App\Logic\User\CaptureIp;
 use App\Models\UsersRole;
 use App\Models\Profile;
 use App\Http\Requests;
@@ -9,13 +10,16 @@ use App\Models\Social;
 use App\Models\User;
 use App\Models\Role;
 
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades;
 use Illuminate\Http\Request;
 
 use Validator;
+use Gravatar;
 use Input;
 
 class UsersManagementController extends Controller {
@@ -25,19 +29,22 @@ class UsersManagementController extends Controller {
 	| Users Management Controller
 	|--------------------------------------------------------------------------
 	|
-	| This controller renders the "Show Users" and "Edit Users" pages.
-	|
+	| This controller renders the "Show Users", "Edit Users",
+	| and "Create User" pages. This class also
+    | has the method to delete a user.
+    |
 	*/
 
-	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
-	public function __construct()
-	{
-
-	}
+    /**
+     * Create a new controller instance.
+     *
+     * @param  \Illuminate\Contracts\Auth\Registrar  $registrar
+     * @return void
+     */
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
 
 	/**
 	 * Show the Users Management Main Page to the Admin.
@@ -67,8 +74,8 @@ class UsersManagementController extends Controller {
         		'users' 		=> $users,
         		'total_users' 	=> $total_users,
         		'user' 			=> $user,
-        		'access' 		=> $access,
-        		'' => $total_users,
+        		'access' 	    => $access,
+        		''              => $total_users,
         	]
         );
 	}
@@ -107,7 +114,7 @@ class UsersManagementController extends Controller {
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * Get a validator for an incoming update user request.
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
@@ -117,6 +124,29 @@ class UsersManagementController extends Controller {
         return Validator::make($data, [
             'name'          	=> 'required|max:255',
             'email'         	=> 'required|email|max:255',
+            'location'          => '',
+            'bio'               => '',
+            'twitter_username'  => '',
+            'career_title'      => '',
+            'education'         => ''
+        ]);
+    }
+
+    /**
+     * Get a validator for an incoming create user request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    public function create_new_validator(array $data)
+    {
+        return Validator::make($data, [
+            'name'          => 'required|max:255|unique:users',
+            'email'         => 'required|email|max:255|unique:users',
+            'first_name'    => 'required|max:255',
+            'last_name'     => 'required|max:255',
+            'password'      => 'required|confirmed|min:6',
+            'user_level'    => 'required|numeric|min:1',
             'location'          => '',
             'bio'               => '',
             'twitter_username'  => '',
@@ -194,7 +224,7 @@ class UsersManagementController extends Controller {
     }
 
     /**
-     * Show the form for creating a new User.
+     * Show the form for creating a new User
      *
      * @return \Illuminate\Http\Response
      */
@@ -202,30 +232,6 @@ class UsersManagementController extends Controller {
     {
         return view('admin.pages.create-user');
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /**
      * Store a newly created resource in storage.
@@ -236,48 +242,65 @@ class UsersManagementController extends Controller {
     public function store(Request $request)
     {
 
-        $rules = array(
-            'name'          => 'required|max:255',
-            'email'         => 'required|email|max:255|unique:nerds',
-            'user_level'    => 'required|numeric'
-        );
+        $create_new_validator = $this->create_new_validator($request->all());
 
-        $validator = $this->validator($request->all(), $rules);
-
-        if ($validator->fails()) {
+        if ($create_new_validator->fails()) {
             $this->throwValidationException(
-                $request, $validator
+                $request, $create_new_validator
             );
-        } else {
-            // $nerd               = new Nerd;
-            // $nerd->name         = $request->input('name');
-            // $nerd->email        = $request->input('email');
-            // $nerd->user_level   = $request->input('user_level');
-            // $nerd->save();
-            // return redirect('nerds')->with('message', 'Successfully created nerd!');
         }
+        else
+        {
+
+            $activation_code        = str_random(60) . $request->input('email');
+            $user                   = new User;
+            $user->email            = $request->input('email');
+            $user->name             = $request->input('name');
+            $user->first_name       = $request->input('first_name');
+            $user->last_name        = $request->input('last_name');
+            $userAccessLevel        = $request->input('user_level');
+            $user->password         = bcrypt($request->input('password'));
+
+            // GET GRAVATAR
+            $user->gravatar         = Gravatar::get($request->input('email'));
+
+            // GET ACTIVATION CODE
+            $user->activation_code  = $activation_code;
+            $user->active           = '1';
+
+            // GET IP ADDRESS
+            $userIpAddress          = new CaptureIp;
+            $user->admin_ip_address = $userIpAddress->getClientIp();
+
+            // SAVE THE USER
+            $user->save();
+
+            // GET GRAVATAR
+            $user->gravatar         = Gravatar::get($user->email);
+
+            // ADD ROLE
+            $user->assignRole($userAccessLevel);
+
+            // CREATE PROFILE LINK TO TABLE
+            $profile = new Profile;
+
+            $profileInputs = Input::only(
+                'location',
+                 'bio',
+                 'twitter_username',
+                 'github_username',
+                 'career_title',
+                 'education'
+            );
+            $profile->fill($profileInputs);
+            $user->profile()->save($profile);
+
+            // THE SUCCESSFUL RETURN
+            return redirect('edit-users')->with('status', 'Successfully created user!');
+
+        }
+
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /**
      * Display the specified resource.

@@ -58,9 +58,9 @@ class ProfilesController extends Controller {
      */
     public function show($username)
     {
+
         try {
-            $user = $this->getUserByUsername($username);
-            //dd($user->toArray());
+            $user               = $this->getUserByUsername($username);
             $userRole           = $user->hasRole('user');
             $editorRole         = $user->hasRole('editor');
             $adminRole          = $user->hasRole('administrator');
@@ -86,6 +86,7 @@ class ProfilesController extends Controller {
             ->withUser($user)
             ->withAccess($access)
             ->withDisplayusername($displayusername);
+
     }
 
     /**
@@ -109,8 +110,8 @@ class ProfilesController extends Controller {
     public function edit($username)
     {
         try {
-            $user = $this->getUserByUsername($username);
-            //dd($user->toArray());
+
+            $user               = $this->getUserByUsername($username);
             $userRole           = $user->hasRole('user');
             $editorRole         = $user->hasRole('editor');
             $adminRole          = $user->hasRole('administrator');
@@ -125,16 +126,18 @@ class ProfilesController extends Controller {
             } elseif ($adminRole) {
                 $access = 'Administrator';
             }
+
         } catch (ModelNotFoundException $e) {
             return view('pages.status')
                 ->with('error',\Lang::get('profile.notYourProfile'))
                 ->with('error_title',\Lang::get('profile.notYourProfileTitle'));
         }
-        //dd($user->toArray());
+
         return view('profiles.edit')
             ->withUser($user)
             ->withAccess($access)
             ->withDisplayusername($displayusername);
+
     }
 
     /**
@@ -162,11 +165,15 @@ class ProfilesController extends Controller {
         }
 
         if ($user->profile == null) {
+
             $profile = new Profile;
             $profile->fill($input);
             $user->profile()->save($profile);
+
         } else {
+
             $user->profile->fill($input)->save();
+
         }
 
         return redirect('profile/'.$user->name.'/edit')->with('status', 'Profile updated!');

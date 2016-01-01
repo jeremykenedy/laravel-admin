@@ -11,7 +11,7 @@ class SkillsTagController extends Controller
 {
 
     protected $fields = [
-        'tag' => '',
+        'tag'               => '',
         'reverse_direction' => 0,
     ];
 

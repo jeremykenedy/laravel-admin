@@ -154,6 +154,7 @@ return [
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,    // https://github.com/cviebrock/eloquent-sluggable
         Intervention\Image\ImageServiceProvider::class,                 // http://image.intervention.io/getting_started/installation#laravel
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,             // http://laravel-breadcrumbs.davejamesmiller.com/en/latest/start.html
+        Thujohn\Twitter\TwitterServiceProvider::class,					// https://github.com/thujohn/twitter - https://apps.twitter.com/
 	],
 
 	/*
@@ -250,6 +251,9 @@ return [
 
         // ADD FUNCTIONAL BREADCRUMBS - http://laravel-breadcrumbs.davejamesmiller.com/en/latest/start.html
         'Breadcrumbs'   => DaveJamesMiller\Breadcrumbs\Facade::class,
+
+        // ADD TWITTER API - https://github.com/thujohn/twitter - https://apps.twitter.com/
+        'Twitter' 		=> Thujohn\Twitter\Facades\Twitter::class,
 
 	],
 

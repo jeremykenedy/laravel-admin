@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use App\Logic\api\TwitterAPIExchange;
+use App\Logic\api\CaptureTwitterFollowers;
+
 use App\Http\Controllers\Controller;
 use App\Logic\User\UserRepository;
 use App\Logic\User\CaptureIp;
@@ -103,12 +106,12 @@ class UsersManagementController extends Controller {
     public function editUsersMainPanel()
     {
 
-        $user           = \Auth::user();
-        $users          = \DB::table('users')->get();
-        $total_users    = \DB::table('users')->count();
-        $userRole       = $user->hasRole('user');
-        $editorRole     = $user->hasRole('editor');
-        $adminRole      = $user->hasRole('administrator');
+        $user               = \Auth::user();
+        $users              = \DB::table('users')->get();
+        $total_users        = \DB::table('users')->count();
+        $userRole           = $user->hasRole('user');
+        $editorRole         = $user->hasRole('editor');
+        $adminRole          = $user->hasRole('administrator');
 
         if($userRole)
         {
@@ -119,6 +122,8 @@ class UsersManagementController extends Controller {
             $access = 'Administrator';
         }
 
+
+
         return view('admin.pages.edit-users', [
                 'users'             => $users,
                 'total_users'       => $total_users,
@@ -127,6 +132,7 @@ class UsersManagementController extends Controller {
             ]
         );
     }
+
 
     /**
      * Get a validator for an incoming update user request.
@@ -178,11 +184,30 @@ class UsersManagementController extends Controller {
      */
     public function edit($id)
     {
+
+
+
         // GET THE USER
         $user           = User::find($id);
         $userRole       = $user->hasRole('user');
         $editorRole     = $user->hasRole('editor');
         $adminRole      = $user->hasRole('administrator');
+
+        $twitter_username = $user->profile->twitter_username;
+
+
+// NEED TO ADD CONDITIONAL LOGIC
+$twitterFollowers          = new CaptureTwitterFollowers;
+$totaltwitterFollowers  = $twitterFollowers->twitter_count($twitter_username);
+
+
+
+
+
+
+
+
+
         if($userRole)
         {
             $access = '1';
@@ -193,12 +218,26 @@ class UsersManagementController extends Controller {
         }
 
         return view('admin.pages.edit-user', [
-                'user'              => $user,
-                'access'            => $access,
+                'user'                      => $user,
+                'access'                    => $access,
+                'totaltwitterFollowers'     => $totaltwitterFollowers,
             ]
         )->with('status', 'Successfully updated user!');
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Update the specified resource in storage.

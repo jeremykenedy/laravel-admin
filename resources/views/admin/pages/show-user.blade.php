@@ -24,6 +24,15 @@
 				<li><a href="{{ URL::to('users/create') }}">Create a User</a>
 			</ul>
 
+			    	{{--
+			    	@include('admin.modules.profile-image-box-split-bg')
+					--}}
+			    	@include('admin.modules.profile-image-box')
+			    	{{--
+					@include('admin.modules.profile-image-box-w-bg')
+			    	@include('admin.modules.profile-about')
+					--}}
+
 			<div class="jumbotron text-center">
 				<h2>{{ $user->name }}</h2>
 				<p>

@@ -21,6 +21,9 @@
 
 	    </section>
 	    <section class="content">
+			@include('admin.modules.profile-image-box-w-bg')
+
+
 
 
 

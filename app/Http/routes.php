@@ -22,6 +22,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/twitter', function()
+{
+
+	return Twitter::getUserTimeline(['screen_name' => 'thujohn', 'count' => 20, 'format' => 'json']);
+
+    //return Twitter::getHomeTimeline(['count' => 20, 'format' => 'json']);
+
+	//return Twitter::getMentionsTimeline(['count' => 20, 'format' => 'json']);
+
+	//return Twitter::postTweet(['status' => 'Laravel is beautiful', 'format' => 'json']);
+
+});
+
+
+
 // ALL AUTHENTICATION ROUTES - HANDLED IN THE CONTROLLERS
 Route::controllers([
 	'auth' 		=> 'Auth\AuthController',

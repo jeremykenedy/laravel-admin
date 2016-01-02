@@ -1,5 +1,5 @@
 {{-- Profile Image Box --}}
-<div class="box box-primary bg-random">
+<div class="box box-primary bg-light-blue">
     <div class="box-body box-profile">
         {!! HTML::show_gravatar($user->gravatar,'','profile-user-img img-responsive img-circle') !!}
         <h3 class="profile-username text-center">

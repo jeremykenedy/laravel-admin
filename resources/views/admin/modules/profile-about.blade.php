@@ -40,14 +40,7 @@
 		@endif
 
 
-
-
-
-
-
-
-
-		<strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
+{{-- 		<strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
         <p>
             <span class="label label-danger">UI Design</span>
             <span class="label label-success">Coding</span>
@@ -55,16 +48,7 @@
             <span class="label label-warning">PHP</span>
             <span class="label label-primary">Node.js</span>
         </p>
-        <hr>
-
-
-
-
-
-
-
-
-
+        <hr> --}}
 
 
 

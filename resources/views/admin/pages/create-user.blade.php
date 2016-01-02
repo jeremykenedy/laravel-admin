@@ -34,5 +34,6 @@
     @include('admin.structure.dashboard-scripts')
 	@include('scripts.html5-password-check');
 	@include('scripts.show-hide-passwords');
+	@include('scripts.address-lookup-g-api')
 
 @endsection

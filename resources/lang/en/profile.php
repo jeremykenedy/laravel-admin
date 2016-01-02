@@ -65,7 +65,29 @@ return [
 
 // CREATE NEW USER PAGE
 
+'create_user_label_email'		=> 'User Email',
+'create_user_ph_email'			=> 'User Email',
+'create_user_icon_email'		=> 'fa-envelope',
 
+'create_user_label_username'	=> 'Username',
+'create_user_ph_username'		=> 'Username',
+'create_user_icon_username'		=> 'fa-user',
+
+'create_user_label_email'	=> 'First Name',
+'create_user_ph_email'		=> 'First Name',
+'create_user_icon_email'	=> 'fa-user',
+
+'create_user_label_email'	=> 'Last Name',
+'create_user_ph_email'		=> 'Last Name',
+'create_user_icon_email'	=> 'fa-user',
+
+'create_user_label_password'	=> 'Password',
+'create_user_ph_password'		=> 'Password',
+'create_user_icon_password'		=> 'fa-lock',
+
+'create_user_label_pw_confirmation'	=> 'Confirm Password',
+'create_user_ph_pw_confirmation'	=> 'Confirm Password',
+'create_user_icon_pw_confirmation'	=> 'fa-lock',
 
 
 

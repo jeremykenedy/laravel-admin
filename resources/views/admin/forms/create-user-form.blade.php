@@ -4,41 +4,41 @@
 	{!! csrf_field() !!}
 
 	<div class="form-group has-feedback">
-		{!! Form::label('email', 'User Email', array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
+		{!! Form::label('email', Lang::get('profile.create_user_label_email'), array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
 		<div class="col-lg-9">
 	      	<div class="input-group">
-	        	{!! Form::text('email', NULL, array('id' => 'email', 'class' => 'form-control', 'placeholder' => 'User Email')) !!}
-	        	<label class="input-group-addon" for="email"><i class="fa fa-fw fa-envelope" aria-hidden="true"></i></label>
+	        	{!! Form::text('email', NULL, array('id' => 'email', 'class' => 'form-control', 'placeholder' => Lang::get('profile.create_user_ph_email'))) !!}
+	        	<label class="input-group-addon" for="email"><i class="fa fa-fw {{ Lang::get('profile.create_user_icon_email') }}" aria-hidden="true"></i></label>
 	      	</div>
 		</div>
 	</div>
 
 	<div class="form-group has-feedback">
-		{!! Form::label('name', 'Username', array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
+		{!! Form::label('name', Lang::get('profile.create_user_label_username'), array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
 		<div class="col-lg-9">
 	      	<div class="input-group">
-	        	{!! Form::text('name', NULL, array('id' => 'name', 'class' => 'form-control', 'placeholder' => 'Username')) !!}
-	        	<label class="input-group-addon" for="name"><i class="fa fa-fw fa-user" aria-hidden="true"></i></label>
+	        	{!! Form::text('name', NULL, array('id' => 'name', 'class' => 'form-control', 'placeholder' => Lang::get('profile.create_user_ph_username'))) !!}
+	        	<label class="input-group-addon" for="name"><i class="fa fa-fw {{ Lang::get('profile.create_user_icon_username') }}" aria-hidden="true"></i></label>
 	      	</div>
 		</div>
 	</div>
 
 	<div class="form-group has-feedback">
-		{!! Form::label('first_name', 'First Name', array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
+		{!! Form::label('first_name', Lang::get('profile.create_user_label_email'), array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
 		<div class="col-lg-9">
 	      	<div class="input-group">
-	        	{!! Form::text('first_name', NULL, array('id' => 'first_name', 'class' => 'form-control', 'placeholder' => 'First Name')) !!}
-	        	<label class="input-group-addon" for="first_name"><i class="fa fa-fw fa-user" aria-hidden="true"></i></label>
+	        	{!! Form::text('first_name', NULL, array('id' => 'first_name', 'class' => 'form-control', 'placeholder' => Lang::get('profile.create_user_ph_email'))) !!}
+	        	<label class="input-group-addon" for="first_name"><i class="fa fa-fw {{ Lang::get('profile.create_user_icon_email') }}" aria-hidden="true"></i></label>
 	      	</div>
 		</div>
 	</div>
 
 	<div class="form-group has-feedback">
-		{!! Form::label('last_name', 'Last Name', array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
+		{!! Form::label('last_name', Lang::get('profile.create_user_label_email'), array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
 		<div class="col-lg-9">
 	      	<div class="input-group">
-	        	{!! Form::text('last_name', NULL, array('id' => 'last_name', 'class' => 'form-control', 'placeholder' => 'Last Name')) !!}
-	        	<label class="input-group-addon" for="last_name"><i class="fa fa-fw fa-user" aria-hidden="true"></i></label>
+	        	{!! Form::text('last_name', NULL, array('id' => 'last_name', 'class' => 'form-control', 'placeholder' => Lang::get('profile.create_user_ph_email'))) !!}
+	        	<label class="input-group-addon" for="last_name"><i class="fa fa-fw {{ Lang::get('profile.create_user_icon_email') }}" aria-hidden="true"></i></label>
 	      	</div>
 		</div>
 	</div>
@@ -54,21 +54,21 @@
 	</div>
 
 	<div class="form-group has-feedback">
-		{!! Form::label('password', 'Password', array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
+		{!! Form::label('password', Lang::get('profile.create_user_label_password'), array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
 		<div class="col-lg-9">
 	      	<div class="input-group">
-	        	{!! Form::text('password', NULL, array('id' => 'password', 'class' => 'form-control', 'placeholder' => 'Password')) !!}
-	        	<label class="input-group-addon" for="password"><i class="fa fa-fw fa-lock" aria-hidden="true"></i></label>
+	        	{!! Form::password('password', array('id' => 'password', 'class' => 'form-control', 'placeholder' => Lang::get('profile.create_user_ph_password'))) !!}
+	        	<label class="input-group-addon" for="password"><i class="fa fa-fw {{ Lang::get('profile.create_user_icon_password') }}" aria-hidden="true"></i></label>
 	      	</div>
 		</div>
 	</div>
 
 	<div class="form-group has-feedback">
-		{!! Form::label('password_confirmation', 'Confirm Password', array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
+		{!! Form::label('password_confirmation', Lang::get('profile.create_user_label_pw_confirmation'), array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
 		<div class="col-lg-9">
 	      	<div class="input-group">
-	        	{!! Form::text('password_confirmation', NULL, array('id' => 'password_confirmation', 'class' => 'form-control', 'placeholder' => 'Confirm Password')) !!}
-	        	<label class="input-group-addon" for="password_confirmation"><i class="fa fa-fw fa-lock" aria-hidden="true"></i></label>
+	        	{!! Form::text('password_confirmation', NULL, array('id' => 'password_confirmation', 'class' => 'form-control', 'placeholder' => Lang::get('profile.create_user_ph_pw_confirmation'))) !!}
+	        	<label class="input-group-addon" for="password_confirmation"><i class="fa fa-fw {{ Lang::get('profile.create_user_icon_pw_confirmation') }}" aria-hidden="true"></i></label>
 	      	</div>
 		</div>
 	</div>
@@ -83,6 +83,14 @@
 		</div>
 	</div>
 
+Lang::get('profile.create_user_label_email')
+Lang::get('profile.create_user_ph_email')
+{{ Lang::get('profile.create_user_icon_email') }}
+
+'create_user_label_email'	=> 'YYYYYYYYYYYYYYY',
+'create_user_ph_email'		=> 'YYYYYYYYYYYYYYY',
+'create_user_icon_email'	=> 'YYYYYYYYYYYYYYY',
+
 	<div class="form-group has-feedback">
 		{!! Form::label('bio', Lang::get('profile.label-bio') , array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
 		<div class="col-lg-9">
@@ -92,6 +100,14 @@
 	      	</div>
 		</div>
 	</div>
+
+Lang::get('profile.create_user_label_email')
+Lang::get('profile.create_user_ph_email')
+{{ Lang::get('profile.create_user_icon_email') }}
+
+'create_user_label_email'	=> 'YYYYYYYYYYYYYYY',
+'create_user_ph_email'		=> 'YYYYYYYYYYYYYYY',
+'create_user_icon_email'	=> 'YYYYYYYYYYYYYYY',
 
 	<div class="form-group has-feedback">
 		{!! Form::label('twitter_username', Lang::get('profile.label-twitter_username') , array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
@@ -103,6 +119,14 @@
 		</div>
 	</div>
 
+Lang::get('profile.create_user_label_email')
+Lang::get('profile.create_user_ph_email')
+{{ Lang::get('profile.create_user_icon_email') }}
+
+'create_user_label_email'	=> 'YYYYYYYYYYYYYYY',
+'create_user_ph_email'		=> 'YYYYYYYYYYYYYYY',
+'create_user_icon_email'	=> 'YYYYYYYYYYYYYYY',
+
 	<div class="form-group has-feedback">
 		{!! Form::label('github_username', Lang::get('profile.label-github_username') , array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
 		<div class="col-lg-9">
@@ -112,6 +136,14 @@
 	      	</div>
 		</div>
 	</div>
+
+Lang::get('profile.create_user_label_email')
+Lang::get('profile.create_user_ph_email')
+{{ Lang::get('profile.create_user_icon_email') }}
+
+'create_user_label_email'	=> 'YYYYYYYYYYYYYYY',
+'create_user_ph_email'		=> 'YYYYYYYYYYYYYYY',
+'create_user_icon_email'	=> 'YYYYYYYYYYYYYYY',
 
 	<div class="form-group has-feedback">
 		{!! Form::label('career_title', Lang::get('profile.label-career_title') , array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
@@ -123,6 +155,14 @@
 		</div>
 	</div>
 
+Lang::get('profile.create_user_label_email')
+Lang::get('profile.create_user_ph_email')
+{{ Lang::get('profile.create_user_icon_email') }}
+
+'create_user_label_email'	=> 'YYYYYYYYYYYYYYY',
+'create_user_ph_email'		=> 'YYYYYYYYYYYYYYY',
+'create_user_icon_email'	=> 'YYYYYYYYYYYYYYY',
+
 	<div class="form-group has-feedback margin-bottom-2">
 		{!! Form::label('education', Lang::get('profile.label-education') , array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
 		<div class="col-lg-9">
@@ -132,6 +172,14 @@
 	      	</div>
 		</div>
 	</div>
+
+Lang::get('profile.create_user_label_email')
+Lang::get('profile.create_user_ph_email')
+{{ Lang::get('profile.create_user_icon_email') }}
+
+'create_user_label_email'	=> 'YYYYYYYYYYYYYYY',
+'create_user_ph_email'		=> 'YYYYYYYYYYYYYYY',
+'create_user_icon_email'	=> 'YYYYYYYYYYYYYYY',
 
 	<div class="col-lg-9">
 		{!! Form::button('<i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;Create New User', array('class' => 'btn btn-primary btn-flat btn-lg margin-bottom-1','type' => 'submit')) !!}

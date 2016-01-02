@@ -10,24 +10,6 @@
 @endsection
 
 @section('template_fastload_css')
-
-	{{-- move to scss later --}}
-	{{-- NON JAVASCRIPT BROWSERS INPUT CHECKBOX STYLING --}}
-	.icheck > label {
-		position: absolute;
-		left: 35px;
-	}
-	.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
-	    margin-left: 5px !important;
-	    margin-top: 0;
-	}
-	input[type=checkbox].icheckbox_square-blue {
-		box-shadow: inset 100px 100px 100px #ffffff, 0 0 0 1px #3c8dbc;
-	}
-	input[type=checkbox].icheckbox_square-blue:checked {
-		box-shadow: inset 100px 100px 100px #3c8dbc, 0 0 0 1px #3C7392;
-	}
-
 @endsection
 
 @include('partials.macros')
@@ -81,4 +63,5 @@
 	{!! HTML::script('https://www.google.com/recaptcha/api.js', array('type' => 'text/javascript')) !!}
 	@include('scripts.checkbox');
 	@include('scripts.html5-password-check');
+	@include('scripts.show-hide-passwords');
 @endsection

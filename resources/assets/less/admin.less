@@ -3,7 +3,6 @@
 @import "mixins";
 @import "auth";
 @import "dashboard";
-
 @import "widgets/profile-image-boxes.less";
 @import "widgets/boxes-ui.less";
 
@@ -24,6 +23,8 @@
 		.close-x;
 	}
 }
+
+// MODAL CLOSE X STYLING
 .modal {
 	button {
 		&.close{
@@ -102,9 +103,7 @@
 // IMAGE CLASSES
 .image-no-drag img,
 .image-no-drag {
-	user-drag: none;
-	-moz-user-select: none;
-	-webkit-user-drag: none;
+	.vendorize(user-drag, none);
 }
 
 // MARGIN CLASSES - CONVERT USING FOR LOOP LATER
@@ -137,4 +136,33 @@
 }
 .margin-bottom-half {
 	margin-bottom: .5em !important;
+}
+
+// SHOW HIDE PASSWORD FUNCTION STYLING
+::-ms-reveal,
+::-ms-clear {
+  display: none !important;
+}
+.hideShowPassword-toggle {
+	background: transparent url(@showHidePasswordSpritePNG) -4px center no-repeat;
+	background: transparent url(@showHidePasswordSpriteSVG) -4px center no-repeat;
+	border: none;
+	height: 32px;
+	width: 35px;
+	margin: 1px 3px 0 !important;
+	padding: 0;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	cursor: pointer;
+	z-index: 12;
+}
+.hideShowPassword-toggle-hide {
+  	background-position: -48px center;
+}
+
+.login-box .form-group .hideShowPassword-toggle {
+    margin: -16px 35px 0 0 !important;
 }

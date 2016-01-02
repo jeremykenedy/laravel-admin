@@ -32,8 +32,9 @@
 @endsection
 
 @section('template_scripts')
-	{!! HTML::script('/assets/js/login.js', array('type' => 'text/javascript')) !!}
+    {!! HTML::script('/assets/js/login.js', array('type' => 'text/javascript')) !!}
 	{!! HTML::script('https://www.google.com/recaptcha/api.js', array('type' => 'text/javascript')) !!}
 	@include('scripts.checkbox');
 	@include('scripts.html5-password-check');
+	@include('scripts.show-hide-passwords');
 @endsection

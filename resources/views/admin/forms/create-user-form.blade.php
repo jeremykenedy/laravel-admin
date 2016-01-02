@@ -57,7 +57,7 @@
 		{!! Form::label('password', Lang::get('profile.create_user_label_password'), array('class' => 'col-lg-3 control-label margin-bottom-half')); !!}
 		<div class="col-lg-9">
 	      	<div class="input-group">
-	        	{!! Form::password('password', array('id' => 'password', 'class' => 'form-control', 'placeholder' => Lang::get('profile.create_user_ph_password'))) !!}
+	        	{!! Form::password('password', array('id' => 'password', 'class' => 'form-control ', 'placeholder' => Lang::get('profile.create_user_ph_password'))) !!}
 	        	<label class="input-group-addon" for="password"><i class="fa fa-fw {{ Lang::get('profile.create_user_icon_password') }}" aria-hidden="true"></i></label>
 	      	</div>
 		</div>

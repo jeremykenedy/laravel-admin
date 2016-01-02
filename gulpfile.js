@@ -194,22 +194,43 @@ gulp.task("copyfiles", function() {
 	gulp.src("vendor/bower_dl/jquery-ui/jquery-ui.js")
 		.pipe(gulp.dest("resources/assets/js/"));
 
+
+	/*
+	 |--------------------------------------------------------------------------
+	 | Copy jQuery.hideShowPassword Assets
+	 |--------------------------------------------------------------------------
+	 */
+	gulp.src("vendor/bower_dl/hideShowPassword/hideShowPassword.min.js")
+		.pipe(gulp.dest("resources/assets/js/"));
+
+	gulp.src("vendor/bower_dl/hideShowPassword/hideShowPassword.js")
+		.pipe(gulp.dest("resources/assets/js/"));
+
+	gulp.src("vendor/bower_dl/hideShowPassword/images/**")
+		.pipe(gulp.dest("public/assets/js/images/"));
+
+	gulp.src("vendor/bower_dl/hideShowPassword/css/**")
+		.pipe(gulp.dest("public/assets/css/hideShowPassword/"));
+
+	gulp.src("vendor/bower_dl/hideShowPassword/images/**")
+		.pipe(gulp.dest("public/assets/css/hideShowPassword/images"));
+
 	/*
 	 |--------------------------------------------------------------------------
 	 | Copy Datatables Assets
 	 |--------------------------------------------------------------------------
 	 */
-  	// var dtDir = 'vendor/bower_dl/datatables-plugins/integration/';
+	// var dtDir = 'vendor/bower_dl/datatables-plugins/integration/';
 
-  	// gulp.src("vendor/bower_dl/datatables/media/js/jquery.dataTables.js")
-   //    	.pipe(gulp.dest('resources/assets/js/'));
+	// gulp.src("vendor/bower_dl/datatables/media/js/jquery.dataTables.js")
+	//    	.pipe(gulp.dest('resources/assets/js/'));
 
-  	// gulp.src(dtDir + 'bootstrap/3/dataTables.bootstrap.css')
-   //    	.pipe(rename('dataTables.bootstrap.less'))
-   //    	.pipe(gulp.dest('resources/assets/less/others/'));
+	// gulp.src(dtDir + 'bootstrap/3/dataTables.bootstrap.css')
+	//    	.pipe(rename('dataTables.bootstrap.less'))
+	//    	.pipe(gulp.dest('resources/assets/less/others/'));
 
-  	// gulp.src(dtDir + 'bootstrap/3/dataTables.bootstrap.js')
-   //    	.pipe(gulp.dest('resources/assets/js/'));
+	// gulp.src(dtDir + 'bootstrap/3/dataTables.bootstrap.js')
+	//    	.pipe(gulp.dest('resources/assets/js/'));
 
 });
 
@@ -280,6 +301,7 @@ elixir(function(mix) {
 					'adminlte/plugins/fastclick/fastclick.js',
 					//'adminlte/dist/js/pages/dashboard.js',
 					'js/random-class-color.js',
+					'js/hideShowPassword.js',
 			    ],
 				'public/assets/js/admin/admin.js',
 				'resources/assets'
@@ -322,6 +344,7 @@ elixir(function(mix) {
 					'js/jquery.js',
 					'bootstrap/dist/js/bootstrap.js',
 					'resources/assets/adminlte/plugins/iCheck/icheck.min.js',
+					'js/hideShowPassword.js',
 			    ],
 			    'public/assets/js/login.js',
 			    'resources/assets'

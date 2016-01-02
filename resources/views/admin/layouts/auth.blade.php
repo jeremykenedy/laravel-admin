@@ -25,7 +25,6 @@
 {{-- Load Layout Scripts --}}
 @section('layout-scripts')
 
-	@include('admin.partials.scripts')
 	@yield('template_scripts')
 
 @stop

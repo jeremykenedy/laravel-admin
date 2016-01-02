@@ -1,4 +1,4 @@
-{!! Form::open(array('url' => 'auth/login', 'method' => 'POST', 'class' => '', 'role' => 'form')) !!}
+{!! Form::open(array('url' => 'auth/login', 'method' => 'POST', 'class' => 'login-form', 'role' => 'form')) !!}
 	{!! csrf_field() !!}
 
 	@include('admin.partials.return-messages')

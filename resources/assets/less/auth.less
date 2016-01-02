@@ -47,3 +47,21 @@
 	}
 }
 
+// NON JAVASCRIPT BROWSERS INPUT CHECKBOX STYLING
+.icheck > label {
+	position: absolute;
+	left: 35px;
+}
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+    margin-left: 5px !important;
+    margin-top: 0;
+}
+input[type=checkbox].icheckbox_square-blue {
+	box-shadow: inset 100px 100px 100px @white, 0 0 0 1px @theme_color2;
+}
+input[type=checkbox].icheckbox_square-blue:checked {
+	box-shadow: inset 100px 100px 100px @theme_color2, 0 0 0 1px @theme_color3;
+}

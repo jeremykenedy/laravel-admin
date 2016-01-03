@@ -145,8 +145,8 @@ return [
 		App\Providers\ConfigServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-		App\Providers\MacroServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,						// https://github.com/illuminate/html
+		App\Providers\MacroServiceProvider::class,						// TAKE NOTE: This needs to load after HtmlServiceProvider
         Laravel\Socialite\SocialiteServiceProvider::class,				// http://laravel.com/docs/5.1/authentication#social-authentication
         SocialiteProviders\Manager\ServiceProvider::class,				// https://socialiteproviders.github.io/
         Creativeorange\Gravatar\GravatarServiceProvider::class,         // https://github.com/creativeorange/gravatar
@@ -155,6 +155,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,                 // http://image.intervention.io/getting_started/installation#laravel
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,             // http://laravel-breadcrumbs.davejamesmiller.com/en/latest/start.html
         Thujohn\Twitter\TwitterServiceProvider::class,					// https://github.com/thujohn/twitter - https://apps.twitter.com/
+
 	],
 
 	/*

@@ -12,8 +12,6 @@
 @section('template_fastload_css')
 @endsection
 
-@include('partials.macros')
-
 @section('content')
     <div class="login-box">
 		<div class="login-logo">

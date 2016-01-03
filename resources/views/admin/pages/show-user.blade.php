@@ -1,7 +1,5 @@
 @extends('admin.layouts.dashboard')
 
-@include('partials.macros')
-
 @section('template_title')
 	Showing User {{ $user->name }}
 @endsection

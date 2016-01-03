@@ -1,5 +1,4 @@
 <div class="row btn-block text-center icon-btns">
-	@include('partials.macros')
 	<div class="col-xs-1">
 		{!! HTML::icon_link( route( 'social.redirect', ['provider' => 'facebook'] ), 'fa fa-facebook', 'Sign up using Facebook', array('title' => 'Sign up using Facebook', 'class' => 'btn btn-block btn-social icon-btn btn-facebook btn-flat', 'target' => '')) !!}
 	</div>

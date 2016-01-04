@@ -26,7 +26,7 @@
 					@if ($user->profile)
 						@if (Auth::user()->id == $user->id)
 							@include('admin.partials.return-callouts')
-							@include('admin.modules.profile-image-box')
+							@include('admin.modules.profile-image-box-split-bg')
 							@include('admin.forms.edit-profile-form')
 						@else
 							<p>{{ Lang::get('profile.notYourProfile') }}</p>

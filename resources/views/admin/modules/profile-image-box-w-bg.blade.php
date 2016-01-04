@@ -8,16 +8,28 @@
         <h5 class="widget-user-desc">{{ $user->profile->career_title}}</h5>
     </div>
 
-    <div class="box-footer no-padding">
-        <ul class="nav nav-stacked">
+        @if ($user->profile->twitter_username)
 
-            <li><a href="https://twitter.com/{{$user->profile->twitter_username}}">Twitter Followers <span class="pull-right badge bg-green">{{ $totaltwitterFollowers }}</span></a></li>
-{{--
-            <li><a href="#">Projects <span class="pull-right badge bg-blue">31</span></a></li>
-            <li><a href="#">Tasks <span class="pull-right badge bg-aqua">5</span></a></li>
-            <li><a href="#">Completed Projects <span class="pull-right badge bg-green">12</span></a></li> --}}
+            <div class="box-footer no-padding">
+                <ul class="nav nav-stacked">
 
-        </ul>
-    </div>
+                    @if ($user->profile->twitter_username)
+                        <li>
+                            {!! HTML::twitter_followers($user) !!}
+                        </li>
+
+
+                    @endif
+
+                    {{--
+                    <li><a href="#">Projects <span class="pull-right badge bg-blue">31</span></a></li>
+                    <li><a href="#">Tasks <span class="pull-right badge bg-aqua">5</span></a></li>
+                    <li><a href="#">Completed Projects <span class="pull-right badge bg-green">12</span></a></li>
+                    --}}
+
+                </ul>
+            </div>
+
+    @endif
 
 </div>

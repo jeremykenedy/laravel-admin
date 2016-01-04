@@ -12,7 +12,7 @@
 	    <section class="content-header">
 
 			<h1>
-				{{ Lang::get('pages.dashboard-welcome',['username' => $user->name] ) }} <small> {{ Lang::get('pages.dashboard-access-level',['access' => $access] ) }} </small>
+				Edit Users <small> {{ Lang::get('pages.dashboard-access-level',['access' => $access] ) }} </small>
 			</h1>
 
             {!! Breadcrumbs::render('edit_users') !!}
@@ -23,6 +23,12 @@
 			@include('admin.partials.return-messages')
 			@include('admin.modules.users-table-list-edit')
 			@include('admin.modals.confirm-delete')
+
+			<div class="row margin-top-1">
+				<div class="col-md-3">
+					{!! HTML::icon_link( "/users/create", 'fa-fw fa '.Lang::get('sidebar-nav.link_icon_user_create'), Lang::get('sidebar-nav.link_title_user_create'), array('class' =>'btn btn-primary btn-flat btn-block')) !!}
+				</div>
+			</div>
 
 	    </section>
 	</div>

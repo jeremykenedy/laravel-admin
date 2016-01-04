@@ -35,7 +35,9 @@
 	        	{{ Lang::get('profile.showProfileLocation') }}
 	        </strong>
 	        <p class="text-muted">
-				{{ $user->profile->location }}
+				<a href="https://www.google.com/maps/place/{{ $user->profile->location }}" title="View {{ $user->profile->location }} on Google Maps" target="_blank">
+					{{ $user->profile->location }}
+				</a>
 	        </p>
 		@endif
 

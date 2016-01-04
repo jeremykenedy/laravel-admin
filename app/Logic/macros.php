@@ -1,5 +1,8 @@
 <?php
 
+    use App\Logic\api\TwitterAPIExchange;
+    use App\Logic\api\CaptureTwitterFollowers;
+
     HTML::macro('image_link', function($url = '', $img='', $alt='', $link_name = '', $param = '', $active=true, $ssl=false)
     {
         $url    = $ssl==true ? URL::to_secure($url) : URL::to($url);
@@ -22,7 +25,7 @@
     HTML::macro('icon_btn', function($url = '', $icon = '', $link_name = '', $param = '', $active=true, $ssl=false)
     {
         $url    = $ssl==true ? URL::to_secure($url) : URL::to($url);
-        $icon   = $link_name.'<i class="'.$icon.'" aria-hidden="true"></i>';
+        $icon   = $link_name.' <i class="'.$icon.'" aria-hidden="true"></i>';
         $link   = $active==true ? HTML::link($url, '#', $param) : $icon;
         $link   = str_replace('#',$icon,$link);
         return $link;
@@ -50,5 +53,52 @@
         return $the_username;
     });
 
+    HTML::macro('twitter_followers', function($user, $linkEnabled = true, $withIcon = true, $withText = true, $withBg = true, $pullRight = true, $text = '', $bgClass = '', $itemCount = '') {
 
+        $attributes = array(
+            'link_enabled'          => $linkEnabled,
+            'twitter_username'      => $user->profile->twitter_username,
+            'twitter_followers'     => new CaptureTwitterFollowers,
+            'with_icon'             => $withIcon,
+            'with_text'             => $withText,
+            'with_bg'               => $withBg,
+            'pull_right'            => $pullRight,
+            'text'                  => $text != '' ? $text : 'Twitter Followers',
+            'bg_class'              => $bgClass != '' ? $bgClass : 'bg-twitter',
+            'item_count'            => $itemCount != '' ? $itemCount : 'followers_count',
+        );
+        $totaltwitterFollowers  = $attributes['twitter_followers']->twitter_count($attributes['twitter_username'], $attributes['item_count']);
 
+        $extraClasses           = '';
+        $twitterFollowersLink   = '';
+
+        if ($attributes['with_bg'] != false) {
+            $extraClasses = ' badge ';
+            $extraClasses .= $attributes['bg_class'];
+        }
+        if ($attributes['pull_right'] != false) {
+            $extraClasses .= ' pull-right ';
+        }
+        if ($attributes['link_enabled'] != false) {
+            $twitterFollowersLink   .= '<a href="https://twitter.com/'.$attributes['twitter_username'].'" target="_blank" title="Go to '.$attributes['twitter_username'].' twitter">';
+        };
+
+        if ($attributes['with_icon'] != false) {
+            $twitterFollowersLink   .= '<i class="fa fa-twitter fa-fw twitter"></i> ';
+        };
+
+        if ($attributes['with_text'] != false) {
+            $twitterFollowersLink   .= $attributes['text'];
+        };
+
+        $twitterFollowersLink   .= '<span class="'.$extraClasses.'">';
+        $twitterFollowersLink   .= $totaltwitterFollowers;
+        $twitterFollowersLink   .= '</span>';
+
+        if ($attributes['link_enabled'] != false) {
+            $twitterFollowersLink   .= '</a>';
+        };
+
+        return $twitterFollowersLink;
+
+    });

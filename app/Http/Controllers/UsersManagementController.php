@@ -1,8 +1,5 @@
 <?php namespace App\Http\Controllers;
 
-use App\Logic\api\TwitterAPIExchange;
-use App\Logic\api\CaptureTwitterFollowers;
-
 use App\Http\Controllers\Controller;
 use App\Logic\User\UserRepository;
 use App\Logic\User\CaptureIp;
@@ -187,18 +184,19 @@ class UsersManagementController extends Controller {
 
 
 
+
+
+
         // GET THE USER
         $user           = User::find($id);
         $userRole       = $user->hasRole('user');
         $editorRole     = $user->hasRole('editor');
         $adminRole      = $user->hasRole('administrator');
 
-        $twitter_username = $user->profile->twitter_username;
 
 
-// NEED TO ADD CONDITIONAL LOGIC
-$twitterFollowers          = new CaptureTwitterFollowers;
-$totaltwitterFollowers  = $twitterFollowers->twitter_count($twitter_username);
+
+
 
 
 
@@ -220,7 +218,7 @@ $totaltwitterFollowers  = $twitterFollowers->twitter_count($twitter_username);
         return view('admin.pages.edit-user', [
                 'user'                      => $user,
                 'access'                    => $access,
-                'totaltwitterFollowers'     => $totaltwitterFollowers,
+                //'totaltwitterFollowers'     => $totaltwitterFollowers,
             ]
         )->with('status', 'Successfully updated user!');
 

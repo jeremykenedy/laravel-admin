@@ -5646,6 +5646,9 @@ input[type=checkbox].icheckbox_square-blue:checked {
 .content-wrapper {
   min-height: auto !important;
 }
+.bg-twitter {
+  background: #55acee;
+}
 .alert .close {
   text-decoration: none;
   font-size: 3.5em;
@@ -5709,6 +5712,9 @@ input[type=checkbox].icheckbox_square-blue:checked {
 .btn-twitch:hover {
   background: #55378E;
   color: #ffffff;
+}
+.fa-twitter.twitter {
+  color: #55acee;
 }
 .icon-btns .col-xs-1 {
   width: 12.5%;

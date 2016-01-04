@@ -19,7 +19,9 @@
 	    <section class="content">
 
 			<ul>
-				<li><a href="{{ URL::to('users/create') }}">Create a User</a>
+				<li>
+					<a href="{{ URL::to('users/create') }}">Create a User</a>
+				</li>
 			</ul>
 
 			    	{{--

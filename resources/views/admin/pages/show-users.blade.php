@@ -12,7 +12,7 @@
 	    <section class="content-header">
 
 			<h1>
-				{{ Lang::get('pages.dashboard-welcome',['username' => $user->name] ) }} <small> {{ Lang::get('pages.dashboard-access-level',['access' => $access] ) }} </small>
+				Show Users <small> {{ Lang::get('pages.dashboard-access-level',['access' => $access] ) }} </small>
 			</h1>
 
 			{!! Breadcrumbs::render('users') !!}

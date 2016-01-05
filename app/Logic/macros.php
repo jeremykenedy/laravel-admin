@@ -48,11 +48,13 @@
 
     });
 
+    // SHOW USERNAME
     HTML::macro('show_username', function() {
-        $the_username = (Auth::user()->name === Auth::user()->email) ? ((is_null(Auth::user()->first_name)) ? (Auth::user()->name) : (Auth::user()->first_name)) : (((is_null(Auth::user()->name)) ? (Auth::user()->email) : (Auth::user()->name)));;
+        $the_username = (Auth::user()->name === Auth::user()->email) ? ((is_null(Auth::user()->first_name)) ? (Auth::user()->name) : (Auth::user()->first_name)) : (((is_null(Auth::user()->name)) ? (Auth::user()->email) : (Auth::user()->name)));
         return $the_username;
     });
 
+    // SHOW TWITTER FOLLOWERS OR STATS
     HTML::macro('twitter_followers', function($user, $linkEnabled = true, $withIcon = true, $withText = true, $withBg = true, $pullRight = true, $text = '', $bgClass = '', $itemCount = '') {
 
         $attributes = array(
@@ -102,3 +104,23 @@
         return $twitterFollowersLink;
 
     });
+
+    // SHOW TWITTER TIMELINE
+    HTML::macro('twitter_timeline', function($user, $count = 20) {
+        $twitterRole = Twitter::getUserTimeline(['screen_name' => $user, 'count' => $count, 'format' => 'json']);
+        $parsed_json = json_decode($twitterRole, true);
+        $result = '';
+
+        //dd($parsed_json);
+
+        foreach($parsed_json as $key => $value) {
+
+           $result .= $value['created_at'] . ' | ' . $value['text'] . ' | ' . $value['retweet_count'] . '<br />';
+
+        }
+
+        return $result;
+
+    });
+
+

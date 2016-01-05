@@ -29,6 +29,12 @@
             </ul>
         @endif
 
+{!! HTML::twitter_timeline($user, 20); !!}
+
+
+
+
+
         {{--
         <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
         --}}

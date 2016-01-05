@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::get('/twitter', function()
 {
 
-	return Twitter::getUserTimeline(['screen_name' => 'thujohn', 'count' => 20, 'format' => 'json']);
+	return Twitter::getUserTimeline(['screen_name' => 'jeremyekenedy', 'count' => 20, 'format' => 'json']);
 
     //return Twitter::getHomeTimeline(['count' => 20, 'format' => 'json']);
 

@@ -27,10 +27,13 @@
                     {!! HTML::twitter_followers($user, true, false, false, false, true, '','','statuses_count') !!}
                 </li>
             </ul>
+
+            {!! HTML::twitter_user_home_timeline($user, 10); !!}
+
         @endif
 
 
-{!! HTML::twitter_user_home_timeline($user, 10); !!}
+
 
 
 

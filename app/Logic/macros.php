@@ -105,8 +105,8 @@
 
     });
 
-    // SHOW TWITTER TIMELINE
-    HTML::macro('twitter_timeline', function($user, $count = 20) {
+    // SHOW TWITTER TIMELINE - #reference StatusTrait.php
+    HTML::macro('twitter_lookup_timeline', function($user, $count = 20) {
         $twitterRole = Twitter::getUserTimeline(['screen_name' => $user, 'count' => $count, 'format' => 'json']);
         $parsed_json = json_decode($twitterRole, true);
         $result = '';
@@ -116,11 +116,49 @@
         foreach($parsed_json as $key => $value) {
 
            $result .= $value['created_at'] . ' | ' . $value['text'] . ' | ' . $value['retweet_count'] . '<br />';
-
         }
 
         return $result;
 
     });
 
+    HTML::macro('twitter_user_home_timeline', function($user, $count = 20) {
+        $twitterRole = Twitter::getHomeTimeline(['screen_name' => $user, 'count' => $count, 'format' => 'json']);
+        $parsed_json = json_decode($twitterRole, true);
 
+        //dd($parsed_json);
+
+        $result = '<ul class="timeline">';
+            $result .= '<li class="time-label">';
+                $result .= '<span class="bg-red">';
+                    //$result .= '<a href="https://twitter.com/'.$user->profile->twitter_username.'" target="_blank">';
+                        $result .= $user->profile->twitter_username;
+                    //$result .= '</a>';
+                $result .= '</span>';
+            $result .= '</li>';
+
+            foreach($parsed_json as $key => $value) {
+                $result .= '<li>';
+                    $result .= '<i class="fa fa-twitter bg-blue"></i>';
+                    $result .= '<div class="timeline-item">';
+                        $result .= '<span class="time"><i class="fa fa-clock-o"></i> '.$value['created_at'].'</span>';
+                        $result .= '<h3 class="timeline-header">';
+                            $result .= '<a href="https://twitter.com/'.$value['user']['screen_name'].'" target="_blank">';
+                                $result .= $value['user']['name'];
+                            $result .= '</a>';
+                        $result .= '</h3>';
+                        $result .= '<div class="timeline-body">';
+                            $result .= $value['text'];
+                        $result .= '</div>';
+                        $result .= '<div class="timeline-footer">';
+                            //$result .= '<a class="btn btn-primary btn-xs">...</a>';
+                        $result .= '</div>';
+                    $result .= '</div>';
+                $result .= '</li>';
+            }
+
+        $result .= '</ul>';
+
+        return $result;
+
+    });

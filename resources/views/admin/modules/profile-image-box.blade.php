@@ -29,8 +29,16 @@
             </ul>
         @endif
 
-{!! HTML::twitter_timeline($user, 20); !!}
 
+{!! HTML::twitter_user_home_timeline($user, 10); !!}
+
+
+
+
+
+{{--
+{!! HTML::twitter_lookup_timeline($user, 20); !!}
+ --}}
 
 
 

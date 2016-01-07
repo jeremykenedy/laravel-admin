@@ -22,6 +22,8 @@
 
 		    @include('admin.modules.welcome-msg')
 
+			@include('admin.modules.twitter.twitter-user-home-timeline')
+
 	    </section>
 	</div>
 @endsection

@@ -12,43 +12,5 @@
         	{{ $user->profile->career_title}}
         </p>
 
-        @if ($user->profile->twitter_username)
-            <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
-                    <b>Followers</b>
-                    {!! HTML::twitter_followers($user, true, false, false, false, true) !!}
-                </li>
-                <li class="list-group-item">
-                    <b>Following</b>
-                    {!! HTML::twitter_followers($user, true, false, false, false, true, '','','friends_count') !!}
-                </li>
-                <li class="list-group-item">
-                    <b>Tweets</b>
-                    {!! HTML::twitter_followers($user, true, false, false, false, true, '','','statuses_count') !!}
-                </li>
-            </ul>
-
-            {!! HTML::twitter_user_home_timeline($user, 10); !!}
-
-        @endif
-
-
-
-
-
-
-
-
-{{--
-{!! HTML::twitter_lookup_timeline($user, 20); !!}
- --}}
-
-
-
-
-        {{--
-        <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
-        --}}
-
     </div>
 </div>

@@ -19,7 +19,7 @@
   "dependencies": {
     "bootstrap-sass": "^3.*",
     "gulp-rename": "^1.2.2",
-    "hideshowpassword": "^2.0.8",
+    "hideshowpassword": "^2.0.10",
     "laravel-elixir": "*"
   }
 }

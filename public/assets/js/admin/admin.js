@@ -55148,9 +55148,9 @@ $(document).ready(function() {
       // Class name of element.
       className: 'hideShowPassword-toggle',
       // Whether or not to support touch-specific enhancements.
-      // Defaults to the value of Modernizr.touch if available,
+      // Defaults to the value of Modernizr.touchevents if available,
       // otherwise false.
-      touchSupport: (typeof Modernizr === 'undefined') ? false : Modernizr.touch,
+      touchSupport: (typeof Modernizr === 'undefined') ? false : Modernizr.touchevents,
       // Non-touch event to bind to.
       attachToEvent: 'click.hideShowPassword',
       // Event to bind to when touchSupport is true.
@@ -55184,7 +55184,7 @@ $(document).ready(function() {
       attr: {
         role: 'button',
         'aria-label': 'Show Password',
-        'title': 'Show Password',
+        title: 'Show Password',
         tabIndex: 0
       }
     },
@@ -55235,7 +55235,10 @@ $(document).ready(function() {
         toggle: {
           className: 'hideShowPassword-toggle-hide',
           content: 'Hide',
-          attr: { 'aria-pressed': 'true', 'title': 'Hide Password' }
+          attr: { 
+            'aria-pressed': 'true',
+            title: 'Hide Password' 
+          }
         }
       },
       hidden: {
@@ -55245,7 +55248,10 @@ $(document).ready(function() {
         toggle: {
           className: 'hideShowPassword-toggle-show',
           content: 'Show',
-          attr: { 'aria-pressed': 'false', 'title': 'Show Password' }
+          attr: { 
+            'aria-pressed': 'false',
+            title: 'Show Password'
+          }
         }
       }
     }

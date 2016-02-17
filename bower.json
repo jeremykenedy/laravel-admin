@@ -18,6 +18,6 @@
     "AdminLTE": "admin-lte#~2.3.0",
     "Ionicons": "ionicons#~2.0.1",
     "jquery-ui": "jqueryui#~1.11.4",
-    "hideshowpassword": "~2.0.8"
+    "hideshowpassword": "~2.0.10"
   }
 }

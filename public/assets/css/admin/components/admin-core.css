@@ -57,8 +57,9 @@ body {
 .content-wrapper,
 .right-side,
 .main-footer {
-  transition: -webkit-transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+  transition: margin 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, margin 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   margin-left: 230px;
   z-index: 820;
 }
@@ -412,8 +413,9 @@ a:focus {
   min-height: 100%;
   width: 230px;
   z-index: 810;
-  transition: -webkit-transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 @media (max-width: 767px) {
   .main-sidebar,
@@ -2689,6 +2691,7 @@ table.text-center th {
 .direct-chat-contacts {
   transition: -webkit-transform 0.5s ease-in-out;
   transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
 }
 .direct-chat-text {
   border-radius: 5px;
@@ -4788,6 +4791,7 @@ fieldset[disabled] .btn-yahoo.active {
 .fc-color-picker > li .fa {
   transition: -webkit-transform linear 0.3s;
   transition: transform linear 0.3s;
+  transition: transform linear 0.3s, -webkit-transform linear 0.3s;
 }
 .fc-color-picker > li .fa:hover {
   -webkit-transform: rotate(30deg);
@@ -5653,7 +5657,6 @@ input[type=checkbox].icheckbox_square-blue:checked {
   text-decoration: none;
   font-size: 3.5em;
   font-weight: 100;
-  -khtml-transition: all 0.15s ease-in-out;
   transition: all 0.15s ease-in-out;
   -webkit-transform: rotate(360deg);
   -khtml-transform: rotate(360deg);
@@ -5669,7 +5672,6 @@ input[type=checkbox].icheckbox_square-blue:checked {
   text-decoration: none;
   font-size: 3.5em;
   font-weight: 100;
-  -khtml-transition: all 0.15s ease-in-out;
   transition: all 0.15s ease-in-out;
   -webkit-transform: rotate(360deg);
   -khtml-transform: rotate(360deg);

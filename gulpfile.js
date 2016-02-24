@@ -215,6 +215,29 @@ gulp.task("copyfiles", function() {
 	gulp.src("vendor/bower_dl/hideShowPassword/images/**")
 		.pipe(gulp.dest("public/assets/css/hideShowPassword/images"));
 
+
+	/*
+	 |--------------------------------------------------------------------------
+	 | Copy jQuery.simpleWeather Assets :: https://github.com/monkeecreate/jquery.simpleWeather/
+	 |--------------------------------------------------------------------------
+	 */
+	gulp.src("vendor/bower_dl/simpleWeather/jquery.simpleWeather.min.js")
+		.pipe(gulp.dest("resources/assets/js/"));
+
+	gulp.src("vendor/bower_dl/simpleWeather/jquery.simpleWeather.js")
+		.pipe(gulp.dest("resources/assets/js/"));
+
+	/*
+	 |--------------------------------------------------------------------------
+	 | Copy weather-icons Assets :: http://erikflowers.github.io/weather-icons/
+	 |--------------------------------------------------------------------------
+	 */
+	gulp.src("vendor/bower_dl/weather-icons/**")
+		.pipe(gulp.dest("resources/assets/weather-icons/"));
+
+	gulp.src("vendor/bower_dl/weather-icons/font/**")
+		.pipe(gulp.dest("public/assets/css/font"));
+
 	/*
 	 |--------------------------------------------------------------------------
 	 | Copy Datatables Assets
@@ -260,6 +283,7 @@ elixir(function(mix) {
 			mix.less('admin-skins.less', 'public/assets/css/admin/components/admin-skins.css');
 			mix.less('admin-font-icons.less', 'public/assets/css/admin/components/admin-font-icons.css');
 			mix.less('bootstrap/bootstrap.less', 'public/assets/css/vendor/bootstrap.css');
+			mix.less('widgets/weather-icons-mapping.less', 'resources/assets/css/weather-icons-mapping.css');
 
 			// //COMBINE ADMIN DASHBOARD CSS FILES INTO SINGLE FILE - ADMIN CSS
 		    mix.styles([
@@ -273,8 +297,10 @@ elixir(function(mix) {
 		        'resources/assets/adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.css',				// ADMINLTE PLUGIN CSS - jvectormap
 		        'resources/assets/adminlte/plugins/datepicker/datepicker3.css',							// ADMINLTE PLUGIN CSS - Date Picker
 		        'resources/assets/adminlte/plugins/daterangepicker/daterangepicker-bs3.css',			// ADMINLTE PLUGIN CSS - Daterange picker
-				'resources/assets/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css'	    // ADMINLTE PLUGIN CSS - Bootstrap wysihtml5 text editor
-
+				'resources/assets/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css',	    // ADMINLTE PLUGIN CSS - Bootstrap wysihtml5 text editor
+				'resources/assets/weather-icons/css/weather-icons.css',									// ICONS FOR WEATHER PLUGIN
+				'resources/assets/weather-icons/css/weather-icons-wind.css',							// WIND DIRECTION ICONS FOR WEATHER PLUGIN
+				'resources/assets/css/weather-icons-mapping.css'										// ICONS MAPPING FOR WEATHER PLUGIN TO CSS
 		    ],
 		    'public/assets/css/admin/admin.css', './');													// SINGLE FILE OUTPUT
 		}
@@ -302,6 +328,7 @@ elixir(function(mix) {
 					//'adminlte/dist/js/pages/dashboard.js',
 					'js/random-class-color.js',
 					'js/hideShowPassword.js',
+					'js/jquery.simpleWeather.js',
 			    ],
 				'public/assets/js/admin/admin.js',
 				'resources/assets'

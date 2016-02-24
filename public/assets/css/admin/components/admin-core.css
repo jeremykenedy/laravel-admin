@@ -5812,6 +5812,7 @@ input[type=checkbox].icheckbox_square-blue:checked {
   text-transform: uppercase;
   background: #0091c2;
   padding: 40px 30px 30px;
+  margin: -10px;
 }
 #weather h2 {
   margin: 0 0 8px;
@@ -5833,7 +5834,6 @@ input[type=checkbox].icheckbox_square-blue:checked {
   color: #fff;
 }
 #weather li {
-  background: #0091c2;
   color: #fff;
   padding: 5px 10px;
   display: inline-block;

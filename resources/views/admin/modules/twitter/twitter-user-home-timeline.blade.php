@@ -3,21 +3,24 @@
 	    <div class="box-body box-profile">
 
 		    <h3 class="profile-username text-center">
-		    	{{ $user->first_name }} {{ $user->last_name }}
+                <i class="fa fa-twitter fa-fw twitter"></i>
+                {!! HTML::link('https://twitter.com/jeremyekenedy', '@'.$user->profile->twitter_username , array('id' => 'user_twitter_link')) !!}
 		    </h3>
 
             <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
-                    <b>Twitter Followers</b>
+                    <strong>{{ Lang::get('modules.twitterCardTitleFollowers') }}</strong>
                     {!! HTML::twitter_followers($user, true, false, false, false, true) !!}
                 </li>
                 <li class="list-group-item">
-                    <b>Twitter Following</b>
+                    <strong>{{ Lang::get('modules.twitterCardTitleFollowing') }}</strong>
                     {!! HTML::twitter_followers($user, true, false, false, false, true, '','','friends_count') !!}
                 </li>
                 <li class="list-group-item">
-                    <b>Tweets</b>
+                    <strong>{{ Lang::get('modules.twitterCardTitleTweets') }}</strong>
+
                     {!! HTML::twitter_followers($user, true, false, false, false, true, '','','statuses_count') !!}
+
                 </li>
             </ul>
 
@@ -28,7 +31,7 @@
 			 --}}
 
 		    {{--
-		    <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+		    <a href="#" class="btn btn-primary btn-block"><strong>Follow</strong></a>
 		    --}}
 
 	    </div>

@@ -141,7 +141,7 @@
                 $result .= '<li>';
                     $result .= '<i class="fa fa-twitter bg-blue"></i>';
                     $result .= '<div class="timeline-item">';
-                        $result .= '<span class="time"><i class="fa fa-clock-o"></i> '.$value['created_at'].'</span>';
+                        $result .= '<span class="time"><i class="fa fa-clock-o"></i> '.date( 'M d, y g:i A', strtotime($value['created_at'])).'</span>';
                         $result .= '<h3 class="timeline-header">';
                             $result .= '<a href="https://twitter.com/'.$value['user']['screen_name'].'" target="_blank">';
                                 $result .= $value['user']['name'];

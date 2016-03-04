@@ -338,13 +338,6 @@ sudo brew tap homebrew/php
 sudo brew install composer
 ```
 
-###Install AdminLTE
-####AdminLTE can be installed using the following command:
-Note: Run from projects public folder
-```
-sudo git clone https://github.com/jeremykenedy/AdminLTE.git admin
-```
-
 #### Very Helpful Aliases
 You can edit/or create your systems (MAC OS X) alias file with the follwing command:
 ```

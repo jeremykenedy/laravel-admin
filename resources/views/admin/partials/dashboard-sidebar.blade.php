@@ -72,10 +72,9 @@
                   <li>
                     {!! HTML::icon_link( "/users/create", 'fa '.Lang::get('sidebar-nav.link_icon_user_create'), Lang::get('sidebar-nav.link_title_user_create'), array('title' => Lang::get('sidebar-nav.link_title_user_create'))) !!}
                   </li>
-
-
                 </ul>
             </li>
+
           @endif
 
             <li class="header"></li>

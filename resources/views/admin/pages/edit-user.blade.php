@@ -19,49 +19,21 @@
 
 	    </section>
 	    <section class="content">
+
 			@include('admin.modules.profile-image-box-w-bg')
 
-
-
-
-
-
-
-
-{!! Form::model($user, array('action' => array('UsersManagementController@update', $user->id), 'method' => 'PUT')) !!}
-
-@include('admin.partials.return-messages')
-
-	<div class="form-group">
-		{!! Form::label('name', 'Name') !!}
-		{!! Form::text('name', null, array('class' => 'form-control')) !!}
-	</div>
-
-	<div class="form-group">
-		{!! Form::label('email', 'Email') !!}
-		{!! Form::email('email', null, array('class' => 'form-control')) !!}
-	</div>
-
-	<div class="form-group">
-		{!! Form::label('role_id', 'User Access Level') !!}
-		{!! Form::select('role_id', array('0' => 'Select a Level', '1' => 'User', '2' => 'Editor', '3' => 'Administrator'), $access, array('class' => 'form-control')) !!}
-	</div>
-
-	{!! Form::submit('Edit the User!', array('class' => 'btn btn-primary')) !!}
-
-{!! Form::close() !!}
-
-
-
-
+			@include('admin.forms.edit-user-admin')
 
 	    </section>
 	</div>
+
+	@include('admin.modals.confirm-save')
+
 @endsection
 
 @section('template_scripts')
 
     @include('admin.structure.dashboard-scripts')
-
+	@include('scripts.modals')
 
 @endsection

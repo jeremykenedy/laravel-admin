@@ -21,10 +21,11 @@ return [
 	'nav_title'					=> 'MAIN NAVIGATION',
 	'caret_folded'              => 'fa-angle-left',
 
-	// DASHBOARD LINKS
+	// DASHBOARD LINK
 	'link_title_dashboard'      => 'Dashboard',
 	'link_icon_dashboard'       => 'fa-dashboard',
 
+	// USER PROFILE LINKS
 	'link_title_profile_top'    => 'User Profile',
 	'link_icon_profile_top'     => 'fa-user',
 
@@ -34,6 +35,7 @@ return [
 	'link_title_profile_edit'   => 'Edit User Profile',
 	'link_icon_profile_edit'    => 'fa-cog',
 
+	// ADMIN USER PROFILE LINKS
 	'link_title_users'    		=> 'Users',
 	'link_icon_users'     		=> 'fa-users',
 
@@ -46,10 +48,11 @@ return [
 	'link_title_user_create'    => 'Create User',
 	'link_icon_user_create'     => 'fa-user-plus',
 
+	'title_admin_user_edit'		=> 'Edit',
+	'icon_admin_user_edit' 		=> 'fa-cog',
+
+	// LOGOUT LINK
 	'link_title_logout'    		=> 'Logout',
 	'link_icon_logout'     		=> 'fa-sign-out text-red',
-
-	'icon_admin_user_edit' 		=> 'fa-cog',
-	'title_admin_user_edit'		=> 'Edit',
 
 ];

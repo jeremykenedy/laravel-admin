@@ -119,8 +119,6 @@ class UsersManagementController extends Controller {
             $access = 'Administrator';
         }
 
-
-
         return view('admin.pages.edit-users', [
                 'users'             => $users,
                 'total_users'       => $total_users,
@@ -129,7 +127,6 @@ class UsersManagementController extends Controller {
             ]
         );
     }
-
 
     /**
      * Get a validator for an incoming update user request.
@@ -182,29 +179,15 @@ class UsersManagementController extends Controller {
     public function edit($id)
     {
 
-
-
-
-
-
         // GET THE USER
-        $user           = User::find($id);
-        $userRole       = $user->hasRole('user');
-        $editorRole     = $user->hasRole('editor');
-        $adminRole      = $user->hasRole('administrator');
+        $user               = User::find($id);
+        $userRole           = $user->hasRole('user');
+        $editorRole         = $user->hasRole('editor');
+        $adminRole          = $user->hasRole('administrator');
 
 
 
-
-
-
-
-
-
-
-
-
-
+        $access;
 
         if($userRole)
         {
@@ -223,19 +206,6 @@ class UsersManagementController extends Controller {
         )->with('status', 'Successfully updated user!');
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /**
      * Update the specified resource in storage.

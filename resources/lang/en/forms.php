@@ -20,13 +20,13 @@ return [
 	'create_user_ph_username'			=> 'Username',
 	'create_user_icon_username'			=> 'fa-user',
 
-	'create_user_label_email'			=> 'First Name',
-	'create_user_ph_email'				=> 'First Name',
-	'create_user_icon_email'			=> 'fa-user',
+	'create_user_label_firstname'		=> 'First Name',
+	'create_user_ph_firstname'			=> 'First Name',
+	'create_user_icon_firstname'		=> 'fa-user',
 
-	'create_user_label_email'			=> 'Last Name',
-	'create_user_ph_email'				=> 'Last Name',
-	'create_user_icon_email'			=> 'fa-user',
+	'create_user_label_lastname'		=> 'Last Name',
+	'create_user_ph_lastname'			=> 'Last Name',
+	'create_user_icon_lastname'			=> 'fa-user',
 
 	'create_user_label_password'		=> 'Password',
 	'create_user_ph_password'			=> 'Password',

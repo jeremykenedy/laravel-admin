@@ -1,6 +1,6 @@
 // FUNCTION TO ADD RANDOM BG COLOR CLASS TO SELECTORS WITH THE CLASS 'bg-random'
 // HOW RANDOM IS RANDOM? https://www.random.org/randomness/
-// By: Jeremy Kenedy | 2015
+// By: Jeremy Kenedy | 2016
 // License: MIT
 
 $(document).ready(function() {

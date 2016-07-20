@@ -2,11 +2,11 @@
 
 [![Selenium Test Status](https://saucelabs.com/browser-matrix/bootstrap.svg)](https://saucelabs.com/u/bootstrap)
 
-A [Laravel](http://laravel.com/) 5.1.x, [Bootstrap](http://getbootstrap.com) 3.5.x, and [AdminLTE](https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html) 2.3.x. project.
+A [Laravel](http://laravel.com/) 5.2.x, [Bootstrap](http://getbootstrap.com) 3.5.x, and [AdminLTE](https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html) 2.3.x. project.
 
 | Laravel-Admin Features  |
 | :------------ |
-|Built on [Laravel](http://laravel.com/) 5.1|
+|Built on [Laravel](http://laravel.com/) 5.2|
 |Admin is built on [AdminLTE](https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html) 2.3|
 |Uses [MySQL](https://github.com/mysql) Database|
 |Uses [Artisan](http://laravel.com/docs/5.1/artisan) to manage database migration, schema creations, and create/publish page controller templates|

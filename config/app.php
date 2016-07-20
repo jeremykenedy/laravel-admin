@@ -2,6 +2,19 @@
 
 return [
 
+    /*
+    |--------------------------------------------------------------------------
+    | Application Environment
+    |--------------------------------------------------------------------------
+    |
+    | This value determines the "environment" your application is currently
+    | running in. This may determine how you prefer to configure various
+    | services your application utilizes. Set this in your ".env" file.
+    |
+    */
+
+    'env' => env('APP_ENV', 'production'),
+
 	/*
 	|--------------------------------------------------------------------------
 	| Application Debug Mode
@@ -26,7 +39,7 @@ return [
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => env('APP_URL', 'http://localhost'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -82,20 +95,22 @@ return [
 
 	'cipher' => 'AES-256-CBC',
 
-	/*
-	|--------------------------------------------------------------------------
-	| Logging Configuration
-	|--------------------------------------------------------------------------
-	|
-	| Here you may configure the log settings for your application. Out of
-	| the box, Laravel uses the Monolog PHP logging library. This gives
-	| you a variety of powerful log handlers / formatters to utilize.
-	|
-	| Available Settings: "single", "daily", "syslog", "errorlog"
-	|
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | Logging Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Here you may configure the log settings for your application. Out of
+    | the box, Laravel uses the Monolog PHP logging library. This gives
+    | you a variety of powerful log handlers / formatters to utilize.
+    |
+    | Available Settings: "single", "daily", "syslog", "errorlog"
+    |
+    */
 
-	'log' => 'single',
+    'log' => env('APP_LOG', 'single'),
+
+    'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -113,13 +128,10 @@ return [
 		/*
 		 * Laravel Framework Service Providers...
 		 */
-        Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
-        Illuminate\Bus\BusServiceProvider::class,
-        Illuminate\Cache\CacheServiceProvider::class,
+        Illuminate\Cache\CacheServiceProvider::class,        Illuminate\Bus\BusServiceProvider::class,
         Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
-        Illuminate\Routing\ControllerServiceProvider::class,
         Illuminate\Cookie\CookieServiceProvider::class,
         Illuminate\Database\DatabaseServiceProvider::class,
         Illuminate\Encryption\EncryptionServiceProvider::class,
@@ -141,11 +153,9 @@ return [
 		 * Application Service Providers...
 		 */
         App\Providers\AppServiceProvider::class,
-		App\Providers\BusServiceProvider::class,
-		App\Providers\ConfigServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Illuminate\Html\HtmlServiceProvider::class,						// https://github.com/illuminate/html
+        Collective\Html\HtmlServiceProvider::class,
 		App\Providers\MacroServiceProvider::class,						// TAKE NOTE: This needs to load after HtmlServiceProvider
         Laravel\Socialite\SocialiteServiceProvider::class,				// http://laravel.com/docs/5.1/authentication#social-authentication
         SocialiteProviders\Manager\ServiceProvider::class,				// https://socialiteproviders.github.io/
@@ -206,12 +216,12 @@ return [
         'View'          => Illuminate\Support\Facades\View::class,
 
         // ADD BACK IN LARAVEL FORM CLASSES WITH ALIASES - https://github.com/illuminate/html
-        'HTML'          => Illuminate\Html\HtmlFacade::class,
-        'FORM'          => Illuminate\Html\FormFacade::class,
-        'html'          => Illuminate\Html\HtmlFacade::class,
-        'form'          => Illuminate\Html\FormFacade::class,
-        'Html'          => Illuminate\Html\HtmlFacade::class,
-        'Form'          => Illuminate\Html\FormFacade::class,
+        'HTML' 			=> Collective\Html\HtmlFacade::class,
+        'Html' 			=> Collective\Html\HtmlFacade::class,
+        'html'          => Collective\Html\HtmlFacade::class,
+        'FORM'          => Collective\Html\FormFacade::class,
+        'form'          => Collective\Html\FormFacade::class,
+        'Form'          => Collective\Html\FormFacade::class,
 
         // ADD SOCIALITE
         'Socialite' 	=> Laravel\Socialite\Facades\Socialite::class,

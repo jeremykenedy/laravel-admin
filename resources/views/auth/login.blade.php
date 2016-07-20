@@ -30,10 +30,10 @@
 					<p class="text-center margin-top-1 margin-bottom-2">- OR -</p>
 
 					{{-- Calls Social Media Login Buttons with Icon Only --}}
-					{{--@include('partials.sm-logins-icons')--}}
+					@include('partials.sm-logins-icons')
 
 					{{-- Calls Social Media Login Buttons with Text and Icon --}}
-					@include('partials.sm-logins-full')
+					{{--@include('partials.sm-logins-full')--}}
 
 				</div>
 			</div>

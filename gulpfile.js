@@ -85,9 +85,9 @@
  |--------------------------------------------------------------------------
  */
 	/* ADMIN -------------------------------------------------------------------*/
-	var 2 		= 1;			// Compile Admin Assets?
-	var 2_css	= 1;			// Compile Admin CSS?
-	var 2_js		= 1;			// Compile Admin JS?
+	var enable_compile_admin 		= 1;			// Compile Admin Assets?
+	var enable_compile_admin_css	= 1;			// Compile Admin CSS?
+	var enable_compile_admin_js		= 1;			// Compile Admin JS?
 
 	/* LOGIN -------------------------------------------------------------------*/
 	var enable_compile_login 		= 1;			// Compile Login Assets?

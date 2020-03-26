@@ -12,17 +12,17 @@ return [
     |
     */
 
-    'title'			=> 'LaraAdmin',
-	'app'			=> 'LaraAdmin | Dashboard',
-	'app2'			=> 'Laravel 5',
-	'home'			=> 'Home',
-	'login'			=> 'Sign in to start your session',
-	'logout'		=> 'Logout',
-	'register'		=> 'Register',
-	'resetPword'	=> 'Reset Password',
-	'toggleNav'		=> 'Toggle Navigation',
-	'profile'		=> 'Profile',
-	'editProfile'	=> 'Edit Profile',
-	'createProfile'	=> 'Create Profile',
+    'title'			      => 'LaraAdmin',
+    'app'			        => 'LaraAdmin | Dashboard',
+    'app2'			       => 'Laravel 5',
+    'home'			       => 'Home',
+    'login'			      => 'Sign in to start your session',
+    'logout'		      => 'Logout',
+    'register'		    => 'Register',
+    'resetPword'	   => 'Reset Password',
+    'toggleNav'		   => 'Toggle Navigation',
+    'profile'		     => 'Profile',
+    'editProfile'	  => 'Edit Profile',
+    'createProfile'	=> 'Create Profile',
 
 ];

@@ -2,21 +2,17 @@
 
 return [
 
-	/*
-	|--------------------------------------------------------------------------
-	| Front End Page Views Language Lines
-	|--------------------------------------------------------------------------
-	|
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | Front End Page Views Language Lines
+    |--------------------------------------------------------------------------
+    |
+    */
 
-	//SHARED
-	"dashboard-access-level"	=> ":access Access",
+    //SHARED
+    'dashboard-access-level'	=> ':access Access',
 
-	// USER DASHBOARD PAGE
-	"dashboard-welcome"			=> ":username's Dashboard",
-
-
+    // USER DASHBOARD PAGE
+    'dashboard-welcome'			=> ":username's Dashboard",
 
 ];
-
-

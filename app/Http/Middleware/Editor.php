@@ -1,4 +1,6 @@
-<?php namespace App\Http\Middleware;
+<?php
+
+namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
@@ -15,7 +17,8 @@ class Editor
     /**
      * Create a new filter instance.
      *
-     * @param  Guard  $auth
+     * @param Guard $auth
+     *
      * @return void
      */
     public function __construct(Guard $auth)
@@ -24,10 +27,11 @@ class Editor
     }
 
     /**
-     * CHECK IF USER IS EDITOR
+     * CHECK IF USER IS EDITOR.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
      * @return mixed
      */
     public function handle($request, Closure $next)

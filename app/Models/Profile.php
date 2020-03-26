@@ -1,32 +1,34 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model {
+class Profile extends Model
+{
+    /**
+     * Fillable fields for a Profile.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'location',
+        'bio',
+        'twitter_username',
+        'github_username',
+        'career_title',
+        'education',
+    ];
 
-	/**
-	 * Fillable fields for a Profile
-	 *
-	 * @var array
-	 */
-	protected $fillable = [
-		'location',
-		'bio',
-		'twitter_username',
-		'github_username',
-		'career_title',
-		'education'
-	];
-
-	/**
-	 * A profile belongs to a user
-	 *
-	 * @return mixed
-	 */
-	public function user()
-	{
-		return $this->belongsTo('App\Models\User;');
-	}
+    /**
+     * A profile belongs to a user.
+     *
+     * @return mixed
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User;');
+    }
 
     /**
      * The many-to-many relationship between posts and tags.
@@ -39,23 +41,22 @@ class Profile extends Model {
     }
 
     /**
-     * Sync tag relation adding new tags as needed
+     * Sync tag relation adding new tags as needed.
      *
      * @param array $skilltags
      */
-	public function syncTags(array $skilltags)
-	{
-		SkillsTag::addNeededTags($skilltags);
+    public function syncTags(array $skilltags)
+    {
+        SkillsTag::addNeededTags($skilltags);
 
-		if (count($skilltags)) {
-		$this->skillstags()->sync(
-		  	SkillsTag::whereIn('tag', $skilltags)->lists('id')->all()
-		);
-		return;
-		}
+        if (count($skilltags)) {
+            $this->skillstags()->sync(
+                SkillsTag::whereIn('tag', $skilltags)->lists('id')->all()
+            );
 
-		$this->skillstags()->detach();
-	}
+            return;
+        }
 
-
+        $this->skillstags()->detach();
+    }
 }

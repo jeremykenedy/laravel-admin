@@ -1,24 +1,24 @@
-<?php namespace App\Jobs;
+<?php
 
-use App\Jobs\Job;
-use App\Models\User;
+namespace App\Jobs;
+
 use App\Models\Profile;
 use App\Models\SkillsTag;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Contracts\Bus\SelfHandling;
 
 class PostProfileFormFields extends Job implements SelfHandling
 {
-
     /**
-     * The id (if any) of the profile row
+     * The id (if any) of the profile row.
      *
-     * @var integer
+     * @var int
      */
     protected $id;
 
     /**
-     * List of fields and default value for each field
+     * List of fields and default value for each field.
      *
      * @var array
      */
@@ -29,7 +29,7 @@ class PostProfileFormFields extends Job implements SelfHandling
     /**
      * Create a new job instance.
      *
-     * @param integer $id
+     * @param int $id
      */
     public function __construct($id = null)
     {
@@ -63,14 +63,14 @@ class PostProfileFormFields extends Job implements SelfHandling
         );
     }
 
-
     /**
-    * Return the field values from the model
-    *
-    * @param integer $id
-    * @param array $fields
-    * @return array
-    */
+     * Return the field values from the model.
+     *
+     * @param int   $id
+     * @param array $fields
+     *
+     * @return array
+     */
     protected function fieldsFromModel($id, array $fields)
     {
         //$profile = User::findOrFail($id);
@@ -80,14 +80,11 @@ class PostProfileFormFields extends Job implements SelfHandling
 
         $fields = ['id' => $id];
         foreach ($fieldNames as $field) {
-          $fields[$field] = $profile->{$field};
+            $fields[$field] = $profile->{$field};
         }
 
         //$fields['tags'] = $profile->tags()->lists('tag')->all();
 
         return $fields;
     }
-
-
-
 }

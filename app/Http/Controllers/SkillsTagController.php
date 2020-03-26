@@ -1,15 +1,13 @@
-<?php namespace App\Http\Controllers;
+<?php
 
-use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
+
 use App\Http\Requests\SkillsTagCreateRequest;
 use App\Http\Requests\SkillsTagUpdateRequest;
 use App\Models\SkillsTag;
 
 class SkillsTagController extends Controller
 {
-
     protected $fields = [
         'tag'               => '',
         'reverse_direction' => 0,
@@ -23,6 +21,7 @@ class SkillsTagController extends Controller
     public function index()
     {
         $skillstags = SkillsTag::all();
+
         return view('admin.pages.skills-tags')->withSkillstags($skillstags);
     }
 
@@ -40,13 +39,14 @@ class SkillsTagController extends Controller
 
         return view('admin.pages.skill-tag-create', $data);
     }
+
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
-
     public function store(SkillsTagCreateRequest $request)
     {
         $skilltag = new SkillsTag();
@@ -54,13 +54,15 @@ class SkillsTagController extends Controller
             $skilltag->$field = $request->get($field);
         }
         $skilltag->save();
+
         return redirect('/admin/skilltags')->with('status', "The skill tag '$skilltag->tag' was created.");
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -70,14 +72,16 @@ class SkillsTagController extends Controller
         foreach (array_keys($this->fields) as $field) {
             $data[$field] = old($field, $skilltag->$field);
         }
+
         return view('admin.pages.skill-tag-edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(SkillsTagUpdateRequest $request, $id)
@@ -88,20 +92,22 @@ class SkillsTagController extends Controller
             $skilltag->$field = $request->get($field);
         }
         $skilltag->save();
+
         return redirect("/admin/skilltags/$id/edit")->with('status', "Skill tag '$skilltag->tag' has been updated.");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         $skilltag = SkillsTag::findOrFail($id);
         $skilltag->delete();
+
         return redirect('/admin/skilltags')->with('status', "Skill tag '$skilltag->tag' has been deleted.");
     }
-
 }

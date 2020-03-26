@@ -4,7 +4,7 @@ return [
 
     /**
      * What attributes do we use to build the slug?
-     * This can be a single field, like "name" which will build a slug from:
+     * This can be a single field, like "name" which will build a slug from:.
      *
      *     $model->name;
      *
@@ -17,19 +17,17 @@ return [
      *
      * Defaults to null, which uses the toString() method on your model.
      */
-
     'build_from' => null,
 
     /**
      * What field to we store the slug in?  Defaults to "slug".
-     * You need to configure this when building the SQL for your database, e.g.:
+     * You need to configure this when building the SQL for your database, e.g.:.
      *
      * Schema::create('users', function($table)
      * {
      *    $table->string('slug');
      * });
      */
-
     'save_to' => 'slug',
 
     /**
@@ -37,7 +35,6 @@ return [
      * no length restrictions are enforced.  Set it to a positive integer if you
      * want to make sure your slugs aren't too long.
      */
-
     'max_length' => null,
 
     /**
@@ -55,25 +52,22 @@ return [
      *
      *    'method' => array('Str','slug'),
      */
-
     'method' => null,
 
     /**
      * Separator to use when generating slugs.  Defaults to a hyphen.
      */
-
     'separator' => '-',
 
     /**
      * Enforce uniqueness of slugs?  Defaults to true.
      * If a generated slug already exists, an incremental numeric
-     * value will be appended to the end until a unique slug is found.  e.g.:
+     * value will be appended to the end until a unique slug is found.  e.g.:.
      *
      *     my-slug
      *     my-slug-1
      *     my-slug-2
      */
-
     'unique' => true,
 
     /**
@@ -82,7 +76,6 @@ return [
      * If set to "false", then a new slug could duplicate one that exists on a trashed model.
      * If set to "true", then uniqueness is enforced across trashed and existing models.
      */
-
     'include_trashed' => false,
 
     /**
@@ -90,14 +83,13 @@ return [
      * re-saved (i.e. already exists).  Defaults to false, which
      * means slugs are not updated.
      */
-
     'on_update' => false,
 
     /**
      * An array of slug names that can never be used for this model,
      * e.g. to prevent collisions with existing routes or controller methods, etc..
      * Defaults to null (i.e. no reserved names).
-     * Can be a static array, e.g.:
+     * Can be a static array, e.g.:.
      *
      *    'reserved' => array('add', 'delete'),
      *
@@ -116,7 +108,6 @@ return [
      *
      * and continue from there.
      */
-
     'reserved' => null,
 
 ];

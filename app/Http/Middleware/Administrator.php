@@ -1,4 +1,6 @@
-<?php namespace App\Http\Middleware;
+<?php
+
+namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
@@ -15,7 +17,8 @@ class Administrator
     /**
      * Create a new filter instance.
      *
-     * @param  Guard  $auth
+     * @param Guard $auth
+     *
      * @return void
      */
     public function __construct(Guard $auth)
@@ -24,10 +27,11 @@ class Administrator
     }
 
     /**
-     * CHECK IF USER IS ADMINISTRATOR
+     * CHECK IF USER IS ADMINISTRATOR.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
      * @return mixed
      */
     public function handle($request, Closure $next)

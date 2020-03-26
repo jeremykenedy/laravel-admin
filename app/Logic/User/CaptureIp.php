@@ -1,40 +1,29 @@
-<?php namespace App\Logic\User;
+<?php
 
-class CaptureIp {
+namespace App\Logic\User;
 
-    private $ipAddress = NULL;
+class CaptureIp
+{
+    private $ipAddress = null;
 
-    public function getClientIp() {
-
-        if (getenv('HTTP_CLIENT_IP'))
-        {
+    public function getClientIp()
+    {
+        if (getenv('HTTP_CLIENT_IP')) {
             $ipAddress = getenv('HTTP_CLIENT_IP');
-        }
-        else if(getenv('HTTP_X_FORWARDED_FOR'))
-        {
+        } elseif (getenv('HTTP_X_FORWARDED_FOR')) {
             $ipAddress = getenv('HTTP_X_FORWARDED_FOR');
-        }
-        else if(getenv('HTTP_X_FORWARDED'))
-        {
+        } elseif (getenv('HTTP_X_FORWARDED')) {
             $ipAddress = getenv('HTTP_X_FORWARDED');
-        }
-        else if(getenv('HTTP_FORWARDED_FOR'))
-        {
+        } elseif (getenv('HTTP_FORWARDED_FOR')) {
             $ipAddress = getenv('HTTP_FORWARDED_FOR');
-        }
-        else if(getenv('HTTP_FORWARDED'))
-        {
-           $ipAddress = getenv('HTTP_FORWARDED');
-        }
-        else if(getenv('REMOTE_ADDR'))
-        {
+        } elseif (getenv('HTTP_FORWARDED')) {
+            $ipAddress = getenv('HTTP_FORWARDED');
+        } elseif (getenv('REMOTE_ADDR')) {
             $ipAddress = getenv('REMOTE_ADDR');
-        }
-        else
-        {
+        } else {
             $ipAddress = 'UNKNOWN';
         }
+
         return $ipAddress;
     }
-
 }

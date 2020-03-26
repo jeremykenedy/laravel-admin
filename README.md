@@ -284,10 +284,10 @@ laravel-admin/
 | `vagrant halt` | Stop Vagrant VM |
 
 ###### Access VAGRANT SSH and MySQL
-|Command        |Action      |
-|------------- |:------------- |:-------------|
-| ```sudo ssh vagrant@127.0.0.1 -p 222``` | Access Vagrant VM via SSH. Password is ``` vagrant  ``` |
-| ```mysql -u homestead -psecret``` | Access Vagrant VM MySQL. Password is ``` vagrant  ``` |
+|Command        |Action      
+|------------- |:-------------|
+| `sudo ssh vagrant@127.0.0.1 -p 222` | Access Vagrant VM via SSH. Password is `vagrant` |
+| `mysql -u homestead -psecret` | Access Vagrant VM MySQL. Password is `vagrant` |
 
 For reference AdminLTE can be installed into projects using Bower.
 If you do not have Bower, it can be installed using Node Package Manager (NPM).
